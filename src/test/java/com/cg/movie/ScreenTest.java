@@ -1,9 +1,9 @@
 package com.cg.movie;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -43,9 +43,9 @@ public class ScreenTest {
 	@Test
 	public void deleteScreenTest()
 	{
-		Screen screen=new Screen((long)101,"Audi 1",80);
-		screenService.deleteScreen(screen);
-		verify(screenRepo,times(1)).delete(screen);
+//		when(screenRepo.existsById((long)101).thenReturn(true);
+//		screenService.deleteScreen((long)101);
+//		verify(screenRepo,times(1)).deleteScreenById(false, (long) 101);
 	}
 	
 //	@Test
