@@ -3,13 +3,11 @@ package com.cg.movie.services;
 
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.ScreenRepository;
-
 import com.cg.movie.entities.Screen;
 
 @Service
