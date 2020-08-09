@@ -56,7 +56,6 @@ public class AdminController {
 	public ResponseEntity<SuccessMessage> addScreen(@RequestBody Screen screen,@PathVariable long theatreId)
 	{
 		screenService.addScreen(theatreId, screen);
-
 		return new ResponseEntity<SuccessMessage>(new SuccessMessage("Add Screen Request","Screen Successfuly Added"),HttpStatus.CREATED);		
 	}
 	

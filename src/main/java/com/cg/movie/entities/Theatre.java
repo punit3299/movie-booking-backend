@@ -22,13 +22,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Theatre {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long theatreId;
 	private String theatreName;
 	private Integer theatreRating;
 	private String managerName;
 	private Long managerContact;
 
+	public Theatre()
+	{
+		
+	}
+	
 	public Theatre(Long theatreId, String theatreName, Integer theatreRating, String managerName, Long managerContact) {
 		super();
 		this.theatreId = theatreId;
@@ -130,4 +135,11 @@ public class Theatre {
 		this.getShowsList().add(show);
 	}
 
+	@Override
+	public String toString() {
+		return "Theatre [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreRating=" + theatreRating
+				+ ", managerName=" + managerName + ", managerContact=" + managerContact + "]";
+	}
+
+	
 }

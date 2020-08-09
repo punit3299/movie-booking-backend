@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Screen {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long screenId;
 	private String screenName;
 	private int noOfSeats;
@@ -107,6 +107,12 @@ public class Screen {
 	public void addShow(Show show) {
 		show.setScreen(this); // this will avoid nested cascade
 		this.getShowsList().add(show);
+	}
+
+	@Override
+	public String toString() {
+		return "Screen [screenId=" + screenId + ", screenName=" + screenName + ", noOfSeats=" + noOfSeats + ", status="
+				+ status +  "]";
 	}
 
 	

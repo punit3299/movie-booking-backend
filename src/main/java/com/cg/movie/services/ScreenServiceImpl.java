@@ -7,18 +7,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.ScreenRepository;
-
+import com.cg.movie.dao.TheatreRepository;
 import com.cg.movie.entities.Screen;
+import com.cg.movie.entities.Theatre;
 
 @Service
 public class ScreenServiceImpl implements IScreenService {
 
 	@Autowired
 	ScreenRepository screenRepo;
+	
+	@Autowired
+	TheatreRepository theatreRepo;
 
 	@Override
 	public Screen addScreen(long theatreId, Screen screenDetails) {
-		return screenRepo.save(screenDetails);
+		Theatre theatre=theatreRepo.findById(theatreId).get();
+		
+		theatreRepo.save(theatre);
+		
+		System.out.println(theatre);
+		System.out.println(screenDetails);
+		return screenDetails;
+		
 	}
 
 	@Override
@@ -30,7 +41,7 @@ public class ScreenServiceImpl implements IScreenService {
 	@Override
 	public boolean deleteScreen(long screenId) {
 		if (screenRepo.existsById(screenId)) {
-			screenRepo.deleteScreenById(false, screenId);
+			screenRepo.deleteScreenById(true, screenId);
 			return true;
 		} else
 			return false;

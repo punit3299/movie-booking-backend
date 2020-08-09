@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Ticket {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long ticketId;
 	private Long noOfSeats;
 	private String seatName; // make it seatsList
