@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.movie.entities.City;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
+import com.cg.movie.services.ICityService;
 import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.IScreenService;
 import com.cg.movie.services.ITheatreService;
@@ -43,6 +45,9 @@ public class AdminController {
 	
 	@Autowired
 	ITheatreService theatreService;
+	
+	@Autowired
+	ICityService cityService;
 	
 	// get count of customers
 
@@ -140,5 +145,25 @@ public class AdminController {
 		return new ResponseEntity<List<Theatre>>(theatre,HttpStatus.OK);
 	}
 	
+	@PostMapping(value="/city")
+	public ResponseEntity<City> AddCity(@RequestBody City city)
+	{
+		City city1=cityService.addCity(city);
+		return new ResponseEntity<City>(city1,HttpStatus.OK);
+	}
+	
+	@GetMapping(value="/city/list")
+	public ResponseEntity<List<City>> getAllCities()
+	{
+		List<City> city=cityService.viewAllCity();
+		return new ResponseEntity<List<City>>(city,HttpStatus.OK);
+	}
+	
+	@GetMapping(value="/theatre/{city}")
+	public ResponseEntity<List<Theatre>> getTheatreByCity(@PathVariable String cityName)
+	{
+		List<Theatre> theatre=cityService.getAllTheatreByCity(cityName);
+		return new ResponseEntity<List<Theatre>>(theatre, HttpStatus.OK);
+	}
 	
 }
