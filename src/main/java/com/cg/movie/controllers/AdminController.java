@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
+import com.cg.movie.entities.Theatre;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
 import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.IScreenService;
+import com.cg.movie.services.ITheatreService;
 
 
 @RestController
@@ -38,6 +40,9 @@ public class AdminController {
 
 	@Autowired
 	IScreenService screenService;
+	
+	@Autowired
+	ITheatreService theatreService;
 	
 	// get count of customers
 
@@ -111,6 +116,28 @@ public class AdminController {
 		return new ResponseEntity<Integer>(updatedNoOfSeats,HttpStatus.ACCEPTED);
 		
 		
+	}
+	
+	@PostMapping(value="/theatre")
+	public ResponseEntity<Theatre> addTheatre(@RequestBody Theatre theatre)
+	{
+		Theatre theatre1=theatreService.addTheatre(theatre);
+		return new ResponseEntity<Theatre>(theatre1,HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/theatre/{theatreId}")
+	public ResponseEntity<String> deleteTheatre(@PathVariable long theatreId)
+	{
+		Theatre theatre=theatreService.getTheatreById(theatreId);
+		theatreService.deleteTheatre(theatre);
+		return new ResponseEntity<String>("Theatre Deleted",HttpStatus.OK);
+	}
+	
+	@GetMapping("/theatre/list")
+	public ResponseEntity<List<Theatre>> getAllTheatre()
+	{
+		List<Theatre> theatre=theatreService.viewAllTheatre();
+		return new ResponseEntity<List<Theatre>>(theatre,HttpStatus.OK);
 	}
 	
 	
