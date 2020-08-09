@@ -10,7 +10,7 @@ public interface IScreenService {
 	
 	public List<Screen> getAllScreen();
 	
-	public void deleteScreen(Screen screen);
+	public boolean deleteScreen(long screenId);
 	
 	public int addSeats(long screenId, int noOfSeats);
 	

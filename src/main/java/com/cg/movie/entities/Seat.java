@@ -26,6 +26,15 @@ public class Seat {
 	@JoinColumn(name = "showId")
 	private Show show;
 
+	
+
+	public Seat(Long seatId, String seatStatus, Double seatPrice) {
+		super();
+		this.seatId = seatId;
+		this.seatStatus = seatStatus;
+		this.seatPrice = seatPrice;
+	}
+
 	public Long getSeatId() {
 		return seatId;
 	}

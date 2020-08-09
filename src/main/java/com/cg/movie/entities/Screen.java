@@ -25,6 +25,7 @@ public class Screen {
 	private Long screenId;
 	private String screenName;
 	private int noOfSeats;
+	private boolean status;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "movieId")
@@ -40,6 +41,9 @@ public class Screen {
 
 	
 	
+	public Screen() {
+	}
+
 	public Screen(Long screenId, String screenName, int noOfSeats) {
 		super();
 		this.screenId = screenId;
@@ -84,6 +88,14 @@ public class Screen {
 		this.noOfSeats = noOfSeats;
 	}
 
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 	public void setTheatre(Theatre theatre) {
 		this.theatre = theatre;
 	}
@@ -95,4 +107,5 @@ public class Screen {
 		this.getShowsList().add(show);
 	}
 
+	
 }
