@@ -20,4 +20,6 @@ public class SeatServiceImpl implements ISeatService {
 		return true;
 	}
 
+	
+	
 }
