@@ -21,7 +21,7 @@ import com.cg.movie.entities.Theatre;
 import com.cg.movie.services.AdminServiceImpl;
 
 @SpringBootTest
-class AdminTest {
+public class AdminTest {
 
 	@Autowired
 	AdminServiceImpl adminService;
@@ -41,7 +41,7 @@ class AdminTest {
 		Customer c2= new Customer(new Long(2), "Punit", "punit123", 9879787937L, "Male", 0);
 		Customer c3= new Customer(new Long(3), "Mayank", "mayank123", 8794911937L, "Male", 0);
 		when(customerRepo.findAll()).thenReturn(Stream.of(c1,c2,c3).collect(Collectors.toList()));
-		assertEquals(3, adminService.countOfCustomers());
+		assertEquals(3, adminService.countOfCustomers().intValue());
 	}
 	
 	@Test
@@ -49,14 +49,14 @@ class AdminTest {
 		Theatre t1 = new Theatre(new Long(1), "Xion", 3, "Raj", 7977977977L);
 		Theatre t2 = new Theatre(new Long(2), "Xion1", 5, "Punit", 8767897977L);
 		when(theatreRepo.findAll()).thenReturn(Stream.of(t1,t2).collect(Collectors.toList()));
-		assertEquals(2, adminService.countOfTheatres());
+		assertEquals(2, adminService.countOfTheatres().intValue());
 	}
 	
 	@Test
 	public void countOfMoviesTest() {
 		Movie m1=new Movie(new Long(1), "3 Idiots", "Comedy", "Rajkumar Hirani", new Double(150), 5, new Timestamp(System.currentTimeMillis()));
 		when(movieRepo.findAll()).thenReturn(Stream.of(m1).collect(Collectors.toList()));
-		assertEquals(1, adminService.countOfMovies());
+		assertEquals(1, adminService.countOfMovies().intValue());
 	}
 	
 }
