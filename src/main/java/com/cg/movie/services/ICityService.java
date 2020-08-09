@@ -2,8 +2,6 @@ package com.cg.movie.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.cg.movie.entities.City;
 import com.cg.movie.entities.Theatre;
 

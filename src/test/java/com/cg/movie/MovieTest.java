@@ -1,6 +1,7 @@
 package com.cg.movie;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -8,6 +9,7 @@ import static org.mockito.Mockito.when;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -50,7 +52,7 @@ public class MovieTest {
 
 		when(movieDAO.findAll()).thenReturn(movies);
 
-		List<Movie> response = movieServiceImpl.findAllMovie();
+		Set<Movie> response = movieServiceImpl.findAllMovie();
 
 		assertTrue(response.size() > 0);
 
@@ -60,10 +62,13 @@ public class MovieTest {
 
 	@Test
 	public void deleteMovieTest() {
-		Movie movie1 = createMovie(1170000011L, "The Fault in our stars", "Young Adult Fiction", "John Boone", 02.13);
-		movieServiceImpl.deleteMovie(movie1);
-		verify(movieDAO, times(1)).delete(movie1);
+		//Movie movie1 = createMovie(1170000011L, "The Fault in our stars", "Young Adult Fiction", "John Boone", 02.13);
+		
+		movieServiceImpl.deleteById(1170000011L);
+	
+		verify(movieDAO, times(1)).deleteById(Mockito.anyLong());
 	}
+	
 
 	public Movie createMovie(Long id, String name, String genre, String director, Double length) {
 		Movie movie = new Movie();

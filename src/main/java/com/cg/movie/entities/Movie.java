@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Movie {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName1")
+	@SequenceGenerator(name="genName1", sequenceName="mov",initialValue=1170000011,allocationSize=1)
 	private Long movieId;
 	private String movieName;
 	private String movieGenre;

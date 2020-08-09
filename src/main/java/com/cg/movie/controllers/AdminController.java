@@ -1,6 +1,8 @@
 package com.cg.movie.controllers;
 
+
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,10 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
+import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.IScreenService;
+
 
 @RestController
 @CrossOrigin("*")
@@ -27,6 +32,9 @@ public class AdminController {
 
 	@Autowired
 	IAdminService adminService;
+	
+	@Autowired
+	IMovieService movieService;
 
 	@Autowired
 	IScreenService screenService;
@@ -59,6 +67,28 @@ public class AdminController {
 		return new ResponseEntity<SuccessMessage>(new SuccessMessage("Add Screen Request","Screen Successfuly Added"),HttpStatus.CREATED);		
 	}
 	
+
+	@PostMapping("/theatre/movie")
+	public ResponseEntity<Movie> addMovie(@RequestBody Movie movie)
+	{
+		Movie movie1=movieService.addMovie(movie);
+		return new ResponseEntity<Movie>(movie1,HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/theatre/movie/{movieId}")
+	public ResponseEntity<String> deleteMovie(@PathVariable long movieId)
+	{
+		movieService.deleteById(movieId);
+		return new ResponseEntity<String>("Movie Deleted",HttpStatus.OK);
+	}
+	
+	@GetMapping("/theatre/getAllMovies")
+	public ResponseEntity<Set<Movie>> getAllMovies()
+	{
+		Set<Movie> movieList= movieService.findAllMovie();
+		return new ResponseEntity<Set<Movie>>(movieList,HttpStatus.OK);	
+	}	
+		
 	@GetMapping(value="/screen",produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Screen>> getAllScreen()
 	{

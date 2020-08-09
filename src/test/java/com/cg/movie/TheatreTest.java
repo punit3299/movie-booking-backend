@@ -1,6 +1,6 @@
 package com.cg.movie;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -14,7 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.cg.movie.dao.TheatreRepository;
-import com.cg.movie.entities.City;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.services.TheatreServiceImpl;
 
