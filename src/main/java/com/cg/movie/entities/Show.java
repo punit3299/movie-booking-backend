@@ -27,6 +27,23 @@ public class Show {
 	private Timestamp showEndTime;
 	private String showName;
 
+	public Show() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName) {
+		super();
+		this.showId = showId;
+		this.showStartTime = showStartTime;
+		this.showEndTime = showEndTime;
+		this.showName = showName;
+	}
+
+
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
 	private Set<Booking> bookingsList = new HashSet<Booking>();
