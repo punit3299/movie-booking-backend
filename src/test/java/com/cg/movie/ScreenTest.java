@@ -21,10 +21,10 @@ import com.cg.movie.services.ScreenServiceImpl;
 public class ScreenTest {
 
 	@Autowired
-	ScreenServiceImpl screenService;
+	private ScreenServiceImpl screenService;
 	
 	@MockBean
-	ScreenRepository screenRepo;
+	private ScreenRepository screenRepo;
 	
 	@Test
 	public void addScreenTest() {

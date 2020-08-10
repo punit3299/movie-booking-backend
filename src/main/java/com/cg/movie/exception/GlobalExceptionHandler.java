@@ -8,13 +8,13 @@ import org.springframework.web.context.request.WebRequest;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	
-	public ResponseEntity<?> handleTheatreDoesNotFound(TheatreNotFound exception,WebRequest request)
+	public ResponseEntity<?> handleTheatreDoesNotFound(TheatreNotFoundException exception,WebRequest request)
 	{
 		ErrorDetails errorDetails= new ErrorDetails(exception.getMessage(), request.getDescription(false));
 		return new ResponseEntity(errorDetails,HttpStatus.NOT_FOUND);
 	}
 	
-	public ResponseEntity<?> handleCityDoesNotFound(CityNotFound exception,WebRequest request)
+	public ResponseEntity<?> handleCityDoesNotFound(CityNotFoundException exception,WebRequest request)
 	{
 		ErrorDetails errorDetails= new ErrorDetails(exception.getMessage(), request.getDescription(false));
 		return new ResponseEntity(errorDetails,HttpStatus.NOT_FOUND);
