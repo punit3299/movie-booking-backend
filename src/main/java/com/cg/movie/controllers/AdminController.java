@@ -155,8 +155,8 @@ public class AdminController {
 	@PostMapping(value="/city")
 	public ResponseEntity<City> AddCity(@RequestBody City city)
 	{
-		City city1=cityService.addCity(city);
-		return new ResponseEntity<City>(city1,HttpStatus.OK);
+		City newCity=cityService.addCity(city);
+		return new ResponseEntity<City>(newCity,HttpStatus.OK);
 	}
 	
 	@GetMapping(value="/city/list")
@@ -176,8 +176,8 @@ public class AdminController {
 	@PostMapping(value="/theatre")
 	public ResponseEntity<Theatre> addTheatre(@RequestBody Theatre theatre)
 	{
-		Theatre theatre1=theatreService.addTheatre(theatre);
-		return new ResponseEntity<Theatre>(theatre1,HttpStatus.OK);
+		Theatre newTheatre=theatreService.addTheatre(theatre);
+		return new ResponseEntity<Theatre>(newTheatre,HttpStatus.OK);
 	}
 
 	@DeleteMapping("/theatre/{theatreId}")

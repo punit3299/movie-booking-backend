@@ -30,10 +30,10 @@ public class CityServiceImpl implements ICityService {
 	public List<Theatre> getAllTheatreByCity(String city) {
 		// TODO Auto-generated method stub
 		City requiredCity= cityRepo.findByCityName(city);
-		int n=requiredCity.getTheatresList().size();
-	    List<Theatre> theatreList = new ArrayList<Theatre>(n); 
-	    for (Theatre x : requiredCity.getTheatresList()) 
-	      theatreList.add(x);
+		int size=requiredCity.getTheatresList().size();
+	    List<Theatre> theatreList = new ArrayList<Theatre>(size); 
+	    for (Theatre theatre : requiredCity.getTheatresList()) 
+	      theatreList.add(theatre);
 	    return theatreList;
 	}
 
