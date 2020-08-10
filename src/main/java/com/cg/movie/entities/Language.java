@@ -12,6 +12,11 @@ import javax.persistence.Table;
 @Table(name="language_table")
 public class Language{
 
+	public Language() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long languageId;

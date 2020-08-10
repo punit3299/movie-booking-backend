@@ -177,10 +177,7 @@ public class AdminController {
 	}
 	
 	
-	@PostMapping(value = "/bookSeat", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Ticket> bookSeat(@RequestBody BookTicketDetails bookTicketDetails) {
-		return null;
-	}
+	
 	
 	@PutMapping("/theatre/edit/{theatreId}")
 	public ResponseEntity<String> updateTheatre(@RequestBody Theatre theatre, @PathVariable long theatreId)

@@ -36,6 +36,13 @@ public class Customer {
 	
 	
 
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public Customer(Long customerId, String customerName, String customerPassword, Long customerContact,
 			@Pattern(regexp = "Male|Female|Others") String customerGender, int customerBalance) {
 		super();
