@@ -41,6 +41,7 @@ public class AdminController {
 	IScreenService screenService;
 
 
+
 	@Autowired
 	ISeatService seatService;
 
