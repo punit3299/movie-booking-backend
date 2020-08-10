@@ -16,7 +16,7 @@ public class Seat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long seatId;
-	private String seatStatus;
+	private String seatNumber;
 	private Double seatPrice;
  
 	@ManyToOne
@@ -31,10 +31,10 @@ public class Seat {
 	private Screen screen;
 	
 
-	public Seat(Long seatId, String seatStatus, Double seatPrice) {
+	public Seat(Long seatId, String seatNumber, Double seatPrice) {
 		super();
 		this.seatId = seatId;
-		this.seatStatus = seatStatus;
+		this.seatNumber = seatNumber;
 		this.seatPrice = seatPrice;
 	}
 
@@ -46,12 +46,12 @@ public class Seat {
 		this.seatId = seatId;
 	}
 
-	public String getSeatStatus() {
-		return seatStatus;
+	public String getSeatNumber() {
+		return seatNumber;
 	}
 
-	public void setSeatStatus(String seatStatus) {
-		this.seatStatus = seatStatus;
+	public void setSeatNumber(String seatNumber) {
+		this.seatNumber = seatNumber;
 	}
 
 	public Double getSeatPrice() {

@@ -30,13 +30,10 @@ public class Movie {
 	private Double movieLength;
 	private Integer movieRating;
 	private Timestamp movieReleaseDate;
+	private boolean status;
 
 	@OneToOne(mappedBy="movie")
 	private Screen screen;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-	private Set<Booking> bookingsList = new HashSet<Booking>();
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
@@ -102,6 +99,14 @@ public class Movie {
 		this.movieLength = length;
 	}
 
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 	public Integer getMovieRating() {
 		return movieRating;
 	}
@@ -118,14 +123,6 @@ public class Movie {
 		this.movieReleaseDate = movieReleaseDate;
 	}
 
-	@JsonIgnore
-	public Set<Booking> getBookingsList() {
-		return bookingsList;
-	}
-
-	public void setBookingsList(Set<Booking> bookingsList) {
-		this.bookingsList = bookingsList;
-	}
 
 	@JsonIgnore
 	public Set<Show> getShowsList() {
@@ -152,12 +149,6 @@ public class Movie {
 		this.getShowsList().add(show);
 	}
 
-	// the method below will add booking to movie
-	// also serves the purpose to avoid cyclic references.
-	public void addBooking(Booking booking) {
-		booking.setMovie(this); // this will avoid nested cascade
-		this.getBookingsList().add(booking);
-	}
 
 	// the method below will add language to movie
 	// also serves the purpose to avoid cyclic references.
