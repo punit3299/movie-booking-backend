@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,7 +26,6 @@ public class Show {
 	private Timestamp showStartTime;
 	private Timestamp showEndTime;
 	private String showName;
-	private boolean status;
 
 	public Show() {
 		super();
@@ -46,8 +44,9 @@ public class Show {
 
 
 
-	@OneToOne(mappedBy="show")
-	private Booking booking;
+	@JsonIgnore
+	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
+	private Set<Booking> bookingsList = new HashSet<Booking>();
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
@@ -89,18 +88,6 @@ public class Show {
 		return showEndTime;
 	}
 
-	public boolean isStatus() {
-		return status;
-	}
-
-
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
-
-
 	public void setShowEndTime(Timestamp showEndTime) {
 		this.showEndTime = showEndTime;
 	}
@@ -113,19 +100,14 @@ public class Show {
 		this.showName = showName;
 	}
 
-	
-
-	public Booking getBooking() {
-		return booking;
+	@JsonIgnore
+	public Set<Booking> getBookingsList() {
+		return bookingsList;
 	}
 
-
-
-	public void setBooking(Booking booking) {
-		this.booking = booking;
+	public void setBookingsList(Set<Booking> bookingsList) {
+		this.bookingsList = bookingsList;
 	}
-
-
 
 	@JsonIgnore
 	public Set<Seat> getSeatsList() {
@@ -169,6 +151,12 @@ public class Show {
 		this.movie = movie;
 	}
 
+	// the method below will add booking to show
+	// also serves the purpose to avoid cyclic references.
+	public void addBooking(Booking booking) {
+		booking.setShow(this); // this will avoid nested cascade
+		this.getBookingsList().add(booking);
+	}
 
 	// the method below will add transaction to show
 	// also serves the purpose to avoid cyclic references.

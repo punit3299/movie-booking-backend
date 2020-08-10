@@ -26,32 +26,6 @@ public class Booking {
 	private Long bookingId;
 	private Timestamp bookingDate;
 	private Double totalCost;
-	private String movie;
-	private boolean status;
-	
-	public String getMovie() {
-		return movie;
-	}
-
-
-
-	public void setMovie(String movie) {	
-		this.movie = movie;
-	}
-
-
-
-	public boolean isStatus() {			
-		return status;
-	}
-
-
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
-
 
 	public Booking() {
 		super();
@@ -77,13 +51,17 @@ public class Booking {
 	@JoinColumn(name = "ticketId")
 	private Ticket ticket;
 
-	
+	@ManyToOne
+	@JoinColumn(name = "movieId")
+	private Movie movie;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "showId")
 	private Show show;
 
-	
+	@JsonIgnore
+	@OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+	private Set<Seat> seatsList = new HashSet<>();
 
 	public Long getBookingId() {
 		return bookingId;
@@ -125,6 +103,14 @@ public class Booking {
 		this.ticket = ticket;
 	}
 
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+
 	public Show getShow() {
 		return show;
 	}
@@ -133,7 +119,20 @@ public class Booking {
 		this.show = show;
 	}
 
+	@JsonIgnore
+	public Set<Seat> getSeatsList() {
+		return seatsList;
+	}
 
+	public void setSeatsList(Set<Seat> seatsList) {
+		this.seatsList = seatsList;
+	}
 
+	// the method below will add seat to booking
+	// also serves the purpose to avoid cyclic references.
+	public void addSeat(Seat seat) {
+		seat.setBooking(this); // this will avoid nested cascade
+		this.getSeatsList().add(seat);
+	}
 
 }

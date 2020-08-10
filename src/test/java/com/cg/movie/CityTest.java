@@ -30,12 +30,4 @@ public class CityTest {
 				.of(new City(new Long(1), "BBK"), new City(new Long(2), "LKO")).collect(Collectors.toList()));
 		assertEquals(2, cityService.viewAllCity().size());
 	}
-	
-	@Test
-	public void addCity()
-	{
-		City city=new City(1L,"BBK");
-		when(repository.save(city)).thenReturn(city);
-		assertEquals(city, cityService.addCity(city));
-	}
 }
