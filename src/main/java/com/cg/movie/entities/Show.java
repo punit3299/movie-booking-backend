@@ -21,11 +21,28 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Show {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long showId;
 	private Timestamp showStartTime;
 	private Timestamp showEndTime;
 	private String showName;
+
+	public Show() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName) {
+		super();
+		this.showId = showId;
+		this.showStartTime = showStartTime;
+		this.showEndTime = showEndTime;
+		this.showName = showName;
+	}
+
+
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)

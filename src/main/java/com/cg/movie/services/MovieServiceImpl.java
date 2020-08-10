@@ -1,5 +1,6 @@
 package com.cg.movie.services;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,18 +24,15 @@ public class MovieServiceImpl implements IMovieService {
 	}
 
 	@Override
-	public List<Movie> findAllMovie() {
-		return movieRepo.findAll();
+	public Set<Movie> findAllMovie() {
+		List<Movie> movieList=movieRepo.findAll();
+		Set<Movie> movieList1=new HashSet<>(movieList);
+		return movieList1;
 	}
 
 	@Override
-	public Movie update(Movie movie, int movieId) {
-		return null;
-	}
-
-	@Override
-	public void deleteMovie(Movie movie) {
-		movieRepo.delete(movie);
+	public void  deleteById(long id) {
+		movieRepo.deleteById(id);
 	}
 
 }

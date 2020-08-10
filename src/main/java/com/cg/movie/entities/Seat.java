@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Seat {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long seatId;
 	private String seatStatus;
 	private Double seatPrice;
@@ -25,6 +25,15 @@ public class Seat {
 	@ManyToOne
 	@JoinColumn(name = "showId")
 	private Show show;
+
+	
+
+	public Seat(Long seatId, String seatStatus, Double seatPrice) {
+		super();
+		this.seatId = seatId;
+		this.seatStatus = seatStatus;
+		this.seatPrice = seatPrice;
+	}
 
 	public Long getSeatId() {
 		return seatId;

@@ -22,10 +22,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Booking {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long bookingId;
 	private Timestamp bookingDate;
 	private Double totalCost;
+
+	public Booking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public Booking(Long bookingId, Timestamp bookingDate, Double totalCost) {
+		super();
+		this.bookingId = bookingId;
+		this.bookingDate = bookingDate;
+		this.totalCost = totalCost;
+	}
+
+
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "transactionId")
