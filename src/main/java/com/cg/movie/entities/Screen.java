@@ -31,10 +31,6 @@ public class Screen {
 	@JoinColumn(name = "movieId")
 	private Movie movie;
 
-	@OneToOne(cascade= CascadeType.ALL)
-	@JoinColumn(name="seatId")
-	private Seat seat;
-	
 	@JsonIgnore
 	@OneToMany(mappedBy = "screen", cascade = CascadeType.ALL)
 	private Set<Show> showsList = new HashSet<>();
@@ -49,21 +45,18 @@ public class Screen {
 	public Screen() {
 	}
 
-	public Screen(Long screenId, String screenName, int noOfSeats) {
+	
+
+	public Screen(Long screenId, String screenName, int noOfSeats, boolean status) {
 		super();
 		this.screenId = screenId;
 		this.screenName = screenName;
 		this.noOfSeats = noOfSeats;
+		this.status = status;
 	}
 
-	public Seat getSeat() {
-		return seat;
-	}
 
-	public void setSeat(Seat seat) {
-		this.seat = seat;
-	} 
-	
+
 	public Long getScreenId() {
 		return screenId;
 	}

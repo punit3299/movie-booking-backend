@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.apache.log4j.Logger;
 
 import com.cg.movie.dao.ScreenRepository;
 import com.cg.movie.dao.TheatreRepository;
@@ -21,6 +22,9 @@ public class ScreenServiceImpl implements IScreenService {
 	@Autowired
 	private TheatreRepository theatreRepo;
 
+
+	private Logger logger = Logger.getLogger(getClass());
+	
 	@Override
 	public Screen addScreen(long theatreId, Screen screenDetails) throws TheatreNotFoundException{
 		if(theatreRepo.existsById(theatreId))
@@ -29,10 +33,15 @@ public class ScreenServiceImpl implements IScreenService {
 			screenRepo.save(screenDetails);
 			theatre.addScreen(screenDetails);
 			theatreRepo.save(theatre);
+			
+			logger.info("Added Screen to Theatre of Id "+theatreId );
 			return screenDetails;	
 		}
 		else
+		{
+			logger.error("Theatre not found with "+theatreId);
 			throw new TheatreNotFoundException("Theatre Not Found");
+		}
 		
 	}
 
@@ -40,21 +49,27 @@ public class ScreenServiceImpl implements IScreenService {
 	public List<Screen> getAllScreen(long theatreId) throws TheatreNotFoundException{
 		if(theatreRepo.existsById(theatreId))
 		{
-		
 		List<Screen> allScreenDetails = screenRepo.findAll(true,theatreId);
+		logger.info("Returned Screen list of theatre "+theatreId);
 		return allScreenDetails;
 		}
 		else
+		{
+			logger.error("Theatre not found with "+theatreId);
 			throw new TheatreNotFoundException("Theatre Not Found");
+		}
 	}
 
 	@Override
 	public boolean deleteScreen(long screenId) throws ScreenNotFoundException {
 		if (screenRepo.existsById(screenId)) {
 			screenRepo.deleteScreenById(true, screenId);
+			logger.info("Delete screen of id "+screenId);
 			return true;
-		} else
+		} else {
+			logger.error("Screen not found with "+screenId);
 			throw new ScreenNotFoundException("Screen Not Found");
+		}
 
 	}
 
@@ -64,11 +79,14 @@ public class ScreenServiceImpl implements IScreenService {
 		Screen screen = screenRepo.findById(screenId).get();
 		screen.setNoOfSeats(noOfSeats);
 		screenRepo.save(screen);
+		logger.info("Added seats in screen of id "+screenId);
 		return screen.getNoOfSeats();
 		}
 		else
+		{
+			logger.error("Screen not found with "+screenId);
 			throw new ScreenNotFoundException("Screen Not Found");
-
+		}
 	}
 
 	@Override
@@ -78,10 +96,14 @@ public class ScreenServiceImpl implements IScreenService {
 		int updatedSeat=screen.getNoOfSeats()+noOfSeats;
 		screen.setNoOfSeats(updatedSeat);
 		screenRepo.save(screen);
+		logger.info("Updated no of seat in screen of id "+screenId);
 		return screen.getNoOfSeats();
 		}
 		else
+		{
+			logger.error("Screen not found with "+screenId);
 			throw new ScreenNotFoundException("Screen Not Found");
+		}
 
 		
 	}
@@ -90,10 +112,14 @@ public class ScreenServiceImpl implements IScreenService {
 	public int getNoOfSeats(long screenId) throws ScreenNotFoundException {
 		if (screenRepo.existsById(screenId)) {
 		Screen screen = screenRepo.findById(screenId).get();
+		logger.info("Returned No of seats of screen of id "+screenId);
 		return screen.getNoOfSeats();
 		}
 		else
+		{
+			logger.error("Screen not found with "+screenId);
 			throw new ScreenNotFoundException("Screen Not Found");
+		}
 
 		
 	}

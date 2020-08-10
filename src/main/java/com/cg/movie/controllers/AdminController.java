@@ -54,7 +54,6 @@ public class AdminController {
 	ICityService cityService;
 
 
-
 	@Autowired
 	ISeatService seatService;
 
