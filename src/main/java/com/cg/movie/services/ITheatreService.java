@@ -11,4 +11,5 @@ public interface ITheatreService {
 	public void deleteTheatre(Theatre theatre);
 	public void updateTheatre(Theatre theatre);
 	public List<Theatre> viewAllTheatre();
+	public Theatre getTheatreById(long threatreId);
 }
