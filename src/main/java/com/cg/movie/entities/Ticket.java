@@ -10,16 +10,16 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ticket_table")
+@Table(name = "ticket_table")
 public class Ticket {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long ticketId;
 	private String seatName; // make it seatsList
 	private Boolean ticketStatus;
 	private String screenName;
-	
+
 	public Ticket(Long ticketId, String seatName, Boolean ticketStatus, String screenName) {
 		super();
 		this.ticketId = ticketId;
@@ -34,7 +34,7 @@ public class Ticket {
 
 	@OneToOne(mappedBy = "ticket")
 	private Booking booking;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "customerId")
 	private Customer customer;

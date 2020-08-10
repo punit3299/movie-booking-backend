@@ -3,6 +3,7 @@ package com.cg.movie.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import com.cg.movie.dao.TheatreRepository;
 import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Theatre;
+import com.cg.movie.exception.CustomerListNotFoundException;
 import com.cg.movie.response.GenderResponse;
 
 @Service
@@ -30,9 +32,22 @@ public class AdminServiceImpl implements IAdminService {
 	@Autowired
 	BookingRepository bookingRepo;
 
+	private Logger logger = Logger.getLogger(getClass());
+
 	@Override
 	public Long countOfCustomers() {
-		return new Long(customerRepo.findAll().size());
+		
+		List<Customer> customerList = customerRepo.findAll();
+
+		if (customerList != null) {
+			logger.info("Customer List returned Successfully");
+			return new Long(customerList.size());
+		} 
+		else {
+			logger.error("Customer List Not Found");
+			throw new CustomerListNotFoundException("Customer List Not Found");
+		}
+		
 	}
 
 	@Override
@@ -71,7 +86,7 @@ public class AdminServiceImpl implements IAdminService {
 		Long male = customers.stream().filter(e -> e.getCustomerGender().equals("Male")).count();
 		Long female = customers.stream().filter(e -> e.getCustomerGender().equals("Female")).count();
 		Long others = customers.stream().filter(e -> e.getCustomerGender().equals("Others")).count();
-		return new GenderResponse(male,female,others);
+		return new GenderResponse(male, female, others);
 	}
 
 }
