@@ -26,6 +26,10 @@ import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.IScreenService;
 import com.cg.movie.services.ISeatService;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of b337792... update in Response package
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/admin")
@@ -39,10 +43,17 @@ public class AdminController {
 
 	@Autowired
 	IScreenService screenService;
+<<<<<<< HEAD
 
 	@Autowired
 	ISeatService seatService;
 
+=======
+	
+	@Autowired
+	ISeatService seatService;
+	
+>>>>>>> parent of b337792... update in Response package
 	// get count of customers
 
 	@GetMapping("/countOfCustomers")
@@ -88,6 +99,7 @@ public class AdminController {
 		Set<Movie> movieList = movieService.findAllMovie();
 		return new ResponseEntity<Set<Movie>>(movieList, HttpStatus.OK);
 	}
+<<<<<<< HEAD
 
 	@GetMapping(value = "/screen", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Screen>> getAllScreen() {
@@ -114,4 +126,16 @@ public class AdminController {
 		return null;
 	}
 
+=======
+	
+	@PostMapping(value="/bookSeat",produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Ticket> bookSeat(@RequestBody BookTicketDetails bookTicketDetails)
+	{
+		
+		
+		return null;
+	}
+	
+	
+>>>>>>> parent of b337792... update in Response package
 }
