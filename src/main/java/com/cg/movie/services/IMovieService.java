@@ -10,6 +10,6 @@ public interface IMovieService {
 
 	Set<Movie> findAllMovie();
 
-	void deleteById(long id);
+	boolean deleteMovieById(long movieId);
 
 }
