@@ -14,12 +14,13 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.cg.movie.dao.CityRepository;
 import com.cg.movie.entities.City;
 import com.cg.movie.services.CityServiceImpl;
+import com.cg.movie.services.ICityService;
 
 @SpringBootTest
 public class CityTest {
 	
 	@Autowired
-	CityServiceImpl cityService;
+	ICityService cityService;
 	
 	@MockBean
 	CityRepository repository;
@@ -29,5 +30,13 @@ public class CityTest {
 		when(repository.findAll()).thenReturn(Stream
 				.of(new City(new Long(1), "BBK"), new City(new Long(2), "LKO")).collect(Collectors.toList()));
 		assertEquals(2, cityService.viewAllCity().size());
+	}
+	
+	@Test
+	public void addCity()
+	{
+		City city=new City(1L,"BBK");
+		when(repository.save(city)).thenReturn(city);
+		assertEquals(city, cityService.addCity(city));
 	}
 }

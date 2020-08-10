@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Transaction {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long transactionId;
 	private String transactionMessage;
 	private Timestamp transactionTime;
@@ -27,6 +27,15 @@ public class Transaction {
 	@ManyToOne
 	@JoinColumn(name = "showId")
 	private Show show;
+	
+	
+
+	public Transaction(Long transactionId, String transactionMessage, Timestamp transactionTime) {
+		super();
+		this.transactionId = transactionId;
+		this.transactionMessage = transactionMessage;
+		this.transactionTime = transactionTime;
+	}
 
 	public Long getTransactionId() {
 		return transactionId;

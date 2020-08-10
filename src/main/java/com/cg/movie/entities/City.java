@@ -18,13 +18,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class City {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long cityId;
 	private String cityName;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
 	private Set<Theatre> theatresList = new HashSet<>();
+	
+	public City()
+	{
+		
+	}
 
 
 	public City(Long cityId, String cityName) {

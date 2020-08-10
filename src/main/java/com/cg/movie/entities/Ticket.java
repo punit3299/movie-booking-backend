@@ -14,20 +14,22 @@ import javax.persistence.Table;
 public class Ticket {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long ticketId;
-	private Long noOfSeats;
 	private String seatName; // make it seatsList
 	private Boolean ticketStatus;
 	private String screenName;
 	
-	public Ticket(Long ticketId, Long noOfSeats, String seatName, Boolean ticketStatus, String screenName) {
+	public Ticket(Long ticketId, String seatName, Boolean ticketStatus, String screenName) {
 		super();
 		this.ticketId = ticketId;
-		this.noOfSeats = noOfSeats;
 		this.seatName = seatName;
 		this.ticketStatus = ticketStatus;
 		this.screenName = screenName;
+	}
+
+	public Ticket() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@OneToOne(mappedBy = "ticket")
@@ -43,14 +45,6 @@ public class Ticket {
 
 	public void setTicketId(Long ticketId) {
 		this.ticketId = ticketId;
-	}
-
-	public Long getNoOfSeats() {
-		return noOfSeats;
-	}
-
-	public void setNoOfSeats(Long noOfSeats) {
-		this.noOfSeats = noOfSeats;
 	}
 
 	public String getSeatName() {

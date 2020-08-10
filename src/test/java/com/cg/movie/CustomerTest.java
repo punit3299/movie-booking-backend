@@ -1,7 +1,7 @@
 package com.cg.movie;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +10,13 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.cg.movie.dao.CustomerRepository;
 import com.cg.movie.entities.Customer;
-import com.cg.movie.services.CustomerServiceImpl;
+import com.cg.movie.services.ICustomerService;
 
 @SpringBootTest
 class CustomerTest {
 
 	@Autowired
-	CustomerServiceImpl customerService;
+	ICustomerService iCustomerService;
 	
 	@MockBean
 	CustomerRepository customerRepo;
@@ -25,16 +25,16 @@ class CustomerTest {
 	@Test
 	public void addMoneyToWalletTest() {
 		Customer customer=new Customer(new Long(1), "Siddharth ", "Haha", 7973657728L,"Male", 0);
-		customerService.addMoneyToWallet(customer, 500);
-		verify(customerRepo,times(1)).save(customer);
+		when(customerRepo.save(customer)).thenReturn(customer);
+		assertEquals(customer, iCustomerService.addMoneyToWallet(customer, 500));
 		
 	}
 	
 	
 	  @Test public void refundMoneyToWalletTest() { 
 		  Customer customer=new Customer(new Long(1), "Siddharth ", "Haha", 7973657728L,"Male", 0);
-			customerService.refundMoneyToWallet(customer, 500);
-			verify(customerRepo,times(1)).save(customer);
+		  when(customerRepo.save(customer)).thenReturn(customer);
+		  assertEquals(customer, iCustomerService.refundMoneyToWallet(customer, 300));
 	  
 	  }
 

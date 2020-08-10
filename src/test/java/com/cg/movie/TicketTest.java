@@ -12,28 +12,28 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.cg.movie.dao.TicketRepository;
 import com.cg.movie.entities.Ticket;
-import com.cg.movie.services.TicketServiceImpl;
+import com.cg.movie.services.ITicketService;
 
 @SpringBootTest
 class TicketTest {
 
 	@Autowired
-	TicketServiceImpl ticketService;
+	ITicketService iTicketService;
 
 	@MockBean
 	TicketRepository ticketRepo;
 
 	@Test
 	public void bookTicketTest() {
-		Ticket ticket = new Ticket(new Long(1), new Long(10), "First", true, "S1");
+		Ticket ticket = new Ticket(new Long(1),  "First", true, "S1");
 		when(ticketRepo.save(ticket)).thenReturn(ticket);
-		assertEquals(ticket, ticketService.bookTicket(ticket));
+		assertEquals(ticket, iTicketService.bookTicket(ticket));
 	}
 	
 	@Test
 	public void cancelTicketTest() {
-		Ticket ticket = new Ticket(new Long(1), new Long(10), "First", true, "S1");
-		ticketService.cancelTicket(ticket);
+		Ticket ticket = new Ticket(new Long(1), "First", true, "S1");
+		iTicketService.cancelTicket(ticket);
 		verify(ticketRepo,times(1)).delete(ticket);
 	}
 
