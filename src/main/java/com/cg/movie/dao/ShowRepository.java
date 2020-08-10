@@ -8,5 +8,4 @@ import com.cg.movie.entities.Show;
 @Repository
 public interface ShowRepository extends JpaRepository<Show, Long> {
 
-
 }

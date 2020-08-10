@@ -8,6 +8,4 @@ import com.cg.movie.entities.Movie;
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Long>{
 	
-	//@Query("select m from Movie where m.movieId=movieId")
-	Movie findById(long movieId);
 }
