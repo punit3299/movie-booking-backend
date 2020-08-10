@@ -18,9 +18,7 @@ public class Seat {
 	private String seatNumber;
 	private Double seatPrice;
  
-	@ManyToOne
-	@JoinColumn(name = "bookingId")
-	private Booking booking;
+	
 
 	@ManyToOne
 	@JoinColumn(name = "showId")
@@ -59,13 +57,6 @@ public class Seat {
 		this.seatPrice = seatPrice;
 	}
 
-	public Booking getBooking() {
-		return booking;
-	}
-
-	public void setBooking(Booking booking) {
-		this.booking = booking;
-	}
 
 	public Show getShow() {
 		return show;

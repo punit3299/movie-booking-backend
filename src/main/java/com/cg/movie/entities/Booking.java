@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="booking_table")
+@Table(name = "booking_table")
 public class Booking {
 
 	@Id
@@ -28,37 +28,27 @@ public class Booking {
 	private Double totalCost;
 	private String movie;
 	private boolean status;
-	
+
 	public String getMovie() {
 		return movie;
 	}
 
-
-
-	public void setMovie(String movie) {	
+	public void setMovie(String movie) {
 		this.movie = movie;
 	}
 
-
-
-	public boolean isStatus() {			
+	public boolean isStatus() {
 		return status;
 	}
-
-
 
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
-
-
 	public Booking() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public Booking(Long bookingId, Timestamp bookingDate, Double totalCost) {
 		super();
@@ -66,8 +56,6 @@ public class Booking {
 		this.bookingDate = bookingDate;
 		this.totalCost = totalCost;
 	}
-
-
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "transactionId")
@@ -77,13 +65,9 @@ public class Booking {
 	@JoinColumn(name = "ticketId")
 	private Ticket ticket;
 
-	
-
 	@OneToOne
 	@JoinColumn(name = "showId")
 	private Show show;
-
-	
 
 	public Long getBookingId() {
 		return bookingId;
@@ -132,8 +116,5 @@ public class Booking {
 	public void setShow(Show show) {
 		this.show = show;
 	}
-
-
-
 
 }
