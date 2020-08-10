@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Screen {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long screenId;
 	private String screenName;
 	private int noOfSeats;
@@ -31,10 +31,15 @@ public class Screen {
 	@JoinColumn(name = "movieId")
 	private Movie movie;
 
+	@OneToOne(cascade= CascadeType.ALL)
+	@JoinColumn(name="seatId")
+	private Seat seat;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "screen", cascade = CascadeType.ALL)
 	private Set<Show> showsList = new HashSet<>();
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "theaterId")
 	private Theatre theatre;
@@ -44,12 +49,25 @@ public class Screen {
 	public Screen() {
 	}
 
-	public Screen(Long screenId, String screenName, int noOfSeats) {
+	
+
+	public Screen(Long screenId, String screenName, int noOfSeats, boolean status) {
 		super();
 		this.screenId = screenId;
 		this.screenName = screenName;
 		this.noOfSeats = noOfSeats;
+		this.status = status;
 	}
+
+
+	public Seat getSeat() {
+		return seat;
+	}
+
+	public void setSeat(Seat seat) {
+		this.seat = seat;
+	} 
+	
 
 	public Long getScreenId() {
 		return screenId;
@@ -105,6 +123,12 @@ public class Screen {
 	public void addShow(Show show) {
 		show.setScreen(this); // this will avoid nested cascade
 		this.getShowsList().add(show);
+	}
+
+	@Override
+	public String toString() {
+		return "Screen [screenId=" + screenId + ", screenName=" + screenName + ", noOfSeats=" + noOfSeats + ", status="
+				+ status +  "]";
 	}
 
 	
