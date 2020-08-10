@@ -1,5 +1,9 @@
 package com.cg.movie.services;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +34,7 @@ public class ShowServiceImpl implements IShowService {
 
 	@Override
 	public Long addNewShow(long theatreId, long screenId, long movieId, Show show) {
-		
+
 		Movie movie = showValidator.validateMovieId(movieId);
 		Theatre theatre = showValidator.validateTheatreId(theatreId);
 		Screen screen = showValidator.validateScreenId(screenId);
@@ -44,5 +48,17 @@ public class ShowServiceImpl implements IShowService {
 		return addShow.getShowId();
 	}
 
+	@Override
+	public void deleteShowById(long showId) {
+		if (showRepo.existsById(showId))
+			showRepo.deleteShowById(true, showId);
+	}
+
+	@Override
+	public Set<Show> getAllShow() {
+		List<Show> showList = showRepo.findAllShows();
+		Set<Show> showList1 = new HashSet<>(showList);
+		return showList1;
+	}
 
 }

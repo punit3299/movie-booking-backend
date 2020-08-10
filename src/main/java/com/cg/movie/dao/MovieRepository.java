@@ -21,7 +21,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long>{
 
 	@Modifying
 	@Query("UPDATE Movie m SET m.status=?1 WHERE m.movieId=?2")
-	void deleteScreenById(boolean status, long screenId);
+	void deleteMovieById(boolean status, long movieId);
 
 	@Query("SELECT m FROM Movie m WHERE m.status = ?1")
 	List<Movie> findAllMovies(boolean status);

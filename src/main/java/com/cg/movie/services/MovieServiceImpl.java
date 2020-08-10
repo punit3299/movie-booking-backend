@@ -35,7 +35,7 @@ public class MovieServiceImpl implements IMovieService {
 	public boolean deleteMovieById(long movieId) {
 		if(movieRepo.existsById(movieId))
 		{
-			movieRepo.deleteScreenById(true,movieId);
+			movieRepo.deleteMovieById(true,movieId);
 			return true;
 		}
 		return false;

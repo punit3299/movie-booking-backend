@@ -224,5 +224,17 @@ public class AdminController {
 			@PathParam("movieId") long movieId, @RequestBody Show show) {
 		return new ResponseEntity<Long>(showService.addNewShow(theatreId, screenId, movieId, show), HttpStatus.CREATED);
 	}
+	
+	@DeleteMapping("/theatre/screen/{showId}")
+	public ResponseEntity<String> deleteShow(@PathVariable long showId) {
+		showService.deleteShowById(showId);
+		return new ResponseEntity<String>("Show Deleted", HttpStatus.OK);
+	}
+	
+	@GetMapping("/theatre/screen/movie/show")
+	public ResponseEntity<Set<Show>> getAllShows() {
+		return new ResponseEntity<Set<Show>>(showService.getAllShow(), HttpStatus.OK);
+	}
+
 
 }
