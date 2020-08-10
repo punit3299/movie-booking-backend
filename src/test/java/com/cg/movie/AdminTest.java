@@ -1,6 +1,8 @@
 package com.cg.movie;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.sql.Timestamp;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import com.cg.movie.dao.AdminRepository;
 import com.cg.movie.dao.CustomerRepository;
 import com.cg.movie.dao.MovieRepository;
 import com.cg.movie.dao.TheatreRepository;
