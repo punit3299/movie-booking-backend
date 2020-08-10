@@ -1,6 +1,5 @@
 package com.cg.movie.controllers;
 
-
 import java.util.List;
 import java.util.Set;
 
@@ -19,11 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
+import com.cg.movie.entities.Theatre;
+import com.cg.movie.response.GenderResponse;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
 import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.IScreenService;
-
 
 @RestController
 @CrossOrigin("*")
@@ -32,13 +32,13 @@ public class AdminController {
 
 	@Autowired
 	IAdminService adminService;
-	
+
 	@Autowired
 	IMovieService movieService;
 
 	@Autowired
 	IScreenService screenService;
-	
+
 	// get count of customers
 
 	@GetMapping("/countOfCustomers")
@@ -46,72 +46,97 @@ public class AdminController {
 		return new ResponseEntity<Long>(adminService.countOfCustomers(), HttpStatus.OK);
 	}
 
-	// get count of customers
+	// get count of theatres
 
 	@GetMapping("/countOfTheatres")
 	public ResponseEntity<Long> countOfTheatres() {
 		return new ResponseEntity<Long>(adminService.countOfTheatres(), HttpStatus.OK);
 	}
 
-	// get count of customers
+	// get count of movies
 
 	@GetMapping("/countOfMovies")
 	public ResponseEntity<Long> countOfMovies() {
 		return new ResponseEntity<Long>(adminService.countOfMovies(), HttpStatus.OK);
 	}
-	
-	@PostMapping(value="/screen/{theatreId}",consumes=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<SuccessMessage> addScreen(@RequestBody Screen screen,@PathVariable long theatreId)
-	{
+
+	@PostMapping(value = "/screen/{theatreId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SuccessMessage> addScreen(@RequestBody Screen screen, @PathVariable long theatreId) {
 		screenService.addScreen(theatreId, screen);
-		return new ResponseEntity<SuccessMessage>(new SuccessMessage("Add Screen Request","Screen Successfuly Added"),HttpStatus.CREATED);		
+		return new ResponseEntity<SuccessMessage>(new SuccessMessage("Add Screen Request", "Screen Successfuly Added"),
+				HttpStatus.CREATED);
 	}
-	
 
 	@PostMapping("/theatre/movie")
-	public ResponseEntity<Movie> addMovie(@RequestBody Movie movie)
-	{
-		Movie movie1=movieService.addMovie(movie);
-		return new ResponseEntity<Movie>(movie1,HttpStatus.OK);
+	public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
+		Movie movie1 = movieService.addMovie(movie);
+		return new ResponseEntity<Movie>(movie1, HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/theatre/movie/{movieId}")
-	public ResponseEntity<String> deleteMovie(@PathVariable long movieId)
-	{
+	public ResponseEntity<String> deleteMovie(@PathVariable long movieId) {
 		movieService.deleteById(movieId);
-		return new ResponseEntity<String>("Movie Deleted",HttpStatus.OK);
+		return new ResponseEntity<String>("Movie Deleted", HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/theatre/getAllMovies")
-	public ResponseEntity<Set<Movie>> getAllMovies()
-	{
-		Set<Movie> movieList= movieService.findAllMovie();
-		return new ResponseEntity<Set<Movie>>(movieList,HttpStatus.OK);	
-	}	
-		
-	@GetMapping(value="/screen",produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Screen>> getAllScreen()
-	{
-		List<Screen> screens=screenService.getAllScreen();
-		return new ResponseEntity<List<Screen>>(screens,HttpStatus.OK);
+	public ResponseEntity<Set<Movie>> getAllMovies() {
+		Set<Movie> movieList = movieService.findAllMovie();
+		return new ResponseEntity<Set<Movie>>(movieList, HttpStatus.OK);
 	}
-	
-	@DeleteMapping(value="/screen/{screenId}",produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Screen>> deleteScreenById(@PathVariable long screenId)
-	{
+
+	@GetMapping(value = "/screen", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Screen>> getAllScreen() {
+		List<Screen> screens = screenService.getAllScreen();
+		return new ResponseEntity<List<Screen>>(screens, HttpStatus.OK);
+	}
+
+	@DeleteMapping(value = "/screen/{screenId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Screen>> deleteScreenById(@PathVariable long screenId) {
 		screenService.deleteScreen(screenId);
-		List<Screen> screens=screenService.getAllScreen();
-		return new ResponseEntity<List<Screen>>(screens,HttpStatus.OK);
+		List<Screen> screens = screenService.getAllScreen();
+		return new ResponseEntity<List<Screen>>(screens, HttpStatus.OK);
+	}
+
+	@PostMapping(value = "/seat", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Integer> addSeatsInScreen(@RequestBody Screen screen) {
+		Integer updatedNoOfSeats = screenService.addSeats(screen.getScreenId(), screen.getNoOfSeats());
+		return new ResponseEntity<Integer>(updatedNoOfSeats, HttpStatus.ACCEPTED);
+	}
+
+	// top 3 theatres
+
+	@GetMapping("/topThreeTheatres")
+	public ResponseEntity<List<Theatre>> topThreeTheatres() {
+		return new ResponseEntity<List<Theatre>>(adminService.topThreeTheatres(), HttpStatus.OK);
+	}
+
+	// top 3 movies
+
+	@GetMapping("/topThreeMovies")
+	public ResponseEntity<List<Movie>> topThreeMovies() {
+		return new ResponseEntity<List<Movie>>(adminService.topThreeMovies(), HttpStatus.OK);
+	}
+
+	// today's Revenue
+
+	@GetMapping("/todayRevenue")
+	public ResponseEntity<Double> todayRevenue() {
+		return new ResponseEntity<Double>(adminService.todayRevenue(), HttpStatus.OK);
+	}
+
+	// today's Booking
+
+	@GetMapping("/todayBookingCount")
+	public ResponseEntity<Integer> todayBookingCount() {
+		return new ResponseEntity<Integer>(adminService.todayBookingCount(), HttpStatus.OK);
 	}
 	
-	@PostMapping(value="/seat",produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Integer> addSeatsInScreen(@RequestBody Screen screen)
-	{
-		Integer updatedNoOfSeats=screenService.addSeats(screen.getScreenId(), screen.getNoOfSeats());
-		return new ResponseEntity<Integer>(updatedNoOfSeats,HttpStatus.ACCEPTED);
-		
-		
+	//genderwise Count
+	
+	@GetMapping("/genderwiseCount")
+	public ResponseEntity<GenderResponse> genderwiseCount() {
+		return new ResponseEntity<GenderResponse>(adminService.genderwiseCount(), HttpStatus.OK);
 	}
-	
-	
+
 }
