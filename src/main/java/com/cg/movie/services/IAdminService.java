@@ -4,11 +4,12 @@ import java.util.List;
 
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Theatre;
+import com.cg.movie.exception.CustomerListNotFoundException;
 import com.cg.movie.response.GenderResponse;
 
 public interface IAdminService {
 	
-	public Long countOfCustomers();
+	public Long countOfCustomers() throws CustomerListNotFoundException;
 
 	public Long countOfTheatres();
 
