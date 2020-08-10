@@ -15,7 +15,7 @@ public class SeatServiceImpl implements ISeatService {
 	@Override
 	public Boolean chooseSeat(Seat seat) {
 		
-		seat.setSeatStatus("booked");
+//		seat.setSeatStatus("booked");
 		seatRepo.save(seat);
 		return true;
 	}

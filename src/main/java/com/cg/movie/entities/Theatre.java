@@ -26,7 +26,9 @@ public class Theatre {
 	private Integer theatreRating;
 	private String managerName;
 	private Long managerContact;
-
+	private boolean status;
+	
+	
 	public Theatre()
 	{
 		
@@ -67,6 +69,14 @@ public class Theatre {
 
 	public void setTheatreName(String theatreName) {
 		this.theatreName = theatreName;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	public Integer getTheatreRating() {
