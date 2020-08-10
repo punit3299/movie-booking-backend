@@ -39,6 +39,7 @@ public class Screen {
 	@OneToMany(mappedBy = "screen", cascade = CascadeType.ALL)
 	private Set<Show> showsList = new HashSet<>();
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "theaterId")
 	private Theatre theatre;

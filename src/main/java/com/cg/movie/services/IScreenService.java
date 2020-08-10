@@ -8,11 +8,15 @@ public interface IScreenService {
 
 	public Screen addScreen(long theatreId,Screen screenDetails);
 	
-	public List<Screen> getAllScreen();
-	
 	public boolean deleteScreen(long screenId);
 	
 	public int addSeats(long screenId, int noOfSeats);
+
+	List<Screen> getAllScreen(long theatreId);
+	
+	public int updateNoOfSeats(long screenId, int noOfSeats);
+	
+	public int getNoOfSeats(long screenId);
 	
 	
 }

@@ -22,18 +22,16 @@ public class ScreenServiceImpl implements IScreenService {
 	@Override
 	public Screen addScreen(long theatreId, Screen screenDetails) {
 		Theatre theatre=theatreRepo.findById(theatreId).get();
-		
+		screenRepo.save(screenDetails);
+		theatre.addScreen(screenDetails);
 		theatreRepo.save(theatre);
-		
-		System.out.println(theatre);
-		System.out.println(screenDetails);
 		return screenDetails;
 		
 	}
 
 	@Override
-	public List<Screen> getAllScreen() {
-		List<Screen> allScreenDetails = screenRepo.findAll();
+	public List<Screen> getAllScreen(long theatreId) {
+		List<Screen> allScreenDetails = screenRepo.findAll(true,theatreId);
 		return allScreenDetails;
 	}
 
@@ -56,4 +54,20 @@ public class ScreenServiceImpl implements IScreenService {
 
 	}
 
+	@Override
+	public int updateNoOfSeats(long screenId, int noOfSeats) {
+		Screen screen = screenRepo.findById(screenId).get();
+		int updatedSeat=screen.getNoOfSeats()+noOfSeats;
+		screen.setNoOfSeats(updatedSeat);
+		screenRepo.save(screen);
+		return screen.getNoOfSeats();
+	}
+
+	@Override
+	public int getNoOfSeats(long screenId) {
+		Screen screen = screenRepo.findById(screenId).get();
+		return screen.getNoOfSeats();
+	}
+
+	
 }

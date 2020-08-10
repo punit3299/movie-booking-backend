@@ -37,7 +37,7 @@ public class ScreenTest {
 	public void getAllScreenTest()
 	{
 		when(screenRepo.findAll()).thenReturn(Stream.of(new Screen((long)101,"Audi 1",80),new Screen((long)102,"Audi 2",75)).collect(Collectors.toList()));
-		assertEquals(2,screenService.getAllScreen().size());
+		assertEquals(2,screenService.getAllScreen((long)116).size());
 	}
 	
 	@Test

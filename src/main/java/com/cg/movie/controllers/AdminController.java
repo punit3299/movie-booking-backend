@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -93,16 +94,16 @@ public class AdminController {
 	}
 
 
-	@GetMapping(value = "/screen", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Screen>> getAllScreen() {
-		List<Screen> screens = screenService.getAllScreen();
+	@GetMapping(value = "/screen/{theatreId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Screen>> getAllScreen(@PathVariable long theatreId) {
+		List<Screen> screens = screenService.getAllScreen(theatreId);
 		return new ResponseEntity<List<Screen>>(screens, HttpStatus.OK);
 	}
 
-	@DeleteMapping(value = "/screen/{screenId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Screen>> deleteScreenById(@PathVariable long screenId) {
+	@DeleteMapping(value = "/screen/{theatreId}/{screenId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Screen>> deleteScreenById(@PathVariable long screenId,@PathVariable long theatreId) {
 		screenService.deleteScreen(screenId);
-		List<Screen> screens = screenService.getAllScreen();
+		List<Screen> screens = screenService.getAllScreen(theatreId);
 		return new ResponseEntity<List<Screen>>(screens, HttpStatus.OK);
 	}
 
@@ -113,6 +114,21 @@ public class AdminController {
 
 	}
 
+	@PatchMapping(value = "/seat", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Integer> updateSeatsInScreen(@RequestBody Screen screen) {
+		Integer updatedNoOfSeats = screenService.updateNoOfSeats(screen.getScreenId(), screen.getNoOfSeats());
+		return new ResponseEntity<Integer>(updatedNoOfSeats, HttpStatus.ACCEPTED);
+
+	}
+
+	@GetMapping(value = "/seat/{screenId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Integer> getNoOfSeat(@PathVariable long screenId)
+	{
+		Integer noOfSeat=screenService.getNoOfSeats(screenId);
+		return new ResponseEntity<Integer>(noOfSeat, HttpStatus.ACCEPTED);
+	}
+	
+	
 	@PostMapping(value = "/bookSeat", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Ticket> bookSeat(@RequestBody BookTicketDetails bookTicketDetails) {
 		return null;
