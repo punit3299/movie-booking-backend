@@ -29,7 +29,7 @@ public class CityServiceImpl implements ICityService {
 	@Override
 	public List<Theatre> getAllTheatreByCity(String city) {
 		// TODO Auto-generated method stub
-		City requiredCity= (City) cityRepo.findByCityName(city);
+		City requiredCity= cityRepo.findByCityName(city);
 		int n=requiredCity.getTheatresList().size();
 	    List<Theatre> theatreList = new ArrayList<Theatre>(n); 
 	    for (Theatre x : requiredCity.getTheatresList()) 

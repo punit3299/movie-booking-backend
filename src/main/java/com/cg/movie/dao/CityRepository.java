@@ -13,5 +13,5 @@ import com.cg.movie.entities.Theatre;
 public interface CityRepository extends JpaRepository<City, Long> {
 
 	@Query("select c from City c where c.cityName=?1")
-	List<Theatre> findByCityName(String city);
+	City findByCityName(String city);
 }
