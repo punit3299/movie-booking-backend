@@ -57,17 +57,40 @@ public class SeatServiceImpl implements ISeatService {
 		Movie movie=movieRepo.findById(details.getMovieId()).get();
 		Customer customer=customerRepo.findById(details.getCustomerId()).get();
 		
-		Booking booking=new Booking();
-		booking.setBookingDate(details.getBookingDate());
-		booking.setTotalCost(details.getTicketPrice());
-		bookingRepo.save(booking);
-		
 		Ticket ticket=new Ticket();
 		ticket.setSeatName(details.getSeatNo());
 	    ticket.setScreenName(screen.getScreenName());
 	    ticket.setTicketStatus(true);
 	    ticketRepo.save(ticket);
-	 
+	    
+	    customer.addTicket(ticket);
+		
+	    Booking booking=new Booking();
+		booking.setBookingDate(details.getBookingDate());
+		booking.setTotalCost(details.getTicketPrice());
+		booking.setMovie(movie.getMovieName());
+		booking.setStatus(true);
+		booking.setShow(show);
+		booking.setTicket(ticket);
+		bookingRepo.save(booking);
+	    
+		int showAlreadyInSeatEntity=seatRepo.ifExistSeatOfShowId(details.getShowId());
+		
+		if(showAlreadyInSeatEntity!=0)
+		{
+			Seat seat=seatRepo.findSeatByShowId(details.getShowId());
+			String seatNumber=seat.getSeatNumber()+"|"+details.getSeatNo();
+			seat.setSeatNumber(seatNumber);
+			seatRepo.save(seat);
+		}
+		else if(showAlreadyInSeatEntity==0)
+		{
+			Seat seat=new Seat();
+			seat.setSeatNumber(details.getSeatNo());
+			show.addSeat(seat);
+			seatRepo.save(seat);
+		}
+		
 	    BookedDetailsOfTicket bookedDetailsOfTicket=new BookedDetailsOfTicket();
 	    bookedDetailsOfTicket.setBookingDate(details.getBookingDate());
 	    bookedDetailsOfTicket.setCityName(city.getCityName());
@@ -77,11 +100,9 @@ public class SeatServiceImpl implements ISeatService {
 	    bookedDetailsOfTicket.setShowDate(details.getShowDate());
 	    bookedDetailsOfTicket.setTheatreName(theatre.getTheatreName());
 	    bookedDetailsOfTicket.setTotalCost(details.getTicketPrice());
+	    bookedDetailsOfTicket.setBookingId(booking.getBookingId());
 	    
-	   
-		
-		return null;
-		
+		return bookedDetailsOfTicket;
 		
 	}
 

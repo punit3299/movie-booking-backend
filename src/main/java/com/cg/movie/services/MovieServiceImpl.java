@@ -30,9 +30,15 @@ public class MovieServiceImpl implements IMovieService {
 		return movieList1;
 	}
 
+
 	@Override
-	public void  deleteById(long id) {
-		movieRepo.deleteById(id);
+	public boolean deleteMovieById(long movieId) {
+		if(movieRepo.existsById(movieId))
+		{
+			movieRepo.deleteScreenById(true,movieId);
+			return true;
+		}
+		return false;
 	}
 
 }

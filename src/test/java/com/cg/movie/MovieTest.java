@@ -64,7 +64,7 @@ public class MovieTest {
 	public void deleteMovieTest() {
 		//Movie movie1 = createMovie(1170000011L, "The Fault in our stars", "Young Adult Fiction", "John Boone", 02.13);
 		
-		movieServiceImpl.deleteById(1170000011L);
+		movieServiceImpl.deleteMovieById(1170000011L);
 	
 		verify(movieDAO, times(1)).deleteById(Mockito.anyLong());
 	}

@@ -16,13 +16,13 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.cg.movie.dao.ScreenRepository;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.exception.ScreenNotFoundException;
-import com.cg.movie.services.ScreenServiceImpl;
+import com.cg.movie.services.IScreenService;
 
 @SpringBootTest
 public class ScreenTest {
 
 	@Autowired
-	ScreenServiceImpl screenService;
+	IScreenService screenService;
 	
 	@MockBean
 	ScreenRepository screenRepo;

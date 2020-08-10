@@ -3,6 +3,8 @@ package com.cg.movie.controllers;
 import java.util.List;
 import java.util.Set;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,17 +23,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.movie.entities.City;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
+import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Theatre;
-import com.cg.movie.response.GenderResponse;
-import com.cg.movie.entities.Ticket;
 import com.cg.movie.exception.ScreenNotFoundException;
-import com.cg.movie.response.BookTicketDetails;
+import com.cg.movie.response.GenderResponse;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
 import com.cg.movie.services.ICityService;
 import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.IScreenService;
 import com.cg.movie.services.ISeatService;
+import com.cg.movie.services.IShowService;
 import com.cg.movie.services.ITheatreService;
 
 @RestController
@@ -47,18 +49,18 @@ public class AdminController {
 
 	@Autowired
 	IScreenService screenService;
-	
+
 	@Autowired
 	ITheatreService theatreService;
-	
+
 	@Autowired
 	ICityService cityService;
-
 
 	@Autowired
 	ISeatService seatService;
 
-
+	@Autowired
+	IShowService showService;
 	// get count of customers
 
 	@GetMapping("/countOfCustomers")
@@ -95,7 +97,7 @@ public class AdminController {
 
 	@DeleteMapping("/theatre/movie/{movieId}")
 	public ResponseEntity<String> deleteMovie(@PathVariable long movieId) {
-		movieService.deleteById(movieId);
+		movieService.deleteMovieById(movieId);
 		return new ResponseEntity<String>("Movie Deleted", HttpStatus.OK);
 	}
 
@@ -104,7 +106,6 @@ public class AdminController {
 		Set<Movie> movieList = movieService.findAllMovie();
 		return new ResponseEntity<Set<Movie>>(movieList, HttpStatus.OK);
 	}
-
 
 	// top 3 theatres
 
@@ -133,14 +134,13 @@ public class AdminController {
 	public ResponseEntity<Integer> todayBookingCount() {
 		return new ResponseEntity<Integer>(adminService.todayBookingCount(), HttpStatus.OK);
 	}
-	
-	//genderwise Count
-	
+
+	// genderwise Count
+
 	@GetMapping("/genderwiseCount")
 	public ResponseEntity<GenderResponse> genderwiseCount() {
 		return new ResponseEntity<GenderResponse>(adminService.genderwiseCount(), HttpStatus.OK);
 	}
-
 
 	@GetMapping(value = "/screen/{theatreId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Screen>> getAllScreen(@PathVariable long theatreId) {
@@ -149,7 +149,8 @@ public class AdminController {
 	}
 
 	@DeleteMapping(value = "/screen/{theatreId}/{screenId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Screen>> deleteScreenById(@PathVariable long screenId,@PathVariable long theatreId) throws ScreenNotFoundException {
+	public ResponseEntity<List<Screen>> deleteScreenById(@PathVariable long screenId, @PathVariable long theatreId)
+			throws ScreenNotFoundException {
 		screenService.deleteScreen(screenId);
 		List<Screen> screens = screenService.getAllScreen(theatreId);
 		return new ResponseEntity<List<Screen>>(screens, HttpStatus.OK);
@@ -170,66 +171,58 @@ public class AdminController {
 	}
 
 	@GetMapping(value = "/seat/{screenId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Integer> getNoOfSeat(@PathVariable long screenId) throws ScreenNotFoundException
-	{
-		Integer noOfSeat=screenService.getNoOfSeats(screenId);
+	public ResponseEntity<Integer> getNoOfSeat(@PathVariable long screenId) throws ScreenNotFoundException {
+		Integer noOfSeat = screenService.getNoOfSeats(screenId);
 		return new ResponseEntity<Integer>(noOfSeat, HttpStatus.ACCEPTED);
 	}
-	
-	
-	@PostMapping(value = "/bookSeat", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Ticket> bookSeat(@RequestBody BookTicketDetails bookTicketDetails) {
-		return null;
-	}
-	
+
 	@PutMapping("/theatre/edit/{theatreId}")
-	public ResponseEntity<String> updateTheatre(@RequestBody Theatre theatre, @PathVariable long theatreId)
-	{
+	public ResponseEntity<String> updateTheatre(@RequestBody Theatre theatre, @PathVariable long theatreId) {
 		theatreService.updateTheatre(theatre);
 		return new ResponseEntity<String>("Theatre updated successfully", HttpStatus.OK);
 	}
 
-	@PostMapping(value="/city")
-	public ResponseEntity<City> AddCity(@RequestBody City city)
-	{
-		City newCity=cityService.addCity(city);
-		return new ResponseEntity<City>(newCity,HttpStatus.OK);
+	@PostMapping(value = "/city")
+	public ResponseEntity<City> AddCity(@RequestBody City city) {
+		City newCity = cityService.addCity(city);
+		return new ResponseEntity<City>(newCity, HttpStatus.OK);
 	}
-	
-	@GetMapping(value="/city/list")
-	public ResponseEntity<List<City>> getAllCities()
-	{
-		List<City> city=cityService.viewAllCity();
-		return new ResponseEntity<List<City>>(city,HttpStatus.OK);
+
+	@GetMapping(value = "/city/list")
+	public ResponseEntity<List<City>> getAllCities() {
+		List<City> city = cityService.viewAllCity();
+		return new ResponseEntity<List<City>>(city, HttpStatus.OK);
 	}
-	
-	@GetMapping(value="/theatre/{city}")
-	public ResponseEntity<List<Theatre>> getTheatreByCity(@PathVariable String cityName)
-	{
-		List<Theatre> theatre=cityService.getAllTheatreByCity(cityName);
+
+	@GetMapping(value = "/theatre/{city}")
+	public ResponseEntity<List<Theatre>> getTheatreByCity(@PathVariable String cityName) {
+		List<Theatre> theatre = cityService.getAllTheatreByCity(cityName);
 		return new ResponseEntity<List<Theatre>>(theatre, HttpStatus.OK);
 	}
-	
-	@PostMapping(value="/theatre")
-	public ResponseEntity<Theatre> addTheatre(@RequestBody Theatre theatre)
-	{
-		Theatre newTheatre=theatreService.addTheatre(theatre);
-		return new ResponseEntity<Theatre>(newTheatre,HttpStatus.OK);
+
+	@PostMapping(value = "/theatre")
+	public ResponseEntity<Theatre> addTheatre(@RequestBody Theatre theatre) {
+		Theatre newTheatre = theatreService.addTheatre(theatre);
+		return new ResponseEntity<Theatre>(newTheatre, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/theatre/{theatreId}")
-	public ResponseEntity<String> deleteTheatre(@PathVariable long theatreId)
-	{
-		Theatre theatre=theatreService.getTheatreById(theatreId);
+	public ResponseEntity<String> deleteTheatre(@PathVariable long theatreId) {
+		Theatre theatre = theatreService.getTheatreById(theatreId);
 		theatreService.deleteTheatre(theatre);
-		return new ResponseEntity<String>("Theatre Deleted",HttpStatus.OK);
+		return new ResponseEntity<String>("Theatre Deleted", HttpStatus.OK);
 	}
 
 	@GetMapping("/theatre/list")
-	public ResponseEntity<List<Theatre>> getAllTheatre()
-	{
-		List<Theatre> theatre=theatreService.viewAllTheatre();
-		return new ResponseEntity<List<Theatre>>(theatre,HttpStatus.OK);
+	public ResponseEntity<List<Theatre>> getAllTheatre() {
+		List<Theatre> theatre = theatreService.viewAllTheatre();
+		return new ResponseEntity<List<Theatre>>(theatre, HttpStatus.OK);
+	}
+
+	@PostMapping("/theatre/screen/show")
+	public ResponseEntity<Long> addNewShow(@PathParam("theatreId") long theatreId, @PathParam("screenId") long screenId,
+			@PathParam("movieId") long movieId, @RequestBody Show show) {
+		return new ResponseEntity<Long>(showService.addNewShow(theatreId, screenId, movieId, show), HttpStatus.CREATED);
 	}
 
 }
