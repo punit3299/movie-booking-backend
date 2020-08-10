@@ -56,6 +56,7 @@ public class SeatServiceImpl implements ISeatService {
 		Show show=showRepo.findById(details.getShowId()).get();
 		Movie movie=movieRepo.findById(details.getMovieId()).get();
 		Customer customer=customerRepo.findById(details.getCustomerId()).get();
+		
 		Ticket ticket=new Ticket();
 		ticket.setSeatName(details.getSeatNo());
 	    ticket.setScreenName(screen.getScreenName());
@@ -68,24 +69,26 @@ public class SeatServiceImpl implements ISeatService {
 		booking.setBookingDate(details.getBookingDate());
 		booking.setTotalCost(details.getTicketPrice());
 		booking.setMovie(movie.getMovieName());
+		booking.setStatus(true);
+		booking.setShow(show);
 		booking.setTicket(ticket);
 		bookingRepo.save(booking);
 	    
-		Seat seat=seatRepo.findSeatByShowId(details.getShowId());
-		if(seat!=null)
+		int showAlreadyInSeatEntity=seatRepo.ifExistSeatOfShowId(details.getShowId());
+		
+		if(showAlreadyInSeatEntity!=0)
 		{
-			seat.setSeatNumber(details.getSeatNo());
-			seatRepo.save(seat);
-			show.addSeat(seat);
-			showRepo.save(show);
-			
-		}
-		else
-		{
+			Seat seat=seatRepo.findSeatByShowId(details.getShowId());
 			String seatNumber=seat.getSeatNumber()+"|"+details.getSeatNo();
 			seat.setSeatNumber(seatNumber);
 			seatRepo.save(seat);
-			
+		}
+		else if(showAlreadyInSeatEntity==0)
+		{
+			Seat seat=new Seat();
+			seat.setSeatNumber(details.getSeatNo());
+			show.addSeat(seat);
+			seatRepo.save(seat);
 		}
 		
 	    BookedDetailsOfTicket bookedDetailsOfTicket=new BookedDetailsOfTicket();
@@ -99,10 +102,7 @@ public class SeatServiceImpl implements ISeatService {
 	    bookedDetailsOfTicket.setTotalCost(details.getTicketPrice());
 	    bookedDetailsOfTicket.setBookingId(booking.getBookingId());
 	    
-	   
-		
 		return bookedDetailsOfTicket;
-		
 		
 	}
 

@@ -9,6 +9,9 @@ import com.cg.movie.entities.Seat;
 @Repository
 public interface SeatRepository extends JpaRepository<Seat, Long> {
 
+	@Query("SELECT COUNT(*) FROM Seat seat WHERE seat.show.showId = ?1 ")
+	int ifExistSeatOfShowId(long showId);
+	
 	@Query("SELECT seat FROM Seat seat WHERE seat.show.showId = ?1 ")
 	Seat findSeatByShowId(long showId);
 
