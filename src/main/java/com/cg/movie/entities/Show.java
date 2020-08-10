@@ -2,6 +2,7 @@ package com.cg.movie.entities;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -32,7 +33,6 @@ public class Show {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
 
 	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName) {
 		super();
@@ -41,7 +41,6 @@ public class Show {
 		this.showEndTime = showEndTime;
 		this.showName = showName;
 	}
-
 
 
 	@JsonIgnore
@@ -170,5 +169,5 @@ public class Show {
 	public void addSeat(Seat seat) {
 		seat.setShow(this); // this will avoid nested cascade
 		this.getSeatsList().add(seat);
-	}
+	}	
 }
