@@ -1,5 +1,7 @@
 package com.cg.movie.entities;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +22,7 @@ public class Ticket {
 	private String seatName; // make it seatsList
 	private Boolean ticketStatus;
 	private String screenName;
+	private Timestamp showDate;
 	
 	public Ticket(Long ticketId, Long noOfSeats, String seatName, Boolean ticketStatus, String screenName) {
 		super();
@@ -30,12 +33,24 @@ public class Ticket {
 		this.screenName = screenName;
 	}
 
+	public Ticket() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@OneToOne(mappedBy = "ticket")
 	private Booking booking;
 	
 	@ManyToOne
 	@JoinColumn(name = "customerId")
 	private Customer customer;
+	
+	public Timestamp getShowDate() {
+		return showDate;
+	}
+
+	public void setShowDate(Timestamp showDate) {
+		this.showDate = showDate;
+	}
 
 	public Long getTicketId() {
 		return ticketId;

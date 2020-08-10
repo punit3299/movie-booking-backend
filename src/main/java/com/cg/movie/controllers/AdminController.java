@@ -19,10 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
+import com.cg.movie.entities.Ticket;
+import com.cg.movie.response.BookTicketDetails;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
 import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.IScreenService;
+import com.cg.movie.services.ISeatService;
 
 
 @RestController
@@ -38,6 +41,9 @@ public class AdminController {
 
 	@Autowired
 	IScreenService screenService;
+	
+	@Autowired
+	ISeatService seatService;
 	
 	// get count of customers
 
@@ -111,6 +117,14 @@ public class AdminController {
 		return new ResponseEntity<Integer>(updatedNoOfSeats,HttpStatus.ACCEPTED);
 		
 		
+	}
+	
+	@PostMapping(value="/bookSeat",produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Ticket> bookSeat(@RequestBody BookTicketDetails bookTicketDetails)
+	{
+		
+		
+		return null;
 	}
 	
 	
