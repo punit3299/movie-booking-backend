@@ -30,10 +30,12 @@ public class ShowServiceImpl implements IShowService {
 
 	@Override
 	public Long addNewShow(long theatreId, long screenId, long movieId, Show show) {
+		
 		Movie movie = showValidator.validateMovieId(movieId);
 		Theatre theatre = showValidator.validateTheatreId(theatreId);
 		Screen screen = showValidator.validateScreenId(screenId);
 
+		showValidator.validateShowTimePeriod(show.getShowStartTime(), show.getShowEndTime(), screen.getScreenId());
 		show.setMovie(movie);
 		show.setTheatre(theatre);
 		show.setScreen(screen);

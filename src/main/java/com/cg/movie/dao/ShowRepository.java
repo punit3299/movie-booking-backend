@@ -1,11 +1,24 @@
 package com.cg.movie.dao;
 
+import java.sql.Timestamp;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.cg.movie.entities.Show;
 
 @Repository
 public interface ShowRepository extends JpaRepository<Show, Long> {
+	
+	@Query("SELECT s from Show s WHERE ((s.showStartTime <= :startTime AND s.showEndTime >=:startTime)"
+			+ " OR (s.showStartTime <= :endTime AND s.showEndTime >=:endTime)"
+			+ "OR (s.showStartTime >= :startTime AND s.showEndTime <=:endTime))"
+			+ "AND s.screen.screenId = :screenId")
+	public List<Show> timePeriodOverlap(@Param("startTime") Timestamp startTime,@Param("endTime") Timestamp endTime , 
+			@Param("screenId") long screenId);
+	
 
 }
