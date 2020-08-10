@@ -62,7 +62,6 @@ public class Seat {
 		this.seatPrice = seatPrice;
 	}
 
-	
 
 	public Show getShow() {
 		return show;
