@@ -14,12 +14,13 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.cg.movie.dao.CityRepository;
 import com.cg.movie.entities.City;
 import com.cg.movie.services.CityServiceImpl;
+import com.cg.movie.services.ICityService;
 
 @SpringBootTest
 public class CityTest {
 	
 	@Autowired
-	CityServiceImpl cityService;
+	ICityService cityService;
 	
 	@MockBean
 	CityRepository repository;

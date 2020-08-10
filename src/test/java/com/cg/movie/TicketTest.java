@@ -25,7 +25,7 @@ class TicketTest {
 
 	@Test
 	public void bookTicketTest() {
-		Ticket ticket = new Ticket(new Long(1), "First", true, "S1");
+		Ticket ticket = new Ticket(new Long(1),  "First", true, "S1");
 		when(ticketRepo.save(ticket)).thenReturn(ticket);
 		assertEquals(ticket, iTicketService.bookTicket(ticket));
 	}

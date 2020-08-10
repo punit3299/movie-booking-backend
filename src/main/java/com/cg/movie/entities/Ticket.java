@@ -28,6 +28,10 @@ public class Ticket {
 		this.screenName = screenName;
 	}
 
+	public Ticket() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@OneToOne(mappedBy = "ticket")
 	private Booking booking;
 	

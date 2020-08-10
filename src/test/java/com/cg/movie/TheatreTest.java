@@ -15,13 +15,14 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.cg.movie.dao.TheatreRepository;
 import com.cg.movie.entities.Theatre;
+import com.cg.movie.services.ITheatreService;
 import com.cg.movie.services.TheatreServiceImpl;
 
 @SpringBootTest
 class TheatreTest {
 
 	@Autowired
-	TheatreServiceImpl theatreService;
+	ITheatreService theatreService;
 
 	@MockBean
 	TheatreRepository theatreRepo;

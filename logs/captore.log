@@ -1,0 +1,3 @@
+2020/08/10 14:03:05.777  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned No of seats if screen of id 3
+ 2020/08/10 14:03:39.166  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 161
+ 

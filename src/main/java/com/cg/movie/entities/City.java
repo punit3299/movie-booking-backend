@@ -25,6 +25,11 @@ public class City {
 	@JsonIgnore
 	@OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
 	private Set<Theatre> theatresList = new HashSet<>();
+	
+	public City()
+	{
+		
+	}
 
 
 	public City(Long cityId, String cityName) {

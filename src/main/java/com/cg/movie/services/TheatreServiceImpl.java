@@ -24,8 +24,6 @@ public class TheatreServiceImpl implements ITheatreService {
 		theatreRepo.delete(theatre);
 	}
 	
-	
-	
 	@Override
 	public void updateTheatre(Theatre theatre) {
 		theatreRepo.save(theatre);
@@ -37,11 +35,11 @@ public class TheatreServiceImpl implements ITheatreService {
 		return theatreRepo.findAll();
 		
 	}
-
+	
 	@Override
 	public Theatre getTheatreById(long threatreId) {
 		// TODO Auto-generated method stub
-		
+
 		Theatre theatre= theatreRepo.findById(threatreId).get();
 		return theatre;
 	}

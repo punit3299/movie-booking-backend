@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cg.movie.entities.Screen;
 
-@Repository
 @Transactional
+@Repository
 public interface ScreenRepository extends JpaRepository<Screen, Long> {
 
 	@Modifying
@@ -19,8 +19,8 @@ public interface ScreenRepository extends JpaRepository<Screen, Long> {
 	void deleteScreenById(boolean status, long screenId);
 	
 	@Modifying
-	@Query("SELECT screen FROM Screen screen WHERE screen.status = ?1")
-	List<Screen> findAll(boolean status);
+	@Query("SELECT screen FROM Screen screen WHERE screen.status = ?1 AND screen.theatre.theatreId = ?2")
+	List<Screen> findAll(boolean status,long theatreId);
 	
 	
 }

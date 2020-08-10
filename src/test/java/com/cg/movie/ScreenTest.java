@@ -15,6 +15,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.cg.movie.dao.ScreenRepository;
 import com.cg.movie.entities.Screen;
+import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.services.ScreenServiceImpl;
 
 @SpringBootTest
@@ -37,11 +38,11 @@ public class ScreenTest {
 	public void getAllScreenTest()
 	{
 		when(screenRepo.findAll()).thenReturn(Stream.of(new Screen((long)101,"Audi 1",80,true),new Screen((long)102,"Audi 2",75,true)).collect(Collectors.toList()));
-		assertEquals(2,screenService.getAllScreen().size());
+		assertEquals(2,screenService.getAllScreen((long)101).size());
 	}
 	
 	@Test
-	public void deleteScreenTest()
+	public void deleteScreenTest() throws ScreenNotFoundException
 	{
 //		when(screenRepo.existsById((long)101).thenReturn(true);
 		screenService.deleteScreen((long)101);
@@ -49,7 +50,7 @@ public class ScreenTest {
 	}
 	
 	@Test
-	public void addSeatTest()
+	public void addSeatTest() throws ScreenNotFoundException
 	{
 		when(screenRepo.findById((long) 101).get()).thenReturn(screenRepo.save(new Screen((long)101,"Audi 1",0,true)));
 		assertEquals(75,screenService.addSeats((long)101, 75));
