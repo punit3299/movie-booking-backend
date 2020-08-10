@@ -23,6 +23,7 @@ import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.entities.Ticket;
+import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.response.BookTicketDetails;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
@@ -112,28 +113,28 @@ public class AdminController {
 	}
 
 	@DeleteMapping(value = "/screen/{theatreId}/{screenId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Screen>> deleteScreenById(@PathVariable long screenId,@PathVariable long theatreId) {
+	public ResponseEntity<List<Screen>> deleteScreenById(@PathVariable long screenId,@PathVariable long theatreId) throws ScreenNotFoundException {
 		screenService.deleteScreen(screenId);
 		List<Screen> screens = screenService.getAllScreen(theatreId);
 		return new ResponseEntity<List<Screen>>(screens, HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/seat", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Integer> addSeatsInScreen(@RequestBody Screen screen) {
+	public ResponseEntity<Integer> addSeatsInScreen(@RequestBody Screen screen) throws ScreenNotFoundException {
 		Integer updatedNoOfSeats = screenService.addSeats(screen.getScreenId(), screen.getNoOfSeats());
 		return new ResponseEntity<Integer>(updatedNoOfSeats, HttpStatus.ACCEPTED);
 
 	}
 
 	@PatchMapping(value = "/seat", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Integer> updateSeatsInScreen(@RequestBody Screen screen) {
+	public ResponseEntity<Integer> updateSeatsInScreen(@RequestBody Screen screen) throws ScreenNotFoundException {
 		Integer updatedNoOfSeats = screenService.updateNoOfSeats(screen.getScreenId(), screen.getNoOfSeats());
 		return new ResponseEntity<Integer>(updatedNoOfSeats, HttpStatus.ACCEPTED);
 
 	}
 
 	@GetMapping(value = "/seat/{screenId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Integer> getNoOfSeat(@PathVariable long screenId)
+	public ResponseEntity<Integer> getNoOfSeat(@PathVariable long screenId) throws ScreenNotFoundException
 	{
 		Integer noOfSeat=screenService.getNoOfSeats(screenId);
 		return new ResponseEntity<Integer>(noOfSeat, HttpStatus.ACCEPTED);
