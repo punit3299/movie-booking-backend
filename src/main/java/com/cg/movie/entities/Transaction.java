@@ -27,6 +27,15 @@ public class Transaction {
 	@ManyToOne
 	@JoinColumn(name = "showId")
 	private Show show;
+	
+	
+
+	public Transaction(Long transactionId, String transactionMessage, Timestamp transactionTime) {
+		super();
+		this.transactionId = transactionId;
+		this.transactionMessage = transactionMessage;
+		this.transactionTime = transactionTime;
+	}
 
 	public Long getTransactionId() {
 		return transactionId;

@@ -10,7 +10,7 @@ import com.cg.movie.entities.Customer;
 public class CustomerServiceImpl implements ICustomerService {
 
 	@Autowired
-	CustomerRepository customerRepo;
+	private CustomerRepository customerRepo;
 	
 	@Override
 	public Customer addCustomer(Customer customer) {
@@ -18,15 +18,15 @@ public class CustomerServiceImpl implements ICustomerService {
 	}
 
 	@Override
-	public void addMoneyToWallet(Customer customer, int money) {
+	public Customer addMoneyToWallet(Customer customer, int money) {
 		customer.setCustomerBalance(customer.getCustomerBalance()+money);
-		customerRepo.save(customer);
+		return customerRepo.save(customer);
 	}
 
 	@Override
-	public void refundMoneyToWallet(Customer customer, int amount) {
+	public Customer refundMoneyToWallet(Customer customer, int amount) {
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
-		customerRepo.save(customer);
+		return customerRepo.save(customer);
 	}
 	
 	
