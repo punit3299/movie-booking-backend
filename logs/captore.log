@@ -26,4 +26,10 @@
  2020/08/11 00:05:06.962  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 3 Customers returned successfully
  2020/08/11 00:05:07.039  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
  2020/08/11 00:05:07.062  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 1 Movies returned successfully
+ 2020/08/11 00:28:32.954  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : Theatre not found with 6
+ 2020/08/11 00:28:33.017  INFO  -  [main] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 6
+ 2020/08/11 00:31:15.605  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 1
+ 2020/08/11 00:31:15.682  ERROR -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl : Theatre not found with 1
+ 2020/08/11 00:31:45.604  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 8
+ 2020/08/11 00:31:45.760  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 8
  

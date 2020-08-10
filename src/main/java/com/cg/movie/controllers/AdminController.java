@@ -195,8 +195,8 @@ public class AdminController {
 	}
 
 	@GetMapping(value = "/theatre/{city}")
-	public ResponseEntity<List<Theatre>> getTheatreByCity(@PathVariable String cityName) {
-		List<Theatre> theatre = cityService.getAllTheatreByCity(cityName);
+	public ResponseEntity<List<Theatre>> getTheatreByCity(@PathVariable String city) {
+		List<Theatre> theatre = cityService.getAllTheatreByCity(city);
 		return new ResponseEntity<List<Theatre>>(theatre, HttpStatus.OK);
 	}
 

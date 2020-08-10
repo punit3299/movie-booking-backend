@@ -2,17 +2,21 @@ package com.cg.movie.services;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.TheatreRepository;
 import com.cg.movie.entities.Theatre;
+import com.cg.movie.exception.TheatreNotFoundException;
 
 @Service
 public class TheatreServiceImpl implements ITheatreService {
 
 	@Autowired
 	TheatreRepository theatreRepo;
+	
+	private Logger logger = Logger.getLogger(getClass());
 	
 	@Override
 	public Theatre addTheatre(Theatre theatre) {
@@ -21,7 +25,19 @@ public class TheatreServiceImpl implements ITheatreService {
 
 	@Override
 	public void deleteTheatre(Theatre theatre) {
-		theatreRepo.delete(theatre);
+		//theatreRepo.delete(theatre);
+		System.out.println(theatre.getTheatreId());
+		if(theatreRepo.existsById(theatre.getTheatreId()))
+		{
+			System.out.println(theatre.getTheatreId());
+			theatreRepo.delete(theatre);
+			logger.info("Delete theatre of id "+theatre.getTheatreId());
+		}
+		else
+		{
+			logger.error("Theatre not found with "+theatre.getTheatreId());
+			throw new TheatreNotFoundException("Theatre Not Found");
+		}
 	}
 	
 	@Override
@@ -37,10 +53,17 @@ public class TheatreServiceImpl implements ITheatreService {
 	}
 	
 	@Override
-	public Theatre getTheatreById(long threatreId) {
+	public Theatre getTheatreById(long theatreId) {
 		// TODO Auto-generated method stub
-
-		Theatre theatre= theatreRepo.findById(threatreId).get();
-		return theatre;
+		System.out.println(theatreId);
+		Theatre theatre= theatreRepo.getOne(theatreId);
+		if(theatre==null)
+		{
+			logger.error("Theatre not found with "+theatreId);
+			throw new TheatreNotFoundException("Theatre Not Found");
+		}
+		else {
+			logger.info(" theatre found of id "+theatreId);
+		return theatre;}
 	}
 }
