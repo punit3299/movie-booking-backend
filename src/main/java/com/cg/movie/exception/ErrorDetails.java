@@ -9,7 +9,6 @@ public class ErrorDetails {
 	private String message;
 	private HttpStatus header;
 	
-	
 
 	public String getMessage() {
 		return message;
