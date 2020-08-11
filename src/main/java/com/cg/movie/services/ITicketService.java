@@ -6,6 +6,8 @@ public interface ITicketService {
 	
 	public Ticket bookTicket(Ticket ticket);
 	
-	public void cancelTicket(Ticket ticket);
+	public Ticket findTicketById(long ticketId);
+	
+	public Ticket cancelTicket(Ticket ticket);
 
 }

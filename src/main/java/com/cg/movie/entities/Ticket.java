@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "ticket_table")
 public class Ticket {
@@ -32,6 +34,7 @@ public class Ticket {
 		// TODO Auto-generated constructor stub
 	}
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "ticket")
 	private Booking booking;
 
@@ -71,6 +74,7 @@ public class Ticket {
 		this.screenName = screenName;
 	}
 
+	@JsonIgnore
 	public Booking getBooking() {
 		return booking;
 	}
