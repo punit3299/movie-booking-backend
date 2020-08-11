@@ -5,6 +5,9 @@ import static org.mockito.Mockito.when;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +30,41 @@ public class ShowTest {
 	
 	@Test
 	public void addShowTest() {
-		Show show =new Show(new Long(1), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker");
+		Show show =new Show(new Long(500), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker");
         when(showRepo.save(show)).thenReturn(show);	
         assertEquals(show, showService.addShow(show));
 	}
 	
+	@Test
+	public void getShowByMovieIdTest()
+	{
+		List<Show> shows=Stream.of(new Show(new Long(500), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker"), (new Show(new Long(501), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker"))).collect(Collectors.toList());
+	    when(showRepo.findShowByMovieId(new Long(6001))).thenReturn(shows);
+	    assertEquals(2,showService.getShowByMovieId(new Long(6001)).size());
+	}
 	
-	
+	@Test
+	public void getShowByTheatreIdTest()
+	{
+		List<Show> shows=Stream.of(new Show(new Long(500), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker"), (new Show(new Long(501), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker"))).collect(Collectors.toList());
+	    when(showRepo.findShowByTheatreId(new Long(7001))).thenReturn(shows);
+	    assertEquals(2,showService.getShowByTheatreId(new Long(7001)).size());
+	}
     
+	@Test
+	public void verifyTheatreIdTest()
+	{
+		Long theatreId=new Long(1190);
+		when(showRepo.existsById(theatreId)).thenReturn(true);
+		assertEquals(true, showService.verifyTheatreId(theatreId));
+	}
+	
+	@Test
+	public void verifyMovieIdTest() 
+	{
+		Long movieId=new Long(200);
+		when(showRepo.existsById(movieId)).thenReturn(true);
+		assertEquals(true, showService.verifyTheatreId(movieId));
+	}
+	
 }

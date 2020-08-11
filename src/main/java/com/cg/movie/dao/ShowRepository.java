@@ -31,4 +31,13 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
 	
 	@Query("SELECT s from Show s WHERE s.status=0 ")
 	List<Show> findAllShows();
+	
+	
+    @Query(value="select show from Show show where show.movieId=?1",nativeQuery=true)
+	public List<Show> findShowByMovieId(Long id);
+	
+	
+    @Query(value="select show from Show show where show.theatreId=?1",nativeQuery=true)
+	public List<Show> findShowByTheatreId(Long id);
+	
 }
