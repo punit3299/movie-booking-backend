@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.movie.entities.City;
+import com.cg.movie.entities.Language;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.entities.Show;
@@ -30,6 +31,7 @@ import com.cg.movie.response.GenderResponse;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
 import com.cg.movie.services.ICityService;
+import com.cg.movie.services.ILanguageService;
 import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.IScreenService;
 import com.cg.movie.services.ISeatService;
@@ -61,6 +63,9 @@ public class AdminController {
 
 	@Autowired
 	IShowService showService;
+
+	@Autowired
+	ILanguageService languageService;
 	// get count of customers
 
 	@GetMapping("/countOfCustomers")
@@ -224,17 +229,22 @@ public class AdminController {
 			@PathParam("movieId") long movieId, @RequestBody Show show) {
 		return new ResponseEntity<Long>(showService.addNewShow(theatreId, screenId, movieId, show), HttpStatus.CREATED);
 	}
-	
+
 	@DeleteMapping("/theatre/screen/{showId}")
-	public ResponseEntity<String> deleteShow(@PathVariable long showId) {
+	public ResponseEntity<String> deleteShowById(@PathVariable long showId) {
 		showService.deleteShowById(showId);
 		return new ResponseEntity<String>("Show Deleted", HttpStatus.OK);
 	}
-	
-	@GetMapping("/theatre/screen/movie/show")
-	public ResponseEntity<Set<Show>> getAllShows() {
-		return new ResponseEntity<Set<Show>>(showService.getAllShow(), HttpStatus.OK);
+
+	@GetMapping("/{theatreId}/screen/show")
+	public ResponseEntity<Set<Show>> getAllShowsByTheatreId(@PathVariable("theatreId") long theatreId) {
+		return new ResponseEntity<Set<Show>>(showService.getAllShow(theatreId), HttpStatus.OK);
 	}
 
+	@PostMapping("/{movieId}/language")
+	public ResponseEntity<Language> addLanguages(@PathVariable("movieId") long movieId,
+			@RequestBody Language language) {
+		return new ResponseEntity<Language>(languageService.addLanguage(language,movieId), HttpStatus.CREATED);
+	}
 
 }

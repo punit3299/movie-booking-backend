@@ -1,6 +1,8 @@
 package com.cg.movie;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.sql.Timestamp;
@@ -10,12 +12,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.cg.movie.dao.ShowRepository;
 import com.cg.movie.entities.Show;
+import com.cg.movie.services.IShowService;
 import com.cg.movie.services.ShowServiceImpl;
 
 
@@ -23,7 +27,7 @@ import com.cg.movie.services.ShowServiceImpl;
 public class ShowTest {
    
 	@Autowired
-	ShowServiceImpl showService;
+	IShowService showService;
 	
 	@MockBean
 	ShowRepository showRepo;
@@ -33,6 +37,18 @@ public class ShowTest {
 		Show show =new Show(new Long(500), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker");
         when(showRepo.save(show)).thenReturn(show);	
         assertEquals(show, showService.addShow(show));
+	}
+
+
+	@Test
+	public void deleteShowTest() {
+		
+		//Show show = new Show(new Long(500), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker");
+		when(showRepo.existsById(Mockito.anyLong())).thenReturn(true);
+
+		showService.deleteShowById(new Long(500));
+	
+		verify(showRepo, times(1)).deleteShowById(Mockito.anyLong());
 	}
 	
 	@Test

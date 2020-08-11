@@ -4,6 +4,6 @@ import com.cg.movie.entities.Language;
 
 public interface ILanguageService {
 	
-	public Language addLanguage(Language language);
+	 Language addLanguage(Language language,long movieId);
 
 }

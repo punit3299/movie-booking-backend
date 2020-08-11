@@ -8,30 +8,31 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="language_table")
-public class Language{
-
-	public Language() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
+@Table(name = "language_table")
+public class Language {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long languageId;
 	private String languageName;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "movieId")
 	private Movie movie;
 
-
-	public Language(Long languageId, String languageName) {
+	public Language() {
 		super();
-		this.languageId = languageId;
-		this.languageName = languageName;
 	}
+	
+	public Language(String languageName, Movie movie) {
+		super();
+		this.languageName = languageName;
+		this.movie = movie;
+	}
+
 
 	public Long getLanguageId() {
 		return languageId;

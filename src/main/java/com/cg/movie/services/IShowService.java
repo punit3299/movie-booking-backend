@@ -13,7 +13,7 @@ public interface IShowService {
 
 	public void deleteShowById(long showId);
 
-	public Set<Show> getAllShow();
+	Set<Show> getAllShow(long theatreId);
 	
     public List<Show> getShowByMovieId(Long id);
 	
@@ -22,4 +22,5 @@ public interface IShowService {
 	public boolean verifyTheatreId(Long id);
 	
 	public boolean verifyMovieId(Long id);
+
 }
