@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.cg.movie.dao.BookingRepository;
 import com.cg.movie.dao.SeatRepository;
 import com.cg.movie.dao.TicketRepository;
+import com.cg.movie.entities.Booking;
 import com.cg.movie.entities.Seat;
 import com.cg.movie.entities.Ticket;
 import com.cg.movie.exception.TicketNotFoundException;
@@ -31,6 +32,9 @@ public class TicketServiceImpl implements ITicketService {
 		return ticketRepo.save(ticket);
 	}
 	
+	/*
+	 * Function to Check if Ticket Exists or Not
+	 */
 	@Override
 	public Ticket findTicketById(long ticketId) {
 		boolean checkTicket=ticketRepo.existsById(ticketId);
@@ -48,16 +52,27 @@ public class TicketServiceImpl implements ITicketService {
 		}
 	}
 
+	/*
+	 * Function to Cancel Ticket
+	 */
 	@Override
 	public Ticket cancelTicket(Ticket ticket) {
+		
+		Booking booking=bookingRepo.getBooking(ticket.getTicketId());
 		
 		long showId=bookingRepo.getShowId(ticket.getTicketId());
 		
 		Seat seat = seatRepo.getSeat(showId);
+		
 		String seatNumber=seat.getSeatNumber();
 		seatNumber=seatNumber.replace(ticket.getSeatName(),"");
 		seat.setSeatNumber(seatNumber);
+		
+		booking.setStatus(false);
+		bookingRepo.save(booking);
+		
 		ticket.setTicketStatus(false);
+		
 		return ticketRepo.save(ticket);
 		
 	}
