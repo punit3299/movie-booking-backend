@@ -6,8 +6,10 @@ public interface ICustomerService {
 	
 	public Customer addCustomer(Customer customer);
 	
-	public Customer addMoneyToWallet(Customer customer,int money);
+	public Customer findCustomerById(long customerId);
 	
-	public Customer refundMoneyToWallet(Customer customer,int amount);
+	public Customer addMoneyToWallet(long customerId,int money);
+	
+	public Customer refundMoneyToWallet(long customerId,int amount);
 
 }
