@@ -101,4 +101,9 @@
  2020/08/11 13:54:03.776  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TicketServiceImpl :  Ticket found with TicketId: 12
  2020/08/11 17:15:04.423  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
  2020/08/11 17:25:00.061  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
+ 2020/08/11 17:35:47.602  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TicketServiceImpl :  Ticket found with TicketId: 12
+ 2020/08/11 17:45:28.039  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:3
+ 2020/08/11 17:46:38.500  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:3
+ 2020/08/11 17:47:00.363  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:3
+ 2020/08/11 17:47:02.259  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:3
  
