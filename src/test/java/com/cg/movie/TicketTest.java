@@ -32,9 +32,9 @@ class TicketTest {
 	
 	@Test
 	public void cancelTicketTest() {
-		Ticket ticket = new Ticket(new Long(1), "First", true, "S1");
-		ticketService.cancelTicket(ticket);
-		verify(ticketRepo,times(1)).delete(ticket);
+		Ticket ticket = new Ticket(new Long(12), "First", true, "S1");
+		when(ticketRepo.save(ticket)).thenReturn(ticket);
+		assertEquals(ticket, ticketService.cancelTicket(ticket));
 	}
 
 }
