@@ -24,6 +24,9 @@ class TransactionTest {
 	@MockBean
 	TransactionRepository transactionRepo;
 	
+	/*
+	 * Saving Transactions Test-Case
+	 */
 	@Test
 	public void addTranactionTest() {
 		Transaction transaction=new Transaction(new Long(1),"Added Money To Wallet",Timestamp.from(Instant.now()));

@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Ticket;
 import com.cg.movie.exception.CustomerNotFoundException;
+import com.cg.movie.exception.TicketNotFoundException;
 import com.cg.movie.response.BookTicketDetails;
 import com.cg.movie.response.BookedDetailsOfTicket;
 import com.cg.movie.services.ICustomerService;
 import com.cg.movie.services.ISeatService;
+import com.cg.movie.services.ITicketService;
 
 @RestController
 @CrossOrigin("*")
@@ -34,6 +36,9 @@ public class CustomerController {
 	
 	@Autowired
 	ICustomerService customerService;
+	
+	@Autowired
+	ITicketService ticketService;
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
@@ -82,9 +87,17 @@ public class CustomerController {
 		
 	}
 	
+	/*
+	 * Controller to Cancel Ticket
+	 */
 	@PutMapping(value="/cancelTicket/{ticketId}")
-	public ResponseEntity<Ticket> cancelTicket(@PathVariable long ticketId){
-		return null;
+	public ResponseEntity<Ticket> cancelTicket(@PathVariable long ticketId) throws TicketNotFoundException{
+		
+		logger.trace("at cancelTicket method");
+		
+		Ticket ticket=ticketService.findTicketById(ticketId);
+		ticket=ticketService.cancelTicket(ticket);
+		return new ResponseEntity<Ticket>(ticket,HttpStatus.OK);
 		
 	}
 	

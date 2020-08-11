@@ -10,7 +10,6 @@ import com.cg.movie.dao.ScreenRepository;
 import com.cg.movie.dao.TheatreRepository;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.entities.Theatre;
-import com.cg.movie.exception.InvalidAttributeException;
 import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.exception.TheatreNotFoundException;
 
@@ -29,7 +28,7 @@ public class ScreenServiceImpl implements IScreenService {
 	@Override
 	public Screen addScreen(long theatreId, Screen screenDetails) throws TheatreNotFoundException{
 		if(theatreRepo.existsById(theatreId))
-		{	screenDetails.setStatus(true);
+		{
 			Theatre theatre=theatreRepo.findById(theatreId).get();
 			screenRepo.save(screenDetails);
 			theatre.addScreen(screenDetails);
@@ -50,7 +49,7 @@ public class ScreenServiceImpl implements IScreenService {
 	public List<Screen> getAllScreen(long theatreId) throws TheatreNotFoundException{
 		if(theatreRepo.existsById(theatreId))
 		{
-		List<Screen> allScreenDetails = screenRepo.findAll(theatreId);
+		List<Screen> allScreenDetails = screenRepo.findAll(true,theatreId);
 		logger.info("Returned Screen list of theatre "+theatreId);
 		return allScreenDetails;
 		}
@@ -64,7 +63,7 @@ public class ScreenServiceImpl implements IScreenService {
 	@Override
 	public boolean deleteScreen(long screenId) throws ScreenNotFoundException {
 		if (screenRepo.existsById(screenId)) {
-			screenRepo.deleteScreenById( screenId);
+			screenRepo.deleteScreenById(true, screenId);
 			logger.info("Delete screen of id "+screenId);
 			return true;
 		} else {
@@ -77,20 +76,11 @@ public class ScreenServiceImpl implements IScreenService {
 	@Override
 	public int addSeats(long screenId, int noOfSeats) throws ScreenNotFoundException {
 		if (screenRepo.existsById(screenId)) {
-			
-		if(noOfSeats > 1)
-		{
-			Screen screen = screenRepo.findById(screenId).get();
-			screen.setNoOfSeats(noOfSeats);
-			screenRepo.save(screen);
-			logger.info("Added seats in screen of id "+screenId);
-			return screen.getNoOfSeats();
-		}
-		else
-		{
-			logger.error("Cannot add "+noOfSeats+" seats in the screen");
-			throw new InvalidAttributeException("Cannot add "+noOfSeats+" seats in the screen");
-		}
+		Screen screen = screenRepo.findById(screenId).get();
+		screen.setNoOfSeats(noOfSeats);
+		screenRepo.save(screen);
+		logger.info("Added seats in screen of id "+screenId);
+		return screen.getNoOfSeats();
 		}
 		else
 		{
@@ -102,20 +92,12 @@ public class ScreenServiceImpl implements IScreenService {
 	@Override
 	public int updateNoOfSeats(long screenId, int noOfSeats) throws ScreenNotFoundException {
 		if (screenRepo.existsById(screenId)) {
-			if(noOfSeats > 1)
-			{	
 		Screen screen = screenRepo.findById(screenId).get();
 		int updatedSeat=screen.getNoOfSeats()+noOfSeats;
 		screen.setNoOfSeats(updatedSeat);
 		screenRepo.save(screen);
 		logger.info("Updated no of seat in screen of id "+screenId);
 		return screen.getNoOfSeats();
-			}
-			else
-			{
-				logger.error("Cannot update "+noOfSeats+" seats in the screen");
-				throw new InvalidAttributeException("Cannot update "+noOfSeats+" seats in the screen");
-			}
 		}
 		else
 		{

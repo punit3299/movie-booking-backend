@@ -45,6 +45,8 @@ public class Screen {
 	public Screen() {
 	}
 
+	
+
 	public Screen(Long screenId, String screenName, int noOfSeats, boolean status) {
 		super();
 		this.screenId = screenId;
