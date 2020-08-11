@@ -37,7 +37,8 @@ class CustomerTest {
 	/*
 	 * Refunding Money to wallet Test-Case
 	 */
-	  @Test public void refundMoneyToWalletTest() { 
+	  @Test 
+	  public void refundMoneyToWalletTest() { 
 		  Customer customer=new Customer(new Long(1), "Siddharth ", "Haha", 7973657728L,"Male", 0);
 		  when(customerRepo.save(customer)).thenReturn(customer);
 		  assertEquals(customer,customerService.refundMoneyToWallet(customer, 500));
@@ -46,17 +47,14 @@ class CustomerTest {
 	  
 	  /*
 	   * Customer Not Found Test-Case
-	   */
-		/*
-		 * @Test public void customerNotFoundExceptionTest throws Exception{ Customer
-		 * customer=new Customer(new Long(1), "Siddharth ", "Haha", 7973657728L,"Male",
-		 * 0);
-		 * when(customerRepo.existsById(customer.getCustomerId())).thenReturn(false);
-		 * assertThrows(CustomerNotFoundException.class,
-		 * ()->{customerService.addMoneyToWallet(customer.getCustomerId(), 500);});
-		 * 
-		 * }
-		 */
+	   */  
+	  @Test
+	  public void customerNotFoundExceptionTest() throws Exception {
+		  Customer customer=new Customer(new Long(1), "Siddharth ", "Haha", 7973657728L,"Male", 0);
+		  when(customerRepo.existsById(customer.getCustomerId())).thenReturn(false);
+		  assertThrows(CustomerNotFoundException.class, ()->{customerService.findCustomerById(customer.getCustomerId());});
+		  }
+		 
 		
 
 }

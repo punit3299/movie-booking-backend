@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.CustomerRepository;
 import com.cg.movie.entities.Customer;
-import com.cg.movie.exception.CustomerExistsException;
 import com.cg.movie.exception.CustomerNotFoundException;
 
 @Service
@@ -19,31 +18,11 @@ public class CustomerServiceImpl implements ICustomerService {
 	private Logger logger = Logger.getLogger(getClass());
 	
 	/*
-	 * Function to Check Existing use while Adding
-	 */
-	@Override
-	public Customer checkNewCustomer(long customerId) {
-		
-		Customer customer= customerRepo.findById(customerId).get();
-		if(customer!=null)
-		{
-			logger.error("Customer already exists with customerId: "+customerId);
-			throw new CustomerExistsException("Customer Already Exists");
-		}
-		else {
-			logger.info(" Customer Added with customerId: "+customerId);
-			return customer;
-		}
-		
-	}
-	
-	/*
 	 * Function to Add New Customer
 	 */
 	@Override
 	public Customer addCustomer(Customer customer) {
-		Customer newCustomer=checkNewCustomer(customer.getCustomerId());
-		return customerRepo.save(newCustomer);
+		return customerRepo.save(customer);
 	}
 	
 	/*
@@ -52,14 +31,16 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public Customer findCustomerById(long customerId) {
 		
-		Customer customer= customerRepo.findById(customerId).get();
-		if(customer==null)
+		boolean checkCustomer= customerRepo.existsById(customerId);
+		
+		if(checkCustomer==false)
 		{
 			logger.error("Customer not found with customerId: "+customerId);
 			throw new CustomerNotFoundException("Customer Not Found");
 		}
 		else {
-			logger.info(" Customer found with id customerId:"+customerId);
+			Customer customer=customerRepo.getOne(customerId);
+			logger.info(" Customer found with customerId:"+customerId);
 			return customer;
 		}
 		

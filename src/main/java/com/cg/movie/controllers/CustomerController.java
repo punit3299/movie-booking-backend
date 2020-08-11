@@ -2,6 +2,7 @@ package com.cg.movie.controllers;
 
 import java.sql.Timestamp;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,14 +35,17 @@ public class CustomerController {
 	@Autowired
 	ICustomerService customerService;
 	
+	private Logger logger = Logger.getLogger(getClass());
+	
 	/*
 	 * Controller to Add Customer
 	 */
-	@PostMapping(value="/addCustomer/customer")
+	@PostMapping("/addCustomer")
 	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer){
 		
-		Customer newCustomer=customerService.addCustomer(customer);
+		logger.trace("at addCustomer method");
 		
+		Customer newCustomer=customerService.addCustomer(customer);
 		return new ResponseEntity<Customer>(newCustomer,HttpStatus.CREATED);
 		
 	}
@@ -49,9 +54,12 @@ public class CustomerController {
 	 * Controller to Add Money
 	 */
 	
-	@GetMapping(value="/addMoney/{customerId}/{amount}")
+	@PutMapping(value="/addMoney/{customerId}/{amount}")
 	public ResponseEntity<Customer> addMoney(@PathVariable long customerId, @PathVariable int amount)
 		throws CustomerNotFoundException{
+		
+		logger.trace("at addMoney method");
+		
 		Customer customer = customerService.findCustomerById(customerId);
 		customer= customerService.addMoneyToWallet(customer, amount);
 		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
@@ -62,12 +70,21 @@ public class CustomerController {
 	 * Controller to Refund Money
 	 */
 	
-	@GetMapping(value="/refundMoney/{customerId}/{amount}")
+	@PutMapping(value="/refundMoney/{customerId}/{amount}")
 	public ResponseEntity<Customer> refundMoney(@PathVariable long customerId, @PathVariable int amount)
 		throws CustomerNotFoundException{
+		
+		logger.trace("at refundMoney method");
+		
 		Customer customer = customerService.findCustomerById(customerId);
 		customer= customerService.refundMoneyToWallet(customer, amount);
 		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
+		
+	}
+	
+	@PutMapping(value="/cancelTicket/{ticketId}")
+	public ResponseEntity<Ticket> cancelTicket(@PathVariable long ticketId){
+		return null;
 		
 	}
 	
