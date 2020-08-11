@@ -1,5 +1,7 @@
 package com.cg.movie.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +26,18 @@ public class BookingServiceImpl implements IBookingService {
 		return  bookingRepo.getOne(id);
 	}
 	
-    
+
+	
+	@Override
+	public Boolean verifyCustomerId(Long id)
+	{
+	   return bookingRepo.existsById(id);
+	    	
+	}
+	
+    @Override
+    public List<Booking> getPreviousBookings(Long id){
+    return	bookingRepo.findByCustomerId(id);
+    }
+ 
 }

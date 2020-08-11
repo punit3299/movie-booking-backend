@@ -61,4 +61,32 @@ public class ShowServiceImpl implements IShowService {
 		return showList1;
 	}
 
+
+
+    @Override
+    public List<Show> getShowByMovieId(Long id)
+    {
+	return showRepo.findShowByMovieId(id);
+    }
+
+    @Override
+    public List<Show> getShowByTheatreId(Long id) {
+
+	return showRepo.findShowByTheatreId(id);
+    }
+
+@Override
+public boolean verifyTheatreId(Long id) {
+	
+	return showRepo.existsById(id);
 }
+
+@Override
+public boolean verifyMovieId(Long id) {
+	
+	return showRepo.existsById(id);
+}
+}
+
+
+
