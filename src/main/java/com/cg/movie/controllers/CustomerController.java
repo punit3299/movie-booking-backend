@@ -1,6 +1,8 @@
 package com.cg.movie.controllers;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +24,11 @@ import com.cg.movie.exception.CustomerNotFoundException;
 import com.cg.movie.exception.TicketNotFoundException;
 import com.cg.movie.response.BookTicketDetails;
 import com.cg.movie.response.BookedDetailsOfTicket;
+import com.cg.movie.services.ICityService;
 import com.cg.movie.services.ICustomerService;
+import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.ISeatService;
+import com.cg.movie.services.ITheatreService;
 import com.cg.movie.services.ITicketService;
 
 @RestController
@@ -39,6 +44,15 @@ public class CustomerController {
 	
 	@Autowired
 	ITicketService ticketService;
+	
+	@Autowired
+	ICityService cityService;
+	
+	@Autowired
+	ITheatreService theatreService;
+	
+	@Autowired
+	IMovieService movieService;
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
@@ -110,12 +124,31 @@ public class CustomerController {
 	}
 	
 	
-	
-	
 	@GetMapping(value="/hello")
 	public Timestamp helloRaman()
 	{
 		Timestamp ts=new Timestamp(System.currentTimeMillis());
 		return ts;
+	}
+	
+	@GetMapping(value = "/city/list")
+	public ResponseEntity<List<String>> getAllCities() {
+		List<String> allCity= new ArrayList<String>();
+		cityService.viewAllCity().forEach(e -> {
+			String cityName = e.getCityName();
+			allCity.add(cityName);
+		});
+		
+		return new ResponseEntity<List<String>>(allCity, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/city/{search}")
+	public ResponseEntity<List<String>> searchCity(@PathVariable String search){
+		List<String> allCity= new ArrayList<String>();
+		cityService.searchCity(search).forEach(e -> {
+			String cityName = e.getCityName();
+			allCity.add(cityName);
+		});	
+		return new ResponseEntity<List<String>>(allCity, HttpStatus.OK);
 	}
 }

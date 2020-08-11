@@ -3,17 +3,21 @@ package com.cg.movie.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.CityRepository;
 import com.cg.movie.entities.City;
 import com.cg.movie.entities.Theatre;
+import com.cg.movie.exception.CityNotFoundException;
 @Service
 public class CityServiceImpl implements ICityService {
 
 	@Autowired
 	CityRepository cityRepo;
+	
+	private Logger logger = Logger.getLogger(getClass());
 	
 	@Override
 	public City addCity(City city) {
@@ -23,7 +27,15 @@ public class CityServiceImpl implements ICityService {
 	@Override
 	public List<City> viewAllCity() {
 		List<City> cities= cityRepo.findAll();
-		return cities;
+		if(cities.size()==0) {
+			logger.error("No city Found");
+			throw new CityNotFoundException("No city added yet");
+		}
+		 else
+		 {
+			 logger.info("City found successfully");
+			 return cities;
+		 }
 	}
 
 	@Override
@@ -36,5 +48,23 @@ public class CityServiceImpl implements ICityService {
 	      theatreList.add(theatre);
 	    return theatreList;
 	}
+	
+	@Override
+	public List<City>searchCity(String city) {
+		if (cityRepo.findAll()== null)
+		{
+			throw new CityNotFoundException("City not found");
+		}
+		List<City> listCity= new ArrayList<City>();
+		cityRepo.findAll().forEach(e-> {
+			String cityName = e.getCityName();
+			if(cityName.equals(city)) {
+				listCity.add(e);
+			}
+		});
+		
+		return listCity;
+	}
+	
 
 }
