@@ -15,7 +15,7 @@ import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.BookingNotFoundException;
-import com.cg.movie.exception.CustomersNotFoundException;
+import com.cg.movie.exception.CustomerNotFoundException;
 import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.RevenueNotFoundException;
 import com.cg.movie.exception.TheatresNotFoundException;
@@ -50,7 +50,7 @@ public class AdminServiceImpl implements IAdminService {
 			return new Long(customersList.size());
 		} else {
 			logger.error("Customers Not Found");
-			throw new CustomersNotFoundException("Customers Not Found");
+			throw new CustomerNotFoundException("Customers Not Found");
 		}
 	}
 
@@ -162,7 +162,7 @@ public class AdminServiceImpl implements IAdminService {
 			return new GenderResponse(male, female, others);
 		} else {
 			logger.error("Customers Not Found");
-			throw new CustomersNotFoundException("Customers Not Found");
+			throw new CustomerNotFoundException("Customers Not Found");
 		}
 	}
 

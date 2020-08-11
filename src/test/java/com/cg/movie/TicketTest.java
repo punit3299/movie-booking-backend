@@ -18,7 +18,7 @@ import com.cg.movie.services.ITicketService;
 class TicketTest {
 
 	@Autowired
-	ITicketService iTicketService;
+	ITicketService ticketService;
 
 	@MockBean
 	TicketRepository ticketRepo;
@@ -27,13 +27,13 @@ class TicketTest {
 	public void bookTicketTest() {
 		Ticket ticket = new Ticket(new Long(1),  "First", true, "S1");
 		when(ticketRepo.save(ticket)).thenReturn(ticket);
-		assertEquals(ticket, iTicketService.bookTicket(ticket));
+		assertEquals(ticket, ticketService.bookTicket(ticket));
 	}
 	
 	@Test
 	public void cancelTicketTest() {
 		Ticket ticket = new Ticket(new Long(1), "First", true, "S1");
-		iTicketService.cancelTicket(ticket);
+		ticketService.cancelTicket(ticket);
 		verify(ticketRepo,times(1)).delete(ticket);
 	}
 

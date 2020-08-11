@@ -5,6 +5,9 @@ import static org.mockito.Mockito.when;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +41,18 @@ class BookingTest {
 		assertEquals(booking, bookingService.getBooking(booking.getBookingId()));
 	}
 
+	@Test
+	public void getPreviousBookingTest() {
+		List<Booking> bookings=Stream.of(new Booking(new Long(108), Timestamp.from(Instant.now()) ,257.06), new Booking(new Long(109), Timestamp.from(Instant.now()) ,257.06)).collect(Collectors.toList());
+	    when(bookingRepo.findByCustomerId(new Long(1190))).thenReturn(bookings);
+	    assertEquals(2,bookingService.getPreviousBookings(new Long(1190)).size());
+	}
+	
+	@Test
+	public void verifyCustomerIdTest() {
+		Long customerId=new Long(1190);
+		when(bookingRepo.existsById(customerId)).thenReturn(true);
+		assertEquals(true, bookingService.verifyCustomerId(customerId));
+	}
 }
+
