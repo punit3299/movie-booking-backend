@@ -8,4 +8,5 @@ import com.cg.movie.entities.Ticket;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
+
 }
