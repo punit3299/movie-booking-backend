@@ -17,37 +17,49 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
+	/*
+	 * Function to Add New Customer
+	 */
 	@Override
 	public Customer addCustomer(Customer customer) {
 		return customerRepo.save(customer);
 	}
 	
+	/*
+	 * Function to Check if Customer Exists or Not
+	 */
 	@Override
 	public Customer findCustomerById(long customerId) {
 		
-		Customer customer= customerRepo.getOne(customerId);
-		if(customer==null)
+		boolean checkCustomer= customerRepo.existsById(customerId);
+		
+		if(checkCustomer==false)
 		{
-			logger.error("Customer not found with "+customerId);
+			logger.error("Customer not found with customerId: "+customerId);
 			throw new CustomerNotFoundException("Customer Not Found");
 		}
 		else {
-			logger.info(" Customer found with id "+customerId);
+			Customer customer=customerRepo.getOne(customerId);
+			logger.info(" Customer found with customerId:"+customerId);
 			return customer;
 		}
 		
 	}
-
+	
+	/*
+	 * Function to Add Money to Wallet
+	 */
 	@Override
-	public Customer addMoneyToWallet(long customerId, int money) {
-		Customer customer= findCustomerById(customerId);
+	public Customer addMoneyToWallet(Customer customer, int money) {
 		customer.setCustomerBalance(customer.getCustomerBalance()+money);
 		return customerRepo.save(customer);
 	}
-
+	
+	/*
+	 * Function to Refund Money to wallet
+	 */
 	@Override
-	public Customer refundMoneyToWallet(long customerId, int amount) {
-		Customer customer= findCustomerById(customerId);
+	public Customer refundMoneyToWallet(Customer customer, int amount) {
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
 		return customerRepo.save(customer);
 	}
