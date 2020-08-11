@@ -93,6 +93,8 @@ public class CustomerController {
 	@PutMapping(value="/cancelTicket/{ticketId}")
 	public ResponseEntity<Ticket> cancelTicket(@PathVariable long ticketId) throws TicketNotFoundException{
 		
+		logger.trace("at cancelTicket method");
+		
 		Ticket ticket=ticketService.findTicketById(ticketId);
 		ticket=ticketService.cancelTicket(ticket);
 		return new ResponseEntity<Ticket>(ticket,HttpStatus.OK);
