@@ -45,7 +45,7 @@ public class Show {
 	}
 
 
-
+	@JsonIgnore
 	@OneToOne(mappedBy="show")
 	private Booking booking;
 
@@ -115,6 +115,7 @@ public class Show {
 
 	
 
+	@JsonIgnore
 	public Booking getBooking() {
 		return booking;
 	}

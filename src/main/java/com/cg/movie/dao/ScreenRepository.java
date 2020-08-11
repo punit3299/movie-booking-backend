@@ -1,3 +1,4 @@
+  
 package com.cg.movie.dao;
 
 import java.util.List;
@@ -15,12 +16,12 @@ import com.cg.movie.entities.Screen;
 public interface ScreenRepository extends JpaRepository<Screen, Long> {
 
 	@Modifying
-	@Query("UPDATE Screen screen SET screen.status = ?1 WHERE screen.screenId = ?2")
-	void deleteScreenById(boolean status, long screenId);
+	@Query("UPDATE Screen screen SET screen.status = 1 WHERE screen.screenId = ?1")
+	void deleteScreenById(long screenId);
 	
 	@Modifying
-	@Query("SELECT screen FROM Screen screen WHERE screen.status = ?1 AND screen.theatre.theatreId = ?2")
-	List<Screen> findAll(boolean status,long theatreId);
+	@Query("SELECT screen FROM Screen screen WHERE screen.status = 1 AND screen.theatre.theatreId = ?1")
+	List<Screen> findAll(long theatreId);
 	
 	
 }

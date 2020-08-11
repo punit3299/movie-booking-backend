@@ -18,6 +18,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name="customer_table")
 public class Customer {
 
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerPassword="
+				+ customerPassword + ", customerContact=" + customerContact + ", customerGender=" + customerGender
+				+ ", customerBalance=" + customerBalance + "]";
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long customerId;

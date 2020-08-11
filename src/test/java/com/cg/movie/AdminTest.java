@@ -48,6 +48,8 @@ public class AdminTest {
 		Customer c3= new Customer(new Long(3), "Mayank", "mayank123", 8794911937L, "Male", 0);
 		when(customerRepo.findAll()).thenReturn(Stream.of(c1,c2,c3).collect(Collectors.toList()));
 		assertEquals(3, adminService.countOfCustomers());
+		
+		
 	}
 	
 	//count of theatres test
