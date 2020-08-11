@@ -47,10 +47,20 @@
  2020/08/11 09:21:32.065  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with 1
  2020/08/11 09:24:37.025  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with 1
  2020/08/11 09:24:37.046  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with 1
- 2020/08/11 09:30:08.815  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with id 1
- 2020/08/11 09:39:09.385  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : Theatre not found with 6
- 2020/08/11 09:39:09.415  INFO  -  [main] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 6
- 2020/08/11 10:32:29.460  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 3 Customers returned successfully
- 2020/08/11 10:32:29.486  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
- 2020/08/11 10:32:29.494  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 1 Movies returned successfully
+ 2020/08/11 09:30:09.049  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with 1
+ 2020/08/11 09:30:09.074  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with 1
+ 2020/08/11 09:31:41.384  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : Theatre not found with 6
+ 2020/08/11 09:31:41.436  INFO  -  [main] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 6
+ 2020/08/11 09:33:53.343  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 1
+ 2020/08/11 09:33:53.351  ERROR -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatre not found with 1
+ 2020/08/11 09:36:15.709  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 1
+ 2020/08/11 09:36:15.742  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl : Theatre not found with 1
+ 2020/08/11 09:57:15.633  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 9
+ 2020/08/11 09:57:15.812  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 9
+ 2020/08/11 09:57:21.888  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 10
+ 2020/08/11 09:57:21.955  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 10
+ 2020/08/11 09:57:33.282  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/11 09:57:49.221  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 11
+ 2020/08/11 09:57:49.313  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 11
+ 2020/08/11 09:57:59.160  ERROR -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : No Theatre Found
  
