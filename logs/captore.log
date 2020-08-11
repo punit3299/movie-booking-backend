@@ -47,4 +47,10 @@
  2020/08/11 09:21:32.065  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with 1
  2020/08/11 09:24:37.025  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with 1
  2020/08/11 09:24:37.046  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with 1
+ 2020/08/11 09:30:08.815  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with id 1
+ 2020/08/11 09:39:09.385  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : Theatre not found with 6
+ 2020/08/11 09:39:09.415  INFO  -  [main] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 6
+ 2020/08/11 10:32:29.460  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 3 Customers returned successfully
+ 2020/08/11 10:32:29.486  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/11 10:32:29.494  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 1 Movies returned successfully
  

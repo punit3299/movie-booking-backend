@@ -33,22 +33,41 @@ public class CustomerController {
 	@Autowired
 	ICustomerService customerService;
 	
+	/*
+	 * Controller to Add Customer
+	 */
+	@PostMapping(value="/addCustomer/customer")
+	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer){
+		
+		Customer newCustomer=customerService.addCustomer(customer);
+		
+		return new ResponseEntity<Customer>(newCustomer,HttpStatus.CREATED);
+		
+	}
+	
+	/*
+	 * Controller to Add Money
+	 */
 	
 	@GetMapping(value="/addMoney/{customerId}/{amount}")
 	public ResponseEntity<Customer> addMoney(@PathVariable long customerId, @PathVariable int amount)
 		throws CustomerNotFoundException{
-		
-		Customer Customer= customerService.addMoneyToWallet(customerId, amount);
-		return new ResponseEntity<Customer>(Customer,HttpStatus.OK);
+		Customer customer = customerService.findCustomerById(customerId);
+		customer= customerService.addMoneyToWallet(customer, amount);
+		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
 		
 	}
+	
+	/*
+	 * Controller to Refund Money
+	 */
 	
 	@GetMapping(value="/refundMoney/{customerId}/{amount}")
 	public ResponseEntity<Customer> refundMoney(@PathVariable long customerId, @PathVariable int amount)
 		throws CustomerNotFoundException{
-		
-		Customer Customer= customerService.refundMoneyToWallet(customerId, amount);
-		return new ResponseEntity<Customer>(Customer,HttpStatus.OK);
+		Customer customer = customerService.findCustomerById(customerId);
+		customer= customerService.refundMoneyToWallet(customer, amount);
+		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
 		
 	}
 	

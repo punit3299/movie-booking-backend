@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.CustomerRepository;
 import com.cg.movie.entities.Customer;
+import com.cg.movie.exception.CustomerExistsException;
 import com.cg.movie.exception.CustomerNotFoundException;
 
 @Service
@@ -17,37 +18,67 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
+	/*
+	 * Function to Check Existing use while Adding
+	 */
 	@Override
-	public Customer addCustomer(Customer customer) {
-		return customerRepo.save(customer);
-	}
-	
-	@Override
-	public Customer findCustomerById(long customerId) {
+	public Customer checkNewCustomer(long customerId) {
 		
-		Customer customer= customerRepo.getOne(customerId);
-		if(customer==null)
+		Customer customer= customerRepo.findById(customerId).get();
+		if(customer!=null)
 		{
-			logger.error("Customer not found with "+customerId);
-			throw new CustomerNotFoundException("Customer Not Found");
+			logger.error("Customer already exists with customerId: "+customerId);
+			throw new CustomerExistsException("Customer Already Exists");
 		}
 		else {
-			logger.info(" Customer found with id "+customerId);
+			logger.info(" Customer Added with customerId: "+customerId);
 			return customer;
 		}
 		
 	}
-
+	
+	/*
+	 * Function to Add New Customer
+	 */
 	@Override
-	public Customer addMoneyToWallet(long customerId, int money) {
-		Customer customer= findCustomerById(customerId);
+	public Customer addCustomer(Customer customer) {
+		Customer newCustomer=checkNewCustomer(customer.getCustomerId());
+		return customerRepo.save(newCustomer);
+	}
+	
+	/*
+	 * Function to Check if Customer Exists or Not
+	 */
+	@Override
+	public Customer findCustomerById(long customerId) {
+		
+		Customer customer= customerRepo.findById(customerId).get();
+		if(customer==null)
+		{
+			logger.error("Customer not found with customerId: "+customerId);
+			throw new CustomerNotFoundException("Customer Not Found");
+		}
+		else {
+			logger.info(" Customer found with id customerId:"+customerId);
+			return customer;
+		}
+		
+	}
+	
+	/*
+	 * Function to Add Money to Wallet
+	 */
+	@Override
+	public Customer addMoneyToWallet(Customer customer, int money) {
 		customer.setCustomerBalance(customer.getCustomerBalance()+money);
 		return customerRepo.save(customer);
 	}
-
+	
+	/*
+	 * Function to Refund Money to wallet
+	 */
 	@Override
-	public Customer refundMoneyToWallet(long customerId, int amount) {
-		Customer customer= findCustomerById(customerId);
+	public Customer refundMoneyToWallet(Customer customer, int amount) {
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
 		return customerRepo.save(customer);
 	}
