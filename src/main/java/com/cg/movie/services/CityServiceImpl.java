@@ -11,6 +11,7 @@ import com.cg.movie.dao.CityRepository;
 import com.cg.movie.entities.City;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.CityNotFoundException;
+import com.cg.movie.exception.TheatreNotFoundException;
 @Service
 public class CityServiceImpl implements ICityService {
 
@@ -42,11 +43,29 @@ public class CityServiceImpl implements ICityService {
 	public List<Theatre> getAllTheatreByCity(String city) {
 		// TODO Auto-generated method stub
 		City requiredCity= cityRepo.findByCityName(city);
-		int size=requiredCity.getTheatresList().size();
-	    List<Theatre> theatreList = new ArrayList<Theatre>(size); 
-	    for (Theatre theatre : requiredCity.getTheatresList()) 
-	      theatreList.add(theatre);
-	    return theatreList;
+		if(requiredCity==null)
+		{
+			logger.error("City Not Found");
+			throw new CityNotFoundException("City Not Exist");
+		}
+		else
+		{
+			logger.info("City Found Successfully");
+			int size=requiredCity.getTheatresList().size();
+		    
+		    if(size==0)
+		    {
+		    	logger.error("Theatre Not Found For "+ city);
+		    	throw new TheatreNotFoundException("Theatre Not Found");
+		    }
+		    else
+		    {
+		    	List<Theatre> theatreList = new ArrayList<Theatre>(size);
+			    for (Theatre theatre : requiredCity.getTheatresList()) 
+				      theatreList.add(theatre);
+				return theatreList;
+		    }
+		}
 	}
 	
 	@Override

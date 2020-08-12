@@ -19,10 +19,19 @@ public class TheatreServiceImpl implements ITheatreService {
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
+
+	/*
+	 *  Function to Add new Theatre 
+	 */
+	
 	@Override
 	public Theatre addTheatre(Theatre theatre) {
 		return theatreRepo.save(theatre);
 	}
+	
+	/*
+	 * Function to delete Theatre
+	 */
 
 	@Override
 	public void deleteTheatre(Theatre theatre) {
@@ -41,10 +50,18 @@ public class TheatreServiceImpl implements ITheatreService {
 		}
 	}
 	
+	/*
+	 * Function to update pre-exist theatre details
+	 */
+	
 	@Override
 	public void updateTheatre(Theatre theatre) {
 		theatreRepo.save(theatre);
 	}
+	
+	/*
+	 * Function to show all Theatres
+	 */
 
 	@Override
 	public List<Theatre> viewAllTheatre() {
@@ -64,9 +81,12 @@ public class TheatreServiceImpl implements ITheatreService {
 		
 	}
 	
+	/*
+	 * Function to Check if Theatre Exists or Not
+	 */
+	
 	@Override
 	public Theatre getTheatreById(long theatreId) {
-		// TODO Auto-generated method stub
 		System.out.println(theatreId);
 		Theatre theatre= theatreRepo.getOne(theatreId);
 		if(theatre==null)
