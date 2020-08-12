@@ -231,4 +231,7 @@
  2020/08/11 13:29:47.283  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Cannot update 0 seats in the screen
  2020/08/11 13:29:47.286  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
 
+ 2020/08/12 22:18:10.059  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
+ 2020/08/12 22:30:22.723  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
+ 2020/08/12 22:30:54.645  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
  
