@@ -155,4 +155,11 @@ public class Movie {
 		language.setMovie(this); // this will avoid nested cascade
 		this.getLanguagesList().add(language);
 	}
+
+	@Override
+	public String toString() {
+		return "Movie [movieName=" + movieName + "]";
+	}
+	
+	
 }

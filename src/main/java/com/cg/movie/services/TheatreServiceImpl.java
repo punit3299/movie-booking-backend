@@ -88,7 +88,7 @@ public class TheatreServiceImpl implements ITheatreService {
 	@Override
 	public Theatre getTheatreById(long theatreId) {
 		System.out.println(theatreId);
-		Theatre theatre= theatreRepo.getOne(theatreId);
+		Theatre theatre= theatreRepo.findById(theatreId).get();
 		if(theatre==null)
 		{
 			logger.error("Theatre not found with "+theatreId);

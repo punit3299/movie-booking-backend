@@ -15,7 +15,7 @@ public interface IMovieService {
 
 	void deleteMovieById(long movieId);
 
-	List<Movie> searchMovie(String movie);
+	String searchMovie(String movie);
 	
 	public boolean findMovieById(long movieId);
 

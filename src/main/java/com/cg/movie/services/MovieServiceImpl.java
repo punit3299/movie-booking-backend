@@ -91,16 +91,15 @@ public class MovieServiceImpl implements IMovieService {
 	
 	 //.........I will Edit this again so please leave it...............
 	@Override
-	public List<Movie>searchMovie(String movie) {
-		List<Movie> listMovie= new ArrayList<Movie>();
-		movieRepo.findAll().forEach(e-> {
-			String movieName = e.getMovieName();
-			if(movieName.equals(movie)) {
-				listMovie.add(e);
-			}
-		});
+	public String searchMovie(String movieName) {
 		
-		return listMovie;
+		List<Movie> movies=movieRepo.findAll();
+		for(Movie movie: movies) {
+			if(movie.getMovieName().equals(movieName)) {
+				return "Found";
+			}
+		}
+		return "No such movie Present";
 	}
 
 	@Override
