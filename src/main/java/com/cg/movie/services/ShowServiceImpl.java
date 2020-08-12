@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.MovieRepository;
 import com.cg.movie.dao.ShowRepository;
+import com.cg.movie.dao.TheatreRepository;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.exception.ShowDoesntExistException;
+import com.cg.movie.exception.TheatreNotFoundException;
 import com.cg.movie.validator.ShowValidator;
 
 /********************************************************************************
@@ -36,15 +38,14 @@ public class ShowServiceImpl implements IShowService {
 	MovieRepository movieRepo;
 
 	@Autowired
+	TheatreRepository theatreRepo;
+
+	@Autowired
 	ShowValidator showValidator;
 	
 	private Logger logger = Logger.getLogger(getClass());
 
-	@Override
-	public Show addShow(Show show) {
-
-		return showRepo.save(show);
-	}
+	
 
 	/********************************************************************************
 	 * 
@@ -113,9 +114,15 @@ public class ShowServiceImpl implements IShowService {
 
 	@Override
 	public Set<Show> getAllShow(long theatreId) {
-		List<Show> showList = showRepo.findAllShows(theatreId);
-		Set<Show> showList1 = new HashSet<>(showList);
-		return showList1;
+		
+		if(!theatreRepo.existsById(theatreId))
+		{
+			List<Show> showList = showRepo.findAllShows(theatreId);
+			Set<Show> showList1 = new HashSet<>(showList);
+			return showList1;
+		}
+		else
+			throw new TheatreNotFoundException("Theatre with id" + theatreId + "not found");
 	}
 
 	@Override
@@ -130,6 +137,10 @@ public class ShowServiceImpl implements IShowService {
 	}
 
 	@Override
+	public List<Show> getAllShows() {
+		return showRepo.findAll();
+	}
+
 	public boolean verifyTheatreId(Long id) {
 
 		return showRepo.existsById(id);
@@ -153,10 +164,5 @@ public class ShowServiceImpl implements IShowService {
 			
 		}
 	}
-	@Override 
-	   public List<Show> getAllShows()
-	   {
-		   return showRepo.findAll();
-	   }
 
 }

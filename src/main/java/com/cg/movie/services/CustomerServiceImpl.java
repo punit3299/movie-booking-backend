@@ -78,7 +78,7 @@ public class CustomerServiceImpl implements ICustomerService {
 		
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
 		
-		Show show=showRepo.getOne(showId);
+		Show show=showRepo.findById(showId).get();
 		
 		Transaction transaction = new Transaction();
 		transaction.setTransactionMessage("Rs. "+amount+" refunded to Wallet regarding show: "+show.getShowName());
