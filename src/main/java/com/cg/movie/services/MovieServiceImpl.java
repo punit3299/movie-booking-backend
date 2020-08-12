@@ -1,6 +1,5 @@
 package com.cg.movie.services;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.MovieRepository;
 import com.cg.movie.entities.Movie;
-
 import com.cg.movie.exception.MovieDoesntExistException;
 import com.cg.movie.exception.MoviesNotFoundException;
 
@@ -28,7 +26,7 @@ public class MovieServiceImpl implements IMovieService {
 
 	@Autowired
 	MovieRepository movieRepo;
-	
+
 	private Logger logger = Logger.getLogger(getClass());
 
 	/********************************************************************************
@@ -42,12 +40,15 @@ public class MovieServiceImpl implements IMovieService {
 	 *         Created by: Prabhjot ,9 August 2020
 	 * 
 	 **********************************************************************************/
-
 	@Override
 	public Movie addMovie(Movie movie) {
-		// movie.setLanguagesList(languagesList);
-		Movie movie1 = movieRepo.save(movie);
-		return movie1;
+
+		List<Movie> movieByName = movieRepo.findMovieByName(movie.getMovieName());
+		if (movieByName.isEmpty()) {
+			Movie movieAdded = movieRepo.save(movie);
+			return movieAdded;
+		} else
+			throw new MoviesNotFoundException("This movie with" + movieByName + " already exist.");
 	}
 
 	/********************************************************************************
@@ -61,7 +62,7 @@ public class MovieServiceImpl implements IMovieService {
 	 **********************************************************************************/
 
 	@Override
-	public Set<Movie> findAllMovie()  {
+	public Set<Movie> findAllMovie() {
 		List<Movie> movieList = movieRepo.findAllMovies();
 		Set<Movie> movieList1 = new HashSet<>(movieList);
 		return movieList1;
@@ -75,7 +76,7 @@ public class MovieServiceImpl implements IMovieService {
 	 * 
 	 * @throws MovieNotFoundException : It is raised if movieId doesn't exist.
 	 * 
-	 *                                   Created by: Prabhjot ,9 August 2020
+	 *                                Created by: Prabhjot ,9 August 2020
 	 * 
 	 **********************************************************************************/
 
@@ -87,15 +88,14 @@ public class MovieServiceImpl implements IMovieService {
 			throw new MoviesNotFoundException("Movie with" + movieId + "doesn't Exist");
 		}
 	}
-	
-	
-	 //.........I will Edit this again so please leave it...............
+
+	// .........I will Edit this again so please leave it...............
 	@Override
 	public String searchMovie(String movieName) {
-		
-		List<Movie> movies=movieRepo.findAll();
-		for(Movie movie: movies) {
-			if(movie.getMovieName().equals(movieName)) {
+
+		List<Movie> movies = movieRepo.findAll();
+		for (Movie movie : movies) {
+			if (movie.getMovieName().equals(movieName)) {
 				return "Found";
 			}
 		}
@@ -104,11 +104,10 @@ public class MovieServiceImpl implements IMovieService {
 
 	@Override
 	public boolean findMovieById(long movieId) throws MovieDoesntExistException {
-		if(movieRepo.existsById(movieId)) {
+		if (movieRepo.existsById(movieId)) {
 			return true;
-		}
-		else {
-			logger.error("Movie not found with id: "+movieId);
+		} else {
+			logger.error("Movie not found with id: " + movieId);
 			throw new MovieDoesntExistException("Movie Not Found");
 		}
 	}

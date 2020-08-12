@@ -17,10 +17,10 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Description;
 
 import com.cg.movie.dao.MovieRepository;
 import com.cg.movie.entities.Movie;
-import com.cg.movie.exception.MovieDoesntExistException;
 import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.services.IMovieService;
 
@@ -33,9 +33,9 @@ public class MovieTest {
 	@Autowired
 	IMovieService movieService;
 
-	@SuppressWarnings("deprecation")
 	@Test
-	public void addMovie() {
+	@Description("This is for testing movie is added")
+	public void addMovieTest() {
 		Movie movie = createMovie(1170000011L, "The Fault in our stars", "Young Adult Fiction", "John Boone", 02.13);
 
 		when(movieDAO.save(Mockito.any(Movie.class))).thenReturn(movie);
@@ -44,12 +44,13 @@ public class MovieTest {
 	}
 
 	@Test
-	public void deleteMovieById_will_throw_MovieDoesntExistException() {
+	@Description("This is for Testing if movieId not found then throw MovieNotFoundException")
+	public void deleteMovieById_will_throw_MovieNotFoundException() {
 
 		long movieId = 123456782L;
-		// when
+		
 		when(movieDAO.existsById((Mockito.anyLong()))).thenReturn(false);
-		// then
+	
 		Exception exception=assertThrows(MoviesNotFoundException.class, () -> {
 			movieService.deleteMovieById(movieId);
 		});
@@ -61,6 +62,7 @@ public class MovieTest {
 	}
 
 	@Test
+	@Description("This is for Testing gettingAllMovies")
 	public void getAllMovies() {
 
 		List<Movie> movies = new ArrayList<>();
@@ -82,6 +84,7 @@ public class MovieTest {
 	}
 
 	@Test
+	@Description("This test is for verifying deleteMovieById method is executed 1 time")
 	public void deleteMovieTest() {
 		
 		when(movieDAO.existsById((Mockito.anyLong()))).thenReturn(true);
