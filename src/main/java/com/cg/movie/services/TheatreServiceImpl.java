@@ -1,5 +1,6 @@
 package com.cg.movie.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -76,5 +77,22 @@ public class TheatreServiceImpl implements ITheatreService {
 		else {
 			logger.info(" theatre found of id "+theatreId);
 		return theatre;}
+	}
+	
+	@Override
+	public List<Theatre>searchTheater(String theatre) {
+		if (theatreRepo.findAll()== null)
+		{
+			throw new TheatreNotFoundException("Theatre not found");
+		}
+		List<Theatre> listTheatre= new ArrayList<Theatre>();
+		theatreRepo.findAll().forEach(e-> {
+			String theatreName = e.getTheatreName();
+			if(theatreName.equals(theatre)) {
+				listTheatre.add(e);
+			}
+		});
+		
+		return listTheatre;
 	}
 }

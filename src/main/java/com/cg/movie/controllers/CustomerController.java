@@ -131,6 +131,9 @@ public class CustomerController {
 		return ts;
 	}
 	
+	/*
+	 * Controller to View only all the cities to user
+	 */
 	@GetMapping(value = "/city/list")
 	public ResponseEntity<List<String>> getAllCities() {
 		List<String> allCity= new ArrayList<String>();
@@ -142,6 +145,9 @@ public class CustomerController {
 		return new ResponseEntity<List<String>>(allCity, HttpStatus.OK);
 	}
 	
+	/*
+	 * Controller to search the cities for the user
+	 */
 	@GetMapping(value = "/city/{search}")
 	public ResponseEntity<List<String>> searchCity(@PathVariable String search){
 		List<String> allCity= new ArrayList<String>();
@@ -149,6 +155,38 @@ public class CustomerController {
 			String cityName = e.getCityName();
 			allCity.add(cityName);
 		});	
+		
 		return new ResponseEntity<List<String>>(allCity, HttpStatus.OK);
 	}
+	
+	/*
+	 * Controller to View only all the cities to user
+	 */
+	@GetMapping(value = "/theatre/list")
+	public ResponseEntity<List<String>> getAllTheatre() {
+		List<String> allTheatres= new ArrayList<String>();
+		theatreService.viewAllTheatre().forEach(e -> {
+			String theatreName = e.getTheatreName();
+			allTheatres.add(theatreName);
+		});
+		
+		return new ResponseEntity<List<String>>(allTheatres, HttpStatus.OK);
+	}
+	
+	/*
+	 * Controller to search the Theaters for the user
+	 */
+	@GetMapping(value = "/theatre/{search}")
+	public ResponseEntity<List<String>> searchTheatre(@PathVariable String search){
+		List<String> allTheatres= new ArrayList<String>();
+		theatreService.searchTheater(search).forEach(e -> {
+			String theatreName = e.getTheatreName();
+			allTheatres.add(theatreName);
+		});	
+		return new ResponseEntity<List<String>>(allTheatres, HttpStatus.OK);
+	}
+	
+	
+	
+	
 }
