@@ -22,5 +22,7 @@ public interface IShowService {
 	public boolean verifyTheatreId(Long id);
 	
 	public boolean verifyMovieId(Long id);
+	
+	public boolean findShowById(long showId);
 
 }

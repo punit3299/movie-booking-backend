@@ -28,7 +28,9 @@ import com.cg.movie.response.BookedDetailsOfTicket;
 import com.cg.movie.services.ICityService;
 import com.cg.movie.services.ICustomerService;
 import com.cg.movie.services.IMovieService;
+import com.cg.movie.services.IScreenService;
 import com.cg.movie.services.ISeatService;
+import com.cg.movie.services.IShowService;
 import com.cg.movie.services.ITheatreService;
 import com.cg.movie.services.ITicketService;
 
@@ -39,6 +41,12 @@ public class CustomerController {
 
 	@Autowired
 	ISeatService seatService;
+	
+	@Autowired
+	IScreenService screenService;
+	
+	@Autowired
+	IShowService showService;
 	
 	@Autowired
 	ICustomerService customerService;
@@ -118,6 +126,13 @@ public class CustomerController {
 	
 	@PostMapping(value = "/bookSeat", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<BookedDetailsOfTicket> bookSeat(@RequestBody BookTicketDetails bookTicketDetails) {
+		
+		customerService.findCustomerById(bookTicketDetails.getCustomerId());
+		cityService.searchCity(bookTicketDetails.getCityName());
+		theatreService.getTheatreById(bookTicketDetails.getTheatreId());
+		screenService.findScreenById(bookTicketDetails.getScreenId());
+		showService.findShowById(bookTicketDetails.getShowId());
+		movieService.findMovieById(bookTicketDetails.getMovieId());
 		
 		BookedDetailsOfTicket bookedDetailsOfTicket= seatService.bookSeat(bookTicketDetails);
 		

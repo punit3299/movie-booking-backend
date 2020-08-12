@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,8 @@ public class MovieServiceImpl implements IMovieService {
 
 	@Autowired
 	MovieRepository movieRepo;
+	
+	private Logger logger = Logger.getLogger(getClass());
 
 	/********************************************************************************
 	 * 
@@ -97,6 +100,17 @@ public class MovieServiceImpl implements IMovieService {
 		});
 		
 		return listMovie;
+	}
+
+	@Override
+	public boolean findMovieById(long movieId) throws MovieDoesntExistException {
+		if(movieRepo.existsById(movieId)) {
+			return true;
+		}
+		else {
+			logger.error("Movie not found with id: "+movieId);
+			throw new MovieDoesntExistException("Movie Not Found");
+		}
 	}
 
 }

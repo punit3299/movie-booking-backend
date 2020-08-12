@@ -27,6 +27,17 @@ public class ScreenServiceImpl implements IScreenService {
 	private Logger logger = Logger.getLogger(getClass());
 	
 	@Override
+	public boolean findScreenById(long screenId) throws ScreenNotFoundException {
+		if(screenRepo.existsById(screenId)) {
+			return true;
+		}
+		else {
+			logger.error("Screen not found with "+screenId);
+			throw new ScreenNotFoundException("Screen Not Found");
+		}
+	}
+	
+	@Override
 	public Screen addScreen(long theatreId, Screen screenDetails) throws TheatreNotFoundException{
 		if(theatreRepo.existsById(theatreId))
 		{	screenDetails.setStatus(true);
@@ -63,20 +74,18 @@ public class ScreenServiceImpl implements IScreenService {
 
 	@Override
 	public boolean deleteScreen(long screenId) throws ScreenNotFoundException {
-		if (screenRepo.existsById(screenId)) {
+		
+		    findScreenById(screenId);
 			screenRepo.deleteScreenById( screenId);
 			logger.info("Delete screen of id "+screenId);
 			return true;
-		} else {
-			logger.error("Screen not found with "+screenId);
-			throw new ScreenNotFoundException("Screen Not Found");
-		}
 
 	}
 
 	@Override
 	public int addSeats(long screenId, int noOfSeats) throws ScreenNotFoundException {
-		if (screenRepo.existsById(screenId)) {
+		
+		findScreenById(screenId);
 			
 		if(noOfSeats > 1)
 		{
@@ -91,17 +100,12 @@ public class ScreenServiceImpl implements IScreenService {
 			logger.error("Cannot add "+noOfSeats+" seats in the screen");
 			throw new InvalidAttributeException("Cannot add "+noOfSeats+" seats in the screen");
 		}
-		}
-		else
-		{
-			logger.error("Screen not found with "+screenId);
-			throw new ScreenNotFoundException("Screen Not Found");
-		}
 	}
 
 	@Override
 	public int updateNoOfSeats(long screenId, int noOfSeats) throws ScreenNotFoundException {
-		if (screenRepo.existsById(screenId)) {
+		
+		findScreenById(screenId);
 			if(noOfSeats > 1)
 			{	
 		Screen screen = screenRepo.findById(screenId).get();
@@ -116,31 +120,22 @@ public class ScreenServiceImpl implements IScreenService {
 				logger.error("Cannot update "+noOfSeats+" seats in the screen");
 				throw new InvalidAttributeException("Cannot update "+noOfSeats+" seats in the screen");
 			}
-		}
-		else
-		{
-			logger.error("Screen not found with "+screenId);
-			throw new ScreenNotFoundException("Screen Not Found");
-		}
-
 		
 	}
 
 	@Override
 	public int getNoOfSeats(long screenId) throws ScreenNotFoundException {
-		if (screenRepo.existsById(screenId)) {
+		
+		findScreenById(screenId);
+		
 		Screen screen = screenRepo.findById(screenId).get();
 		logger.info("Returned No of seats of screen of id "+screenId);
 		return screen.getNoOfSeats();
-		}
-		else
-		{
-			logger.error("Screen not found with "+screenId);
-			throw new ScreenNotFoundException("Screen Not Found");
-		}
+		
 
 		
 	}
+
 
 	
 }

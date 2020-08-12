@@ -126,4 +126,31 @@
  2020/08/11 19:49:27.218  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
  2020/08/12 08:53:08.291  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
  2020/08/12 08:53:26.059  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
+ 2020/08/12 09:04:00.991  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 78
+ 2020/08/12 09:04:07.659  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1
+ 2020/08/12 09:04:10.133  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1
+ 2020/08/12 09:07:26.753  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:3
+ 2020/08/12 09:07:28.210  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:3
+ 2020/08/12 11:46:45.785  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 1
+ 2020/08/12 11:46:45.791  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Theatre not found with 101
+ 2020/08/12 11:46:45.813  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 101
+ 2020/08/12 11:46:45.834  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 110
+ 2020/08/12 11:46:45.847  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 1
+ 2020/08/12 11:46:45.850  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Theatre not found with 101
+ 2020/08/12 11:46:45.863  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Returned No of seats of screen of id 101
+ 2020/08/12 11:46:45.866  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
+ 2020/08/12 11:46:45.884  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Added seats in screen of id 101
+ 2020/08/12 11:46:45.887  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Cannot add 0 seats in the screen
+ 2020/08/12 11:46:45.889  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
+ 2020/08/12 11:46:45.896  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 101
+ 2020/08/12 11:46:45.897  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Cannot update 0 seats in the screen
+ 2020/08/12 11:46:45.898  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
+ 2020/08/12 12:50:50.161  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 12:50:50.195  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 12:57:34.057  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 12:57:34.094  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 12:59:45.092  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 12:59:45.130  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 13:00:11.426  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 13:00:11.438  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
  
