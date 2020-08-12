@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Theatre;
+import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.exception.ShowDoesntExistException;
 import com.cg.movie.validator.ShowValidator;
 
@@ -35,6 +37,8 @@ public class ShowServiceImpl implements IShowService {
 
 	@Autowired
 	ShowValidator showValidator;
+	
+	private Logger logger = Logger.getLogger(getClass());
 
 	@Override
 	public Show addShow(Show show) {
@@ -125,11 +129,34 @@ public class ShowServiceImpl implements IShowService {
 		return showRepo.findShowByTheatreId(id);
 	}
 
-   @Override 
-   public List<Show> getAllShows()
-   {
-	   return showRepo.findAll();
-   }
-	
-	
+	@Override
+	public boolean verifyTheatreId(Long id) {
+
+		return showRepo.existsById(id);
+	}
+
+	@Override
+	public boolean verifyMovieId(Long id) {
+
+		return showRepo.existsById(id);
+	}
+
+	@Override
+	public boolean findShowById(long showId) throws ShowDoesntExistException{
+		if(showRepo.existsById(showId)) {
+			return true;
+		}
+		else {
+			
+			logger.error("Show not found with Id: "+showId);
+			throw new ShowDoesntExistException("Show Not Found");
+			
+		}
+	}
+	@Override 
+	   public List<Show> getAllShows()
+	   {
+		   return showRepo.findAll();
+	   }
+
 }

@@ -70,8 +70,6 @@ public class CustomerController {
 	@Autowired
 	IBookingService bookingService;
 	
-	@Autowired
-	IShowService showService;
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
