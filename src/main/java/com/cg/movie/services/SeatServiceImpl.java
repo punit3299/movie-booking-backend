@@ -2,6 +2,8 @@ package com.cg.movie.services;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,14 +52,53 @@ public class SeatServiceImpl implements ISeatService {
 	BookingRepository bookingRepo;
 	@Autowired
 	TicketRepository ticketRepo;
+	@Autowired
+	IScreenService screenService;
+	
+	@Autowired
+	IShowService showService;
+	
+	@Autowired
+	ICustomerService customerService;
+	
+	@Autowired
+	ITicketService ticketService;
+	
+	@Autowired
+	ICityService cityService;
+	
+	@Autowired
+	ITheatreService theatreService;
+	
+	@Autowired
+	IMovieService movieService;
 	
 	@Autowired
 	TransactionRepository transactionRepo;
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
+	/********************************************************************************
+	 * 
+	 * Method : bookSeat
+	 * 
+	 * Description: this method will check for seat availability and then book the seat for customer
+	 * 
+	 * @return : BookedDetailsOfTicket
+	 * 
+	 *         Created by: Raman  ,10 August 2020
+	 * 
+	 **********************************************************************************/
+	
 	@Override
 	public BookedDetailsOfTicket bookSeat(BookTicketDetails details) {
+		
+		customerService.findCustomerById(details.getCustomerId());
+		cityService.searchCity(details.getCityName());
+		theatreService.getTheatreById(details.getTheatreId());
+		screenService.findScreenById(details.getScreenId());
+		showService.findShowById(details.getShowId());
+		movieService.findMovieById(details.getMovieId());
 		
 		Screen screen=screenRepo.findById(details.getScreenId()).get();
 		
@@ -105,14 +146,39 @@ public class SeatServiceImpl implements ISeatService {
 		}
 		else {
 			Seat seat=seatRepo.findSeatByShowId(show.getShowId());
-			if(seat.getSeatNumber().contains(details.getSeatNo())) {
-				logger.error("Seats already booked");
-				throw new SeatAlreadyBookedException("Seats Already Booked");
+			List<String> seatNumbers=new ArrayList<>();
+			String seats=details.getSeatNo();
+			for(int i=0;i<seats.length();i++)
+			{
+				String temp="";
+				if(seats.charAt(i)=='|')
+				{
+					continue;
+				}
+				else
+				{
+					while(seats.charAt(i)!='|')
+					{
+						temp+=seats.charAt(i);
+						i++;
+					}
+					seatNumbers.add(temp);
+				}
 			}
-			else {
-				seat.setSeatNumber(seat.getSeatNumber()+details.getSeatNo());
-				seatRepo.save(seat);
+			
+			
+			for(String seatChecking:seatNumbers)
+			{  
+				if(seat.getSeatNumber().contains(seatChecking))
+				{
+					logger.error("Seats already booked");
+					throw new SeatAlreadyBookedException("Seats Already Booked");
+				}
+				
 			}
+			seat.setSeatNumber(seat.getSeatNumber()+details.getSeatNo());
+			seatRepo.save(seat);
+			
 			
 		}
 		

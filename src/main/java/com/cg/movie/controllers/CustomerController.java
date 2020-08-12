@@ -132,16 +132,12 @@ public class CustomerController {
 		return new ResponseEntity<Ticket>(ticket,HttpStatus.OK);
 		
 	}
+	/*
+	 * Controller to book seat
+	 */
 	
 	@PostMapping(value = "/bookSeat", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<BookedDetailsOfTicket> bookSeat(@RequestBody BookTicketDetails bookTicketDetails) {
-		
-		customerService.findCustomerById(bookTicketDetails.getCustomerId());
-		cityService.searchCity(bookTicketDetails.getCityName());
-		theatreService.getTheatreById(bookTicketDetails.getTheatreId());
-		screenService.findScreenById(bookTicketDetails.getScreenId());
-		showService.findShowById(bookTicketDetails.getShowId());
-		movieService.findMovieById(bookTicketDetails.getMovieId());
 		
 		BookedDetailsOfTicket bookedDetailsOfTicket= seatService.bookSeat(bookTicketDetails);
 		
