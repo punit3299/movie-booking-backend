@@ -40,6 +40,7 @@ public class Movie {
 	private Set<Show> showsList = new HashSet<Show>();
 
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private Set<Language> languagesList = new HashSet<Language>();
 	
@@ -132,6 +133,7 @@ public class Movie {
 		this.showsList = showsList;
 	}
 
+	@JsonIgnore
 	public Set<Language> getLanguagesList() {
 		return languagesList;
 	}

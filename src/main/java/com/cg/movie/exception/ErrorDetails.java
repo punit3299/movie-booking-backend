@@ -35,5 +35,4 @@ public class ErrorDetails {
 		this.header = header;
 	}
 
-
 }

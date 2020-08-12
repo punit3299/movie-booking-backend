@@ -1,6 +1,7 @@
 package com.cg.movie;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -19,15 +20,18 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.cg.movie.dao.MovieRepository;
 import com.cg.movie.entities.Movie;
-import com.cg.movie.services.MovieServiceImpl;
+import com.cg.movie.exception.MovieDoesntExistException;
+import com.cg.movie.exception.MoviesNotFoundException;
+import com.cg.movie.services.IMovieService;
 
 @SpringBootTest
 public class MovieTest {
+
 	@MockBean
 	MovieRepository movieDAO;
 
 	@Autowired
-	MovieServiceImpl movieServiceImpl;
+	IMovieService movieService;
 
 	@SuppressWarnings("deprecation")
 	@Test
@@ -36,7 +40,24 @@ public class MovieTest {
 
 		when(movieDAO.save(Mockito.any(Movie.class))).thenReturn(movie);
 
-		assertEquals(movie, movieServiceImpl.addMovie(new Movie()));
+		assertEquals(movie, movieService.addMovie(new Movie()));
+	}
+
+	@Test
+	public void deleteMovieById_will_throw_MovieDoesntExistException() {
+
+		long movieId = 123456782L;
+		// when
+		when(movieDAO.existsById((Mockito.anyLong()))).thenReturn(false);
+		// then
+		Exception exception=assertThrows(MoviesNotFoundException.class, () -> {
+			movieService.deleteMovieById(movieId);
+		});
+		
+		String expected_exception ="Movie with"+movieId+"doesn't Exist";
+		String actual_message=exception.getMessage();
+		
+		assertTrue(actual_message.contains(expected_exception));
 	}
 
 	@Test
@@ -52,7 +73,7 @@ public class MovieTest {
 
 		when(movieDAO.findAll()).thenReturn(movies);
 
-		Set<Movie> response = movieServiceImpl.findAllMovie();
+		Set<Movie> response = movieService.findAllMovie();
 
 		assertTrue(response.size() > 0);
 
@@ -62,13 +83,13 @@ public class MovieTest {
 
 	@Test
 	public void deleteMovieTest() {
-		//Movie movie1 = createMovie(1170000011L, "The Fault in our stars", "Young Adult Fiction", "John Boone", 02.13);
 		
-		movieServiceImpl.deleteMovieById(1170000011L);
-	
-		verify(movieDAO, times(1)).deleteById(Mockito.anyLong());
+		when(movieDAO.existsById((Mockito.anyLong()))).thenReturn(true);
+
+		movieService.deleteMovieById(1170000011L);
+
+		verify(movieDAO, times(1)).deleteMovieById(Mockito.anyLong());
 	}
-	
 
 	public Movie createMovie(Long id, String name, String genre, String director, Double length) {
 		Movie movie = new Movie();

@@ -94,19 +94,20 @@ public class AdminController {
 				HttpStatus.CREATED);
 	}
 
-	@PostMapping("/theatre/movie")
+	@PostMapping("/movie")
 	public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
 		Movie movie1 = movieService.addMovie(movie);
 		return new ResponseEntity<Movie>(movie1, HttpStatus.OK);
 	}
 
-	@DeleteMapping("/theatre/movie/{movieId}")
-	public ResponseEntity<String> deleteMovie(@PathVariable long movieId) {
+	@DeleteMapping("/movie/{movieId}")
+	public ResponseEntity<Set<Movie>> deleteMovie(@PathVariable long movieId) {
 		movieService.deleteMovieById(movieId);
-		return new ResponseEntity<String>("Movie Deleted", HttpStatus.OK);
+		Set<Movie> movieList=movieService.findAllMovie();
+		return new ResponseEntity<Set<Movie>>(movieList, HttpStatus.OK);
 	}
 
-	@GetMapping("/theatre/getAllMovies")
+	@GetMapping("/movie/getAllMovies")
 	public ResponseEntity<Set<Movie>> getAllMovies() {
 		Set<Movie> movieList = movieService.findAllMovie();
 		return new ResponseEntity<Set<Movie>>(movieList, HttpStatus.OK);
