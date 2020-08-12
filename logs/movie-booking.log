@@ -267,4 +267,5 @@
  2020/08/12 22:54:13.916  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
  2020/08/12 22:54:14.028  ERROR -  [http-nio-8083-exec-5] com.cg.movie.services.SeatServiceImpl : Seats already booked
  2020/08/12 22:55:50.846  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TicketServiceImpl :  Ticket found with TicketId: 3
+ 2020/08/12 22:57:23.440  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
  

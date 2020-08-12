@@ -30,17 +30,37 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
-	/*
-	 * Function to Add New Customer
-	 */
+	/********************************************************************************
+	 * 
+	 * Method : addTheater
+	 * 
+	 * Description: for adding the Customer.
+	 * 
+	 * @param  : Customer object
+	 * 
+	 * @return : Customer Entity
+	 * 
+	 *         Created by: Siddharth Raghuvanshi ,9 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public Customer addCustomer(Customer customer) {
 		return customerRepo.save(customer);
 	}
 	
-	/*
-	 * Function to Check if Customer Exists or Not
-	 */
+	/********************************************************************************
+	 * 
+	 * Method : findCustomerById
+	 * 
+	 * Description: for finding customer by Id
+	 * 
+	 * @param  : customerId
+	 * 
+	 * @return : Customer Entity
+	 * 
+	 *         Created by: Siddharth Raghuvanshi ,9 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public Customer findCustomerById(long customerId) {
 		
@@ -59,9 +79,19 @@ public class CustomerServiceImpl implements ICustomerService {
 		
 	}
 	
-	/*
-	 * Function to Add Money to Wallet
-	 */
+	/********************************************************************************
+	 * 
+	 * Method : addMoneyToWallet
+	 * 
+	 * Description: for adding money to wallet
+	 * 
+	 * @param  : customer object, amount
+	 * 
+	 * @return : Customer Entity
+	 * 
+	 *         Created by: Siddharth Raghuvanshi ,9 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public Customer addMoneyToWallet(Customer customer, int amount) {
 		
@@ -70,9 +100,19 @@ public class CustomerServiceImpl implements ICustomerService {
 		return customerRepo.save(customer);
 	}
 	
-	/*
-	 * Function to Refund Money to wallet
-	 */
+	/********************************************************************************
+	 * 
+	 * Method : refundMoneyToWallet
+	 * 
+	 * Description: for refund money to wallet
+	 * 
+	 * @param  : customer obejct, showId, amount
+	 * 
+	 * @return : Customer Entity
+	 * 
+	 *         Created by: Siddharth Raghuvanshi ,9 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public Customer refundMoneyToWallet(Customer customer,long showId, int amount) {
 		

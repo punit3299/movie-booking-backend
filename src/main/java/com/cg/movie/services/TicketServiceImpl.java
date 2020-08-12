@@ -32,9 +32,19 @@ public class TicketServiceImpl implements ITicketService {
 		return ticketRepo.save(ticket);
 	}
 	
-	/*
-	 * Function to Check if Ticket Exists or Not
-	 */
+	/********************************************************************************
+	 * 
+	 * Method : findTicketById
+	 * 
+	 * Description: for finding Ticket by Id
+	 * 
+	 * @param  : ticketId
+	 * 
+	 * @return : Ticket Entity
+	 * 
+	 *         Created by: Siddharth Raghuvanshi ,10 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public Ticket findTicketById(long ticketId) {
 		boolean checkTicket=ticketRepo.existsById(ticketId);
@@ -52,9 +62,19 @@ public class TicketServiceImpl implements ITicketService {
 		}
 	}
 
-	/*
-	 * Function to Cancel Ticket
-	 */
+	/********************************************************************************
+	 * 
+	 * Method : cancelTicket
+	 * 
+	 * Description: cancel ticket
+	 * 
+	 * @param  : ticket object
+	 * 
+	 * @return : Ticket Entity
+	 * 
+	 *         Created by: Siddharth Raghuvanshi ,10 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public Ticket cancelTicket(Ticket ticket) {
 		
