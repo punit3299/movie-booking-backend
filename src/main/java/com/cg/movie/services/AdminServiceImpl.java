@@ -118,6 +118,8 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
+	// today's revenue
+	
 	@Override
 	public Double todayRevenue() {
 
@@ -149,10 +151,11 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	//gender-wise count of coustomers
-	
+	// gender-wise count of coustomers
+
 	@Override
 	public GenderResponse genderwiseCount() {
+		
 		List<Customer> customers = customerRepo.findAll();
 		if (customers != null) {
 			Long male = customers.stream().filter(e -> e.getCustomerGender().equals("Male")).count();
@@ -164,6 +167,7 @@ public class AdminServiceImpl implements IAdminService {
 			logger.error("Customers Not Found");
 			throw new CustomerNotFoundException("Customers Not Found");
 		}
+		
 	}
 
 }
