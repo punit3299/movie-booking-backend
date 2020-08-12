@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="transaction_table")
 public class Transaction {
@@ -21,14 +23,16 @@ public class Transaction {
 	private String transactionMessage;
 	private Timestamp transactionTime;
 	
-	@OneToOne(mappedBy="transaction")
-	private Booking booking;
-	
 	@ManyToOne
 	@JoinColumn(name = "showId")
 	private Show show;
 	
 	
+
+	public Transaction() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Transaction(Long transactionId, String transactionMessage, Timestamp transactionTime) {
 		super();
@@ -61,13 +65,6 @@ public class Transaction {
 		this.transactionTime = transactionTime;
 	}
 
-	public Booking getBooking() {
-		return booking;
-	}
-
-	public void setBooking(Booking booking) {
-		this.booking = booking;
-	}
 
 	public Show getShow() {
 		return show;

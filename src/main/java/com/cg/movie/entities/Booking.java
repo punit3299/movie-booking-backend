@@ -57,15 +57,17 @@ public class Booking {
 		this.totalCost = totalCost;
 	}
 
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "transactionId")
 	private Transaction transaction;
-
+ 
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ticketId")
 	private Ticket ticket;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "showId")
 	private Show show;
 
@@ -116,5 +118,7 @@ public class Booking {
 	public void setShow(Show show) {
 		this.show = show;
 	}
+
+	
 
 }

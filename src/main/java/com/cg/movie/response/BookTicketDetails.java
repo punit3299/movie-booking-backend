@@ -10,7 +10,7 @@ public class BookTicketDetails {
     private Long screenId;
     private Long theatreId;
     private Long customerId;
-    private Long cityId;
+    private String cityName;
     private double ticketPrice;
     private Timestamp bookingDate,showDate;
     
@@ -62,11 +62,11 @@ public class BookTicketDetails {
 	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
-	public Long getCityId() {
-		return cityId;
+	public String getCityName() {
+		return cityName;
 	}
-	public void setCityId(Long cityId) {
-		this.cityId = cityId;
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
 	}
 	public double getTicketPrice() {
 		return ticketPrice;

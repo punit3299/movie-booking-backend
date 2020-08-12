@@ -7,13 +7,11 @@ import com.cg.movie.entities.Show;
 
 public interface IShowService {
 
-	public Show addShow(Show show);
+	Long addNewShow(long theatreId, long screenId, long movieId, Show show);
 
-	public Long addNewShow(long theatreId, long screenId, long movieId, Show show);
+    void deleteShowById(long showId);
 
-	public void deleteShowById(long showId);
-
-	public Set<Show> getAllShow();
+	Set<Show> getAllShow(long theatreId);
 	
     public List<Show> getShowByMovieId(Long id);
 	
@@ -22,4 +20,9 @@ public interface IShowService {
 	public boolean verifyTheatreId(Long id);
 	
 	public boolean verifyMovieId(Long id);
+	
+	public boolean findShowById(long showId);
+
+	List<Show> getAllShows();
+
 }

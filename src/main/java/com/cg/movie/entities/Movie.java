@@ -39,12 +39,12 @@ public class Movie {
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private Set<Show> showsList = new HashSet<Show>();
 
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-	private Set<Language> languagesList = new HashSet<>();
+	private Set<Language> languagesList = new HashSet<Language>();
 	
 	public Movie() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Movie(Long movieId, String movieName, String movieGenre, String movieDirector, Double movieLength,
@@ -149,7 +149,6 @@ public class Movie {
 		this.getShowsList().add(show);
 	}
 
-
 	// the method below will add language to movie
 	// also serves the purpose to avoid cyclic references.
 	public void addLanguage(Language language) {
@@ -157,4 +156,10 @@ public class Movie {
 		this.getLanguagesList().add(language);
 	}
 
+	@Override
+	public String toString() {
+		return "Movie [movieName=" + movieName + "]";
+	}
+	
+	
 }

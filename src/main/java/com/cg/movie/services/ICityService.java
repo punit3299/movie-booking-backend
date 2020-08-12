@@ -11,5 +11,6 @@ public interface ICityService {
 	public City addCity(City city);
 	public List<City> viewAllCity();
 	public List<Theatre> getAllTheatreByCity(String city);
+	public List<City> searchCity(String cityName);
 
 }

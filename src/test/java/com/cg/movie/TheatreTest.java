@@ -31,47 +31,70 @@ class TheatreTest {
 	@MockBean
 	TheatreRepository theatreRepo;
 
+	
+	/*
+	 *  Add Theatre Test case
+	 */
+
 	@Test
-	public void addTheatreTest() {
+	public void addTheatreTest() 
+	{
 		Theatre theatre = new Theatre(1L, "Xion", 5, "Mohit", 7973657728L);
 		when(theatreRepo.save(theatre)).thenReturn(theatre);
 		assertEquals(theatre, theatreService.addTheatre(theatre));
 	}
 	
+	/*
+	 * Delete Theatre Test case
+	 */
+	
 	  @Test 
-	  public void deleteTheatreTest() throws Exception{ 
-	  Theatre theatre = new Theatre(1L, "Xion", 5, "Mohit", 7973657728L);
-	  when(theatreRepo.existsById(theatre.getTheatreId())).thenReturn(true);
-	  theatreService.deleteTheatre(theatre);
-	  verify(theatreRepo,times(1)).delete(theatre); 
+	  public void deleteTheatreTest()
+	  { 
+		  Theatre theatre = new Theatre(1L, "Xion", 5, "Mohit", 7973657728L);
+		  when(theatreRepo.existsById(theatre.getTheatreId())).thenReturn(true);
+		  theatreService.deleteTheatre(theatre);
+		  verify(theatreRepo,times(1)).save(theatre); 
 	  }
 	  
+	  /*
+	   * Delete Theatre Exception Test case
+	   */
+	  
 	  @Test
-	  public void theatreNotFoundExceptiondeleteTest() throws Exception
+	  public void theatreNotFoundExceptiondeleteTest()
 	  {
 		  Theatre theatre = new Theatre(6L, "Xion", 5, "Mohit", 7973657728L);
 		  when(theatreRepo.existsById(theatre.getTheatreId())).thenReturn(false);
 		  assertThrows(TheatreNotFoundException.class, ()->{theatreService.deleteTheatre(theatre);});
 	  }
 	  
+	  /*
+	   * Get all Theatre Exception test case
+	   */
+	  
 	  @Test
 	  public void theatreNotFoundExceptionViewAllTest()
 	  {
 		  List<Theatre> theatre= new ArrayList<Theatre>();
-			when(theatreRepo.findAll()).thenReturn(theatre);
-			assertThrows(TheatreNotFoundException.class, ()->{theatreService.viewAllTheatre();});
-			
-		  
+		  when(theatreRepo.findAllTheatres(false)).thenReturn(theatre);
+		  assertThrows(TheatreNotFoundException.class, ()->{theatreService.viewAllTheatre();});  
 	  }
 	  
+	  /*
+	   * Get all theatre test case
+	   */
+	  
 		@Test
-		public void viewAllTheaterTest() {
-			Theatre x_theatre = new Theatre(1L, "Xion", 5, "Mohit", 7973657728L);
-			Theatre y_theatre = new Theatre(2L, "yion", 4, "Rohit", 7973658828L);
-			when(theatreRepo.findAll()).thenReturn(Stream
-					.of(x_theatre, y_theatre).collect(Collectors.toList()));
+		public void viewAllTheaterTest() 
+		{
+			Theatre theatreXion = new Theatre(1L, "Xion", 5, "Mohit", 7973657728L);
+			Theatre theatreViva = new Theatre(2L, "Viva", 4, "Rohit", 7973658828L);
+			when(theatreRepo.findAllTheatres(false)).thenReturn(Stream
+					.of(theatreXion, theatreViva).collect(Collectors.toList()));
 			assertEquals(2, theatreService.viewAllTheatre().size());
 		
 		}
+
 
 }
