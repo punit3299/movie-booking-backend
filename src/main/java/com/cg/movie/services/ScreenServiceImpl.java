@@ -26,6 +26,21 @@ public class ScreenServiceImpl implements IScreenService {
 
 	private Logger logger = Logger.getLogger(getClass());
 	
+	/********************************************************************************
+	 * 
+	 * Method : findScreenById
+	 * 
+	 * Description: To check whether screen exists
+	 * 
+	 * @param  : screenId 		Screen screenId
+	 *
+	 * @return : boolean
+	 * 
+	 * @throw ScreenNotFoundException : It is raised when screenId doesn't exists
+	 * 
+	 *         Created by: Saurav Suman ,9 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public boolean findScreenById(long screenId) throws ScreenNotFoundException {
 		if(screenRepo.existsById(screenId)) {
@@ -37,6 +52,23 @@ public class ScreenServiceImpl implements IScreenService {
 		}
 	}
 	
+	/********************************************************************************
+	 * 
+	 * Method : addScreen
+	 * 
+	 * Description: for adding the screen.
+	 * 
+	 * @param  : theatreId 		Theatre theatreId
+	 * @param  : screenDetails 	Screen screenDetails
+	 * 
+	 * @throw TheatreNotFoundException : It is raised when theatreId doesn't exist  
+	 * 
+	 * @return : Screen Entity
+	 * 
+	 *         Created by: Saurav Suman ,9 August 2020
+	 * 
+	 **********************************************************************************/
+
 	@Override
 	public Screen addScreen(long theatreId, Screen screenDetails) throws TheatreNotFoundException{
 		if(theatreRepo.existsById(theatreId))
@@ -57,6 +89,22 @@ public class ScreenServiceImpl implements IScreenService {
 		
 	}
 
+
+	/********************************************************************************
+	 * 
+	 * Method : getAllScreen
+	 * 
+	 * Description: for fetching all the screen.
+	 * 
+	 * @param  : theatreId 		Theatre theatreId
+	 * 
+	 * @throw TheatreNotFoundException : It is raised when theatreId doesn't exist  
+	 * 
+	 * @return : List of Screen Entity
+	 * 
+	 *         Created by: Saurav Suman ,9 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public List<Screen> getAllScreen(long theatreId) throws TheatreNotFoundException{
 		if(theatreRepo.existsById(theatreId))
@@ -72,6 +120,19 @@ public class ScreenServiceImpl implements IScreenService {
 		}
 	}
 
+	/********************************************************************************
+	 * 
+	 * Method : deleteScreen
+	 * 
+	 * Description: for deleting screen 
+	 * 
+	 * @param  : screenId 		Screen screenId
+	 *
+	 * @return : boolean
+	 * 
+	 *         Created by: Saurav Suman ,10 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public boolean deleteScreen(long screenId) throws ScreenNotFoundException {
 		
@@ -81,6 +142,23 @@ public class ScreenServiceImpl implements IScreenService {
 			return true;
 
 	}
+
+	/********************************************************************************
+	 * 
+	 * Method : addSeats
+	 * 
+	 * Description: for adding seats in particular screen 
+	 * 
+	 * @param  : screenId 		Screen screenId
+	 * @param  : noOfSeats		int noOfSeats
+	 *
+	 * @return : int noOfSeats
+	 * 
+	 * @throw InvalidAttributeException : t is raised when noOfSeats is 0 or less than that.
+	 * 
+	 *         Created by: Saurav Suman ,10 August 2020
+	 * 
+	 **********************************************************************************/
 
 	@Override
 	public int addSeats(long screenId, int noOfSeats) throws ScreenNotFoundException {
@@ -101,6 +179,23 @@ public class ScreenServiceImpl implements IScreenService {
 			throw new InvalidAttributeException("Cannot add "+noOfSeats+" seats in the screen");
 		}
 	}
+
+	/********************************************************************************
+	 * 
+	 * Method : updateSeats
+	 * 
+	 * Description: for updating seats in particular screen 
+	 * 
+	 * @param  : screenId 		Screen screenId
+	 * @param  : noOfSeats		int noOfSeats
+	 *
+	 * @return : int updatedNoOfSeats
+	 * 
+	 * @throw InvalidAttributeException : It is raised when noOfSeats is 0 or less than that.
+	 * 
+	 *         Created by: Saurav Suman ,11 August 2020
+	 * 
+	 **********************************************************************************/
 
 	@Override
 	public int updateNoOfSeats(long screenId, int noOfSeats) throws ScreenNotFoundException {
@@ -123,6 +218,19 @@ public class ScreenServiceImpl implements IScreenService {
 		
 	}
 
+	/********************************************************************************
+	 * 
+	 * Method : getNoOfSeats
+	 * 
+	 * Description: for fetching no of seats in particular screen 
+	 * 
+	 * @param  : screenId 		Screen screenId
+	 *
+	 * @return : int noOfSeats
+	 * 
+	 *         Created by: Saurav Suman ,11 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public int getNoOfSeats(long screenId) throws ScreenNotFoundException {
 		

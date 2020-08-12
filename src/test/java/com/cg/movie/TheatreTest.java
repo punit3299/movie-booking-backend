@@ -54,7 +54,7 @@ class TheatreTest {
 		  Theatre theatre = new Theatre(1L, "Xion", 5, "Mohit", 7973657728L);
 		  when(theatreRepo.existsById(theatre.getTheatreId())).thenReturn(true);
 		  theatreService.deleteTheatre(theatre);
-		  verify(theatreRepo,times(1)).delete(theatre); 
+		  verify(theatreRepo,times(1)).save(theatre); 
 	  }
 	  
 	  /*
@@ -77,7 +77,7 @@ class TheatreTest {
 	  public void theatreNotFoundExceptionViewAllTest()
 	  {
 		  List<Theatre> theatre= new ArrayList<Theatre>();
-		  when(theatreRepo.findAll()).thenReturn(theatre);
+		  when(theatreRepo.findAllTheatres(false)).thenReturn(theatre);
 		  assertThrows(TheatreNotFoundException.class, ()->{theatreService.viewAllTheatre();});  
 	  }
 	  
@@ -90,7 +90,7 @@ class TheatreTest {
 		{
 			Theatre theatreXion = new Theatre(1L, "Xion", 5, "Mohit", 7973657728L);
 			Theatre theatreViva = new Theatre(2L, "Viva", 4, "Rohit", 7973658828L);
-			when(theatreRepo.findAll()).thenReturn(Stream
+			when(theatreRepo.findAllTheatres(false)).thenReturn(Stream
 					.of(theatreXion, theatreViva).collect(Collectors.toList()));
 			assertEquals(2, theatreService.viewAllTheatre().size());
 		
