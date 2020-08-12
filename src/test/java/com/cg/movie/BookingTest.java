@@ -48,11 +48,6 @@ class BookingTest {
 	    assertEquals(2,bookingService.getPreviousBookings(new Long(1190)).size());
 	}
 	
-	@Test
-	public void verifyCustomerIdTest() {
-		Long customerId=new Long(1190);
-		when(bookingRepo.existsById(customerId)).thenReturn(true);
-		assertEquals(true, bookingService.verifyCustomerId(customerId));
-	}
+	
 }
 

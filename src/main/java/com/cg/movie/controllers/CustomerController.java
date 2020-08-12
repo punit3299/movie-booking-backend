@@ -3,6 +3,7 @@ package com.cg.movie.controllers;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +19,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.movie.entities.Booking;
 import com.cg.movie.entities.Customer;
+import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Ticket;
 import com.cg.movie.exception.CustomerNotFoundException;
 import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.TicketNotFoundException;
 import com.cg.movie.response.BookTicketDetails;
 import com.cg.movie.response.BookedDetailsOfTicket;
+import com.cg.movie.services.IBookingService;
 import com.cg.movie.services.ICityService;
 import com.cg.movie.services.ICustomerService;
 import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.ISeatService;
+import com.cg.movie.services.IShowService;
 import com.cg.movie.services.ITheatreService;
 import com.cg.movie.services.ITicketService;
 
@@ -54,6 +59,12 @@ public class CustomerController {
 	
 	@Autowired
 	IMovieService movieService;
+	
+	@Autowired
+	IBookingService bookingService;
+	
+	@Autowired
+	IShowService showService;
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
@@ -215,5 +226,59 @@ public class CustomerController {
 		return new ResponseEntity<List<String>>(allMovie, HttpStatus.OK);
 	}
 	
-	
+	/*
+	 * Controller to fetch all previous bookings for the customer
+	 */
+     @GetMapping(value="/booking/all/{customerId}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public ResponseEntity<List<Booking>> getPreviousBookings(@PathVariable long customerId)
+     {
+    	 List<Booking> bookings= bookingService.getPreviousBookings(new Long(customerId));
+    	 return new ResponseEntity<List<Booking>> (bookings,HttpStatus.OK);
+     }
+     
+     /*
+      * Controller to fetch single booking with booking id
+      */
+     @GetMapping(value ="/booking/{bookingId}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public ResponseEntity<Booking> getBooking(@PathVariable long bookingId){
+    	logger.trace("at getBooking method in controller");
+    	 Booking booking=bookingService.getBooking(bookingId);
+    	 return new ResponseEntity<Booking> (booking,HttpStatus.OK);
+     }
+     
+     /*
+      * Controller to fetch all shows
+      */
+     @GetMapping(value="/show/all")
+     public ResponseEntity <List<Show>> getAllShows(){
+    	 logger.trace("at getAllShows method in CustomerController");
+    	 List<Show> shows=showService.getAllShows();
+    	 return new ResponseEntity<List<Show>> (shows,HttpStatus.OK);
+     }
+     
+     /*
+      * controller to get shows by theatre for user
+      */
+     @GetMapping(value ="/show/byTheatre/{theatreId}")
+     public ResponseEntity<List<Show>> getShowByTheatreId(@PathVariable Long theatreId){
+    	 logger.trace("at getAllShows method in CustomerController");
+    	 List<Show> shows=showService.getShowByTheatreId(theatreId);
+   
+    	 return new ResponseEntity<List<Show>>(shows,HttpStatus.OK);
+     }
+     
+     /*
+      * controller to get shows by movie for the user
+      */
+     @GetMapping(value ="/show/byMovie/{movieId}")
+     public ResponseEntity<List<Show>> getShowByMovieId(@PathVariable Long movieId){
+    	 logger.trace("at getShowByMovieId method in CustomerController");
+    	 List<Show> shows=showService.getShowByMovieId(movieId);
+    	 return new ResponseEntity<List<Show>>(shows,HttpStatus.OK);
+     }
+     
+     
 }
+
+
+

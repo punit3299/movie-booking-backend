@@ -23,17 +23,9 @@ public class BookingServiceImpl implements IBookingService {
 	@Override 
 	public Booking getBooking(Long id)
 	{
-		return  bookingRepo.getOne(id);
+		return  bookingRepo.findById(id).get();
 	}
 	
-
-	
-	@Override
-	public Boolean verifyCustomerId(Long id)
-	{
-	   return bookingRepo.existsById(id);
-	    	
-	}
 	
     @Override
     public List<Booking> getPreviousBookings(Long id){
