@@ -66,21 +66,6 @@ public class ShowTest {
 	    when(showRepo.findShowByTheatreId(new Long(7001))).thenReturn(shows);
 	    assertEquals(2,showService.getShowByTheatreId(new Long(7001)).size());
 	}
-    
-	@Test
-	public void verifyTheatreIdTest()
-	{
-		Long theatreId=new Long(1190);
-		when(showRepo.existsById(theatreId)).thenReturn(true);
-		assertEquals(true, showService.verifyTheatreId(theatreId));
-	}
-	
-	@Test
-	public void verifyMovieIdTest() 
-	{
-		Long movieId=new Long(200);
-		when(showRepo.existsById(movieId)).thenReturn(true);
-		assertEquals(true, showService.verifyTheatreId(movieId));
-	}
+ 
 	
 }

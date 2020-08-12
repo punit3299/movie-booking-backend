@@ -57,14 +57,17 @@ public class Booking {
 		this.totalCost = totalCost;
 	}
 
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "transactionId")
 	private Transaction transaction;
-
+ 
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ticketId")
 	private Ticket ticket;
 
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "showId")
 	private Show show;

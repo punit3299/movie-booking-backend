@@ -45,6 +45,7 @@ public class MovieServiceImpl implements IMovieService {
 
 	@Override
 	public Movie addMovie(Movie movie) {
+		// movie.setLanguagesList(languagesList);
 		Movie movie1 = movieRepo.save(movie);
 		return movie1;
 	}
@@ -53,16 +54,15 @@ public class MovieServiceImpl implements IMovieService {
 	 * 
 	 * Method : findAllMovies Description: for fetching the movie list.
 	 * 
-	 * @return Movie list i.e movieList If Movies avaliable otherwise throws
-	 *         MoviesNotFoundException Exception.
+	 * @return Movie list i.e movieList It will return the set of movies.
 	 * 
-	 *                                 Created by: Prabhjot ,9 August 2020
+	 *         Created by: Prabhjot ,9 August 2020
 	 * 
 	 **********************************************************************************/
 
 	@Override
-	public Set<Movie> findAllMovie() throws MoviesNotFoundException {
-		List<Movie> movieList = movieRepo.findAll();
+	public Set<Movie> findAllMovie()  {
+		List<Movie> movieList = movieRepo.findAllMovies();
 		Set<Movie> movieList1 = new HashSet<>(movieList);
 		return movieList1;
 	}
@@ -73,18 +73,19 @@ public class MovieServiceImpl implements IMovieService {
 	 * 
 	 * Description: for deleting the movie by changing the status to true.
 	 * 
-	 * @throws MovieDoesntExistException : It is raised if movieId doesn't exist.
+	 * @throws MovieNotFoundException : It is raised if movieId doesn't exist.
 	 * 
 	 *                                   Created by: Prabhjot ,9 August 2020
 	 * 
 	 **********************************************************************************/
 
 	@Override
-	public void deleteMovieById(long movieId) throws MovieDoesntExistException {
+	public void deleteMovieById(long movieId) {
 		if (movieRepo.existsById(movieId)) {
-			movieRepo.deleteMovieById(true, movieId);
-		} else
+			movieRepo.deleteMovieById(movieId);
+		} else {
 			throw new MoviesNotFoundException("Movie with" + movieId + "doesn't Exist");
+		}
 	}
 	
 	

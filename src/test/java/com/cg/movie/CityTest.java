@@ -25,17 +25,25 @@ public class CityTest {
 	@MockBean
 	CityRepository repository;
 	
+	/*
+	 * Get All cities test case
+	 */
+	
 	@Test
 	public void viewAllCitiesTest() {
 		when(repository.findAll()).thenReturn(Stream
-				.of(new City(new Long(1), "BBK"), new City(new Long(2), "LKO")).collect(Collectors.toList()));
+				.of(new City(1L, "Jalandhar"), new City(2L, "Hyderabad")).collect(Collectors.toList()));
 		assertEquals(2, cityService.viewAllCity().size());
 	}
+	
+	/*
+	 *  Add city test case
+	 */
 	
 	@Test
 	public void addCity()
 	{
-		City city=new City(1L,"BBK");
+		City city=new City(1L,"Jalandhar");
 		when(repository.save(city)).thenReturn(city);
 		assertEquals(city, cityService.addCity(city));
 	}
