@@ -54,7 +54,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	 * 
 	 * Description: for finding customer by Id
 	 * 
-	 * @param  : customerId
+	 * @param  : customerId		Customer customerId
 	 * 
 	 * @return : Customer Entity
 	 * 
@@ -85,7 +85,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	 * 
 	 * Description: for adding money to wallet
 	 * 
-	 * @param  : customer object, amount
+	 * @param  : customer object, amount	
 	 * 
 	 * @return : Customer Entity
 	 * 
@@ -106,7 +106,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	 * 
 	 * Description: for refund money to wallet
 	 * 
-	 * @param  : customer obejct, showId, amount
+	 * @param  : customer obejct, showId, amount 		Show showId
 	 * 
 	 * @return : Customer Entity
 	 * 

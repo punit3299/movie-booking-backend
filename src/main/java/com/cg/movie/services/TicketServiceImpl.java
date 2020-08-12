@@ -38,7 +38,7 @@ public class TicketServiceImpl implements ITicketService {
 	 * 
 	 * Description: for finding Ticket by Id
 	 * 
-	 * @param  : ticketId
+	 * @param  : ticketId		Ticket ticketId
 	 * 
 	 * @return : Ticket Entity
 	 * 
