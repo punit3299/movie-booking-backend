@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.CustomerRepository;
+import com.cg.movie.dao.ShowRepository;
 import com.cg.movie.dao.TransactionRepository;
 import com.cg.movie.entities.Customer;
+import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Transaction;
 import com.cg.movie.exception.CustomerNotFoundException;
 
@@ -22,6 +24,9 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	@Autowired
 	TransactionRepository transactionRepo;
+	
+	@Autowired
+	ShowRepository showRepo;
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
@@ -62,12 +67,6 @@ public class CustomerServiceImpl implements ICustomerService {
 		
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
 		
-		Transaction transaction = new Transaction();
-		transaction.setTransactionMessage("Money "+amount+" added to Wallet");
-		transaction.setTransactionTime(Timestamp.from(Instant.now()));
-		
-		transactionRepo.save(transaction);
-		
 		return customerRepo.save(customer);
 	}
 	
@@ -75,13 +74,16 @@ public class CustomerServiceImpl implements ICustomerService {
 	 * Function to Refund Money to wallet
 	 */
 	@Override
-	public Customer refundMoneyToWallet(Customer customer, int amount) {
+	public Customer refundMoneyToWallet(Customer customer,long showId, int amount) {
 		
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
+		
+		Show show=showRepo.getOne(showId);
 		
 		Transaction transaction = new Transaction();
 		transaction.setTransactionMessage("Money "+amount+" refunded to Wallet");
 		transaction.setTransactionTime(Timestamp.from(Instant.now()));
+		transaction.setShow(show);
 		
 		transactionRepo.save(transaction);
 		
