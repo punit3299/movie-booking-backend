@@ -17,6 +17,12 @@ public interface IShowService {
 	
 	public List<Show> getShowByTheatreId(Long id);
 	
-	public List<Show> getAllShows();
+	public boolean verifyTheatreId(Long id);
+	
+	public boolean verifyMovieId(Long id);
+	
+	public boolean findShowById(long showId);
+
+	List<Show> getAllShows();
 
 }

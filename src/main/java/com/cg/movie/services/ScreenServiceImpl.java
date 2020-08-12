@@ -26,6 +26,49 @@ public class ScreenServiceImpl implements IScreenService {
 
 	private Logger logger = Logger.getLogger(getClass());
 	
+	/********************************************************************************
+	 * 
+	 * Method : findScreenById
+	 * 
+	 * Description: To check whether screen exists
+	 * 
+	 * @param  : screenId 		Screen screenId
+	 *
+	 * @return : boolean
+	 * 
+	 * @throw ScreenNotFoundException : It is raised when screenId doesn't exists
+	 * 
+	 *         Created by: Saurav Suman ,9 August 2020
+	 * 
+	 **********************************************************************************/
+	@Override
+	public boolean findScreenById(long screenId) throws ScreenNotFoundException {
+		if(screenRepo.existsById(screenId)) {
+			return true;
+		}
+		else {
+			logger.error("Screen not found with "+screenId);
+			throw new ScreenNotFoundException("Screen Not Found");
+		}
+	}
+	
+	/********************************************************************************
+	 * 
+	 * Method : addScreen
+	 * 
+	 * Description: for adding the screen.
+	 * 
+	 * @param  : theatreId 		Theatre theatreId
+	 * @param  : screenDetails 	Screen screenDetails
+	 * 
+	 * @throw TheatreNotFoundException : It is raised when theatreId doesn't exist  
+	 * 
+	 * @return : Screen Entity
+	 * 
+	 *         Created by: Saurav Suman ,9 August 2020
+	 * 
+	 **********************************************************************************/
+
 	@Override
 	public Screen addScreen(long theatreId, Screen screenDetails) throws TheatreNotFoundException{
 		if(theatreRepo.existsById(theatreId))
@@ -46,6 +89,22 @@ public class ScreenServiceImpl implements IScreenService {
 		
 	}
 
+
+	/********************************************************************************
+	 * 
+	 * Method : getAllScreen
+	 * 
+	 * Description: for fetching all the screen.
+	 * 
+	 * @param  : theatreId 		Theatre theatreId
+	 * 
+	 * @throw TheatreNotFoundException : It is raised when theatreId doesn't exist  
+	 * 
+	 * @return : List of Screen Entity
+	 * 
+	 *         Created by: Saurav Suman ,9 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public List<Screen> getAllScreen(long theatreId) throws TheatreNotFoundException{
 		if(theatreRepo.existsById(theatreId))
@@ -61,22 +120,50 @@ public class ScreenServiceImpl implements IScreenService {
 		}
 	}
 
+	/********************************************************************************
+	 * 
+	 * Method : deleteScreen
+	 * 
+	 * Description: for deleting screen 
+	 * 
+	 * @param  : screenId 		Screen screenId
+	 *
+	 * @return : boolean
+	 * 
+	 *         Created by: Saurav Suman ,10 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public boolean deleteScreen(long screenId) throws ScreenNotFoundException {
-		if (screenRepo.existsById(screenId)) {
+		
+		    findScreenById(screenId);
 			screenRepo.deleteScreenById( screenId);
 			logger.info("Delete screen of id "+screenId);
 			return true;
-		} else {
-			logger.error("Screen not found with "+screenId);
-			throw new ScreenNotFoundException("Screen Not Found");
-		}
 
 	}
 
+	/********************************************************************************
+	 * 
+	 * Method : addSeats
+	 * 
+	 * Description: for adding seats in particular screen 
+	 * 
+	 * @param  : screenId 		Screen screenId
+	 * @param  : noOfSeats		int noOfSeats
+	 *
+	 * @return : int noOfSeats
+	 * 
+	 * @throw InvalidAttributeException : t is raised when noOfSeats is 0 or less than that.
+	 * 
+	 *         Created by: Saurav Suman ,10 August 2020
+	 * 
+	 **********************************************************************************/
+
 	@Override
 	public int addSeats(long screenId, int noOfSeats) throws ScreenNotFoundException {
-		if (screenRepo.existsById(screenId)) {
+		
+		findScreenById(screenId);
 			
 		if(noOfSeats > 1)
 		{
@@ -91,17 +178,29 @@ public class ScreenServiceImpl implements IScreenService {
 			logger.error("Cannot add "+noOfSeats+" seats in the screen");
 			throw new InvalidAttributeException("Cannot add "+noOfSeats+" seats in the screen");
 		}
-		}
-		else
-		{
-			logger.error("Screen not found with "+screenId);
-			throw new ScreenNotFoundException("Screen Not Found");
-		}
 	}
+
+	/********************************************************************************
+	 * 
+	 * Method : updateSeats
+	 * 
+	 * Description: for updating seats in particular screen 
+	 * 
+	 * @param  : screenId 		Screen screenId
+	 * @param  : noOfSeats		int noOfSeats
+	 *
+	 * @return : int updatedNoOfSeats
+	 * 
+	 * @throw InvalidAttributeException : It is raised when noOfSeats is 0 or less than that.
+	 * 
+	 *         Created by: Saurav Suman ,11 August 2020
+	 * 
+	 **********************************************************************************/
 
 	@Override
 	public int updateNoOfSeats(long screenId, int noOfSeats) throws ScreenNotFoundException {
-		if (screenRepo.existsById(screenId)) {
+		
+		findScreenById(screenId);
 			if(noOfSeats > 1)
 			{	
 		Screen screen = screenRepo.findById(screenId).get();
@@ -116,31 +215,35 @@ public class ScreenServiceImpl implements IScreenService {
 				logger.error("Cannot update "+noOfSeats+" seats in the screen");
 				throw new InvalidAttributeException("Cannot update "+noOfSeats+" seats in the screen");
 			}
-		}
-		else
-		{
-			logger.error("Screen not found with "+screenId);
-			throw new ScreenNotFoundException("Screen Not Found");
-		}
-
 		
 	}
 
+	/********************************************************************************
+	 * 
+	 * Method : getNoOfSeats
+	 * 
+	 * Description: for fetching no of seats in particular screen 
+	 * 
+	 * @param  : screenId 		Screen screenId
+	 *
+	 * @return : int noOfSeats
+	 * 
+	 *         Created by: Saurav Suman ,11 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public int getNoOfSeats(long screenId) throws ScreenNotFoundException {
-		if (screenRepo.existsById(screenId)) {
+		
+		findScreenById(screenId);
+		
 		Screen screen = screenRepo.findById(screenId).get();
 		logger.info("Returned No of seats of screen of id "+screenId);
 		return screen.getNoOfSeats();
-		}
-		else
-		{
-			logger.error("Screen not found with "+screenId);
-			throw new ScreenNotFoundException("Screen Not Found");
-		}
+		
 
 		
 	}
+
 
 	
 }

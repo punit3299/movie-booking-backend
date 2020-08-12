@@ -39,8 +39,8 @@ public class TheatreServiceImpl implements ITheatreService {
 		System.out.println(theatre.getTheatreId());
 		if(theatreRepo.existsById(theatre.getTheatreId()))
 		{
-			System.out.println(theatre.getTheatreId());
-			theatreRepo.delete(theatre);
+			theatre.setStatus(true);
+			theatreRepo.save(theatre);
 			logger.info("Delete theatre of id "+theatre.getTheatreId());
 		}
 		else
@@ -66,7 +66,7 @@ public class TheatreServiceImpl implements ITheatreService {
 	@Override
 	public List<Theatre> viewAllTheatre() {
 		// TODO Auto-generated method stub
-		 List<Theatre> theatre=theatreRepo.findAll();
+		 List<Theatre> theatre=theatreRepo.findAllTheatres(false);
 		 if(theatre.size()==0)
 		 {
 			 logger.error("No Theatre Found");
@@ -88,7 +88,7 @@ public class TheatreServiceImpl implements ITheatreService {
 	@Override
 	public Theatre getTheatreById(long theatreId) {
 		System.out.println(theatreId);
-		Theatre theatre= theatreRepo.getOne(theatreId);
+		Theatre theatre= theatreRepo.findById(theatreId).get();
 		if(theatre==null)
 		{
 			logger.error("Theatre not found with "+theatreId);

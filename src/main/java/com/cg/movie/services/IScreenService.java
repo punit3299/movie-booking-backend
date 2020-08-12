@@ -12,13 +12,15 @@ public interface IScreenService {
 	
 	public boolean deleteScreen(long screenId) throws ScreenNotFoundException;
 	
-	public int addSeats(long screenId, int noOfSeats) throws ScreenNotFoundException;;
+	public int addSeats(long screenId, int noOfSeats) throws ScreenNotFoundException;
 
 	List<Screen> getAllScreen(long theatreId)  throws TheatreNotFoundException;
 	
-	public int updateNoOfSeats(long screenId, int noOfSeats) throws ScreenNotFoundException;;
+	public int updateNoOfSeats(long screenId, int noOfSeats) throws ScreenNotFoundException;
 	
-	public int getNoOfSeats(long screenId) throws ScreenNotFoundException;;
+	public int getNoOfSeats(long screenId) throws ScreenNotFoundException;
+	
+	public boolean findScreenById(long screenId);
 	
 	
 }

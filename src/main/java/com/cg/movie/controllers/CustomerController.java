@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.movie.entities.Booking;
 import com.cg.movie.entities.Customer;
+import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Ticket;
 import com.cg.movie.exception.CustomerNotFoundException;
@@ -32,6 +33,7 @@ import com.cg.movie.services.IBookingService;
 import com.cg.movie.services.ICityService;
 import com.cg.movie.services.ICustomerService;
 import com.cg.movie.services.IMovieService;
+import com.cg.movie.services.IScreenService;
 import com.cg.movie.services.ISeatService;
 import com.cg.movie.services.IShowService;
 import com.cg.movie.services.ITheatreService;
@@ -44,6 +46,12 @@ public class CustomerController {
 
 	@Autowired
 	ISeatService seatService;
+	
+	@Autowired
+	IScreenService screenService;
+	
+	@Autowired
+	IShowService showService;
 	
 	@Autowired
 	ICustomerService customerService;
@@ -63,8 +71,6 @@ public class CustomerController {
 	@Autowired
 	IBookingService bookingService;
 	
-	@Autowired
-	IShowService showService;
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
@@ -129,6 +135,13 @@ public class CustomerController {
 	
 	@PostMapping(value = "/bookSeat", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<BookedDetailsOfTicket> bookSeat(@RequestBody BookTicketDetails bookTicketDetails) {
+		
+		customerService.findCustomerById(bookTicketDetails.getCustomerId());
+		cityService.searchCity(bookTicketDetails.getCityName());
+		theatreService.getTheatreById(bookTicketDetails.getTheatreId());
+		screenService.findScreenById(bookTicketDetails.getScreenId());
+		showService.findShowById(bookTicketDetails.getShowId());
+		movieService.findMovieById(bookTicketDetails.getMovieId());
 		
 		BookedDetailsOfTicket bookedDetailsOfTicket= seatService.bookSeat(bookTicketDetails);
 		
@@ -216,14 +229,11 @@ public class CustomerController {
 	 * Controller to search the movies for the user
 	 */
 	// .........I will Edit this again so please leave it...............
-	@GetMapping(value = "/movie/{search}")
-	public ResponseEntity<List<String>> searchMovie(@PathVariable String movie) throws MoviesNotFoundException {
-		List<String> allMovie= new ArrayList<String>();
-		movieService.searchMovie(movie).forEach(e -> {
-			String movieName = e.getMovieName();
-			allMovie.add(movieName);
-		});	
-		return new ResponseEntity<List<String>>(allMovie, HttpStatus.OK);
+	@PostMapping(value = "/movie")
+	public ResponseEntity<String> searchMovie(@RequestBody Movie movie) throws MoviesNotFoundException {
+		
+		String movieName=movieService.searchMovie(movie.getMovieName());
+		return new ResponseEntity<String>(movieName, HttpStatus.OK);
 	}
 	
 	/*
