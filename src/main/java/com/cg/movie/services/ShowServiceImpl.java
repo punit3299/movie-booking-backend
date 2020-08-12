@@ -15,7 +15,6 @@ import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Theatre;
-import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.exception.ShowDoesntExistException;
 import com.cg.movie.exception.TheatreNotFoundException;
 import com.cg.movie.validator.ShowValidator;
@@ -104,9 +103,13 @@ public class ShowServiceImpl implements IShowService {
 	 * 
 	 * Method : getAllShow Description: for fetching the show of theatre.
 	 * 
-	 * @param theatreId Theatre theatreId
+	 * @param theatreId 
+	 * 
+	 * Theatre theatreId
 	 * 
 	 * @return show Set i.e showList1
+	 * 
+	 * @throws : when theatreId is not found then TheatreNotFoundException is raised.
 	 * 
 	 *         Created by: Prabhjot ,9 August 2020
 	 * 

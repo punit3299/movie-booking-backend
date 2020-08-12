@@ -32,8 +32,6 @@ public class Show {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName) {
 		super();
@@ -42,7 +40,6 @@ public class Show {
 		this.showEndTime = showEndTime;
 		this.showName = showName;
 	}
-
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
@@ -60,7 +57,7 @@ public class Show {
 	@ManyToOne
 	@JoinColumn(name = "theatreId")
 	private Theatre theatre;
-	
+
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "screenId")
@@ -95,13 +92,9 @@ public class Show {
 		return status;
 	}
 
-
-
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-
-
 
 	public void setShowEndTime(Timestamp showEndTime) {
 		this.showEndTime = showEndTime;
@@ -115,19 +108,14 @@ public class Show {
 		this.showName = showName;
 	}
 
-	
 	@JsonIgnore
 	public Set<Booking> getBookingList() {
 		return bookingList;
 	}
 
-
-
 	public void setBookingList(Set<Booking> bookingList) {
 		this.bookingList = bookingList;
 	}
-
-
 
 	@JsonIgnore
 	public Set<Seat> getSeatsList() {
@@ -171,7 +159,6 @@ public class Show {
 		this.movie = movie;
 	}
 
-
 	// the method below will add transaction to show
 	// also serves the purpose to avoid cyclic references.
 	public void addTransaction(Transaction transaction) {
@@ -185,7 +172,7 @@ public class Show {
 		seat.setShow(this); // this will avoid nested cascade
 		this.getSeatsList().add(seat);
 	}
-	
+
 	public void addBooking(Booking booking) {
 		booking.setShow(this);
 		this.getBookingList().add(booking);

@@ -22,6 +22,17 @@ import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.exception.ShowOverlapException;
 import com.cg.movie.exception.TheatreNotFoundException;
 
+/******************************************************************************************************************
+ * 
+ * @author Prabhjot 
+ * 
+ * Description :It provides the methods validateThearteId,validateMovieId,validateScreenId ,validateShowTimePeriod
+ *              for validating the data.
+ * 
+ *         created by : Prabhjot , 10 August 2020
+ *
+ ******************************************************************************************************************/
+
 @Component
 public class ShowValidator {
 
