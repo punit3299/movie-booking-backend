@@ -106,9 +106,22 @@ public class CityServiceImpl implements ICityService {
 		    else
 		    {
 		    	List<Theatre> theatreList = new ArrayList<Theatre>(size);
-			    for (Theatre theatre : requiredCity.getTheatresList()) 
-				      theatreList.add(theatre);
-				return theatreList;
+			    for (Theatre theatre : requiredCity.getTheatresList())
+			    {
+			    	if(!theatre.isStatus()) 
+			    	{
+			    	theatreList.add(theatre);
+			    	}
+			    }
+				 if(theatreList.size()==0)
+				 {
+				    	logger.error("No active Theatre Found For "+ city);
+				    	throw new TheatreNotFoundException("No active theatre found");
+				 }
+				 else 
+				 {
+				  return theatreList;
+				  }
 		    }
 		}
 	}
