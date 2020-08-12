@@ -67,8 +67,7 @@ public class Booking {
 	@JoinColumn(name = "ticketId")
 	private Ticket ticket;
 
-	@JsonIgnore
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "showId")
 	private Show show;
 
@@ -119,5 +118,7 @@ public class Booking {
 	public void setShow(Show show) {
 		this.show = show;
 	}
+
+	
 
 }

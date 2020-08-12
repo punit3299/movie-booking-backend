@@ -46,8 +46,8 @@ public class Show {
 
 
 	@JsonIgnore
-	@OneToOne(mappedBy="show")
-	private Booking booking;
+	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
+	private Set<Booking> bookingList = new HashSet<>();
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
@@ -117,16 +117,15 @@ public class Show {
 	}
 
 	
-
 	@JsonIgnore
-	public Booking getBooking() {
-		return booking;
+	public Set<Booking> getBookingList() {
+		return bookingList;
 	}
 
 
 
-	public void setBooking(Booking booking) {
-		this.booking = booking;
+	public void setBookingList(Set<Booking> bookingList) {
+		this.bookingList = bookingList;
 	}
 
 
@@ -186,5 +185,10 @@ public class Show {
 	public void addSeat(Seat seat) {
 		seat.setShow(this); // this will avoid nested cascade
 		this.getSeatsList().add(seat);
+	}
+	
+	public void addBooking(Booking booking) {
+		booking.setShow(this);
+		this.getBookingList().add(booking);
 	}
 }
