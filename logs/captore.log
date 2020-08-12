@@ -188,18 +188,101 @@
  2020/08/12 13:31:22.041  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 125
  2020/08/12 13:31:22.044  ERROR -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Screen not found with 987
  2020/08/12 13:33:02.425  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
- 2020/08/12 16:12:42.589  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
- 2020/08/12 16:14:14.944  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
- 2020/08/12 16:18:11.970  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
- 2020/08/12 16:19:05.415  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
- 2020/08/12 16:19:24.285  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
- 2020/08/12 16:27:21.738  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
- 2020/08/12 16:27:23.550  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
- 2020/08/12 16:27:33.473  ERROR -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1168
- 2020/08/12 16:27:56.671  ERROR -  [http-nio-8083-exec-8] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
- 2020/08/12 16:28:01.826  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
- 2020/08/12 16:28:06.321  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
- 2020/08/12 16:30:09.268  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
- 2020/08/12 16:30:50.150  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
- 2020/08/12 17:50:19.164  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/12 14:44:01.989  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : Theatre not found with 6
+ 2020/08/12 14:44:02.139  INFO  -  [main] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/12 14:44:02.182  INFO  -  [main] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 1
+ 2020/08/12 14:44:02.299  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : No Theatre Found
+ 2020/08/12 14:47:25.856  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 14:47:26.054  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 14:48:03.701  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 14:48:03.720  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 14:48:27.237  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 14:48:27.254  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 14:48:28.093  ERROR -  [http-nio-8083-exec-4] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 14:48:40.594  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 14:48:40.663  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 14:48:40.752  ERROR -  [http-nio-8083-exec-5] com.cg.movie.services.MovieServiceImpl : Movie not found with id: 5576
+ 2020/08/12 14:59:11.567  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
+ 2020/08/12 15:03:38.872  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
+ 2020/08/12 15:05:29.629  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 15:05:29.690  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 15:05:30.999  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 15:05:37.465  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 15:05:37.550  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 15:05:37.634  ERROR -  [http-nio-8083-exec-2] com.cg.movie.services.MovieServiceImpl : Movie not found with id: 55
+ 2020/08/12 15:05:47.867  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 15:05:47.883  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 15:05:47.889  ERROR -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Screen not found with 681
+ 2020/08/12 15:05:57.156  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 15:06:09.859  ERROR -  [http-nio-8083-exec-5] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 116
+ 2020/08/12 15:06:24.220  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 15:06:24.235  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 15:06:24.996  ERROR -  [http-nio-8083-exec-6] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 15:06:39.814  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 15:06:39.830  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 15:06:40.654  ERROR -  [http-nio-8083-exec-7] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 15:07:06.065  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 15:07:06.157  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 18:47:57.092  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 18:47:57.167  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 18:47:58.165  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 18:48:19.358  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 18:48:19.422  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 18:48:20.476  ERROR -  [http-nio-8083-exec-2] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 18:48:33.901  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 18:48:33.918  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 18:48:34.842  ERROR -  [http-nio-8083-exec-3] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 18:49:48.663  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 18:49:48.757  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 18:49:49.740  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 18:50:57.387  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 18:50:57.505  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 18:50:58.850  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 18:53:05.854  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 18:53:05.917  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 18:53:07.008  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 18:58:57.857  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 18:58:57.956  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 18:58:59.423  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:01:51.355  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:01:51.371  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:01:52.396  ERROR -  [http-nio-8083-exec-2] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:14:54.274  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:14:54.294  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:14:55.172  ERROR -  [http-nio-8083-exec-3] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:15:02.298  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:15:02.314  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:15:03.209  ERROR -  [http-nio-8083-exec-4] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:16:50.916  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:16:50.991  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:16:51.991  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:18:08.683  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:18:08.825  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:18:10.351  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:20:41.307  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:20:41.402  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:20:42.207  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:21:08.276  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:21:08.329  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:21:09.471  ERROR -  [http-nio-8083-exec-2] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:22:14.475  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:22:14.551  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:22:15.549  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:31:21.884  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:31:22.062  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:31:56.781  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:31:56.804  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:32:49.573  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:32:49.591  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:36:17.709  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:36:17.838  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:36:19.233  ERROR -  [http-nio-8083-exec-1] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:36:30.211  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:36:30.231  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:36:31.685  ERROR -  [http-nio-8083-exec-2] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:36:46.326  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:36:46.344  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 19:36:47.469  ERROR -  [http-nio-8083-exec-3] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 19:37:02.190  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 19:37:02.206  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
  
