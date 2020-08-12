@@ -13,5 +13,8 @@ public interface TheatreRepository extends JpaRepository<Theatre, Long> {
 
 	@Query("select t from Theatre t order by t.theatreRating desc")
 	List<Theatre> topThreeTheatres();
+	
+	@Query("SELECT theatre FROM Theatre theatre WHERE theatre.status = ?1")
+	List<Theatre> findAllTheatres(boolean status);
 
 }
