@@ -1,5 +1,6 @@
 package com.cg.movie.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -18,10 +19,19 @@ public class TheatreServiceImpl implements ITheatreService {
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
+
+	/*
+	 *  Function to Add new Theatre 
+	 */
+	
 	@Override
 	public Theatre addTheatre(Theatre theatre) {
 		return theatreRepo.save(theatre);
 	}
+	
+	/*
+	 * Function to delete Theatre
+	 */
 
 	@Override
 	public void deleteTheatre(Theatre theatre) {
@@ -40,10 +50,18 @@ public class TheatreServiceImpl implements ITheatreService {
 		}
 	}
 	
+	/*
+	 * Function to update pre-exist theatre details
+	 */
+	
 	@Override
 	public void updateTheatre(Theatre theatre) {
 		theatreRepo.save(theatre);
 	}
+	
+	/*
+	 * Function to show all Theatres
+	 */
 
 	@Override
 	public List<Theatre> viewAllTheatre() {
@@ -63,9 +81,12 @@ public class TheatreServiceImpl implements ITheatreService {
 		
 	}
 	
+	/*
+	 * Function to Check if Theatre Exists or Not
+	 */
+	
 	@Override
 	public Theatre getTheatreById(long theatreId) {
-		// TODO Auto-generated method stub
 		System.out.println(theatreId);
 		Theatre theatre= theatreRepo.getOne(theatreId);
 		if(theatre==null)
@@ -76,5 +97,22 @@ public class TheatreServiceImpl implements ITheatreService {
 		else {
 			logger.info(" theatre found of id "+theatreId);
 		return theatre;}
+	}
+	
+	@Override
+	public List<Theatre>searchTheater(String theatre) {
+		if (theatreRepo.findAll()== null)
+		{
+			throw new TheatreNotFoundException("Theatre not found");
+		}
+		List<Theatre> listTheatre= new ArrayList<Theatre>();
+		theatreRepo.findAll().forEach(e-> {
+			String theatreName = e.getTheatreName();
+			if(theatreName.equals(theatre)) {
+				listTheatre.add(e);
+			}
+		});
+		
+		return listTheatre;
 	}
 }

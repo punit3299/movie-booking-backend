@@ -9,9 +9,7 @@ public interface IBookingService {
 	public Booking addBooking(Booking booking);
 	
 	public Booking getBooking(Long id);
-	
-	public Boolean verifyCustomerId(Long id);
-	
-	 public List<Booking> getPreviousBookings(Long id);
+		
+	public List<Booking> getPreviousBookings(Long id);
 	
 }

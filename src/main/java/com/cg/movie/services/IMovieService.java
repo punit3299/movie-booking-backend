@@ -1,5 +1,6 @@
 package com.cg.movie.services;
 
+import java.util.List;
 import java.util.Set;
 
 import com.cg.movie.entities.Movie;
@@ -13,5 +14,7 @@ public interface IMovieService {
 	Set<Movie> findAllMovie();
 
 	void deleteMovieById(long movieId);
+
+	List<Movie> searchMovie(String movie);
 
 }

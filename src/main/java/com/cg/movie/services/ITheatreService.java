@@ -12,4 +12,5 @@ public interface ITheatreService {
 	public void updateTheatre(Theatre theatre);
 	public List<Theatre> viewAllTheatre();
 	public Theatre getTheatreById(long threatreId);
+	public List<Theatre> searchTheater(String theatre);
 }

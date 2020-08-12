@@ -41,7 +41,7 @@ class CustomerTest {
 	  public void refundMoneyToWalletTest() { 
 		  Customer customer=new Customer(new Long(1), "Siddharth ", "Haha", 7973657728L,"Male", 0);
 		  when(customerRepo.save(customer)).thenReturn(customer);
-		  assertEquals(customer,customerService.refundMoneyToWallet(customer, 500));
+		  assertEquals(customer,customerService.refundMoneyToWallet(customer, 619,500));
 	  
 	  }
 	  

@@ -182,35 +182,59 @@ public class AdminController {
 		return new ResponseEntity<Integer>(noOfSeat, HttpStatus.ACCEPTED);
 	}
 
+	/*
+	 * Update Theatre
+	 */
+
 	@PutMapping("/theatre/edit/{theatreId}")
 	public ResponseEntity<String> updateTheatre(@RequestBody Theatre theatre, @PathVariable long theatreId) {
 		theatreService.updateTheatre(theatre);
 		return new ResponseEntity<String>("Theatre updated successfully", HttpStatus.OK);
 	}
+	
+	/*
+	 *  Add city
+	 */
 
 	@PostMapping(value = "/city")
 	public ResponseEntity<City> AddCity(@RequestBody City city) {
 		City newCity = cityService.addCity(city);
 		return new ResponseEntity<City>(newCity, HttpStatus.OK);
 	}
+	
+	/*
+	 *  View All cities
+	 */
 
 	@GetMapping(value = "/city/list")
 	public ResponseEntity<List<City>> getAllCities() {
 		List<City> city = cityService.viewAllCity();
 		return new ResponseEntity<List<City>>(city, HttpStatus.OK);
 	}
+	
+	/*
+	 * get All Theatres in particular city 
+	 */
 
 	@GetMapping(value = "/theatre/{city}")
 	public ResponseEntity<List<Theatre>> getTheatreByCity(@PathVariable String city) {
 		List<Theatre> theatre = cityService.getAllTheatreByCity(city);
 		return new ResponseEntity<List<Theatre>>(theatre, HttpStatus.OK);
 	}
+	
+	/*
+	 *  Add Theatre
+	 */
 
 	@PostMapping(value = "/theatre")
 	public ResponseEntity<Theatre> addTheatre(@RequestBody Theatre theatre) {
 		Theatre newTheatre = theatreService.addTheatre(theatre);
 		return new ResponseEntity<Theatre>(newTheatre, HttpStatus.OK);
 	}
+	
+	/*
+	 * Delete Theatre
+	 */
 
 	@DeleteMapping("/theatre/{theatreId}")
 	public ResponseEntity<String> deleteTheatre(@PathVariable long theatreId) {
@@ -218,6 +242,10 @@ public class AdminController {
 		theatreService.deleteTheatre(theatre);
 		return new ResponseEntity<String>("Theatre Deleted", HttpStatus.OK);
 	}
+	
+	/*
+	 * Get All Theatre
+	 */
 
 	@GetMapping("/theatre/list")
 	public ResponseEntity<List<Theatre>> getAllTheatre() {

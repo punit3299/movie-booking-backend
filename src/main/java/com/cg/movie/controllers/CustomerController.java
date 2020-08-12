@@ -1,6 +1,9 @@
 package com.cg.movie.controllers;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +19,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.movie.entities.Booking;
 import com.cg.movie.entities.Customer;
+import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Ticket;
 import com.cg.movie.exception.CustomerNotFoundException;
+import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.TicketNotFoundException;
 import com.cg.movie.response.BookTicketDetails;
 import com.cg.movie.response.BookedDetailsOfTicket;
+import com.cg.movie.services.IBookingService;
+import com.cg.movie.services.ICityService;
 import com.cg.movie.services.ICustomerService;
+import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.ISeatService;
+import com.cg.movie.services.IShowService;
+import com.cg.movie.services.ITheatreService;
 import com.cg.movie.services.ITicketService;
 
 @RestController
@@ -39,6 +50,21 @@ public class CustomerController {
 	
 	@Autowired
 	ITicketService ticketService;
+	
+	@Autowired
+	ICityService cityService;
+	
+	@Autowired
+	ITheatreService theatreService;
+	
+	@Autowired
+	IMovieService movieService;
+	
+	@Autowired
+	IBookingService bookingService;
+	
+	@Autowired
+	IShowService showService;
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
@@ -75,14 +101,14 @@ public class CustomerController {
 	 * Controller to Refund Money
 	 */
 	
-	@PutMapping(value="/refundMoney/{customerId}/{amount}")
-	public ResponseEntity<Customer> refundMoney(@PathVariable long customerId, @PathVariable int amount)
+	@PutMapping(value="/refundMoney/{customerId}/{showId}/{amount}")
+	public ResponseEntity<Customer> refundMoney(@PathVariable long customerId,@PathVariable long showId, @PathVariable int amount)
 		throws CustomerNotFoundException{
 		
 		logger.trace("at refundMoney method");
 		
 		Customer customer = customerService.findCustomerById(customerId);
-		customer= customerService.refundMoneyToWallet(customer, amount);
+		customer= customerService.refundMoneyToWallet(customer,showId, amount);
 		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
 		
 	}
@@ -110,12 +136,149 @@ public class CustomerController {
 	}
 	
 	
-	
-	
 	@GetMapping(value="/hello")
 	public Timestamp helloRaman()
 	{
 		Timestamp ts=new Timestamp(System.currentTimeMillis());
 		return ts;
 	}
+	
+	/*
+	 * Controller to View only all the cities to user
+	 */
+	@GetMapping(value = "/city/list")
+	public ResponseEntity<List<String>> getAllCities() {
+		List<String> allCity= new ArrayList<String>();
+		cityService.viewAllCity().forEach(e -> {
+			String cityName = e.getCityName();
+			allCity.add(cityName);
+		});
+		
+		return new ResponseEntity<List<String>>(allCity, HttpStatus.OK);
+	}
+	
+	/*
+	 * Controller to search the cities for the user
+	 */
+	@GetMapping(value = "/city/{search}")
+	public ResponseEntity<List<String>> searchCity(@PathVariable String search){
+		List<String> allCity= new ArrayList<String>();
+		cityService.searchCity(search).forEach(e -> {
+			String cityName = e.getCityName();
+			allCity.add(cityName);
+		});	
+		
+		return new ResponseEntity<List<String>>(allCity, HttpStatus.OK);
+	}
+	
+	/*
+	 * Controller to View only all the cities to user
+	 */
+	@GetMapping(value = "/theatre/list")
+	public ResponseEntity<List<String>> getAllTheatre() {
+		List<String> allTheatres= new ArrayList<String>();
+		theatreService.viewAllTheatre().forEach(e -> {
+			String theatreName = e.getTheatreName();
+			allTheatres.add(theatreName);
+		});
+		
+		return new ResponseEntity<List<String>>(allTheatres, HttpStatus.OK);
+	}
+	
+	/*
+	 * Controller to search the Theaters for the user
+	 */
+	@GetMapping(value = "/theatre/{search}")
+	public ResponseEntity<List<String>> searchTheatre(@PathVariable String search){
+		List<String> allTheatres= new ArrayList<String>();
+		theatreService.searchTheater(search).forEach(e -> {
+			String theatreName = e.getTheatreName();
+			allTheatres.add(theatreName);
+		});	
+		return new ResponseEntity<List<String>>(allTheatres, HttpStatus.OK);
+	}
+	
+	/*
+	 * Controller to View only all the movies to user
+	 */
+	@GetMapping(value = "/movie/list")
+	public ResponseEntity<List<String>> getAllMovie() {
+		List<String> allMovie= new ArrayList<String>();
+		movieService.findAllMovie().forEach(e -> {
+			String movieName = e.getMovieName();
+			allMovie.add(movieName);
+		});
+		
+		return new ResponseEntity<List<String>>(allMovie, HttpStatus.OK);
+	}
+	
+	/*
+	 * Controller to search the movies for the user
+	 */
+	// .........I will Edit this again so please leave it...............
+	@GetMapping(value = "/movie/{search}")
+	public ResponseEntity<List<String>> searchMovie(@PathVariable String movie) throws MoviesNotFoundException {
+		List<String> allMovie= new ArrayList<String>();
+		movieService.searchMovie(movie).forEach(e -> {
+			String movieName = e.getMovieName();
+			allMovie.add(movieName);
+		});	
+		return new ResponseEntity<List<String>>(allMovie, HttpStatus.OK);
+	}
+	
+	/*
+	 * Controller to fetch all previous bookings for the customer
+	 */
+     @GetMapping(value="/booking/all/{customerId}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public ResponseEntity<List<Booking>> getPreviousBookings(@PathVariable long customerId)
+     {
+    	 List<Booking> bookings= bookingService.getPreviousBookings(new Long(customerId));
+    	 return new ResponseEntity<List<Booking>> (bookings,HttpStatus.OK);
+     }
+     
+     /*
+      * Controller to fetch single booking with booking id
+      */
+     @GetMapping(value ="/booking/{bookingId}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public ResponseEntity<Booking> getBooking(@PathVariable long bookingId){
+    	logger.trace("at getBooking method in controller");
+    	 Booking booking=bookingService.getBooking(bookingId);
+    	 return new ResponseEntity<Booking> (booking,HttpStatus.OK);
+     }
+     
+     /*
+      * Controller to fetch all shows
+      */
+     @GetMapping(value="/show/all")
+     public ResponseEntity <List<Show>> getAllShows(){
+    	 logger.trace("at getAllShows method in CustomerController");
+    	 List<Show> shows=showService.getAllShows();
+    	 return new ResponseEntity<List<Show>> (shows,HttpStatus.OK);
+     }
+     
+     /*
+      * controller to get shows by theatre for user
+      */
+     @GetMapping(value ="/show/byTheatre/{theatreId}")
+     public ResponseEntity<List<Show>> getShowByTheatreId(@PathVariable Long theatreId){
+    	 logger.trace("at getAllShows method in CustomerController");
+    	 List<Show> shows=showService.getShowByTheatreId(theatreId);
+   
+    	 return new ResponseEntity<List<Show>>(shows,HttpStatus.OK);
+     }
+     
+     /*
+      * controller to get shows by movie for the user
+      */
+     @GetMapping(value ="/show/byMovie/{movieId}")
+     public ResponseEntity<List<Show>> getShowByMovieId(@PathVariable Long movieId){
+    	 logger.trace("at getShowByMovieId method in CustomerController");
+    	 List<Show> shows=showService.getShowByMovieId(movieId);
+    	 return new ResponseEntity<List<Show>>(shows,HttpStatus.OK);
+     }
+     
+     
 }
+
+
+
