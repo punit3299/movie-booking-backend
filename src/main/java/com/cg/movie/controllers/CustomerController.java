@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Ticket;
 import com.cg.movie.exception.CustomerNotFoundException;
+import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.TicketNotFoundException;
 import com.cg.movie.response.BookTicketDetails;
 import com.cg.movie.response.BookedDetailsOfTicket;
@@ -186,7 +187,33 @@ public class CustomerController {
 		return new ResponseEntity<List<String>>(allTheatres, HttpStatus.OK);
 	}
 	
+	/*
+	 * Controller to View only all the movies to user
+	 */
+	@GetMapping(value = "/movie/list")
+	public ResponseEntity<List<String>> getAllMovie() {
+		List<String> allMovie= new ArrayList<String>();
+		movieService.findAllMovie().forEach(e -> {
+			String movieName = e.getMovieName();
+			allMovie.add(movieName);
+		});
+		
+		return new ResponseEntity<List<String>>(allMovie, HttpStatus.OK);
+	}
 	
+	/*
+	 * Controller to search the movies for the user
+	 */
+	// .........I will Edit this again so please leave it...............
+	@GetMapping(value = "/movie/{search}")
+	public ResponseEntity<List<String>> searchMovie(@PathVariable String movie) throws MoviesNotFoundException {
+		List<String> allMovie= new ArrayList<String>();
+		movieService.searchMovie(movie).forEach(e -> {
+			String movieName = e.getMovieName();
+			allMovie.add(movieName);
+		});	
+		return new ResponseEntity<List<String>>(allMovie, HttpStatus.OK);
+	}
 	
 	
 }

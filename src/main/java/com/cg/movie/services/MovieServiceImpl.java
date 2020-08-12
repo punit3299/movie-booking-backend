@@ -1,5 +1,6 @@
 package com.cg.movie.services;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.MovieRepository;
 import com.cg.movie.entities.Movie;
+
 import com.cg.movie.exception.MovieDoesntExistException;
 import com.cg.movie.exception.MoviesNotFoundException;
 
@@ -80,6 +82,21 @@ public class MovieServiceImpl implements IMovieService {
 			movieRepo.deleteMovieById(true, movieId);
 		} else
 			throw new MoviesNotFoundException("Movie with" + movieId + "doesn't Exist");
+	}
+	
+	
+	 //.........I will Edit this again so please leave it...............
+	@Override
+	public List<Movie>searchMovie(String movie) {
+		List<Movie> listMovie= new ArrayList<Movie>();
+		movieRepo.findAll().forEach(e-> {
+			String movieName = e.getMovieName();
+			if(movieName.equals(movie)) {
+				listMovie.add(e);
+			}
+		});
+		
+		return listMovie;
 	}
 
 }
