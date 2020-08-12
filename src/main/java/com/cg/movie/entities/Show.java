@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,33 +21,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "show_table")
 public class Show {
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName1")
+	@SequenceGenerator(name="genName1", sequenceName="sho",initialValue=55156,allocationSize=1)
 	private Long showId;
 	private Timestamp showStartTime;
 	private Timestamp showEndTime;
 	private String showName;
 	private boolean status;
 
-	public Show() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-
-	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName) {
-		super();
-		this.showId = showId;
-		this.showStartTime = showStartTime;
-		this.showEndTime = showEndTime;
-		this.showName = showName;
-	}
-
-
 	@JsonIgnore
-	@OneToOne(mappedBy="show")
+	@OneToOne(mappedBy = "show")
 	private Booking booking;
 
 	@JsonIgnore
@@ -61,7 +47,7 @@ public class Show {
 	@ManyToOne
 	@JoinColumn(name = "theatreId")
 	private Theatre theatre;
-	
+
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "screenId")
@@ -71,6 +57,18 @@ public class Show {
 	@ManyToOne
 	@JoinColumn(name = "movieId")
 	private Movie movie;
+
+	public Show() {
+		super();
+	}
+
+	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName) {
+		super();
+		this.showId = showId;
+		this.showStartTime = showStartTime;
+		this.showEndTime = showEndTime;
+		this.showName = showName;
+	}
 
 	public Long getShowId() {
 		return showId;
@@ -96,13 +94,9 @@ public class Show {
 		return status;
 	}
 
-
-
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-
-
 
 	public void setShowEndTime(Timestamp showEndTime) {
 		this.showEndTime = showEndTime;
@@ -116,20 +110,14 @@ public class Show {
 		this.showName = showName;
 	}
 
-	
-
 	@JsonIgnore
 	public Booking getBooking() {
 		return booking;
 	}
 
-
-
 	public void setBooking(Booking booking) {
 		this.booking = booking;
 	}
-
-
 
 	@JsonIgnore
 	public Set<Seat> getSeatsList() {
@@ -172,7 +160,6 @@ public class Show {
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
-
 
 	// the method below will add transaction to show
 	// also serves the purpose to avoid cyclic references.

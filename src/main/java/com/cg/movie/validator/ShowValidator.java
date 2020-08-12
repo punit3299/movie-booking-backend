@@ -38,6 +38,7 @@ public class ShowValidator {
 	ShowRepository showRepo;
 
 	public Theatre validateTheatreId(long theatreId) {
+
 		Optional<Theatre> theatre = theatreRepo.findById(theatreId);
 		if (!theatre.isPresent()) {
 			throw new TheatreNotFoundException("Theatre with id" + " " + theatreId + "doesn't");
