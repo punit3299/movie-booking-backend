@@ -20,18 +20,39 @@ public class TheatreServiceImpl implements ITheatreService {
 	private Logger logger = Logger.getLogger(getClass());
 	
 
-	/*
-	 *  Function to Add new Theatre 
-	 */
+	/********************************************************************************
+	 * 
+	 * Method : addTheatre
+	 * 
+	 * Description: for adding the Theatre.
+	 * 
+	 * @param  : theatre 		Theatre theatre
+	 * 
+	 * @return : Theatre Entity
+	 * 
+	 *         Created by: Krishna Agarwal ,9 August 2020
+	 * 
+	 **********************************************************************************/
 	
 	@Override
 	public Theatre addTheatre(Theatre theatre) {
 		return theatreRepo.save(theatre);
 	}
 	
-	/*
-	 * Function to delete Theatre
-	 */
+	/********************************************************************************
+	 * 
+	 * Method : deleteTheatre
+	 * 
+	 * Description: for deleting the screen by changing theatre status to true.
+	 * 
+	 * @param  : theatre 		Theatre theatre
+	 * 
+	 * @throw TheatreNotFoundException : It is raised when theatreId doesn't exist  
+	 * 
+	 * 
+	 *         Created by: Krishna Agarwal ,9 August 2020
+	 * 
+	 **********************************************************************************/
 
 	@Override
 	public void deleteTheatre(Theatre theatre) {
@@ -50,18 +71,39 @@ public class TheatreServiceImpl implements ITheatreService {
 		}
 	}
 	
-	/*
-	 * Function to update pre-exist theatre details
-	 */
+	/********************************************************************************
+	 * 
+	 * Method : updateTheatre
+	 * 
+	 * Description: for updating theatre details.
+	 * 
+	 * @param  : theatre 		Theatre theatre
+	 * 
+	 * @throw TheatreNotFoundException : It is raised when theatreId doesn't exist  
+	 * 
+	 * 
+	 *         Created by: Krishna Agarwal ,9 August 2020
+	 * 
+	 **********************************************************************************/
 	
 	@Override
 	public void updateTheatre(Theatre theatre) {
 		theatreRepo.save(theatre);
 	}
 	
-	/*
-	 * Function to show all Theatres
-	 */
+	/********************************************************************************
+	 * 
+	 * Method : viewAllTheatre
+	 * 
+	 * Description: for getting all active theatres.
+	 * 
+	 * @throw TheatreNotFoundException : It is raised when no theatre exist or active  
+	 * 
+	 * @return : List of Theatre Entity
+	 * 
+	 *         Created by: Krishna Agarwal ,9 August 2020
+	 * 
+	 **********************************************************************************/
 
 	@Override
 	public List<Theatre> viewAllTheatre() {
@@ -80,10 +122,22 @@ public class TheatreServiceImpl implements ITheatreService {
 		
 		
 	}
-	
-	/*
-	 * Function to Check if Theatre Exists or Not
-	 */
+
+	/********************************************************************************
+	 * 
+	 * Method : getTheatreById
+	 * 
+	 * Description: for getting theatre details by theatre Id.
+	 * 
+	 * @param  : theatreId 		Theatre theatreId
+	 * 
+	 * @throw TheatreNotFoundException : It is raised when theatreId doesn't exist  
+	 * 
+	 * @return : Theatre Entity
+	 * 
+	 *         Created by: Krishna Agarwal ,9 August 2020
+	 * 
+	 **********************************************************************************/
 	
 	@Override
 	public Theatre getTheatreById(long theatreId) {

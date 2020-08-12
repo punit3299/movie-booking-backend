@@ -20,11 +20,39 @@ public class CityServiceImpl implements ICityService {
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
+	/********************************************************************************
+	 * 
+	 * Method : addCity
+	 * 
+	 * Description: for adding the city.
+	 * 
+	 * @param  : city       City city  
+	 * 
+	 * @return : City Entity
+	 * 
+	 *         Created by: Krishna Agarwal ,10 August 2020
+	 * 
+	 **********************************************************************************/
+	
 	@Override
 	public City addCity(City city) {
 		return cityRepo.save(city);
 	}
 
+	/********************************************************************************
+	 * 
+	 * Method : viewAllCity
+	 * 
+	 * Description: for getting all the available cities.
+	 * 
+	 * @throw CityNotFoundException : It is raised when City doesn't exist  
+	 * 
+	 * @return : List of City Entity
+	 * 
+	 *         Created by: Krishna Agarwal ,9 August 2020
+	 * 
+	 **********************************************************************************/
+	
 	@Override
 	public List<City> viewAllCity() {
 		List<City> cities= cityRepo.findAll();
@@ -38,6 +66,23 @@ public class CityServiceImpl implements ICityService {
 			 return cities;
 		 }
 	}
+	
+	/********************************************************************************
+	 * 
+	 * Method : getAllTheatreByCity
+	 * 
+	 * Description: for getting all the theatre which comes in particular city.
+	 * 
+	 * @param  : city 		City city
+	 * 
+	 * @throw CityNotFoundException : It is raised when city doesn't exist
+	 * @throw TheatreNotFoundException : It is raised when theatreId doesn't exist  
+	 * 
+	 * @return : List of theatre Entity
+	 * 
+	 *         Created by: Krishna Agarwal ,10 August 2020
+	 * 
+	 **********************************************************************************/
 
 	@Override
 	public List<Theatre> getAllTheatreByCity(String city) {
