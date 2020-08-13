@@ -13,16 +13,23 @@ public interface IShowService {
 
 	Set<Show> getAllShow(long theatreId);
 	
+	/*
+	 * This method fetches shows associated with a movie by using movieId. It returns'
+	 * a list of shows to the user
+	 */
     public List<Show> getShowByMovieId(Long id);
 	
+    /*
+	 * This method fetches shows associated with a theater by using theaterId. It returns'
+	 * a list of shows to the user
+	 */
 	public List<Show> getShowByTheatreId(Long id);
 	
-	public boolean verifyTheatreId(Long id);
-	
-	public boolean verifyMovieId(Long id);
-	
-	public boolean findShowById(long showId);
+	/*
+	 * This method fetches all the shows for the customer
+	 */
+	public List<Show> getAllShows();
 
-	List<Show> getAllShows();
+	public void findShowById(Long showId);
 
 }
