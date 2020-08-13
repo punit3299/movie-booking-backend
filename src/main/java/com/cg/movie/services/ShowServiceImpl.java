@@ -32,16 +32,13 @@ import com.cg.movie.validator.ShowValidator;
 @Service
 public class ShowServiceImpl implements IShowService {
 	@Autowired
-	ShowRepository showRepo;
+    private	ShowRepository showRepo;
 
 	@Autowired
-	MovieRepository movieRepo;
+	private TheatreRepository theatreRepo;
 
 	@Autowired
-	TheatreRepository theatreRepo;
-
-	@Autowired
-	ShowValidator showValidator;
+	private ShowValidator showValidator;
 	
 	private Logger logger = Logger.getLogger(getClass());
 

@@ -22,6 +22,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.cg.movie.dao.ShowRepository;
 import com.cg.movie.dao.TheatreRepository;
 import com.cg.movie.entities.Show;
+import com.cg.movie.exception.MovieDoesntExistException;
 import com.cg.movie.exception.TheatreNotFoundException;
 import com.cg.movie.services.IShowService;
 
@@ -29,13 +30,13 @@ import com.cg.movie.services.IShowService;
 public class ShowTest {
 
 	@Autowired
-	IShowService showService;
+	private IShowService showService;
 
 	@MockBean
-	ShowRepository showRepo;
+	private ShowRepository showRepo;
 
 	@MockBean
-	TheatreRepository theatreRepo;
+	private TheatreRepository theatreRepo;
 
 	@Test
 	public void deleteShowTest() {
@@ -64,7 +65,7 @@ public class ShowTest {
 
 	}
 
-	@SuppressWarnings("deprecation")
+
 	public void getAllShowTest() {
 
 		long theatreId = new Long(7);
@@ -90,7 +91,7 @@ public class ShowTest {
 				(new Show(new Long(501), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker")))
 				.collect(Collectors.toList());
 		when(showRepo.findShowByMovieId(new Long(6001))).thenReturn(shows);
-		assertEquals(2, showService.getShowByMovieId(new Long(6001)).size());
+		assertThrows(MovieDoesntExistException.class, () ->{showService.getShowByMovieId(new Long(6001));});
 	}
 
 	@Test
@@ -100,7 +101,7 @@ public class ShowTest {
 				(new Show(new Long(501), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker")))
 				.collect(Collectors.toList());
 		when(showRepo.findShowByTheatreId(new Long(7001))).thenReturn(shows);
-		assertEquals(2, showService.getShowByTheatreId(new Long(7001)).size());
+		assertThrows(TheatreNotFoundException.class, () ->{showService.getShowByTheatreId(new Long(7001));});
 	}
 
 }
