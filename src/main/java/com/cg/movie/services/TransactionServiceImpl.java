@@ -12,6 +12,19 @@ public class TransactionServiceImpl implements ITransactionService {
 	@Autowired
 	private TransactionRepository transactionRepo;
 
+	/********************************************************************************
+	 * 
+	 * Method : addTransaction
+	 * 
+	 * Description: for adding transaction
+	 * 
+	 * @param  : transaction object
+	 * 
+	 * @return : transaction Entity
+	 * 
+	 *         Created by: Siddharth Raghuvanshi ,11 August 2020
+	 * 
+	 **********************************************************************************/
 	@Override
 	public Transaction addTransaction(Transaction transaction) {
 		

@@ -11,7 +11,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Show;
+import com.cg.movie.entities.Theatre;
 
 @Transactional
 @Repository
@@ -34,13 +36,20 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
 	List<Show> findAllShows(long thearteId);
 		
 
-    @Query(value="select * from show_table where movie_id=?1",nativeQuery=true)
-	public List<Show> findShowByMovieId(Long id);
-	
-	
-    @Query(value="select *  from show_table where theatre_id=?1",nativeQuery=true)
-	public List<Show> findShowByTheatreId(Long id);
-	
+	 @Query(value="select * from show_table where movie_id=?1",nativeQuery=true)
+		public List<Show> findShowByMovieId(Long id);
+		
+		
+	    @Query(value="select *  from show_table where theatre_id=?1",nativeQuery=true)
+		public List<Show> findShowByTheatreId(Long id);
+
+	    @Query("select movie from Movie movie where movie.movieId=?1")
+		public Movie findMovieIdExist(Long movieId);
+
+	    @Query("select theatre from Theatre theatre where theatre.theatreId=?1")
+		public Theatre findShowIdExist(Long theaterId);
 }
+
+
 
 

@@ -40,7 +40,6 @@ class TicketTest {
 	public void cancelTicketTest() {
 		Ticket ticket = new Ticket(new Long(12), "First", true, "S1");
 		when(ticketRepo.save(ticket)).thenReturn(ticket);
-		
 		assertEquals(ticket, ticketService.cancelTicket(ticket));
 	}
 	

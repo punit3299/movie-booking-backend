@@ -257,7 +257,7 @@ public class CustomerController {
       */
      @GetMapping(value="/show/all")
      public ResponseEntity <List<Show>> getAllShows(){
-    	 logger.trace("at getAllShows method in CustomerController");
+    	 logger.trace("at getAllShows method ");
     	 List<Show> shows=showService.getAllShows();
     	 return new ResponseEntity<List<Show>> (shows,HttpStatus.OK);
      }
@@ -267,7 +267,7 @@ public class CustomerController {
       */
      @GetMapping(value ="/show/byTheatre/{theatreId}")
      public ResponseEntity<List<Show>> getShowByTheatreId(@PathVariable Long theatreId){
-    	 logger.trace("at getAllShows method in CustomerController");
+    	 logger.trace("at getAllShows method ");
     	 List<Show> shows=showService.getShowByTheatreId(theatreId);
    
     	 return new ResponseEntity<List<Show>>(shows,HttpStatus.OK);
@@ -278,13 +278,15 @@ public class CustomerController {
       */
      @GetMapping(value ="/show/byMovie/{movieId}")
      public ResponseEntity<List<Show>> getShowByMovieId(@PathVariable Long movieId){
-    	 logger.trace("at getShowByMovieId method in CustomerController");
+    	 logger.trace("at getShowByMovieId method ");
     	 List<Show> shows=showService.getShowByMovieId(movieId);
     	 return new ResponseEntity<List<Show>>(shows,HttpStatus.OK);
      }
      
      
 }
+
+
 
 
 
