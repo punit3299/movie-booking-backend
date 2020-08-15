@@ -11,10 +11,16 @@ import com.cg.movie.entities.Booking;
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
-	@Query(value = "SELECT sum(total_cost) FROM booking_table where to_char(booking_date,'dd-mm-yy')='17-05-20'", nativeQuery = true)
+	/**
+	 * Query to fetch sum of all booking price for today
+	 */
+	@Query(value = "SELECT sum(total_cost) FROM booking_table where DATE_FORMAT(booking_date, '%d-%m-%Y')='14-08-2020'", nativeQuery = true)
 	Double todayRevenue();
 
-	@Query(value = "SELECT count(*) FROM booking_table where to_char(booking_date,'dd-mm-yy')='17-05-20'", nativeQuery = true)
+	/**
+	 * Query to fetch number of bookings for today
+	 */
+	@Query(value = "SELECT count(*) FROM booking_table where DATE_FORMAT(booking_date, '%d-%m-%Y')='14-08-2020'", nativeQuery = true)
 	Integer todayBookingCount();
 	
 	

@@ -11,8 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import com.cg.movie.entities.Movie;
 
-
-@Transactional
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Long>{
 	

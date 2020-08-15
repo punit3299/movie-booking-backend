@@ -15,15 +15,8 @@ import javax.validation.constraints.Pattern;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="customer_table")
+@Table(name = "customer_table")
 public class Customer {
-
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerPassword="
-				+ customerPassword + ", customerContact=" + customerContact + ", customerGender=" + customerGender
-				+ ", customerBalance=" + customerBalance + "]";
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +24,7 @@ public class Customer {
 	private String customerName;
 	private String customerPassword;
 	private Long customerContact;
-	@Pattern(regexp="Male|Female|Others")
+	@Pattern(regexp = "Male|Female|Others")
 	private String customerGender;
 	private int customerBalance;
 
@@ -39,16 +32,9 @@ public class Customer {
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	private Set<Ticket> ticketsList = new HashSet<>();
 
-
-	
-	
-
 	public Customer() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-
 
 	public Customer(Long customerId, String customerName, String customerPassword, Long customerContact,
 			@Pattern(regexp = "Male|Female|Others") String customerGender, int customerBalance) {
@@ -61,19 +47,13 @@ public class Customer {
 		this.customerBalance = customerBalance;
 	}
 
-
-
 	public int getCustomerBalance() {
 		return customerBalance;
 	}
 
-
-
 	public void setCustomerBalance(int customerBalance) {
 		this.customerBalance = customerBalance;
 	}
-
-
 
 	public Long getCustomerId() {
 		return customerId;
@@ -129,6 +109,13 @@ public class Customer {
 	public void addTicket(Ticket ticket) {
 		ticket.setCustomer(this); // this will avoid nested cascade
 		this.getTicketsList().add(ticket);
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerPassword="
+				+ customerPassword + ", customerContact=" + customerContact + ", customerGender=" + customerGender
+				+ ", customerBalance=" + customerBalance + "]";
 	}
 
 }

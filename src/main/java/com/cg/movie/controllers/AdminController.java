@@ -67,27 +67,84 @@ public class AdminController {
 	@Autowired
 	ILanguageService languageService;
 
-	// get count of customers
+
+	/**
+	 * ---------------------------------------------------------------------
+	 * Getting count of customers
+	 */
 
 	@GetMapping("/countOfCustomers")
 	public ResponseEntity<Long> countOfCustomers() {
 		return new ResponseEntity<Long>(adminService.countOfCustomers(), HttpStatus.OK);
 	}
 
-	// get count of theatres
+	/**
+	 * Getting count of theatres
+	 */
 
 	@GetMapping("/countOfTheatres")
 	public ResponseEntity<Long> countOfTheatres() {
 		return new ResponseEntity<Long>(adminService.countOfTheatres(), HttpStatus.OK);
 	}
 
-	// get count of movies
+	/**
+	 * Getting count of movies
+	 */
 
 	@GetMapping("/countOfMovies")
 	public ResponseEntity<Long> countOfMovies() {
 		return new ResponseEntity<Long>(adminService.countOfMovies(), HttpStatus.OK);
 	}
+	
+	/**
+	 * Getting Top 3 Theatres
+	 */
 
+	@GetMapping("/topThreeTheatres")
+	public ResponseEntity<List<Theatre>> topThreeTheatres() {
+		return new ResponseEntity<List<Theatre>>(adminService.topThreeTheatres(), HttpStatus.OK);
+	}
+
+	/**
+	 * Getting Top 3 Movies
+	 */
+
+	@GetMapping("/topThreeMovies")
+	public ResponseEntity<List<Movie>> topThreeMovies() {
+		return new ResponseEntity<List<Movie>>(adminService.topThreeMovies(), HttpStatus.OK);
+	}
+
+	/**
+	 * Getting Today's Revenue
+	 */
+
+	@GetMapping("/todayRevenue")
+	public ResponseEntity<Double> todayRevenue() {
+		return new ResponseEntity<Double>(adminService.todayRevenue(), HttpStatus.OK);
+	}
+
+	/**
+	 * Getting Today's Bookings count
+	 */
+
+	@GetMapping("/todayBookingCount")
+	public ResponseEntity<Integer> todayBookingCount() {
+		return new ResponseEntity<Integer>(adminService.todayBookingCount(), HttpStatus.OK);
+	}
+
+	/**
+	 * Getting gender-wise count of customers
+	 */
+	
+	@GetMapping("/genderwiseCount")
+	public ResponseEntity<GenderResponse> genderwiseCount() {
+		return new ResponseEntity<GenderResponse>(adminService.genderwiseCount(), HttpStatus.OK);
+	}
+	
+	/**
+	 * ------------------------------------------------------------
+	 */
+	
 	@PostMapping(value = "/screen/{theatreId}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<SuccessMessage> addScreen(@RequestBody Screen screen, @PathVariable long theatreId) {
 		screenService.addScreen(theatreId, screen);
@@ -112,41 +169,6 @@ public class AdminController {
 	public ResponseEntity<Set<Movie>> getAllMovies() {
 		Set<Movie> movieList = movieService.findAllMovie();
 		return new ResponseEntity<Set<Movie>>(movieList, HttpStatus.OK);
-	}
-
-	// top 3 theatres
-
-	@GetMapping("/topThreeTheatres")
-	public ResponseEntity<List<Theatre>> topThreeTheatres() {
-		return new ResponseEntity<List<Theatre>>(adminService.topThreeTheatres(), HttpStatus.OK);
-	}
-
-	// top 3 movies
-
-	@GetMapping("/topThreeMovies")
-	public ResponseEntity<List<Movie>> topThreeMovies() {
-		return new ResponseEntity<List<Movie>>(adminService.topThreeMovies(), HttpStatus.OK);
-	}
-
-	// today's Revenue
-
-	@GetMapping("/todayRevenue")
-	public ResponseEntity<Double> todayRevenue() {
-		return new ResponseEntity<Double>(adminService.todayRevenue(), HttpStatus.OK);
-	}
-
-	// today's Booking
-
-	@GetMapping("/todayBookingCount")
-	public ResponseEntity<Integer> todayBookingCount() {
-		return new ResponseEntity<Integer>(adminService.todayBookingCount(), HttpStatus.OK);
-	}
-
-	// genderwise Count
-
-	@GetMapping("/genderwiseCount")
-	public ResponseEntity<GenderResponse> genderwiseCount() {
-		return new ResponseEntity<GenderResponse>(adminService.genderwiseCount(), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/screen/{theatreId}", produces = MediaType.APPLICATION_JSON_VALUE)

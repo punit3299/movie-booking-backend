@@ -3,6 +3,8 @@ package com.cg.movie.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,7 @@ import com.cg.movie.exception.TheatresNotFoundException;
 import com.cg.movie.response.GenderResponse;
 
 @Service
+@Transactional
 public class AdminServiceImpl implements IAdminService {
 
 	@Autowired
@@ -38,7 +41,9 @@ public class AdminServiceImpl implements IAdminService {
 
 	private Logger logger = Logger.getLogger(getClass());
 
-	// count of customers
+	/**
+	 * Getting count of customers
+	 */
 
 	@Override
 	public Long countOfCustomers() {
@@ -54,7 +59,9 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// count of theatres
+	/**
+	 * Getting count of theatres
+	 */
 
 	@Override
 	public Long countOfTheatres() {
@@ -70,7 +77,9 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// count of movies
+	/**
+	 * Getting count of movies
+	 */
 
 	@Override
 	public Long countOfMovies() {
@@ -86,7 +95,9 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// top 3 theatres
+	/**
+	 * Getting Top 3 Theatres
+	 */
 
 	@Override
 	public List<Theatre> topThreeTheatres() {
@@ -94,7 +105,7 @@ public class AdminServiceImpl implements IAdminService {
 		List<Theatre> theatresList = theatreRepo.topThreeTheatres().stream().limit(3).collect(Collectors.toList());
 
 		if (theatresList != null) {
-			logger.info("Top 3 Theatres returned successfully");
+			logger.info("Top" + theatresList.size() + "Theatres returned successfully");
 			return theatresList;
 		} else {
 			logger.error("Theatres Not Found");
@@ -102,7 +113,9 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// top 3 movies
+	/**
+	 * Getting Top 3 Movies
+	 */
 
 	@Override
 	public List<Movie> topThreeMovies() {
@@ -118,14 +131,16 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// today's revenue
-	
+	/**
+	 * Getting Today's Revenue
+	 */
+
 	@Override
 	public Double todayRevenue() {
 
 		Double todayRevenue = bookingRepo.todayRevenue();
 
-		if (todayRevenue >= 0) {
+		if (todayRevenue > 0) {
 			logger.info("Today's revenue is " + todayRevenue);
 			return todayRevenue;
 		} else {
@@ -135,7 +150,9 @@ public class AdminServiceImpl implements IAdminService {
 
 	}
 
-	// number of bookings today
+	/**
+	 * Getting Today's Booking Count
+	 */
 
 	@Override
 	public Integer todayBookingCount() {
@@ -151,11 +168,13 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// gender-wise count of coustomers
+	/**
+	 * Getting gender-wise count of customers
+	 */
 
 	@Override
 	public GenderResponse genderwiseCount() {
-		
+
 		List<Customer> customers = customerRepo.findAll();
 		if (customers != null) {
 			Long male = customers.stream().filter(e -> e.getCustomerGender().equals("Male")).count();
@@ -167,7 +186,7 @@ public class AdminServiceImpl implements IAdminService {
 			logger.error("Customers Not Found");
 			throw new CustomerNotFoundException("Customers Not Found");
 		}
-		
+
 	}
 
 }
