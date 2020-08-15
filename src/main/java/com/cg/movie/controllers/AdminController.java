@@ -104,7 +104,7 @@ public class AdminController {
 	@DeleteMapping("/movie/{movieId}")
 	public ResponseEntity<Set<Movie>> deleteMovie(@PathVariable long movieId) {
 		movieService.deleteMovieById(movieId);
-		Set<Movie> movieList=movieService.findAllMovie();
+		Set<Movie> movieList = movieService.findAllMovie();
 		return new ResponseEntity<Set<Movie>>(movieList, HttpStatus.OK);
 	}
 
@@ -174,7 +174,6 @@ public class AdminController {
 	public ResponseEntity<Integer> updateSeatsInScreen(@RequestBody Screen screen) throws ScreenNotFoundException {
 		Integer updatedNoOfSeats = screenService.updateNoOfSeats(screen.getScreenId(), screen.getNoOfSeats());
 		return new ResponseEntity<Integer>(updatedNoOfSeats, HttpStatus.ACCEPTED);
-
 	}
 
 	@GetMapping(value = "/seat/{screenId}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -192,9 +191,9 @@ public class AdminController {
 		theatreService.updateTheatre(theatre);
 		return new ResponseEntity<String>("Theatre updated successfully", HttpStatus.OK);
 	}
-	
+
 	/*
-	 *  Add city
+	 * Add city
 	 */
 
 	@PostMapping(value = "/city")
@@ -202,9 +201,9 @@ public class AdminController {
 		City newCity = cityService.addCity(city);
 		return new ResponseEntity<City>(newCity, HttpStatus.OK);
 	}
-	
+
 	/*
-	 *  View All cities
+	 * View All cities
 	 */
 
 	@GetMapping(value = "/city/list")
@@ -212,9 +211,9 @@ public class AdminController {
 		List<City> city = cityService.viewAllCity();
 		return new ResponseEntity<List<City>>(city, HttpStatus.OK);
 	}
-	
+
 	/*
-	 * get All Theatres in particular city 
+	 * get All Theatres in particular city
 	 */
 
 	@GetMapping(value = "/theatre/{city}")
@@ -222,9 +221,9 @@ public class AdminController {
 		List<Theatre> theatre = cityService.getAllTheatreByCity(city);
 		return new ResponseEntity<List<Theatre>>(theatre, HttpStatus.OK);
 	}
-	
+
 	/*
-	 *  Add Theatre
+	 * Add Theatre
 	 */
 
 	@PostMapping(value = "/theatre")
@@ -232,7 +231,7 @@ public class AdminController {
 		Theatre newTheatre = theatreService.addTheatre(theatre);
 		return new ResponseEntity<Theatre>(newTheatre, HttpStatus.OK);
 	}
-	
+
 	/*
 	 * Delete Theatre
 	 */
@@ -243,7 +242,7 @@ public class AdminController {
 		theatreService.deleteTheatre(theatre);
 		return new ResponseEntity<String>("Theatre Deleted", HttpStatus.OK);
 	}
-	
+
 	/*
 	 * Get All Theatre
 	 */
@@ -274,7 +273,7 @@ public class AdminController {
 	@PostMapping("/{movieId}/language")
 	public ResponseEntity<Language> addLanguages(@PathVariable("movieId") long movieId,
 			@RequestBody Language language) {
-		return new ResponseEntity<Language>(languageService.addLanguage(language,movieId), HttpStatus.CREATED);
+		return new ResponseEntity<Language>(languageService.addLanguage(language, movieId), HttpStatus.CREATED);
 	}
 
 }

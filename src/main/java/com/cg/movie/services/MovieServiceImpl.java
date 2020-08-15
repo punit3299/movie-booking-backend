@@ -1,5 +1,7 @@
 package com.cg.movie.services;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.MovieRepository;
 import com.cg.movie.entities.Movie;
+import com.cg.movie.exception.InValidDataEntryException;
 import com.cg.movie.exception.MovieDoesntExistException;
 import com.cg.movie.exception.MoviesNotFoundException;
 
@@ -45,8 +48,12 @@ public class MovieServiceImpl implements IMovieService {
 
 		List<Movie> movieByName = movieRepo.findMovieByName(movie.getMovieName());
 		if (movieByName.isEmpty()) {
+			if(!movie.getMovieReleaseDate().before(new Date()))
+			{
 			Movie movieAdded = movieRepo.save(movie);
 			return movieAdded;
+			}
+			else throw new InValidDataEntryException("Please enter the correct movie release date");
 		} else
 			throw new MoviesNotFoundException("This movie with" + movieByName + " already exist.");
 	}

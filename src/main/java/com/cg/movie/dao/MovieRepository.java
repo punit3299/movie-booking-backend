@@ -19,7 +19,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long>{
 	@Query("select m from Movie m order by m.movieRating desc")
 	List<Movie> topThreeMovies();
 	
-	Movie findByMovieId(long movieId);
+	@Query("SELECT movie from Movie movie WHERE movie.movieId=?1 AND movie.status=0")
+    Movie findByMovieId(long movieId);
 	
 	@Query("select movie from Movie movie WHERE movie.movieName=?1")
 	List<Movie> findMovieByName(String movieName);

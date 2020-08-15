@@ -23,5 +23,6 @@ public interface ScreenRepository extends JpaRepository<Screen, Long> {
 	@Query("SELECT screen FROM Screen screen WHERE screen.status = 1 AND screen.theatre.theatreId = ?1")
 	List<Screen> findAll(long theatreId);
 	
-	
+	@Query("SELECT screen FROM Screen screen WHERE screen.screenId=?1 AND screen.status=0")
+	Screen findByScreenId(long screenId);
 }

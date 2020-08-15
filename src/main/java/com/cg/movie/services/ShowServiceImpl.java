@@ -21,8 +21,10 @@ import com.cg.movie.validator.ShowValidator;
 
 /********************************************************************************
  * 
- * @author Prabhjot Description :It provides the service for add show for
- *         theatre,delete show and view all shows.
+ * @author Prabhjot
+ * 
+ *         Description :It provides the service for add show for theatre,delete
+ *         show and view all shows.
  * 
  *         created by : Prabhjot , 9 August 2020
  *
@@ -41,10 +43,8 @@ public class ShowServiceImpl implements IShowService {
 
 	@Autowired
 	ShowValidator showValidator;
-	
-	private Logger logger = Logger.getLogger(getClass());
 
-	
+	private Logger logger = Logger.getLogger(getClass());
 
 	/********************************************************************************
 	 * 
@@ -103,28 +103,27 @@ public class ShowServiceImpl implements IShowService {
 	 * 
 	 * Method : getAllShow Description: for fetching the show of theatre.
 	 * 
-	 * @param theatreId 
+	 * @param theatreId
 	 * 
-	 * Theatre theatreId
+	 *                  Theatre theatreId
 	 * 
 	 * @return show Set i.e showList1
 	 * 
-	 * @throws : when theatreId is not found then TheatreNotFoundException is raised.
+	 * @throws : when theatreId is not found then TheatreNotFoundException is
+	 *           raised.
 	 * 
-	 *         Created by: Prabhjot ,9 August 2020
+	 *           Created by: Prabhjot ,9 August 2020
 	 * 
 	 **********************************************************************************/
 
 	@Override
 	public Set<Show> getAllShow(long theatreId) {
-		
-		if(!theatreRepo.existsById(theatreId))
-		{
+
+		if (theatreRepo.existsById(theatreId)) {
 			List<Show> showList = showRepo.findAllShows(theatreId);
 			Set<Show> showList1 = new HashSet<>(showList);
 			return showList1;
-		}
-		else
+		} else
 			throw new TheatreNotFoundException("Theatre with id" + theatreId + "not found");
 	}
 
@@ -156,15 +155,14 @@ public class ShowServiceImpl implements IShowService {
 	}
 
 	@Override
-	public boolean findShowById(long showId) throws ShowDoesntExistException{
-		if(showRepo.existsById(showId)) {
+	public boolean findShowById(long showId) throws ShowDoesntExistException {
+		if (showRepo.existsById(showId)) {
 			return true;
-		}
-		else {
-			
-			logger.error("Show not found with Id: "+showId);
+		} else {
+
+			logger.error("Show not found with Id: " + showId);
 			throw new ShowDoesntExistException("Show Not Found");
-			
+
 		}
 	}
 
