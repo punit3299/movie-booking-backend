@@ -15,7 +15,7 @@ import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Theatre;
-import com.cg.movie.exception.ScreenNotFoundException;
+import com.cg.movie.exception.MovieDoesntExistException;
 import com.cg.movie.exception.ShowDoesntExistException;
 import com.cg.movie.exception.TheatreNotFoundException;
 import com.cg.movie.validator.ShowValidator;
@@ -32,16 +32,13 @@ import com.cg.movie.validator.ShowValidator;
 @Service
 public class ShowServiceImpl implements IShowService {
 	@Autowired
-	ShowRepository showRepo;
+    private	ShowRepository showRepo;
 
 	@Autowired
-	MovieRepository movieRepo;
+	private TheatreRepository theatreRepo;
 
 	@Autowired
-	TheatreRepository theatreRepo;
-
-	@Autowired
-	ShowValidator showValidator;
+	private ShowValidator showValidator;
 	
 	private Logger logger = Logger.getLogger(getClass());
 
@@ -104,9 +101,13 @@ public class ShowServiceImpl implements IShowService {
 	 * 
 	 * Method : getAllShow Description: for fetching the show of theatre.
 	 * 
-	 * @param theatreId Theatre theatreId
+	 * @param theatreId 
+	 * 
+	 * Theatre theatreId
 	 * 
 	 * @return show Set i.e showList1
+	 * 
+	 * @throws : when theatreId is not found then TheatreNotFoundException is raised.
 	 * 
 	 *         Created by: Prabhjot ,9 August 2020
 	 * 
@@ -125,44 +126,79 @@ public class ShowServiceImpl implements IShowService {
 			throw new TheatreNotFoundException("Theatre with id" + theatreId + "not found");
 	}
 
-	@Override
-	public List<Show> getShowByMovieId(Long id) {
-		return showRepo.findShowByMovieId(id);
-	}
 
 	@Override
-	public List<Show> getShowByTheatreId(Long id) {
-
-		return showRepo.findShowByTheatreId(id);
-	}
-
-	@Override
-	public List<Show> getAllShows() {
-		return showRepo.findAll();
-	}
-
-	public boolean verifyTheatreId(Long id) {
-
-		return showRepo.existsById(id);
-	}
-
-	@Override
-	public boolean verifyMovieId(Long id) {
-
-		return showRepo.existsById(id);
-	}
-
-	@Override
-	public boolean findShowById(long showId) throws ShowDoesntExistException{
-		if(showRepo.existsById(showId)) {
-			return true;
+	public List<Show> getShowByMovieId(Long movieId) {
+		Movie movie=showRepo.findMovieIdExist(movieId);
+		if(movie==null )
+		{
+			logger.error("movie not found");
+			throw new MovieDoesntExistException("Movie with id "+movieId+" doesnot exist");
 		}
-		else {
-			
-			logger.error("Show not found with Id: "+showId);
-			throw new ShowDoesntExistException("Show Not Found");
-			
+		else
+		{
+			List<Show> shows= showRepo.findShowByMovieId(movieId);
+			if(shows==null || shows.isEmpty())
+			{
+				logger.error("show not found");
+				throw new ShowDoesntExistException("There are no shows available with movie id"+movieId);
+		    }
+			else
+			{
+				logger.info("shows found successfully");
+				return shows;
+			}
 		}
+		
 	}
+
+	@Override
+	public List<Show> getShowByTheatreId(Long theaterId) {
+		Theatre theater=showRepo.findShowIdExist(theaterId);
+		if(theater==null )
+		{
+			logger.error("movie not found");
+			throw new TheatreNotFoundException("Movie with id "+theaterId+" doesnot exist");
+		}
+		else
+		{
+			List<Show> shows= showRepo.findShowByTheatreId(theaterId);
+			if(shows==null || shows.isEmpty())
+			{
+				logger.error("show not found");
+				throw new ShowDoesntExistException("There are no shows available with theatre id"+theaterId);
+		    }
+			else
+			{
+				logger.info("shows found successfully");
+				return shows;
+			}
+		}
+		 
+	}
+
+   @Override 
+   public List<Show> getAllShows()
+   {
+	   logger.info("shows found successfully");
+	   List<Show> show=showRepo.findAll();
+	   if(show==null || show.isEmpty())
+	   {
+		   logger.error("shows not found");
+		   throw new  ShowDoesntExistException("There are no shows available currently");
+	   }
+	   return show;
+   }
+
+@Override
+public void findShowById(Long showId) {
+	if(!showRepo.existsById(showId))
+	{
+		throw new ShowDoesntExistException("Show doesnot exist");
+	}
+	
+}
+	
 
 }
+

@@ -12,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +19,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "show_table")
 public class Show {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName1")
-	@SequenceGenerator(name="genName1", sequenceName="sho",initialValue=55156,allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long showId;
 	private Timestamp showStartTime;
 	private Timestamp showEndTime;
@@ -32,8 +29,8 @@ public class Show {
 	private boolean status;
 
 	@JsonIgnore
-	@OneToOne(mappedBy = "show")
-	private Booking booking;
+	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
+	private Set<Booking> bookingList = new HashSet<>();
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
@@ -58,8 +55,10 @@ public class Show {
 	@JoinColumn(name = "movieId")
 	private Movie movie;
 
+
 	public Show() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName) {
@@ -69,7 +68,6 @@ public class Show {
 		this.showEndTime = showEndTime;
 		this.showName = showName;
 	}
-
 	public Long getShowId() {
 		return showId;
 	}
@@ -111,12 +109,12 @@ public class Show {
 	}
 
 	@JsonIgnore
-	public Booking getBooking() {
-		return booking;
+	public Set<Booking> getBookingList() {
+		return bookingList;
 	}
 
-	public void setBooking(Booking booking) {
-		this.booking = booking;
+	public void setBookingList(Set<Booking> bookingList) {
+		this.bookingList = bookingList;
 	}
 
 	@JsonIgnore
@@ -173,5 +171,10 @@ public class Show {
 	public void addSeat(Seat seat) {
 		seat.setShow(this); // this will avoid nested cascade
 		this.getSeatsList().add(seat);
+	}
+
+	public void addBooking(Booking booking) {
+		booking.setShow(this);
+		this.getBookingList().add(booking);
 	}
 }

@@ -17,10 +17,14 @@ public interface MovieRepository extends JpaRepository<Movie, Long>{
 	@Query("select m from Movie m order by m.movieRating desc")
 	List<Movie> topThreeMovies();
 	
-	Movie findByMovieId(long movieId);
+	@Query("SELECT movie from Movie movie WHERE movie.movieId=?1 AND movie.status=0")
+    Movie findByMovieId(long movieId);
+	
+	@Query("select movie from Movie movie WHERE movie.movieName=?1")
+	List<Movie> findMovieByName(String movieName);
 
 	@Modifying
-	@Query("UPDATE Movie m SET m.status=1 WHERE m.movieId=?1")
+	@Query("UPDATE Movie movie SET movie.status=1 WHERE movie.movieId=?1")
 	void deleteMovieById(long movieId);
 
 	@Query("SELECT movie FROM Movie movie WHERE movie.status = 0")

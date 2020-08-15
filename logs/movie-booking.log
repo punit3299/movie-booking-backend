@@ -231,6 +231,7 @@
  2020/08/11 13:29:47.283  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Cannot update 0 seats in the screen
  2020/08/11 13:29:47.286  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
 
+<<<<<<< HEAD
  2020/08/12 20:04:58.926  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 0 Customers returned successfully
  2020/08/12 20:05:06.093  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 0 Theatres returned successfully
  2020/08/12 23:00:20.059  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 0 Theatres returned successfully
@@ -646,4 +647,64 @@
  2020/08/16 00:48:33.235  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 2 Males, 0 Females, 0 Others returned successfully
  2020/08/16 00:49:10.123  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 2 Males, 0 Females, 0 Others returned successfully
  2020/08/16 00:49:18.735  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 2 Males, 0 Females, 0 Others returned successfully
+ 2020/08/12 22:18:10.059  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
+ 2020/08/12 22:30:22.723  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
+ 2020/08/12 22:30:54.645  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
+ 2020/08/12 22:36:33.532  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
+ 2020/08/12 22:38:19.209  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/12 22:38:44.653  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:43:06.619  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
+ 2020/08/12 22:44:09.167  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:44:32.224  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:44:33.533  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:44:43.137  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/12 22:44:48.738  ERROR -  [http-nio-8083-exec-7] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1168
+ 2020/08/12 22:44:56.507  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/12 22:46:37.786  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:46:52.507  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:47:05.139  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:49:40.187  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:49:50.613  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/12 22:49:57.844  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/12 22:50:20.650  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/12 22:50:21.915  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/12 22:52:00.773  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/12 22:52:01.968  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/12 22:52:12.705  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:52:36.283  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:52:40.005  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:53:02.649  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:53:03.726  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:53:18.746  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:53:55.066  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:54:11.622  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:54:11.634  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 22:54:13.903  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/12 22:54:13.916  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/12 22:54:14.028  ERROR -  [http-nio-8083-exec-5] com.cg.movie.services.SeatServiceImpl : Seats already booked
+ 2020/08/12 22:55:50.846  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TicketServiceImpl :  Ticket found with TicketId: 3
+ 2020/08/12 22:57:23.440  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
+
+ 2020/08/16 00:58:31.399  INFO  -  [main] com.cg.movie.AdminTest : Counting Customers Testing started
+ 2020/08/16 00:58:31.452  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 3 Customers returned successfully
+ 2020/08/16 00:58:31.466  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Customers Not Found
+ 2020/08/16 00:58:31.471  INFO  -  [main] com.cg.movie.AdminTest : Counting Customers Testing ended
+ 2020/08/16 00:58:31.495  INFO  -  [main] com.cg.movie.AdminTest : Counting Theatres Testing started
+ 2020/08/16 00:58:31.498  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 00:58:31.501  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Theatres Not Found
+ 2020/08/16 00:58:31.504  INFO  -  [main] com.cg.movie.AdminTest : Counting Customers Testing ended
+ 2020/08/16 00:58:31.515  INFO  -  [main] com.cg.movie.AdminTest : Counting Movies Testing started
+ 2020/08/16 00:58:31.518  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 1 Movies returned successfully
+ 2020/08/16 00:58:31.520  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Movies Not Found
+ 2020/08/16 00:58:31.522  INFO  -  [main] com.cg.movie.AdminTest : Counting Movies Testing ended
+ 2020/08/16 00:58:31.530  INFO  -  [main] com.cg.movie.AdminTest : Calaculating today's booking count Testing started
+ 2020/08/16 00:58:31.533  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 2 Bookings Today
+ 2020/08/16 00:58:31.536  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : No Bookings Today
+ 2020/08/16 00:58:31.537  INFO  -  [main] com.cg.movie.AdminTest : Calaculating today's booking count Testing ended
+ 2020/08/16 00:58:31.544  INFO  -  [main] com.cg.movie.AdminTest : Calaculating today's revenue Testing started
+ 2020/08/16 00:58:31.546  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : Today's revenue is 300.6
+ 2020/08/16 00:58:31.550  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : No Revenue Today
+ 2020/08/16 00:58:31.551  INFO  -  [main] com.cg.movie.AdminTest : Calaculating today's revenue Testing ended
+ 2020/08/16 01:00:11.595  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 01:07:57.910  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
  
