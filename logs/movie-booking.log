@@ -1239,4 +1239,27 @@
  2020/08/16 20:33:05.401  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
  2020/08/16 20:33:05.408  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
  2020/08/16 20:33:05.434  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 20:35:09.556  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:35:16.680  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:35:16.810  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:37:29.277  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 20:37:29.284  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 20:37:29.289  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 20:37:29.290  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 20:37:29.296  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 20:38:01.546  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 20:38:01.546  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 20:38:01.558  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 20:38:01.563  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 20:38:01.585  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 20:39:42.591  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 20:39:42.602  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 20:39:42.617  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 20:39:42.619  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 20:39:42.638  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 20:39:47.470  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 20:39:47.487  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 20:39:47.494  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 20:39:47.495  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 20:39:47.499  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
  
