@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.movie.entities.Booking;
 import com.cg.movie.entities.City;
 import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Language;
@@ -120,6 +121,15 @@ public class AdminController {
 	public ResponseEntity<List<Movie>> topThreeMovies() {
 		return new ResponseEntity<List<Movie>>(adminService.topThreeMovies(), HttpStatus.OK);
 	}
+	
+	/**
+	 * Getting Recent 3 Bookings
+	 */
+	
+	@GetMapping("/recentThreeBookings")
+	public ResponseEntity<List<Booking>> getRecentThreeBookings() {
+		return new ResponseEntity<List<Booking>>(adminService.getRecentThreeBookings(), HttpStatus.OK);
+	}
 
 	/**
 	 * Getting Today's Revenue
@@ -171,8 +181,26 @@ public class AdminController {
 	 */
 	
 	@GetMapping("/recentBookingsCount")
-	public ResponseEntity<List<Double>> recentBookingsCount() {
-		return new ResponseEntity<List<Double>>(adminService.recentBookingsCount(), HttpStatus.OK);
+	public ResponseEntity<List<Integer>> recentBookingsCount() {
+		return new ResponseEntity<List<Integer>>(adminService.recentBookingsCount(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Getting All Bookings
+	 */
+	
+	@GetMapping("/bookings")
+	public ResponseEntity<List<Booking>> getBookings() {
+		return new ResponseEntity<List<Booking>>(adminService.getBookings(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Delete Booking By bookingId
+	 */
+	
+	@GetMapping("/deleteBooking/{bookingId}")
+	public ResponseEntity<SuccessMessage> deleteBookingById(@PathVariable Long bookingId) {
+		return new ResponseEntity<SuccessMessage>(adminService.deleteBookingById(bookingId), HttpStatus.OK);
 	}
 	
 	/**

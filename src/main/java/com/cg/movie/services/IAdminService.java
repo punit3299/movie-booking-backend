@@ -2,11 +2,13 @@ package com.cg.movie.services;
 
 import java.util.List;
 
+import com.cg.movie.entities.Booking;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.CustomerNotFoundException;
 import com.cg.movie.response.GenderResponse;
 import com.cg.movie.response.GenreResponse;
+import com.cg.movie.response.SuccessMessage;
 
 public interface IAdminService {
 	
@@ -30,6 +32,12 @@ public interface IAdminService {
 
 	public List<Double> recentRevenues();
 
-	public List<Double> recentBookingsCount();
+	public List<Integer> recentBookingsCount();
+
+	public List<Booking> getBookings();
+
+	public List<Booking> getRecentThreeBookings();
+
+	public SuccessMessage deleteBookingById(Long bookingId);
 
 }

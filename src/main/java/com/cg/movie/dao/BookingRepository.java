@@ -38,7 +38,7 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 	 */
 	
 	@Query("SELECT count(*) FROM Booking b where DATE_FORMAT(b.bookingDate, '%d-%m-%Y') BETWEEN '11-05-2020' AND '17-05-2020' GROUP BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y') ORDER BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y')")
-	List<Double> recentBookingsCount();
+	List<Integer> recentBookingsCount();
 	
 	/*
 	 *  Query to fetch all bookings of customer

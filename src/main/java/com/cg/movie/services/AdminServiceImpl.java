@@ -13,6 +13,7 @@ import com.cg.movie.dao.BookingRepository;
 import com.cg.movie.dao.CustomerRepository;
 import com.cg.movie.dao.MovieRepository;
 import com.cg.movie.dao.TheatreRepository;
+import com.cg.movie.entities.Booking;
 import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Theatre;
@@ -24,6 +25,7 @@ import com.cg.movie.exception.RevenueNotFoundException;
 import com.cg.movie.exception.TheatresNotFoundException;
 import com.cg.movie.response.GenderResponse;
 import com.cg.movie.response.GenreResponse;
+import com.cg.movie.response.SuccessMessage;
 
 @Service
 @Transactional
@@ -203,11 +205,10 @@ public class AdminServiceImpl implements IAdminService {
 	@Override
 	public List<GenreResponse> genrewiseMoviesCount() {
 		List<GenreResponse> list = movieRepo.genrewiseMoviesCount();
-		if(list!=null) {
+		if (list != null) {
 			logger.info("List returned successfully");
 			return list;
-		}
-		else {
+		} else {
 			logger.error("No Genrewise Movies Found");
 			throw new GenrewiseMovieNotFoundException("No Genrewise Movies Found");
 		}
@@ -219,10 +220,31 @@ public class AdminServiceImpl implements IAdminService {
 	}
 
 	@Override
-	public List<Double> recentBookingsCount() {
+	public List<Integer> recentBookingsCount() {
 		return bookingRepo.recentBookingsCount();
 	}
-	
-	
+
+	@Override
+	public List<Booking> getBookings() {
+
+		List<Booking> bookingsList = bookingRepo.findAll();
+
+		return bookingsList;
+	}
+
+	@Override
+	public List<Booking> getRecentThreeBookings() {
+
+		List<Booking> bookingsList = bookingRepo.findAll().stream().limit(3).collect(Collectors.toList());
+
+		return bookingsList;
+	}
+
+	@Override
+	public SuccessMessage deleteBookingById(Long bookingId) {
+
+		bookingRepo.deleteById(bookingId);
+		return new SuccessMessage("Deleted","Booking Deleted Successfully");
+	}
 
 }
