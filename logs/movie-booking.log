@@ -780,4 +780,463 @@
  2020/08/16 14:06:43.168  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
  2020/08/16 14:07:02.059  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
  2020/08/16 14:07:08.252  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:10:55.054  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:11:41.709  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:11:52.481  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:12:04.756  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:12:30.654  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:12:49.516  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:13:00.902  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:13:13.006  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:13:52.772  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:14:00.815  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:14:11.257  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:14:27.148  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:15:03.008  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:15:14.904  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:15:54.125  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:16:12.156  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:16:26.165  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:16:34.404  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:16:55.615  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:17:16.684  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:17:28.450  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:17:39.255  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:17:44.407  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:17:51.654  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:18:02.573  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:18:25.618  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:18:31.181  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:18:37.075  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:29:08.352  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:29:12.307  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:29:39.056  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:37:35.859  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 14:37:38.634  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:28:15.074  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:29:26.560  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:31:01.104  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:31:25.664  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:31:25.809  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:32:24.535  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:32:24.598  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:32:58.222  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:32:58.283  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:33:23.151  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:33:23.208  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:34:13.346  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:34:13.409  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:35:57.508  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:35:57.553  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:37:25.891  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:37:25.935  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:38:01.390  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:38:01.443  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:38:50.419  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:38:50.469  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:39:17.020  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:39:17.043  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:41:13.985  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:41:14.020  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:41:41.511  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:41:41.530  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:44:26.598  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:44:26.620  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:44:48.774  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:44:48.815  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:47:29.366  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:47:29.392  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:55:22.959  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:55:22.982  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:56:23.935  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:56:23.966  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:56:41.250  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:56:41.269  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:56:58.955  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:56:58.983  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:57:12.981  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:57:13.006  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 16:59:18.360  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 16:59:18.406  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:03:43.036  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:03:43.074  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:03:46.348  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:03:46.388  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:05:48.563  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:05:48.599  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:12:01.242  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:12:58.703  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 17:12:58.706  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 17:12:58.705  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 17:12:58.714  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 17:12:58.732  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 17:13:06.236  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:13:06.272  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:16:16.309  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:16:16.353  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:26:20.882  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 17:26:20.896  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 17:26:20.925  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 17:26:20.929  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 17:26:20.954  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 17:26:41.078  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : 2 Males, 0 Females, 0 Others returned successfully
+ 2020/08/16 17:27:34.215  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 17:27:34.242  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 17:27:34.254  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 17:27:34.254  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 17:27:34.285  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 17:27:39.114  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:27:39.140  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:29:31.881  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:29:31.906  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:30:44.495  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:30:44.518  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:32:06.174  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:32:06.209  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:35:04.190  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:35:04.215  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:35:30.544  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:35:30.573  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:37:14.242  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:37:14.277  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:37:43.480  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:37:43.505  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:40:26.256  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:40:26.276  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:44:07.270  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:44:07.363  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:44:27.020  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:44:27.049  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:48:22.129  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:48:22.194  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:48:25.268  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:48:25.292  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:48:49.897  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:48:49.938  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:49:02.752  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:49:02.777  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:49:24.560  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:49:24.584  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:49:43.332  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:49:43.349  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 17:49:51.533  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 17:49:51.564  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:09:54.471  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:10:10.638  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:10:10.662  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:10:40.512  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:10:40.560  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:10:55.820  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:10:55.844  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:11:12.119  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:11:12.140  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:14:45.058  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:14:45.083  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:15:18.242  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:15:18.280  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:16:03.227  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:16:03.267  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:18:17.520  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:18:17.568  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:18:50.872  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:18:50.915  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:20:33.725  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:20:33.752  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:20:38.750  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 1
+ 2020/08/16 18:20:58.676  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:21:27.588  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:21:27.615  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:21:58.549  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:21:58.574  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:22:02.902  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 1
+ 2020/08/16 18:22:02.910  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:22:04.545  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:22:04.578  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:22:28.599  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:22:28.620  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:24:27.875  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:24:27.900  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:25:02.521  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:25:02.540  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:25:14.276  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:25:14.303  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:28:28.469  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:28:28.495  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:31:08.893  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:31:08.920  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:31:24.171  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:31:24.196  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:32:18.275  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:32:18.294  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:32:46.910  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:32:46.927  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:33:20.769  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:33:20.790  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:33:28.687  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:33:28.714  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:33:36.097  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:33:36.119  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:33:41.880  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:33:41.909  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:34:54.268  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:34:54.317  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:34:57.722  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:34:57.739  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:35:08.978  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:35:09.000  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:35:15.357  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:35:15.377  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:36:07.103  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:36:07.122  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:36:31.861  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:36:31.880  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:36:39.417  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:36:39.435  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:36:45.312  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:36:45.334  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:37:05.722  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:37:05.743  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:37:46.945  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 18:37:46.967  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 18:41:09.262  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 18:41:09.262  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 18:41:09.322  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 18:41:09.322  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 18:41:09.329  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 18:42:06.763  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 18:42:06.775  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 18:42:06.776  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 18:42:06.785  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 18:42:06.788  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 18:46:40.936  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 18:46:40.938  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 18:46:40.942  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 18:46:40.944  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 18:46:40.946  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 18:50:37.548  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 18:50:37.551  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 18:50:37.568  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 18:50:37.571  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 18:50:37.573  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 18:50:38.896  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 2 Males, 0 Females, 0 Others returned successfully
+ 2020/08/16 18:51:07.690  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 18:51:07.693  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 18:51:07.696  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 18:51:07.698  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 18:51:07.698  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 18:55:28.834  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/16 18:55:28.844  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 18:55:28.850  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 18:55:28.858  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 18:55:28.867  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 19:00:51.445  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:00:51.483  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:01:25.446  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:01:25.461  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:01:37.280  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:01:37.299  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:02:05.631  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:02:05.650  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:02:12.883  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:02:12.972  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:02:40.365  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:02:40.385  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:02:51.425  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:02:51.456  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:03:20.213  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:03:20.231  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:05:16.957  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:05:16.999  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:06:31.770  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:06:31.801  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:11:41.361  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:11:41.380  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:16:58.642  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:16:58.680  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:17:32.294  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:17:32.325  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:20:12.926  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:20:12.945  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:21:02.432  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:21:02.458  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:21:46.170  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:21:46.191  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:22:02.338  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:22:02.351  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:22:31.156  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:22:31.172  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:22:41.326  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:22:41.345  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:23:03.259  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:23:03.276  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:23:38.744  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:23:38.813  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:24:19.087  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:24:19.122  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:24:33.760  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:24:33.777  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:27:27.275  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:27:27.291  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 19:30:16.560  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 19:30:16.577  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:04:07.021  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:04:07.039  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:04:21.733  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:04:21.760  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:07:31.656  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:07:31.675  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:08:01.296  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:08:01.322  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:08:06.994  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 162
+ 2020/08/16 20:08:13.352  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:08:13.365  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:09:49.935  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 162
+ 2020/08/16 20:10:06.159  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:10:06.226  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:10:29.470  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:10:29.502  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:10:34.653  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 162
+ 2020/08/16 20:10:35.903  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:10:35.927  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:13:16.288  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:13:16.334  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:04.956  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:14:04.996  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:07.348  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 1
+ 2020/08/16 20:14:07.369  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:11.151  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 2
+ 2020/08/16 20:14:11.169  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:12.605  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 2
+ 2020/08/16 20:14:12.625  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:13.137  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 2
+ 2020/08/16 20:14:13.155  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:13.313  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 2
+ 2020/08/16 20:14:13.331  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:13.481  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 2
+ 2020/08/16 20:14:13.498  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:13.656  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 2
+ 2020/08/16 20:14:13.675  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:13.813  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 2
+ 2020/08/16 20:14:13.829  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:13.986  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 2
+ 2020/08/16 20:14:14.002  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:14:20.500  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:14:20.540  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:15:20.888  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 2
+ 2020/08/16 20:15:20.953  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:15:25.098  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:15:25.146  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:16:14.842  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:16:14.902  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:16:28.745  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:16:28.795  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:16:30.597  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 3
+ 2020/08/16 20:16:30.658  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:16:56.432  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:16:56.461  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:17:05.189  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 162
+ 2020/08/16 20:17:09.557  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:17:09.602  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:19:04.236  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:19:04.280  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:19:15.165  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:19:15.182  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 162
+ 2020/08/16 20:19:18.095  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:19:18.220  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:20:10.730  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 1
+ 2020/08/16 20:20:10.749  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:20:11.679  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 4
+ 2020/08/16 20:20:11.698  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:20:38.244  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:20:38.269  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:20:42.532  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 162
+ 2020/08/16 20:20:42.554  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:21:01.338  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 162
+ 2020/08/16 20:21:01.361  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:21:05.659  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 162
+ 2020/08/16 20:21:05.684  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:21:09.957  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:21:09.984  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:21:21.463  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:22:50.519  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:22:50.541  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:23:41.590  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:23:41.607  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:24:00.208  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:24:00.234  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:24:17.046  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:24:17.066  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:24:37.025  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:24:37.050  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:24:56.558  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:24:56.578  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:25:04.922  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:25:04.944  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:25:36.346  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:25:36.371  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:25:56.217  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:25:56.238  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:26:23.191  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:26:23.225  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:26:30.157  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:26:30.176  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:26:42.897  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:26:42.910  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:26:56.456  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:26:56.476  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:27:05.229  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:27:05.247  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:27:21.236  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:27:21.256  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:27:29.513  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:27:29.537  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:27:36.265  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:27:36.291  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:27:42.361  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:27:42.386  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:27:51.681  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:27:51.681  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 5
+ 2020/08/16 20:27:56.264  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:27:56.279  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:28:20.276  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:28:20.300  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:28:28.437  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 9
+ 2020/08/16 20:28:28.442  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:28:34.733  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:28:34.754  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:29:32.201  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:29:32.225  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:29:36.176  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 5
+ 2020/08/16 20:29:36.181  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:29:56.177  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:29:56.224  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:30:07.148  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 6820
+ 2020/08/16 20:30:07.152  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:30:12.744  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:30:12.794  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:30:28.444  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:30:28.498  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:30:37.855  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 8
+ 2020/08/16 20:30:37.861  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:30:47.634  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:30:47.741  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:31:19.651  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:31:19.734  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:31:24.054  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 6
+ 2020/08/16 20:31:24.058  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:31:30.266  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:31:30.345  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:32:03.821  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:32:03.883  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:32:07.598  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 7
+ 2020/08/16 20:32:07.625  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:32:19.192  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 6
+ 2020/08/16 20:32:19.205  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:32:22.504  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl :  theatre found of id 162
+ 2020/08/16 20:32:22.650  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 162
+ 2020/08/16 20:33:05.349  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/16 20:33:05.350  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : Top2Theatres returned successfully
+ 2020/08/16 20:33:05.401  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/16 20:33:05.408  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/16 20:33:05.434  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
  

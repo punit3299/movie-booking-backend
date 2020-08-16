@@ -147,7 +147,9 @@ public class AdminController {
 	
 	@PostMapping(value = "/screen/{theatreId}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<SuccessMessage> addScreen(@RequestBody Screen screen, @PathVariable long theatreId) {
+		System.out.println(screen.getScreenName()+" "+screen.getNoOfSeats());
 		screenService.addScreen(theatreId, screen);
+		
 		return new ResponseEntity<SuccessMessage>(new SuccessMessage("Add Screen Request", "Screen Successfuly Added"),
 				HttpStatus.CREATED);
 	}
