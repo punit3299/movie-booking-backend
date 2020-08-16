@@ -1,5 +1,7 @@
 package com.cg.movie.services;
 
+import java.util.List;
+
 import com.cg.movie.entities.Customer;
 
 public interface ICustomerService {
@@ -12,4 +14,5 @@ public interface ICustomerService {
 	
 	public Customer refundMoneyToWallet(Customer customer,long showId,int amount);
 
+	public List<Customer> getAllCustomer();
 }

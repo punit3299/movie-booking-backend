@@ -33,7 +33,6 @@ public class Movie {
 	private Integer movieRating;
 	private Timestamp movieReleaseDate;
 	private boolean status;
-	@Pattern(regexp = "English|Hindi")
 	private String languages;
 
 	@OneToOne(mappedBy = "movie")

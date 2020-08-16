@@ -15,17 +15,27 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 	/**
 	 * Query to fetch sum of all booking price for today
 	 */
+	
 	@Query(value = "SELECT sum(total_cost) FROM booking_table where DATE_FORMAT(booking_date, '%d-%m-%Y')='14-08-2020'", nativeQuery = true)
 	Double todayRevenue();
 
 	/**
 	 * Query to fetch number of bookings for today
 	 */
+	
 	@Query(value = "SELECT count(*) FROM booking_table where DATE_FORMAT(booking_date, '%d-%m-%Y')='14-08-2020'", nativeQuery = true)
 	Integer todayBookingCount();
 	
+	/**
+	 * Query to fetch Last 7 Days revenues
+	 */
+	
 	@Query("SELECT sum(b.totalCost) FROM Booking b where DATE_FORMAT(b.bookingDate, '%d-%m-%Y') BETWEEN '11-05-2020' AND '17-05-2020' GROUP BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y') ORDER BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y')")
 	List<Double> recentRevenues();
+	
+	/**
+	 * Query to fetch Last 7 Days bookings count
+	 */
 	
 	@Query("SELECT count(*) FROM Booking b where DATE_FORMAT(b.bookingDate, '%d-%m-%Y') BETWEEN '11-05-2020' AND '17-05-2020' GROUP BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y') ORDER BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y')")
 	List<Double> recentBookingsCount();

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.movie.entities.City;
+import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Language;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
@@ -30,8 +31,10 @@ import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.response.GenderResponse;
 import com.cg.movie.response.GenreResponse;
 import com.cg.movie.response.SuccessMessage;
+import com.cg.movie.services.CustomerServiceImpl;
 import com.cg.movie.services.IAdminService;
 import com.cg.movie.services.ICityService;
+import com.cg.movie.services.ICustomerService;
 import com.cg.movie.services.ILanguageService;
 import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.IScreenService;
@@ -67,6 +70,9 @@ public class AdminController {
 
 	@Autowired
 	ILanguageService languageService;
+	
+	@Autowired
+	ICustomerService customerService;
 
 
 	/**
@@ -175,7 +181,9 @@ public class AdminController {
 	
 	@PostMapping(value = "/screen/{theatreId}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<SuccessMessage> addScreen(@RequestBody Screen screen, @PathVariable long theatreId) {
+		System.out.println(screen.getScreenName()+" "+screen.getNoOfSeats());
 		screenService.addScreen(theatreId, screen);
+		
 		return new ResponseEntity<SuccessMessage>(new SuccessMessage("Add Screen Request", "Screen Successfuly Added"),
 				HttpStatus.CREATED);
 	}
@@ -220,6 +228,13 @@ public class AdminController {
 
 	}
 
+	@GetMapping(value="customers",produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Customer>> getAllCustomers()
+	{
+		List<Customer> customersList=customerService.getAllCustomer();
+		return new ResponseEntity<List<Customer>>(customersList,HttpStatus.OK);
+	}
+	
 	@PatchMapping(value = "/seat", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Integer> updateSeatsInScreen(@RequestBody Screen screen) throws ScreenNotFoundException {
 		Integer updatedNoOfSeats = screenService.updateNoOfSeats(screen.getScreenId(), screen.getNoOfSeats());
@@ -302,7 +317,16 @@ public class AdminController {
 		List<Theatre> theatre = theatreService.viewAllTheatre();
 		return new ResponseEntity<List<Theatre>>(theatre, HttpStatus.OK);
 	}
-
+	
+	/*
+	 * Get Theatre By Id
+	 */
+	@GetMapping("/getTheatre/{theatreId}")
+	public ResponseEntity<Theatre> getTheatreById(@PathVariable long theatreId)
+	{
+		return new ResponseEntity<Theatre>(theatreService.getTheatreById(theatreId),HttpStatus.OK);
+	}
+	
 	@PostMapping("/theatre/screen/show")
 	public ResponseEntity<Long> addNewShow(@PathParam("theatreId") long theatreId, @PathParam("screenId") long screenId,
 			@PathParam("movieId") long movieId, @RequestBody Show show) {
