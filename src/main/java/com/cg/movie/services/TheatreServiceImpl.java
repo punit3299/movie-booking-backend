@@ -108,7 +108,7 @@ public class TheatreServiceImpl implements ITheatreService {
 	@Override
 	public List<Theatre> viewAllTheatre() {
 		// TODO Auto-generated method stub
-		 List<Theatre> theatre=theatreRepo.findAllTheatres(false);
+		 List<Theatre> theatre=theatreRepo.findAllTheatres(true);
 		 if(theatre.size()==0)
 		 {
 			 logger.error("No Theatre Found");

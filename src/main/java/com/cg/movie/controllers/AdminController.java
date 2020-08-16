@@ -274,7 +274,16 @@ public class AdminController {
 		List<Theatre> theatre = theatreService.viewAllTheatre();
 		return new ResponseEntity<List<Theatre>>(theatre, HttpStatus.OK);
 	}
-
+	
+	/*
+	 * Get Theatre By Id
+	 */
+	@GetMapping("/getTheatre/{theatreId}")
+	public ResponseEntity<Theatre> getTheatreById(@PathVariable long theatreId)
+	{
+		return new ResponseEntity<Theatre>(theatreService.getTheatreById(theatreId),HttpStatus.OK);
+	}
+	
 	@PostMapping("/theatre/screen/show")
 	public ResponseEntity<Long> addNewShow(@PathParam("theatreId") long theatreId, @PathParam("screenId") long screenId,
 			@PathParam("movieId") long movieId, @RequestBody Show show) {
