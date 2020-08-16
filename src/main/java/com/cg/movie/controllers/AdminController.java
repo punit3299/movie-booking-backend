@@ -28,6 +28,7 @@ import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.response.GenderResponse;
+import com.cg.movie.response.GenreResponse;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
 import com.cg.movie.services.ICityService;
@@ -139,6 +140,33 @@ public class AdminController {
 	@GetMapping("/genderwiseCount")
 	public ResponseEntity<GenderResponse> genderwiseCount() {
 		return new ResponseEntity<GenderResponse>(adminService.genderwiseCount(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Getting genre-wise movies count 
+	 */
+	
+	@GetMapping("/genrewiseMoviesCount")
+	public ResponseEntity<List<GenreResponse>> genrewiseMoviesCount() {
+		return new ResponseEntity<List<GenreResponse>>(adminService.genrewiseMoviesCount(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Getting Last 7 Days revenues 
+	 */
+	
+	@GetMapping("/recentRevenues")
+	public ResponseEntity<List<Double>> recentRevenues() {
+		return new ResponseEntity<List<Double>>(adminService.recentRevenues(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Getting Last 7 Days Bookings count
+	 */
+	
+	@GetMapping("/recentBookingsCount")
+	public ResponseEntity<List<Double>> recentBookingsCount() {
+		return new ResponseEntity<List<Double>>(adminService.recentBookingsCount(), HttpStatus.OK);
 	}
 	
 	/**

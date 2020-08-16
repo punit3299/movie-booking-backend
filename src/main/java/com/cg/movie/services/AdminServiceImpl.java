@@ -18,10 +18,12 @@ import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.BookingNotFoundException;
 import com.cg.movie.exception.CustomerNotFoundException;
+import com.cg.movie.exception.GenrewiseMovieNotFoundException;
 import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.RevenueNotFoundException;
 import com.cg.movie.exception.TheatresNotFoundException;
 import com.cg.movie.response.GenderResponse;
+import com.cg.movie.response.GenreResponse;
 
 @Service
 @Transactional
@@ -105,7 +107,7 @@ public class AdminServiceImpl implements IAdminService {
 		List<Theatre> theatresList = theatreRepo.topThreeTheatres().stream().limit(3).collect(Collectors.toList());
 
 		if (theatresList != null) {
-			logger.info("Top" + theatresList.size() + "Theatres returned successfully");
+			logger.info("Top " + theatresList.size() + " Theatres returned successfully");
 			return theatresList;
 		} else {
 			logger.error("Theatres Not Found");
@@ -123,7 +125,7 @@ public class AdminServiceImpl implements IAdminService {
 		List<Movie> moviesList = movieRepo.topThreeMovies().stream().limit(3).collect(Collectors.toList());
 
 		if (moviesList != null) {
-			logger.info("Top 3 Movies returned successfully");
+			logger.info("Top " + moviesList.size() + " Movies returned successfully");
 			return moviesList;
 		} else {
 			logger.error("Movies Not Found");
@@ -140,7 +142,12 @@ public class AdminServiceImpl implements IAdminService {
 
 		Double todayRevenue = bookingRepo.todayRevenue();
 
-		if (todayRevenue > 0) {
+		System.out.println(todayRevenue);
+		if (todayRevenue != null && todayRevenue >= 0.0) {
+			logger.info("Today's revenue is " + todayRevenue);
+			return todayRevenue;
+		} else if (todayRevenue == null) {
+			todayRevenue = new Double(0);
 			logger.info("Today's revenue is " + todayRevenue);
 			return todayRevenue;
 		} else {
@@ -159,7 +166,7 @@ public class AdminServiceImpl implements IAdminService {
 
 		Integer todayBookingCount = bookingRepo.todayBookingCount();
 
-		if (todayBookingCount >= 0) {
+		if (todayBookingCount != null && todayBookingCount >= 0) {
 			logger.info(todayBookingCount + " Bookings Today");
 			return todayBookingCount;
 		} else {
@@ -188,5 +195,34 @@ public class AdminServiceImpl implements IAdminService {
 		}
 
 	}
+
+	/**
+	 * Getting genre-wise movies count
+	 */
+
+	@Override
+	public List<GenreResponse> genrewiseMoviesCount() {
+		List<GenreResponse> list = movieRepo.genrewiseMoviesCount();
+		if(list!=null) {
+			logger.info("List returned successfully");
+			return list;
+		}
+		else {
+			logger.error("No Genrewise Movies Found");
+			throw new GenrewiseMovieNotFoundException("No Genrewise Movies Found");
+		}
+	}
+
+	@Override
+	public List<Double> recentRevenues() {
+		return bookingRepo.recentRevenues();
+	}
+
+	@Override
+	public List<Double> recentBookingsCount() {
+		return bookingRepo.recentBookingsCount();
+	}
+	
+	
 
 }

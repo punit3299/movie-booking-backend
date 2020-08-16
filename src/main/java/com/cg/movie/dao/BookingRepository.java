@@ -24,6 +24,12 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 	@Query(value = "SELECT count(*) FROM booking_table where DATE_FORMAT(booking_date, '%d-%m-%Y')='14-08-2020'", nativeQuery = true)
 	Integer todayBookingCount();
 	
+	@Query("SELECT sum(b.totalCost) FROM Booking b where DATE_FORMAT(b.bookingDate, '%d-%m-%Y') BETWEEN '11-05-2020' AND '17-05-2020' GROUP BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y') ORDER BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y')")
+	List<Double> recentRevenues();
+	
+	@Query("SELECT count(*) FROM Booking b where DATE_FORMAT(b.bookingDate, '%d-%m-%Y') BETWEEN '11-05-2020' AND '17-05-2020' GROUP BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y') ORDER BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y')")
+	List<Double> recentBookingsCount();
+	
 	/*
 	 *  Query to fetch all bookings of customer
 	 */

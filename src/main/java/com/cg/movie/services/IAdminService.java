@@ -6,6 +6,7 @@ import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.CustomerNotFoundException;
 import com.cg.movie.response.GenderResponse;
+import com.cg.movie.response.GenreResponse;
 
 public interface IAdminService {
 	
@@ -24,5 +25,11 @@ public interface IAdminService {
 	public Integer todayBookingCount();
 
 	public GenderResponse genderwiseCount();
+
+	public List<GenreResponse> genrewiseMoviesCount();
+
+	public List<Double> recentRevenues();
+
+	public List<Double> recentBookingsCount();
 
 }

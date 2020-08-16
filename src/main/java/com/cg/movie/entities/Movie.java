@@ -26,7 +26,7 @@ public class Movie {
 	@SequenceGenerator(name = "genName1", sequenceName = "mov", initialValue = 1170000011, allocationSize = 1)
 	private Long movieId;
 	private String movieName;
-	@Pattern(regexp = "Action|Adventure|Comedy|Horror|Romance|Thriller|Science-fiction|Animation")
+	@Pattern(regexp = "Action|Adventure|Comedy|Horror|Romance|Thriller|Sci-fi|Animation")
 	private String movieGenre;
 	private String movieDirector;
 	private Double movieLength;
