@@ -16,7 +16,7 @@ import com.cg.movie.entities.Screen;
 public interface ScreenRepository extends JpaRepository<Screen, Long> {
 
 	@Modifying
-	@Query("UPDATE Screen screen SET screen.status = 1 WHERE screen.screenId = ?1")
+	@Query("UPDATE Screen screen SET screen.status = 0 WHERE screen.screenId = ?1")
 	void deleteScreenById(long screenId);
 	
 	@Modifying

@@ -27,8 +27,6 @@ public class Transaction {
 	@JoinColumn(name = "showId")
 	private Show show;
 	
-	
-
 	public Transaction() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -43,7 +43,6 @@ public class Show {
 	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
 	private Set<Transaction> transactionsList = new HashSet<>();
 
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "theatreId")
 	private Theatre theatre;

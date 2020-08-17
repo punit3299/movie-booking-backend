@@ -3,8 +3,6 @@ package com.cg.movie.controllers;
 import java.util.List;
 import java.util.Set;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.movie.entities.Booking;
 import com.cg.movie.entities.City;
+import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Language;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
@@ -30,10 +30,12 @@ import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.request.ShowRequestVO;
 import com.cg.movie.response.GenderResponse;
+import com.cg.movie.response.GenreResponse;
 import com.cg.movie.response.MovieResponseVO;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
 import com.cg.movie.services.ICityService;
+import com.cg.movie.services.ICustomerService;
 import com.cg.movie.services.ILanguageService;
 import com.cg.movie.services.IMovieService;
 import com.cg.movie.services.IScreenService;
@@ -69,31 +71,147 @@ public class AdminController {
 
 	@Autowired
 	ILanguageService languageService;
+	
+	@Autowired
+	ICustomerService customerService;
 
-	// get count of customers
+
+	/**
+	 * ---------------------------------------------------------------------
+	 * Getting count of customers
+	 */
 
 	@GetMapping("/countOfCustomers")
 	public ResponseEntity<Long> countOfCustomers() {
 		return new ResponseEntity<Long>(adminService.countOfCustomers(), HttpStatus.OK);
 	}
 
-	// get count of theatres
+	/**
+	 * Getting count of theatres
+	 */
 
 	@GetMapping("/countOfTheatres")
 	public ResponseEntity<Long> countOfTheatres() {
 		return new ResponseEntity<Long>(adminService.countOfTheatres(), HttpStatus.OK);
 	}
 
-	// get count of movies
+	/**
+	 * Getting count of movies
+	 */
 
 	@GetMapping("/countOfMovies")
 	public ResponseEntity<Long> countOfMovies() {
 		return new ResponseEntity<Long>(adminService.countOfMovies(), HttpStatus.OK);
 	}
 
+	/**
+	 * Getting Top 3 Theatres
+	 */
+
+	@GetMapping("/topThreeTheatres")
+	public ResponseEntity<List<Theatre>> topThreeTheatres() {
+		return new ResponseEntity<List<Theatre>>(adminService.topThreeTheatres(), HttpStatus.OK);
+	}
+
+	/**
+	 * Getting Top 3 Movies
+	 */
+
+	@GetMapping("/topThreeMovies")
+	public ResponseEntity<List<Movie>> topThreeMovies() {
+		return new ResponseEntity<List<Movie>>(adminService.topThreeMovies(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Getting Recent 3 Bookings
+	 */
+	
+	@GetMapping("/recentThreeBookings")
+	public ResponseEntity<List<Booking>> getRecentThreeBookings() {
+		return new ResponseEntity<List<Booking>>(adminService.getRecentThreeBookings(), HttpStatus.OK);
+	}
+
+	/**
+	 * Getting Today's Revenue
+	 */
+
+	@GetMapping("/todayRevenue")
+	public ResponseEntity<Double> todayRevenue() {
+		return new ResponseEntity<Double>(adminService.todayRevenue(), HttpStatus.OK);
+	}
+
+	/**
+	 * Getting Today's Bookings count
+	 */
+
+	@GetMapping("/todayBookingCount")
+	public ResponseEntity<Integer> todayBookingCount() {
+		return new ResponseEntity<Integer>(adminService.todayBookingCount(), HttpStatus.OK);
+	}
+
+	/**
+	 * Getting gender-wise count of customers
+	 */
+	
+	@GetMapping("/genderwiseCount")
+	public ResponseEntity<GenderResponse> genderwiseCount() {
+		return new ResponseEntity<GenderResponse>(adminService.genderwiseCount(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Getting genre-wise movies count 
+	 */
+	
+	@GetMapping("/genrewiseMoviesCount")
+	public ResponseEntity<List<GenreResponse>> genrewiseMoviesCount() {
+		return new ResponseEntity<List<GenreResponse>>(adminService.genrewiseMoviesCount(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Getting Last 7 Days revenues 
+	 */
+	
+	@GetMapping("/recentRevenues")
+	public ResponseEntity<List<Double>> recentRevenues() {
+		return new ResponseEntity<List<Double>>(adminService.recentRevenues(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Getting Last 7 Days Bookings count
+	 */
+	
+	@GetMapping("/recentBookingsCount")
+	public ResponseEntity<List<Integer>> recentBookingsCount() {
+		return new ResponseEntity<List<Integer>>(adminService.recentBookingsCount(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Getting All Bookings
+	 */
+	
+	@GetMapping("/bookings")
+	public ResponseEntity<List<Booking>> getBookings() {
+		return new ResponseEntity<List<Booking>>(adminService.getBookings(), HttpStatus.OK);
+	}
+	
+	/**
+	 * Delete Booking By bookingId
+	 */
+	
+	@GetMapping("/deleteBooking/{bookingId}")
+	public ResponseEntity<SuccessMessage> deleteBookingById(@PathVariable Long bookingId) {
+		return new ResponseEntity<SuccessMessage>(adminService.deleteBookingById(bookingId), HttpStatus.OK);
+	}
+	
+	/**
+	 * ------------------------------------------------------------
+	 */
+	
 	@PostMapping(value = "/screen/{theatreId}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<SuccessMessage> addScreen(@RequestBody Screen screen, @PathVariable long theatreId) {
+		System.out.println(screen.getScreenName()+" "+screen.getNoOfSeats());
 		screenService.addScreen(theatreId, screen);
+		
 		return new ResponseEntity<SuccessMessage>(new SuccessMessage("Add Screen Request", "Screen Successfuly Added"),
 				HttpStatus.CREATED);
 	}
@@ -117,41 +235,6 @@ public class AdminController {
 		return new ResponseEntity<Set<MovieResponseVO>>(movieList, HttpStatus.OK);
 	}
 
-	// top 3 theatres
-
-	@GetMapping("/topThreeTheatres")
-	public ResponseEntity<List<Theatre>> topThreeTheatres() {
-		return new ResponseEntity<List<Theatre>>(adminService.topThreeTheatres(), HttpStatus.OK);
-	}
-
-	// top 3 movies
-
-	@GetMapping("/topThreeMovies")
-	public ResponseEntity<List<Movie>> topThreeMovies() {
-		return new ResponseEntity<List<Movie>>(adminService.topThreeMovies(), HttpStatus.OK);
-	}
-
-	// today's Revenue
-
-	@GetMapping("/todayRevenue")
-	public ResponseEntity<Double> todayRevenue() {
-		return new ResponseEntity<Double>(adminService.todayRevenue(), HttpStatus.OK);
-	}
-
-	// today's Booking
-
-	@GetMapping("/todayBookingCount")
-	public ResponseEntity<Integer> todayBookingCount() {
-		return new ResponseEntity<Integer>(adminService.todayBookingCount(), HttpStatus.OK);
-	}
-
-	// genderwise Count
-
-	@GetMapping("/genderwiseCount")
-	public ResponseEntity<GenderResponse> genderwiseCount() {
-		return new ResponseEntity<GenderResponse>(adminService.genderwiseCount(), HttpStatus.OK);
-	}
-
 	@GetMapping(value = "/screen/{theatreId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Screen>> getAllScreen(@PathVariable long theatreId) {
 		List<Screen> screens = screenService.getAllScreen(theatreId);
@@ -173,6 +256,13 @@ public class AdminController {
 
 	}
 
+	@GetMapping(value="customers",produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Customer>> getAllCustomers()
+	{
+		List<Customer> customersList=customerService.getAllCustomer();
+		return new ResponseEntity<List<Customer>>(customersList,HttpStatus.OK);
+	}
+	
 	@PatchMapping(value = "/seat", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Integer> updateSeatsInScreen(@RequestBody Screen screen) throws ScreenNotFoundException {
 		Integer updatedNoOfSeats = screenService.updateNoOfSeats(screen.getScreenId(), screen.getNoOfSeats());
@@ -257,7 +347,16 @@ public class AdminController {
 		List<Theatre> theatre = theatreService.viewAllTheatre();
 		return new ResponseEntity<List<Theatre>>(theatre, HttpStatus.OK);
 	}
-
+	
+	/*
+	 * Get Theatre By Id
+	 */
+	@GetMapping("/getTheatre/{theatreId}")
+	public ResponseEntity<Theatre> getTheatreById(@PathVariable long theatreId)
+	{
+		return new ResponseEntity<Theatre>(theatreService.getTheatreById(theatreId),HttpStatus.OK);
+	}
+	
 	@PostMapping("/theatre/screen/show")
 	public ResponseEntity<Long> addNewShow(@RequestBody ShowRequestVO showRequestVO) {
 		return new ResponseEntity<Long>(showService.addNewShow(showRequestVO), HttpStatus.CREATED);

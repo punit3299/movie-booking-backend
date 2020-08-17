@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,6 +26,7 @@ public class Movie {
 	@SequenceGenerator(name = "genName1", sequenceName = "mov", initialValue = 3000, allocationSize = 1)
 	private Long movieId;
 	private String movieName;
+	@Pattern(regexp = "Action|Adventure|Comedy|Horror|Romance|Thriller|Sci-fi|Animation")
 	private String movieGenre;
 	private String movieDirector;
 	private Double movieLength;

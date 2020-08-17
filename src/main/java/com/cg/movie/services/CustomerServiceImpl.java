@@ -3,6 +3,7 @@ package com.cg.movie.services;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	/********************************************************************************
 	 * 
-	 * Method : addTheater
+	 * Method : addCustomer
 	 * 
 	 * Description: for adding the Customer.
 	 * 
@@ -114,7 +115,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	 * 
 	 **********************************************************************************/
 	@Override
-	public Customer refundMoneyToWallet(Customer customer,long showId, int amount) {
+	public Customer refundMoneyToWallet(Customer customer,long showId, double amount) {
 		
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
 		
@@ -128,6 +129,23 @@ public class CustomerServiceImpl implements ICustomerService {
 		transactionRepo.save(transaction);
 		
 		return customerRepo.save(customer);
+	}
+
+	/********************************************************************************
+	 * 
+	 * Method : getAllCustomers
+	 * 
+	 * Description: Return list of customer details
+	 * 
+	 * @return : List<Customer> 
+	 * 
+	 *         Created by: Saurav Suman ,12 August 2020
+	 * 
+	 **********************************************************************************/
+	@Override
+	public List<Customer> getAllCustomer() {
+		List<Customer> customerList=customerRepo.findAll();
+		return customerList;
 	}
 
 	
