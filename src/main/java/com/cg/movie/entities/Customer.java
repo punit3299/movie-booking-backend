@@ -1,6 +1,8 @@
 package com.cg.movie.entities;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -31,6 +33,10 @@ public class Customer {
 	@JsonIgnore
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	private Set<Ticket> ticketsList = new HashSet<>();
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="customer", cascade= CascadeType.ALL)
+	private List<Transaction> transactionList= new ArrayList<Transaction>();
 
 	public Customer() {
 		super();
@@ -45,6 +51,17 @@ public class Customer {
 		this.customerContact = customerContact;
 		this.customerGender = customerGender;
 		this.customerBalance = customerBalance;
+	}
+	
+	
+
+	@JsonIgnore
+	public List<Transaction> getTransactionList() {
+		return transactionList;
+	}
+
+	public void setTransactionList(List<Transaction> transactionList) {
+		this.transactionList = transactionList;
 	}
 
 	public double getCustomerBalance() {

@@ -31,6 +31,7 @@ public class Ticket {
 	@JoinColumn(name = "customerId")
 	private Customer customer;
 	
+	
 	public Ticket(Long ticketId, String seatName, Boolean ticketStatus, String screenName) {
 		super();
 		this.ticketId = ticketId;

@@ -24,6 +24,7 @@ import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Ticket;
+import com.cg.movie.entities.Transaction;
 import com.cg.movie.exception.CustomerNotFoundException;
 import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.TicketNotFoundException;
@@ -38,6 +39,7 @@ import com.cg.movie.services.ISeatService;
 import com.cg.movie.services.IShowService;
 import com.cg.movie.services.ITheatreService;
 import com.cg.movie.services.ITicketService;
+import com.cg.movie.services.ITransactionService;
 
 @RestController
 @CrossOrigin("*")
@@ -70,6 +72,9 @@ public class CustomerController {
 	
 	@Autowired
 	IBookingService bookingService;
+	
+	@Autowired
+	ITransactionService transactionService;
 	
 	
 	private Logger logger = Logger.getLogger(getClass());
@@ -104,18 +109,17 @@ public class CustomerController {
 	}
 	
 	/*
-	 * Controller to Refund Money
+	 * Controller to Get Transactions
 	 */
 	
-	@PutMapping(value="/refundMoney/{customerId}/{showId}/{amount}")
-	public ResponseEntity<Customer> refundMoney(@PathVariable long customerId,@PathVariable long showId, @PathVariable int amount)
-		throws CustomerNotFoundException{
+	@GetMapping(value="/getAllTransactions/{customerId}")
+	public ResponseEntity<List<Transaction>> getAllTransactions(@PathVariable long customerId){
 		
-		logger.trace("at refundMoney method");
+		logger.trace("at getAllTransactions methof");
 		
-		Customer customer = customerService.findCustomerById(customerId);
-		customer= customerService.refundMoneyToWallet(customer,showId, amount);
-		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
+		List<Transaction> transactions= transactionService.getCustomerTransactions(customerId);
+		
+		return new ResponseEntity<List<Transaction>>(transactions,HttpStatus.OK);
 		
 	}
 	
