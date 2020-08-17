@@ -18,19 +18,13 @@ public class Language {
 	private Long languageId;
 	private String languageName;
 
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "movieId")
-	private Movie movie;
-
 	public Language() {
 		super();
 	}
 	
-	public Language(String languageName, Movie movie) {
+	public Language(String languageName) {
 		super();
 		this.languageName = languageName;
-		this.movie = movie;
 	}
 
 
@@ -48,14 +42,6 @@ public class Language {
 
 	public void setLanguageName(String languageName) {
 		this.languageName = languageName;
-	}
-
-	public Movie getMovie() {
-		return movie;
-	}
-
-	public void setMovie(Movie movie) {
-		this.movie = movie;
 	}
 
 }

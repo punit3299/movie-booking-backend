@@ -13,42 +13,40 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="movie_table")
+@Table(name = "movie_table")
 public class Movie {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName1")
-	@SequenceGenerator(name="genName1", sequenceName="mov",initialValue=1170000011,allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "genName1")
+	@SequenceGenerator(name = "genName1", sequenceName = "mov", initialValue = 1170000011, allocationSize = 1)
 	private Long movieId;
 	private String movieName;
+	@Pattern(regexp = "Action|Adventure|Comedy|Horror|Romance|Thriller|Sci-fi|Animation")
 	private String movieGenre;
 	private String movieDirector;
 	private Double movieLength;
 	private Integer movieRating;
 	private Timestamp movieReleaseDate;
 	private boolean status;
+	private String languages;
 
-	@OneToOne(mappedBy="movie")
+	@OneToOne(mappedBy = "movie")
 	private Screen screen;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private Set<Show> showsList = new HashSet<Show>();
 
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-	private Set<Language> languagesList = new HashSet<Language>();
-	
 	public Movie() {
 	}
 
 	public Movie(Long movieId, String movieName, String movieGenre, String movieDirector, Double movieLength,
-			Integer movieRating, Timestamp movieReleaseDate) {
+			Integer movieRating, Timestamp movieReleaseDate,String languages) {
 		super();
 		this.movieId = movieId;
 		this.movieName = movieName;
@@ -57,6 +55,7 @@ public class Movie {
 		this.movieLength = movieLength;
 		this.movieRating = movieRating;
 		this.movieReleaseDate = movieReleaseDate;
+		this.languages= languages;
 	}
 
 	public Long getMovieId() {
@@ -122,6 +121,14 @@ public class Movie {
 	public void setMovieReleaseDate(Timestamp movieReleaseDate) {
 		this.movieReleaseDate = movieReleaseDate;
 	}
+	
+	public String getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(String languages) {
+		this.languages = languages;
+	}
 
 
 	@JsonIgnore
@@ -133,15 +140,7 @@ public class Movie {
 		this.showsList = showsList;
 	}
 
-	@JsonIgnore
-	public Set<Language> getLanguagesList() {
-		return languagesList;
-	}
-
-	public void setLanguagesList(Set<Language> languagesList) {
-		this.languagesList = languagesList;
-	}
-
+	
 	// the method below will add show to movie
 	// also serves the purpose to avoid cyclic references.
 	public void addShow(Show show) {
@@ -149,17 +148,10 @@ public class Movie {
 		this.getShowsList().add(show);
 	}
 
-	// the method below will add language to movie
-	// also serves the purpose to avoid cyclic references.
-	public void addLanguage(Language language) {
-		language.setMovie(this); // this will avoid nested cascade
-		this.getLanguagesList().add(language);
-	}
 
 	@Override
 	public String toString() {
 		return "Movie [movieName=" + movieName + "]";
 	}
-	
-	
+
 }

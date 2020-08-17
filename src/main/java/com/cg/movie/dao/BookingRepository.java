@@ -7,17 +7,42 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.cg.movie.entities.Booking;
+import com.cg.movie.entities.Customer;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
-	@Query(value = "SELECT sum(total_cost) FROM booking_table where to_char(booking_date,'dd-mm-yy')='17-05-20'", nativeQuery = true)
+	/**
+	 * Query to fetch sum of all booking price for today
+	 */
+	
+	@Query(value = "SELECT sum(total_cost) FROM booking_table where DATE_FORMAT(booking_date, '%d-%m-%Y')='14-08-2020'", nativeQuery = true)
 	Double todayRevenue();
 
-	@Query(value = "SELECT count(*) FROM booking_table where to_char(booking_date,'dd-mm-yy')='17-05-20'", nativeQuery = true)
+	/**
+	 * Query to fetch number of bookings for today
+	 */
+	
+	@Query(value = "SELECT count(*) FROM booking_table where DATE_FORMAT(booking_date, '%d-%m-%Y')='14-08-2020'", nativeQuery = true)
 	Integer todayBookingCount();
 	
+	/**
+	 * Query to fetch Last 7 Days revenues
+	 */
 	
+	@Query("SELECT sum(b.totalCost) FROM Booking b where DATE_FORMAT(b.bookingDate, '%d-%m-%Y') BETWEEN '11-05-2020' AND '17-05-2020' GROUP BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y') ORDER BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y')")
+	List<Double> recentRevenues();
+	
+	/**
+	 * Query to fetch Last 7 Days bookings count
+	 */
+	
+	@Query("SELECT count(*) FROM Booking b where DATE_FORMAT(b.bookingDate, '%d-%m-%Y') BETWEEN '11-05-2020' AND '17-05-2020' GROUP BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y') ORDER BY DATE_FORMAT(b.bookingDate, '%d-%m-%Y')")
+	List<Integer> recentBookingsCount();
+	
+	/*
+	 *  Query to fetch all bookings of customer
+	 */
 	@Query(value="SELECT * FROM booking_table WHERE ticket_id IN (SELECT ticket_id FROM ticket_table WHERE customer_id=?1) ", nativeQuery=true)
 	public List<Booking> findByCustomerId(Long id);
 	
@@ -33,8 +58,19 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 	@Query("Select booking.show.showId from Booking booking where booking.ticket.ticketId=?1")
 	long getShowId(long ticketId);
 
-
+	/*
+	 * query to fetch whether a customer exist 
+	 */
+	@Query("select customer from Customer customer where customer.customerId=?1")
+	public List<Customer> findCustomerById(Long customerId);
 }
+
+
+
+
+
+
+
 
 
 

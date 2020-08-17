@@ -3,6 +3,8 @@ package com.cg.movie.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,17 +13,22 @@ import com.cg.movie.dao.BookingRepository;
 import com.cg.movie.dao.CustomerRepository;
 import com.cg.movie.dao.MovieRepository;
 import com.cg.movie.dao.TheatreRepository;
+import com.cg.movie.entities.Booking;
 import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.BookingNotFoundException;
 import com.cg.movie.exception.CustomerNotFoundException;
+import com.cg.movie.exception.GenrewiseMovieNotFoundException;
 import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.RevenueNotFoundException;
 import com.cg.movie.exception.TheatresNotFoundException;
 import com.cg.movie.response.GenderResponse;
+import com.cg.movie.response.GenreResponse;
+import com.cg.movie.response.SuccessMessage;
 
 @Service
+@Transactional
 public class AdminServiceImpl implements IAdminService {
 
 	@Autowired
@@ -38,7 +45,9 @@ public class AdminServiceImpl implements IAdminService {
 
 	private Logger logger = Logger.getLogger(getClass());
 
-	// count of customers
+	/**
+	 * Getting count of customers
+	 */
 
 	@Override
 	public Long countOfCustomers() {
@@ -54,7 +63,9 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// count of theatres
+	/**
+	 * Getting count of theatres
+	 */
 
 	@Override
 	public Long countOfTheatres() {
@@ -70,7 +81,9 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// count of movies
+	/**
+	 * Getting count of movies
+	 */
 
 	@Override
 	public Long countOfMovies() {
@@ -86,7 +99,9 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// top 3 theatres
+	/**
+	 * Getting Top 3 Theatres
+	 */
 
 	@Override
 	public List<Theatre> topThreeTheatres() {
@@ -94,7 +109,7 @@ public class AdminServiceImpl implements IAdminService {
 		List<Theatre> theatresList = theatreRepo.topThreeTheatres().stream().limit(3).collect(Collectors.toList());
 
 		if (theatresList != null) {
-			logger.info("Top 3 Theatres returned successfully");
+			logger.info("Top " + theatresList.size() + " Theatres returned successfully");
 			return theatresList;
 		} else {
 			logger.error("Theatres Not Found");
@@ -102,7 +117,9 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// top 3 movies
+	/**
+	 * Getting Top 3 Movies
+	 */
 
 	@Override
 	public List<Movie> topThreeMovies() {
@@ -110,7 +127,7 @@ public class AdminServiceImpl implements IAdminService {
 		List<Movie> moviesList = movieRepo.topThreeMovies().stream().limit(3).collect(Collectors.toList());
 
 		if (moviesList != null) {
-			logger.info("Top 3 Movies returned successfully");
+			logger.info("Top " + moviesList.size() + " Movies returned successfully");
 			return moviesList;
 		} else {
 			logger.error("Movies Not Found");
@@ -118,14 +135,21 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// today's revenue
-	
+	/**
+	 * Getting Today's Revenue
+	 */
+
 	@Override
 	public Double todayRevenue() {
 
 		Double todayRevenue = bookingRepo.todayRevenue();
 
-		if (todayRevenue >= 0) {
+		System.out.println(todayRevenue);
+		if (todayRevenue != null && todayRevenue >= 0.0) {
+			logger.info("Today's revenue is " + todayRevenue);
+			return todayRevenue;
+		} else if (todayRevenue == null) {
+			todayRevenue = new Double(0);
 			logger.info("Today's revenue is " + todayRevenue);
 			return todayRevenue;
 		} else {
@@ -135,14 +159,16 @@ public class AdminServiceImpl implements IAdminService {
 
 	}
 
-	// number of bookings today
+	/**
+	 * Getting Today's Booking Count
+	 */
 
 	@Override
 	public Integer todayBookingCount() {
 
 		Integer todayBookingCount = bookingRepo.todayBookingCount();
 
-		if (todayBookingCount >= 0) {
+		if (todayBookingCount != null && todayBookingCount >= 0) {
 			logger.info(todayBookingCount + " Bookings Today");
 			return todayBookingCount;
 		} else {
@@ -151,11 +177,13 @@ public class AdminServiceImpl implements IAdminService {
 		}
 	}
 
-	// gender-wise count of coustomers
+	/**
+	 * Getting gender-wise count of customers
+	 */
 
 	@Override
 	public GenderResponse genderwiseCount() {
-		
+
 		List<Customer> customers = customerRepo.findAll();
 		if (customers != null) {
 			Long male = customers.stream().filter(e -> e.getCustomerGender().equals("Male")).count();
@@ -167,7 +195,56 @@ public class AdminServiceImpl implements IAdminService {
 			logger.error("Customers Not Found");
 			throw new CustomerNotFoundException("Customers Not Found");
 		}
-		
+
+	}
+
+	/**
+	 * Getting genre-wise movies count
+	 */
+
+	@Override
+	public List<GenreResponse> genrewiseMoviesCount() {
+		List<GenreResponse> list = movieRepo.genrewiseMoviesCount();
+		if (list != null) {
+			logger.info("List returned successfully");
+			return list;
+		} else {
+			logger.error("No Genrewise Movies Found");
+			throw new GenrewiseMovieNotFoundException("No Genrewise Movies Found");
+		}
+	}
+
+	@Override
+	public List<Double> recentRevenues() {
+		return bookingRepo.recentRevenues();
+	}
+
+	@Override
+	public List<Integer> recentBookingsCount() {
+		return bookingRepo.recentBookingsCount();
+	}
+
+	@Override
+	public List<Booking> getBookings() {
+
+		List<Booking> bookingsList = bookingRepo.findAll();
+
+		return bookingsList;
+	}
+
+	@Override
+	public List<Booking> getRecentThreeBookings() {
+
+		List<Booking> bookingsList = bookingRepo.findAll().stream().limit(3).collect(Collectors.toList());
+
+		return bookingsList;
+	}
+
+	@Override
+	public SuccessMessage deleteBookingById(Long bookingId) {
+
+		bookingRepo.deleteById(bookingId);
+		return new SuccessMessage("Deleted","Booking Deleted Successfully");
 	}
 
 }

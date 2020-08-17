@@ -9,6 +9,8 @@ import com.cg.movie.entities.Language;
 @Repository
 public interface LanguageRepository extends JpaRepository<Language, Long> {
 
-	@Query("SELECT language from Language language WHERE language.languageName=?1 AND language.movie.movieId=?2")
-    Language languageRepitition(String languageName, long movieId);
+	/*
+	 * @Query("SELECT language from Language language WHERE language.languageName=?1 AND language.movie.movieId=?2"
+	 * ) Language languageRepitition(String languageName, long movieId);
+	 */
 }

@@ -28,19 +28,6 @@ public class Show {
 	private String showName;
 	private boolean status;
 
-	public Show() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName) {
-		super();
-		this.showId = showId;
-		this.showStartTime = showStartTime;
-		this.showEndTime = showEndTime;
-		this.showName = showName;
-	}
-
 	@JsonIgnore
 	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
 	private Set<Booking> bookingList = new HashSet<>();
@@ -53,7 +40,6 @@ public class Show {
 	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
 	private Set<Transaction> transactionsList = new HashSet<>();
 
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "theatreId")
 	private Theatre theatre;
@@ -68,6 +54,19 @@ public class Show {
 	@JoinColumn(name = "movieId")
 	private Movie movie;
 
+
+	public Show() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName) {
+		super();
+		this.showId = showId;
+		this.showStartTime = showStartTime;
+		this.showEndTime = showEndTime;
+		this.showName = showName;
+	}
 	public Long getShowId() {
 		return showId;
 	}
