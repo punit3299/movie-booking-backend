@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	/********************************************************************************
 	 * 
-	 * Method : addTheater
+	 * Method : addCustomer
 	 * 
 	 * Description: for adding the Customer.
 	 * 

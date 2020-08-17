@@ -11,6 +11,25 @@ public class BookedDetailsOfTicket {
     private String movieName;
     private Timestamp bookingDate, showDate;
     private double totalCost;
+    
+    
+    
+	public BookedDetailsOfTicket(Long bookingId, String cityName, String theatreName, String screenName, String seatNo,
+			String movieName, Timestamp bookingDate, Timestamp showDate, double totalCost) {
+		super();
+		this.bookingId = bookingId;
+		this.cityName = cityName;
+		this.theatreName = theatreName;
+		this.screenName = screenName;
+		this.seatNo = seatNo;
+		this.movieName = movieName;
+		this.bookingDate = bookingDate;
+		this.showDate = showDate;
+		this.totalCost = totalCost;
+	}
+	public BookedDetailsOfTicket() {
+		// TODO Auto-generated constructor stub
+	}
 	public double getTotalCost() {
 		return totalCost;
 	}

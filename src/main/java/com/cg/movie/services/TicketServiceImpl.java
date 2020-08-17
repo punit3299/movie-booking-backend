@@ -78,6 +78,7 @@ public class TicketServiceImpl implements ITicketService {
 	@Override
 	public Ticket cancelTicket(Ticket ticket) {
 		
+		
 		Booking booking=bookingRepo.getBooking(ticket.getTicketId());
 		
 		long showId=bookingRepo.getShowId(ticket.getTicketId());
