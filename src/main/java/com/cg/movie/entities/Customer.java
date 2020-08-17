@@ -26,7 +26,7 @@ public class Customer {
 	private Long customerContact;
 	@Pattern(regexp = "Male|Female|Others")
 	private String customerGender;
-	private int customerBalance;
+	private double customerBalance;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
@@ -47,12 +47,12 @@ public class Customer {
 		this.customerBalance = customerBalance;
 	}
 
-	public int getCustomerBalance() {
+	public double getCustomerBalance() {
 		return customerBalance;
 	}
 
-	public void setCustomerBalance(int customerBalance) {
-		this.customerBalance = customerBalance;
+	public void setCustomerBalance(double d) {
+		this.customerBalance = d;
 	}
 
 	public Long getCustomerId() {

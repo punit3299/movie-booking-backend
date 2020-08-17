@@ -12,7 +12,7 @@ public interface ICustomerService {
 	
 	public Customer addMoneyToWallet(Customer customer,int money);
 	
-	public Customer refundMoneyToWallet(Customer customer,long showId,int amount);
+	public Customer refundMoneyToWallet(Customer customer,long showId,double amount);
 
 	public List<Customer> getAllCustomer();
 }

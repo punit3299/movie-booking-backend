@@ -448,4 +448,7 @@
  2020/08/17 00:38:03.957  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
  2020/08/17 00:38:28.993  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 2 Males, 0 Females, 0 Others returned successfully
  2020/08/17 00:38:29.003  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/17 11:59:48.458  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
+ 2020/08/17 12:00:05.829  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
+ 2020/08/17 12:00:31.708  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
  

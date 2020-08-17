@@ -8,6 +8,6 @@ public interface ITicketService {
 
 	Ticket findTicketById(long ticketId);
 
-	Ticket cancelTicket(Ticket ticket);
+	Ticket cancelTicket(long customerId,Ticket ticket);
 
 }

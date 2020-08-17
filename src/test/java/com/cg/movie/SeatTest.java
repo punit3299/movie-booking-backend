@@ -84,7 +84,7 @@ class SeatTest {
 		theatre = new Theatre((long) 10, "Xion", 5, "Mohit", 7973657728L);
 		screen =  new Screen((long) 101, "Audi1", 75, true);
 		show=new Show((long)1001,new Timestamp(System.currentTimeMillis()),new Timestamp(System.currentTimeMillis()),"First show");
-		movie=new Movie((long)1111,"Fast and Furious","Action","Robert",120.5,9,new Timestamp(System.currentTimeMillis()));
+		//movie=new Movie((long)1111,"Fast and Furious","Action","Robert",120.5,9,new Timestamp(System.currentTimeMillis()));
 		customer =new Customer((long)200,"Rohit","rohitpass",9898982221L,"Male",4500);
 		booking=new Booking((long)50,new Timestamp(System.currentTimeMillis()),210.60);
 		bookTicketDetails=new BookTicketDetails("25",(long)1001,(long)1111,(long)101,(long)10,(long)200,"Pune",210.60,new Timestamp(System.currentTimeMillis()),new Timestamp(System.currentTimeMillis()));

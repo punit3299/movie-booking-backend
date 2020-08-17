@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.BookingRepository;
+import com.cg.movie.dao.CustomerRepository;
 import com.cg.movie.dao.SeatRepository;
 import com.cg.movie.dao.TicketRepository;
 import com.cg.movie.entities.Booking;
+import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Seat;
 import com.cg.movie.entities.Ticket;
 import com.cg.movie.exception.TicketNotFoundException;
@@ -23,6 +25,12 @@ public class TicketServiceImpl implements ITicketService {
 	
 	@Autowired
 	SeatRepository seatRepo;
+	
+	@Autowired
+	CustomerRepository customerRepo;
+	
+	@Autowired
+	ICustomerService customerService;
 	
 	
 	private Logger logger = Logger.getLogger(getClass());
@@ -76,7 +84,7 @@ public class TicketServiceImpl implements ITicketService {
 	 * 
 	 **********************************************************************************/
 	@Override
-	public Ticket cancelTicket(Ticket ticket) {
+	public Ticket cancelTicket(long customerId,Ticket ticket) {
 		
 		
 		Booking booking=bookingRepo.getBooking(ticket.getTicketId());
@@ -93,6 +101,9 @@ public class TicketServiceImpl implements ITicketService {
 		bookingRepo.save(booking);
 		
 		ticket.setTicketStatus(false);
+		
+		Customer customer=customerRepo.findById(customerId).get();
+		customer=customerService.refundMoneyToWallet(customer, showId, booking.getTotalCost());
 		
 		return ticketRepo.save(ticket);
 		

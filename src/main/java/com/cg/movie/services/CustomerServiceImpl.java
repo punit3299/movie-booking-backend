@@ -115,7 +115,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	 * 
 	 **********************************************************************************/
 	@Override
-	public Customer refundMoneyToWallet(Customer customer,long showId, int amount) {
+	public Customer refundMoneyToWallet(Customer customer,long showId, double amount) {
 		
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
 		
