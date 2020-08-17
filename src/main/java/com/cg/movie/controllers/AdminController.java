@@ -26,8 +26,11 @@ import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Theatre;
+import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.ScreenNotFoundException;
+import com.cg.movie.request.ShowRequestVO;
 import com.cg.movie.response.GenderResponse;
+import com.cg.movie.response.MovieResponseVO;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
 import com.cg.movie.services.ICityService;
@@ -96,22 +99,22 @@ public class AdminController {
 	}
 
 	@PostMapping("/movie")
-	public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
+	public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) throws MoviesNotFoundException {
 		Movie movie1 = movieService.addMovie(movie);
 		return new ResponseEntity<Movie>(movie1, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/movie/{movieId}")
-	public ResponseEntity<Set<Movie>> deleteMovie(@PathVariable long movieId) {
+	public ResponseEntity<Set<MovieResponseVO>> deleteMovie(@PathVariable Long movieId) {
 		movieService.deleteMovieById(movieId);
-		Set<Movie> movieList = movieService.findAllMovie();
-		return new ResponseEntity<Set<Movie>>(movieList, HttpStatus.OK);
+		Set<MovieResponseVO> movies=movieService.findAllMovie();
+		return new ResponseEntity<Set<MovieResponseVO>>(movies, HttpStatus.OK);
 	}
 
 	@GetMapping("/movie/getAllMovies")
-	public ResponseEntity<Set<Movie>> getAllMovies() {
-		Set<Movie> movieList = movieService.findAllMovie();
-		return new ResponseEntity<Set<Movie>>(movieList, HttpStatus.OK);
+	public ResponseEntity<Set<MovieResponseVO>> getAllMovies() {
+		Set<MovieResponseVO> movieList = movieService.findAllMovie();
+		return new ResponseEntity<Set<MovieResponseVO>>(movieList, HttpStatus.OK);
 	}
 
 	// top 3 theatres
@@ -243,9 +246,11 @@ public class AdminController {
 		return new ResponseEntity<String>("Theatre Deleted", HttpStatus.OK);
 	}
 
-	/*
+	/*********************************
+	 *
 	 * Get All Theatre
-	 */
+	 * 
+	 *********************************/
 
 	@GetMapping("/theatre/list")
 	public ResponseEntity<List<Theatre>> getAllTheatre() {
@@ -254,9 +259,8 @@ public class AdminController {
 	}
 
 	@PostMapping("/theatre/screen/show")
-	public ResponseEntity<Long> addNewShow(@PathParam("theatreId") long theatreId, @PathParam("screenId") long screenId,
-			@PathParam("movieId") long movieId, @RequestBody Show show) {
-		return new ResponseEntity<Long>(showService.addNewShow(theatreId, screenId, movieId, show), HttpStatus.CREATED);
+	public ResponseEntity<Long> addNewShow(@RequestBody ShowRequestVO showRequestVO) {
+		return new ResponseEntity<Long>(showService.addNewShow(showRequestVO), HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/theatre/screen/{showId}")
@@ -266,7 +270,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/{theatreId}/screen/show")
-	public ResponseEntity<Set<Show>> getAllShowsByTheatreId(@PathVariable("theatreId") long theatreId) {
+	public ResponseEntity<Set<Show>> getAllShowsByTheatreId(@PathVariable("theatreId") Long theatreId) {
 		return new ResponseEntity<Set<Show>>(showService.getAllShow(theatreId), HttpStatus.OK);
 	}
 
@@ -275,5 +279,4 @@ public class AdminController {
 			@RequestBody Language language) {
 		return new ResponseEntity<Language>(languageService.addLanguage(language, movieId), HttpStatus.CREATED);
 	}
-
 }

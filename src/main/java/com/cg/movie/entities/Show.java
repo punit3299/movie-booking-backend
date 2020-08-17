@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,11 +22,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Show {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "genName1")
+	@SequenceGenerator(name = "genName1", sequenceName = "show", initialValue =2110300001, allocationSize = 1)
 	private Long showId;
 	private Timestamp showStartTime;
 	private Timestamp showEndTime;
 	private String showName;
+	private String showLanguage;
 	private boolean status;
 
 	@JsonIgnore
@@ -61,12 +64,13 @@ public class Show {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName) {
+	public Show(Long showId, Timestamp showStartTime, Timestamp showEndTime, String showName,String showLanguage) {
 		super();
 		this.showId = showId;
 		this.showStartTime = showStartTime;
 		this.showEndTime = showEndTime;
 		this.showName = showName;
+		this.showLanguage=showLanguage;
 	}
 	public Long getShowId() {
 		return showId;
@@ -158,6 +162,14 @@ public class Show {
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
+	
+	public String getShowLanguage() {
+		return showLanguage;
+	}
+
+	public void setShowLanguage(String showLanguage) {
+		this.showLanguage = showLanguage;
+	}
 
 	// the method below will add transaction to show
 	// also serves the purpose to avoid cyclic references.
@@ -177,4 +189,5 @@ public class Show {
 		booking.setShow(this);
 		this.getBookingList().add(booking);
 	}
+
 }

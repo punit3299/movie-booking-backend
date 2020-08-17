@@ -22,7 +22,7 @@ public class Movie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "genName1")
-	@SequenceGenerator(name = "genName1", sequenceName = "mov", initialValue = 1170000011, allocationSize = 1)
+	@SequenceGenerator(name = "genName1", sequenceName = "mov", initialValue = 3000, allocationSize = 1)
 	private Long movieId;
 	private String movieName;
 	private String movieGenre;
@@ -31,7 +31,10 @@ public class Movie {
 	private Integer movieRating;
 	private Timestamp movieReleaseDate;
 	private boolean status;
-	private String languages;
+
+	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+	private Set<Language> LanguageList = new HashSet<>();
+
 
 	@OneToOne(mappedBy = "movie")
 	private Screen screen;
@@ -43,17 +46,21 @@ public class Movie {
 	public Movie() {
 	}
 
-	public Movie(Long movieId, String movieName, String movieGenre, String movieDirector, Double movieLength,
-			Integer movieRating, Timestamp movieReleaseDate,String languages) {
+	public Movie(String movieName, String movieGenre, String movieDirector, Double movieLength,
+			Integer movieRating, Timestamp movieReleaseDate, boolean status, Set<Language> languageList, Screen screen,
+			Set<Show> showsList) {
 		super();
-		this.movieId = movieId;
+	
 		this.movieName = movieName;
 		this.movieGenre = movieGenre;
 		this.movieDirector = movieDirector;
 		this.movieLength = movieLength;
 		this.movieRating = movieRating;
 		this.movieReleaseDate = movieReleaseDate;
-		this.languages= languages;
+		this.status = status;
+		LanguageList = languageList;
+		this.screen = screen;
+		this.showsList = showsList;
 	}
 
 	public Long getMovieId() {
@@ -119,15 +126,16 @@ public class Movie {
 	public void setMovieReleaseDate(Timestamp movieReleaseDate) {
 		this.movieReleaseDate = movieReleaseDate;
 	}
-	
-	public String getLanguages() {
-		return languages;
+
+
+	public Set<Language> getLanguageList() {
+		return LanguageList;
 	}
 
-	public void setLanguages(String languages) {
-		this.languages = languages;
+	public void setLanguageList(Set<Language> languageList) {
+		languageList.parallelStream().forEach(language -> language.setMovie(this));
+		LanguageList = languageList;
 	}
-
 
 	@JsonIgnore
 	public Set<Show> getShowsList() {
@@ -145,11 +153,10 @@ public class Movie {
 		show.setMovie(this); // this will avoid nested cascade
 		this.getShowsList().add(show);
 	}
+	/*
+	 * public void addLanguage(Language language) { language.setMovie(this); // this
+	 * will avoid nested cascade this.getLanguageList().add(language); }
+	 */
 
-
-	@Override
-	public String toString() {
-		return "Movie [movieName=" + movieName + "]";
-	}
 
 }

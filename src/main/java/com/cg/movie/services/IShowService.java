@@ -4,14 +4,15 @@ import java.util.List;
 import java.util.Set;
 
 import com.cg.movie.entities.Show;
+import com.cg.movie.request.ShowRequestVO;
 
 public interface IShowService {
 
-	Long addNewShow(long theatreId, long screenId, long movieId, Show show);
+	Long addNewShow(ShowRequestVO showRequestVO);
 
     void deleteShowById(long showId);
 
-	Set<Show> getAllShow(long theatreId);
+    Set<Show> getAllShow(Long theatreId);
 	
 	/*
 	 * This method fetches shows associated with a movie by using movieId. It returns'
@@ -31,5 +32,7 @@ public interface IShowService {
 	public List<Show> getAllShows();
 
 	public void findShowById(Long showId);
+
+	
 
 }

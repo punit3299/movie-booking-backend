@@ -74,7 +74,7 @@ public class AdminTest {
 	
 	@Test
 	public void countOfMoviesTest() {
-		Movie movie1=new Movie(new Long(1), "3 Idiots", "Comedy", "Rajkumar Hirani", new Double(150), 5, new Timestamp(System.currentTimeMillis()),"hindi");
+		Movie movie1=new Movie(new Long(1), "3 Idiots", "Comedy", "Rajkumar Hirani", new Double(150), 5,new Timestamp(System.currentTimeMillis()));
 		when(movieRepo.findAll()).thenReturn(Stream.of(movie1).collect(Collectors.toList()));
 		assertEquals(1, adminService.countOfMovies());
 		

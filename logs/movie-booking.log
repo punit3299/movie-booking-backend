@@ -268,4 +268,54 @@
  2020/08/12 22:54:14.028  ERROR -  [http-nio-8083-exec-5] com.cg.movie.services.SeatServiceImpl : Seats already booked
  2020/08/12 22:55:50.846  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TicketServiceImpl :  Ticket found with TicketId: 3
  2020/08/12 22:57:23.440  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
+ 2020/08/15 18:28:33.168  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 3 Customers returned successfully
+ 2020/08/15 18:28:33.282  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Customers Not Found
+ 2020/08/15 18:28:33.432  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/15 18:28:33.458  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Theatres Not Found
+ 2020/08/15 18:28:33.475  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 1 Movies returned successfully
+ 2020/08/15 18:28:33.493  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Movies Not Found
+ 2020/08/15 18:29:22.045  ERROR -  [main] com.cg.movie.services.ShowServiceImpl : movie not found
+ 2020/08/15 18:29:22.163  ERROR -  [main] com.cg.movie.services.ShowServiceImpl : movie not found
+ 2020/08/15 18:29:29.163  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
+ 2020/08/15 18:29:35.957  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 1
+ 2020/08/15 18:29:35.958  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Theatre not found with 101
+ 2020/08/15 18:29:35.971  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 101
+ 2020/08/15 18:29:35.972  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 110
+ 2020/08/15 18:29:36.027  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 1
+ 2020/08/15 18:29:36.031  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Theatre not found with 101
+ 2020/08/15 18:29:36.081  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Returned No of seats of screen of id 101
+ 2020/08/15 18:29:36.083  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
+ 2020/08/15 18:29:36.103  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Added seats in screen of id 101
+ 2020/08/15 18:29:36.111  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Cannot add 0 seats in the screen
+ 2020/08/15 18:29:36.113  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
+ 2020/08/15 18:29:36.141  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 101
+ 2020/08/15 18:29:36.143  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Cannot update 0 seats in the screen
+ 2020/08/15 18:29:36.144  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
+ 2020/08/15 18:29:41.328  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
+ 2020/08/15 18:29:46.579  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 3 Customers returned successfully
+ 2020/08/15 18:29:46.580  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Customers Not Found
+ 2020/08/15 18:29:46.600  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/15 18:29:46.620  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Theatres Not Found
+ 2020/08/15 18:29:46.644  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 1 Movies returned successfully
+ 2020/08/15 18:29:46.647  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Movies Not Found
+ 2020/08/15 18:29:50.173  ERROR -  [main] com.cg.movie.services.BookingServiceImpl : booking not found
+ 2020/08/15 18:29:50.212  ERROR -  [main] com.cg.movie.services.BookingServiceImpl : booking not found
+ 2020/08/15 18:29:57.598  INFO  -  [main] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/15 18:30:03.663  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : Theatre not found with 6
+ 2020/08/15 18:30:03.672  INFO  -  [main] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/15 18:30:03.679  INFO  -  [main] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 1
+ 2020/08/15 18:30:03.694  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : No Theatre Found
+ 2020/08/15 18:39:51.581  ERROR -  [main] com.cg.movie.services.ShowServiceImpl : movie not found
+ 2020/08/15 18:39:51.763  ERROR -  [main] com.cg.movie.services.ShowServiceImpl : movie not found
+ 2020/08/16 09:17:04.374  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 3
+ 2020/08/16 12:39:26.838  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 3
+ 2020/08/16 12:57:07.944  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 3
+ 2020/08/17 18:06:12.346  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : Top 3 Theatres returned successfully
+ 2020/08/17 18:06:12.491  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/17 18:06:13.903  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/17 18:06:15.731  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 0 Customers returned successfully
+ 2020/08/17 18:10:45.626  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 0 Customers returned successfully
+ 2020/08/17 18:10:45.794  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : Top 3 Movies returned successfully
+ 2020/08/17 18:10:45.813  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : Top 3 Theatres returned successfully
+ 2020/08/17 18:10:45.960  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
  

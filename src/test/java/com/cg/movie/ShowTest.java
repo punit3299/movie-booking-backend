@@ -52,10 +52,10 @@ public class ShowTest {
 	@SuppressWarnings("deprecation")
 	public void getAllShowsTest() {
 		Show show = new Show(new Long(500), new Timestamp(2020, 06, 19, 9, 00, 00, 000),
-				new Timestamp(2020, 06, 19, 11, 00, 00, 000), "Joker");
+				new Timestamp(2020, 06, 19, 11, 00, 00, 000), "Joker", "English");
 
 		Show show1 = new Show(new Long(500), new Timestamp(2020, 06, 19, 9, 00, 00, 000),
-				new Timestamp(2020, 06, 19, 11, 00, 00, 000), "The Fault in our stars");
+				new Timestamp(2020, 06, 19, 11, 00, 00, 000), "The Fault in our stars", "English");
 
 		long theatreId = new Long(7);
 
@@ -87,8 +87,8 @@ public class ShowTest {
 	@Test
 	public void getShowByMovieIdTest() {
 		List<Show> shows = Stream.of(
-				new Show(new Long(500), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker"),
-				(new Show(new Long(501), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker")))
+				new Show(new Long(500), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker","English"),
+				(new Show(new Long(501), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker","English")))
 				.collect(Collectors.toList());
 		when(showRepo.findShowByMovieId(new Long(6001))).thenReturn(shows);
 		assertThrows(MovieDoesntExistException.class, () ->{showService.getShowByMovieId(new Long(6001));});
@@ -97,8 +97,8 @@ public class ShowTest {
 	@Test
 	public void getShowByTheatreIdTest() {
 		List<Show> shows = Stream.of(
-				new Show(new Long(500), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker"),
-				(new Show(new Long(501), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker")))
+				new Show(new Long(500), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker","English"),
+				(new Show(new Long(501), Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "Joker","English")))
 				.collect(Collectors.toList());
 		when(showRepo.findShowByTheatreId(new Long(7001))).thenReturn(shows);
 		assertThrows(TheatreNotFoundException.class, () ->{showService.getShowByTheatreId(new Long(7001));});

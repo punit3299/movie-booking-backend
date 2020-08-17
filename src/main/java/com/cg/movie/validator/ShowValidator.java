@@ -65,10 +65,10 @@ public class ShowValidator {
 		return screen;
 	}
 
-	public Movie validateMovieId(long movieId) {
-		Movie movie = movieRepo.findByMovieId(movieId);
+	public Movie validateMovieName(String movieName) {
+		Movie movie = movieRepo.findMovieByName(movieName);
 		if (movie==null) {
-			throw new MoviesNotFoundException("Movie with id" + " " + movieId + " " + "Doesn't exist");
+			throw new MoviesNotFoundException("Movie with name" + " " + movieName + " " + "Not Found");
 		}
 		return movie;
 	}

@@ -23,16 +23,16 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
 			+ " OR (s.showStartTime <= :endTime AND s.showEndTime >=:endTime)"
 			+ "OR (s.showStartTime >= :startTime AND s.showEndTime <=:endTime))"
 			+ "AND s.screen.screenId = :screenId "
-			+ "AND s.status=0")
+			+ "AND s.status=1")
 	public List<Show> timePeriodOverlap(@Param("startTime") Timestamp startTime,@Param("endTime") Timestamp endTime , 
 			@Param("screenId") long screenId);
 
 	
 	@Modifying
-	@Query("UPDATE Show s SET s.status=1 WHERE s.showId=?1")
+	@Query("UPDATE Show s SET s.status=0 WHERE s.showId=?1")
 	void deleteShowById(long showId);
 	
-	@Query("SELECT show from Show show WHERE show.theatre.theatreId=?1 AND show.status=0")
+	@Query("SELECT show from Show show WHERE show.theatre.theatreId=?1 AND show.status=1")
 	List<Show> findAllShows(long thearteId);
 		
 
