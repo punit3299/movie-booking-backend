@@ -48,7 +48,7 @@ public class ShowValidator {
 	@Autowired
 	ShowRepository showRepo;
 
-	public Theatre validateTheatreId(long theatreId) {
+	public Theatre validateTheatreId(long theatreId)  throws TheatreNotFoundException{
 
 		Theatre theatre = theatreRepo.findTheatreById(theatreId);
 		if (theatre==null) {
@@ -57,7 +57,7 @@ public class ShowValidator {
 		return theatre;
 	}
 
-	public Screen validateScreenId(long screenId) {
+	public Screen validateScreenId(long screenId) throws ScreenNotFoundException {
 		Screen screen = screenRepo.findByScreenId(screenId);
 		if (screen==null) {
 			throw new ScreenNotFoundException("Screen with id" + " " + screenId + " " + "doesn't exist");
@@ -65,7 +65,7 @@ public class ShowValidator {
 		return screen;
 	}
 
-	public Movie validateMovieName(String movieName) {
+	public Movie validateMovieName(String movieName) throws MoviesNotFoundException{
 		Movie movie = movieRepo.findMovieByName(movieName);
 		if (movie==null) {
 			throw new MoviesNotFoundException("Movie with name" + " " + movieName + " " + "Not Found");
@@ -73,7 +73,7 @@ public class ShowValidator {
 		return movie;
 	}
 
-	public void validateShowTimePeriod(Timestamp startTime, Timestamp endTime, long screenId) {
+	public void validateShowTimePeriod(Timestamp startTime, Timestamp endTime, long screenId) throws ShowOverlapException {
 		if (!endTime.after(startTime) || startTime.before(new Date())) {
 			throw new InValidDataEntryException("Please enter valid date and time");
 		}

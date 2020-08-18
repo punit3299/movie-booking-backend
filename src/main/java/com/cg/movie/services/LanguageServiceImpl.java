@@ -23,14 +23,6 @@ public class LanguageServiceImpl implements ILanguageService {
 	public Language addLanguage(Language language,long movieId) {
 		return language;
 		
-		/*
-		 * Movie movie=movieRepo.findById(movieId).get(); if(movie!=null) { Language
-		 * filterLanguage=languageRepo.languageRepitition(language.getLanguageName(),
-		 * movieId); if(filterLanguage==null) { return languageRepo.save(language); }
-		 * throw new InValidDataEntryException("Enter languages again"); } else throw
-		 * new MovieDoesntExistException("Movie with Id"+" "+movieId+"doesn't exist");
-		 */
-		
 	}
 
 }

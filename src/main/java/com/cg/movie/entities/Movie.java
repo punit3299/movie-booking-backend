@@ -48,11 +48,10 @@ public class Movie {
 	public Movie() {
 	}
 
-	public Movie(String movieName, String movieGenre, String movieDirector, Double movieLength,
-			Integer movieRating, Timestamp movieReleaseDate, boolean status, Set<Language> languageList, Screen screen,
-			Set<Show> showsList) {
+	public Movie(Long movieId,String movieName, String movieGenre, String movieDirector, Double movieLength,
+			Integer movieRating, Timestamp movieReleaseDate, boolean status) {
 		super();
-	
+	    this.movieId=movieId;
 		this.movieName = movieName;
 		this.movieGenre = movieGenre;
 		this.movieDirector = movieDirector;
@@ -60,9 +59,6 @@ public class Movie {
 		this.movieRating = movieRating;
 		this.movieReleaseDate = movieReleaseDate;
 		this.status = status;
-		LanguageList = languageList;
-		this.screen = screen;
-		this.showsList = showsList;
 	}
 
 	public Long getMovieId() {
@@ -155,10 +151,4 @@ public class Movie {
 		show.setMovie(this); // this will avoid nested cascade
 		this.getShowsList().add(show);
 	}
-	/*
-	 * public void addLanguage(Language language) { language.setMovie(this); // this
-	 * will avoid nested cascade this.getLanguageList().add(language); }
-	 */
-
-
 }

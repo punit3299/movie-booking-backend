@@ -3,10 +3,13 @@ package com.cg.movie.controllers;
 import java.util.List;
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +27,6 @@ import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Language;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
-import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.ScreenNotFoundException;
@@ -32,6 +34,7 @@ import com.cg.movie.request.ShowRequestVO;
 import com.cg.movie.response.GenderResponse;
 import com.cg.movie.response.GenreResponse;
 import com.cg.movie.response.MovieResponseVO;
+import com.cg.movie.response.ShowResponseVO;
 import com.cg.movie.response.SuccessMessage;
 import com.cg.movie.services.IAdminService;
 import com.cg.movie.services.ICityService;
@@ -46,6 +49,7 @@ import com.cg.movie.services.ITheatreService;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/admin")
+@Validated
 public class AdminController {
 
 	@Autowired
@@ -358,7 +362,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/theatre/screen/show")
-	public ResponseEntity<Long> addNewShow(@RequestBody ShowRequestVO showRequestVO) {
+	public ResponseEntity<Long> addNewShow(@Valid @RequestBody ShowRequestVO showRequestVO) {
 		return new ResponseEntity<Long>(showService.addNewShow(showRequestVO), HttpStatus.CREATED);
 	}
 
@@ -369,8 +373,8 @@ public class AdminController {
 	}
 
 	@GetMapping("/{theatreId}/screen/show")
-	public ResponseEntity<Set<Show>> getAllShowsByTheatreId(@PathVariable("theatreId") Long theatreId) {
-		return new ResponseEntity<Set<Show>>(showService.getAllShow(theatreId), HttpStatus.OK);
+	public ResponseEntity<Set<ShowResponseVO>> getAllShowsByTheatreId(@PathVariable("theatreId") Long theatreId) {
+		return new ResponseEntity<Set<ShowResponseVO>>(showService.getAllShow(theatreId), HttpStatus.OK);
 	}
 
 	@PostMapping("/{movieId}/language")
