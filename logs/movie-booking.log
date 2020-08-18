@@ -463,4 +463,7 @@
  2020/08/18 01:31:24.166  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
  2020/08/18 01:32:44.996  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
  2020/08/18 01:32:46.354  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/18 16:59:26.922  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/18 17:12:06.264  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/18 17:45:28.234  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
  

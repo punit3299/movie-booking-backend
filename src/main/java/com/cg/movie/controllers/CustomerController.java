@@ -96,13 +96,12 @@ public class CustomerController {
 	 * Controller to Add Money
 	 */
 	
-	@PutMapping(value="/addMoney/{customerId}/{amount}")
-	public ResponseEntity<Customer> addMoney(@PathVariable long customerId, @PathVariable int amount)
+	@PutMapping(value="/addMoney/{amount}")
+	public ResponseEntity<Customer> addMoney(@RequestBody Customer customer, @PathVariable int amount)
 		throws CustomerNotFoundException{
 		
 		logger.trace("at addMoney method");
 		
-		Customer customer = customerService.findCustomerById(customerId);
 		customer= customerService.addMoneyToWallet(customer, amount);
 		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
 		
