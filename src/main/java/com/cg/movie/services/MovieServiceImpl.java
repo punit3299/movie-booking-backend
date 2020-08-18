@@ -46,7 +46,7 @@ public class MovieServiceImpl implements IMovieService {
 	 * 
 	 **********************************************************************************/
 	@Override
-	public Movie addMovie(Movie movie) throws  MoviesNotFoundException{
+	public Movie addMovie(Movie movie) throws MoviesNotFoundException {
 
 		Movie movieByName = movieRepo.findMovieByName(movie.getMovieName());
 		if (movieByName == null) {
@@ -56,8 +56,7 @@ public class MovieServiceImpl implements IMovieService {
 				return movieAdded;
 			} else
 				throw new InValidDataEntryException("Please enter the correct movie release date");
-		} else
-		{
+		} else {
 			throw new MoviesNotFoundException("This movie name already exist.");
 		}
 	}
@@ -85,7 +84,8 @@ public class MovieServiceImpl implements IMovieService {
 			movieResponse.setMovieGenre(movie.getMovieGenre());
 			movieResponse.setMovieReleaseDate(movie.getMovieReleaseDate());
 			movieResponse.setMovieRating(movie.getMovieRating());
-			movieResponse.setLanguages(movie.getLanguageList().stream().map(Language::getLanguageName).collect(Collectors.toSet()));
+			movieResponse.setLanguages(
+					movie.getLanguageList().stream().map(Language::getLanguageName).collect(Collectors.toSet()));
 			movieResponses.add(movieResponse);
 		}
 		return movieResponses;
