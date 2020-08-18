@@ -18,6 +18,7 @@ import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.MovieDoesntExistException;
 import com.cg.movie.exception.ShowDoesntExistException;
 import com.cg.movie.exception.TheatreNotFoundException;
+import com.cg.movie.request.ShowRequestVO;
 import com.cg.movie.validator.ShowValidator;
 
 /********************************************************************************
@@ -60,13 +61,20 @@ public class ShowServiceImpl implements IShowService {
 	 **********************************************************************************/
 
 	@Override
-	public Long addNewShow(long theatreId, long screenId, long movieId, Show show) {
+	public Long addNewShow(ShowRequestVO showRequestVO) {
 
-		Movie movie = showValidator.validateMovieId(movieId);
-		Theatre theatre = showValidator.validateTheatreId(theatreId);
-		Screen screen = showValidator.validateScreenId(screenId);
+		Movie movie = showValidator.validateMovieName(showRequestVO.getMovieName());
+		Theatre theatre = showValidator.validateTheatreId(showRequestVO.getTheatreId());
+		Screen screen = showValidator.validateScreenId(showRequestVO.getScreenId());
+		
+		Show show= new Show();
+		show.setShowEndTime(showRequestVO.getShowEndTime());
+		show.setShowStartTime(showRequestVO.getShowStartTime());
+		show.setShowLanguage(showRequestVO.getShowLanguage());
+		show.setShowName(showRequestVO.getShowName());
 
 		showValidator.validateShowTimePeriod(show.getShowStartTime(), show.getShowEndTime(), screen.getScreenId());
+		show.setStatus(true);
 		show.setMovie(movie);
 		show.setTheatre(theatre);
 		show.setScreen(screen);
@@ -114,9 +122,9 @@ public class ShowServiceImpl implements IShowService {
 	 **********************************************************************************/
 
 	@Override
-	public Set<Show> getAllShow(long theatreId) {
+	public Set<Show> getAllShow(Long theatreId) {
 		
-		if(!theatreRepo.existsById(theatreId))
+		if(theatreRepo.existsById(theatreId))
 		{
 			List<Show> showList = showRepo.findAllShows(theatreId);
 			Set<Show> showList1 = new HashSet<>(showList);

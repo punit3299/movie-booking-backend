@@ -11,10 +11,16 @@ public class BookedDetailsOfTicket {
     private String movieName;
     private Timestamp bookingDate, showDate;
     private double totalCost;
+<<<<<<< HEAD
 	
 	public BookedDetailsOfTicket() {
 		super();
 	}
+=======
+    
+    
+    
+>>>>>>> 369505d2ff1048a26a5d3ced9396541f22335eb5
 	public BookedDetailsOfTicket(Long bookingId, String cityName, String theatreName, String screenName, String seatNo,
 			String movieName, Timestamp bookingDate, Timestamp showDate, double totalCost) {
 		super();
@@ -28,6 +34,12 @@ public class BookedDetailsOfTicket {
 		this.showDate = showDate;
 		this.totalCost = totalCost;
 	}
+<<<<<<< HEAD
+=======
+	public BookedDetailsOfTicket() {
+		// TODO Auto-generated constructor stub
+	}
+>>>>>>> 369505d2ff1048a26a5d3ced9396541f22335eb5
 	public double getTotalCost() {
 		return totalCost;
 	}

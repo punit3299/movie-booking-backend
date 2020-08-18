@@ -25,23 +25,7 @@ public class Booking {
 	private Double totalCost;
 	private String movie;
 	private boolean status;
-
-	public String getMovie() {
-		return movie;
-	}
-
-	public void setMovie(String movie) {
-		this.movie = movie;
-	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
+	
 	public Booking() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -59,7 +43,7 @@ public class Booking {
 	@JoinColumn(name = "transactionId")
 	private Transaction transaction;
  
-	@JsonIgnore
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ticketId")
 	private Ticket ticket;
@@ -67,6 +51,23 @@ public class Booking {
 	@ManyToOne
 	@JoinColumn(name = "showId")
 	private Show show;
+
+	public String getMovie() {
+		return movie;
+	}
+
+	public void setMovie(String movie) {
+		this.movie = movie;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 
 	public Long getBookingId() {
 		return bookingId;

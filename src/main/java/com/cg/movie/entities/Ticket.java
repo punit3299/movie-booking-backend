@@ -18,10 +18,20 @@ public class Ticket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long ticketId;
-	private String seatName; // make it seatsList
+	private String seatName;
 	private Boolean ticketStatus;
 	private String screenName;
 
+
+	@JsonIgnore
+	@OneToOne(mappedBy = "ticket")
+	private Booking booking;
+
+	@ManyToOne
+	@JoinColumn(name = "customerId")
+	private Customer customer;
+	
+	
 	public Ticket(Long ticketId, String seatName, Boolean ticketStatus, String screenName) {
 		super();
 		this.ticketId = ticketId;
@@ -33,14 +43,6 @@ public class Ticket {
 	public Ticket() {
 		// TODO Auto-generated constructor stub
 	}
-
-	@JsonIgnore
-	@OneToOne(mappedBy = "ticket")
-	private Booking booking;
-
-	@ManyToOne
-	@JoinColumn(name = "customerId")
-	private Customer customer;
 
 	public Long getTicketId() {
 		return ticketId;

@@ -14,10 +14,15 @@ public class BookTicketDetails {
     private double ticketPrice;
     private Timestamp bookingDate,showDate;
     
+<<<<<<< HEAD
 	
 	public BookTicketDetails() {
 		super();
 	}
+=======
+    
+    
+>>>>>>> 369505d2ff1048a26a5d3ced9396541f22335eb5
 	public BookTicketDetails(String seatNo, Long showId, Long movieId, Long screenId, Long theatreId, Long customerId,
 			String cityName, double ticketPrice, Timestamp bookingDate, Timestamp showDate) {
 		super();
@@ -32,7 +37,10 @@ public class BookTicketDetails {
 		this.bookingDate = bookingDate;
 		this.showDate = showDate;
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 369505d2ff1048a26a5d3ced9396541f22335eb5
 	public Timestamp getShowDate() {
 		return showDate;
 	}

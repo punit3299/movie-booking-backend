@@ -17,14 +17,21 @@ public class Language {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long languageId;
 	private String languageName;
+	
 
-	@JsonIgnore
+
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "movieId")
 	private Movie movie;
 
 	public Language() {
 		super();
+	}
+
+	public Language(String languageName) {
+		super();
+		this.languageName = languageName;
 	}
 	
 	public Language(String languageName, Movie movie) {
@@ -32,7 +39,6 @@ public class Language {
 		this.languageName = languageName;
 		this.movie = movie;
 	}
-
 
 	public Long getLanguageId() {
 		return languageId;

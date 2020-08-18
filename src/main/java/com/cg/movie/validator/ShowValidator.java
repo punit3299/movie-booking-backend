@@ -50,27 +50,27 @@ public class ShowValidator {
 
 	public Theatre validateTheatreId(long theatreId) {
 
-		Optional<Theatre> theatre = theatreRepo.findById(theatreId);
-		if (!theatre.isPresent()) {
-			throw new TheatreNotFoundException("Theatre with id" + " " + theatreId + "doesn't");
+		Theatre theatre = theatreRepo.findTheatreById(theatreId);
+		if (theatre==null) {
+			throw new TheatreNotFoundException("Theatre with id" + " " + theatreId + "doesn't exist");
 		}
-		return theatre.get();
+		return theatre;
 	}
 
 	public Screen validateScreenId(long screenId) {
-		Optional<Screen> screen = screenRepo.findById(screenId);
-		if (!screen.isPresent()) {
+		Screen screen = screenRepo.findByScreenId(screenId);
+		if (screen==null) {
 			throw new ScreenNotFoundException("Screen with id" + " " + screenId + " " + "doesn't exist");
 		}
-		return screen.get();
+		return screen;
 	}
 
-	public Movie validateMovieId(long movieId) {
-		Optional<Movie> movie = movieRepo.findById(movieId);
-		if (!movie.isPresent()) {
-			throw new MoviesNotFoundException("Movie with id" + " " + movieId + " " + "Doesn't exist");
+	public Movie validateMovieName(String movieName) {
+		Movie movie = movieRepo.findMovieByName(movieName);
+		if (movie==null) {
+			throw new MoviesNotFoundException("Movie with name" + " " + movieName + " " + "Not Found");
 		}
-		return movie.get();
+		return movie;
 	}
 
 	public void validateShowTimePeriod(Timestamp startTime, Timestamp endTime, long screenId) {

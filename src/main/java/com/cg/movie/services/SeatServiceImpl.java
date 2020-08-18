@@ -110,6 +110,36 @@ public class SeatServiceImpl implements ISeatService {
 		
 		Theatre theatre=theatreRepo.findById(details.getTheatreId()).get();
 		
+<<<<<<< HEAD
+=======
+		Ticket ticket= new Ticket();
+		
+		ticket.setScreenName(screen.getScreenName());
+		ticket.setSeatName(details.getSeatNo());
+		ticket.setTicketStatus(true);
+		ticket.setCustomer(customer);
+		Ticket bookedTicket=ticketRepo.save(ticket);
+		customer.addTicket(bookedTicket);
+		
+		Transaction transaction=new Transaction();
+		transaction.setShow(show);
+		transaction.setTransactionMessage("Movie "+ movie.getMovieName()+" booked, Price Rs. "+details.getTicketPrice());
+		transaction.setTransactionTime(Timestamp.from(Instant.now()));
+		transaction.setCustomer(customer);
+		Transaction bookedTransaction=transactionRepo.save(transaction);
+		
+		Booking booking= new Booking();
+		
+		booking.setBookingDate(details.getBookingDate());
+		booking.setMovie(movie.getMovieName());
+		booking.setStatus(true);
+		booking.setTotalCost(details.getTicketPrice());
+		booking.setShow(show);
+		booking.setTicket(bookedTicket);
+		booking.setTransaction(bookedTransaction);
+		bookingRepo.save(booking);
+		
+>>>>>>> 369505d2ff1048a26a5d3ced9396541f22335eb5
 		if(seatRepo.findSeatByShowId(show.getShowId())==null) {
 			Seat seat=new Seat();
 			seat.setSeatNumber(details.getSeatNo());

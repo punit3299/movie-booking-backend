@@ -27,7 +27,17 @@ public class Transaction {
 	@JoinColumn(name = "showId")
 	private Show show;
 	
+	@ManyToOne
+	@JoinColumn(name = "customerId")
+	private Customer customer;
 	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
 	public Transaction() {
 		super();

@@ -1,17 +1,22 @@
 package com.cg.movie.services;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.MovieRepository;
+import com.cg.movie.entities.Language;
 import com.cg.movie.entities.Movie;
+import com.cg.movie.exception.InValidDataEntryException;
 import com.cg.movie.exception.MovieDoesntExistException;
 import com.cg.movie.exception.MoviesNotFoundException;
+import com.cg.movie.response.MovieResponseVO;
 
 /********************************************************************************
  * 
@@ -41,14 +46,20 @@ public class MovieServiceImpl implements IMovieService {
 	 * 
 	 **********************************************************************************/
 	@Override
-	public Movie addMovie(Movie movie) {
+	public Movie addMovie(Movie movie) throws  MoviesNotFoundException{
 
-		List<Movie> movieByName = movieRepo.findMovieByName(movie.getMovieName());
-		if (movieByName.isEmpty()) {
-			Movie movieAdded = movieRepo.save(movie);
-			return movieAdded;
+		Movie movieByName = movieRepo.findMovieByName(movie.getMovieName());
+		if (movieByName == null) {
+			if (!movie.getMovieReleaseDate().before(new Date())) {
+				movie.setStatus(true);
+				Movie movieAdded = movieRepo.save(movie);
+				return movieAdded;
+			} else
+				throw new InValidDataEntryException("Please enter the correct movie release date");
 		} else
-			throw new MoviesNotFoundException("This movie with" + movieByName + " already exist.");
+		{
+			throw new MoviesNotFoundException("This movie name already exist.");
+		}
 	}
 
 	/********************************************************************************
@@ -62,10 +73,22 @@ public class MovieServiceImpl implements IMovieService {
 	 **********************************************************************************/
 
 	@Override
-	public Set<Movie> findAllMovie() {
+	public Set<MovieResponseVO> findAllMovie() {
 		List<Movie> movieList = movieRepo.findAllMovies();
-		Set<Movie> movieList1 = new HashSet<>(movieList);
-		return movieList1;
+		Set<MovieResponseVO> movieResponses = new HashSet<>();
+		for (Movie movie : movieList) {
+			MovieResponseVO movieResponse = new MovieResponseVO();
+			movieResponse.setMovieId(movie.getMovieId());
+			movieResponse.setMovieName(movie.getMovieName());
+			movieResponse.setMovieLength(movie.getMovieLength());
+			movieResponse.setMovieDirector(movie.getMovieDirector());
+			movieResponse.setMovieGenre(movie.getMovieGenre());
+			movieResponse.setMovieReleaseDate(movie.getMovieReleaseDate());
+			movieResponse.setMovieRating(movie.getMovieRating());
+			movieResponse.setLanguages(movie.getLanguageList().stream().map(Language::getLanguageName).collect(Collectors.toSet()));
+			movieResponses.add(movieResponse);
+		}
+		return movieResponses;
 	}
 
 	/********************************************************************************

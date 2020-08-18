@@ -3,7 +3,11 @@ package com.cg.movie.services;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+<<<<<<< HEAD
 import java.util.Optional;
+=======
+import java.util.List;
+>>>>>>> 369505d2ff1048a26a5d3ced9396541f22335eb5
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +37,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	/********************************************************************************
 	 * 
-	 * Method : addTheater
+	 * Method : addCustomer
 	 * 
 	 * Description: for adding the Customer.
 	 * 
@@ -96,7 +100,16 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public Customer addMoneyToWallet(Customer customer, int amount) {
 		
+		findCustomerById(customer.getCustomerId());
+		
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
+		
+		Transaction transaction=new Transaction();
+		
+		transaction.setCustomer(customer);
+		transaction.setTransactionMessage("Rs. "+ amount + "Added to Wallet");
+		transaction.setTransactionTime(Timestamp.from(Instant.now()));
+		transactionRepo.save(transaction);
 		
 		return customerRepo.save(customer);
 	}
@@ -115,7 +128,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	 * 
 	 **********************************************************************************/
 	@Override
-	public Customer refundMoneyToWallet(Customer customer,long showId, int amount) {
+	public Customer refundMoneyToWallet(Customer customer,long showId, double amount) {
 		
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
 		
@@ -124,6 +137,7 @@ public class CustomerServiceImpl implements ICustomerService {
 		Transaction transaction = new Transaction();
 		transaction.setTransactionMessage("Rs. "+amount+" refunded to Wallet regarding show: "+show.getShowName());
 		transaction.setTransactionTime(Timestamp.from(Instant.now()));
+		transaction.setCustomer(customer);
 		transaction.setShow(show);
 		
 		transactionRepo.save(transaction);
@@ -131,6 +145,7 @@ public class CustomerServiceImpl implements ICustomerService {
 		return customerRepo.save(customer);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int getBalance(Long customerId) {
 		if(customerRepo.existsById(customerId))
@@ -143,6 +158,23 @@ public class CustomerServiceImpl implements ICustomerService {
 			throw new CustomerNotFoundException("Customer not Exist");
 		}
 		
+=======
+	/********************************************************************************
+	 * 
+	 * Method : getAllCustomers
+	 * 
+	 * Description: Return list of customer details
+	 * 
+	 * @return : List<Customer> 
+	 * 
+	 *         Created by: Saurav Suman ,12 August 2020
+	 * 
+	 **********************************************************************************/
+	@Override
+	public List<Customer> getAllCustomer() {
+		List<Customer> customerList=customerRepo.findAll();
+		return customerList;
+>>>>>>> 369505d2ff1048a26a5d3ced9396541f22335eb5
 	}
 
 	

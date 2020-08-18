@@ -22,6 +22,7 @@ import org.springframework.context.annotation.Description;
 import com.cg.movie.dao.MovieRepository;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.exception.MoviesNotFoundException;
+import com.cg.movie.response.MovieResponseVO;
 import com.cg.movie.services.IMovieService;
 
 @SpringBootTest
@@ -75,7 +76,7 @@ public class MovieTest {
 
 		when(movieDAO.findAll()).thenReturn(movies);
 
-		Set<Movie> response = movieService.findAllMovie();
+		Set<MovieResponseVO> response = movieService.findAllMovie();
 
 		assertTrue(response.size() > 0);
 

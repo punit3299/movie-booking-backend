@@ -75,6 +75,9 @@ public class CustomerController {
 	@Autowired
 	ITransactionService transactionService;
 	
+	@Autowired
+	ITransactionService transactionService;
+	
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
@@ -95,44 +98,41 @@ public class CustomerController {
 	 * Controller to Add Money
 	 */
 	
-	@PutMapping(value="/addMoney/{customerId}/{amount}")
-	public ResponseEntity<Customer> addMoney(@PathVariable long customerId, @PathVariable int amount)
+	@PutMapping(value="/addMoney/{amount}")
+	public ResponseEntity<Customer> addMoney(@RequestBody Customer customer, @PathVariable int amount)
 		throws CustomerNotFoundException{
 		
 		logger.trace("at addMoney method");
 		
-		Customer customer = customerService.findCustomerById(customerId);
 		customer= customerService.addMoneyToWallet(customer, amount);
 		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
 		
 	}
 	
 	/*
-	 * Controller to Refund Money
+	 * Controller to Get Transactions
 	 */
 	
-	@PutMapping(value="/refundMoney/{customerId}/{showId}/{amount}")
-	public ResponseEntity<Customer> refundMoney(@PathVariable long customerId,@PathVariable long showId, @PathVariable int amount)
-		throws CustomerNotFoundException{
+	@GetMapping(value="/getAllTransactions/{customerId}")
+	public ResponseEntity<List<Transaction>> getAllTransactions(@PathVariable long customerId){
 		
-		logger.trace("at refundMoney method");
+		logger.trace("at getAllTransactions methof");
 		
-		Customer customer = customerService.findCustomerById(customerId);
-		customer= customerService.refundMoneyToWallet(customer,showId, amount);
-		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
+		List<Transaction> transactions= transactionService.getCustomerTransactions(customerId);
+		
+		return new ResponseEntity<List<Transaction>>(transactions,HttpStatus.OK);
 		
 	}
 	
 	/*
 	 * Controller to Cancel Ticket
 	 */
-	@PutMapping(value="/cancelTicket/{ticketId}")
-	public ResponseEntity<Ticket> cancelTicket(@PathVariable long ticketId) throws TicketNotFoundException{
+	@PutMapping(value="/cancelTicket/{customerId}")
+	public ResponseEntity<Ticket> cancelTicket(@PathVariable long customerId,@RequestBody Ticket ticket) throws TicketNotFoundException{
 		
 		logger.trace("at cancelTicket method");
 		
-		Ticket ticket=ticketService.findTicketById(ticketId);
-		ticket=ticketService.cancelTicket(ticket);
+		ticket=ticketService.cancelTicket(customerId, ticket);
 		return new ResponseEntity<Ticket>(ticket,HttpStatus.OK);
 		
 	}
