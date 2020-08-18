@@ -96,7 +96,16 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public Customer addMoneyToWallet(Customer customer, int amount) {
 		
+		findCustomerById(customer.getCustomerId());
+		
 		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
+		
+		Transaction transaction=new Transaction();
+		
+		transaction.setCustomer(customer);
+		transaction.setTransactionMessage("Rs. "+ amount + "Added to Wallet");
+		transaction.setTransactionTime(Timestamp.from(Instant.now()));
+		transactionRepo.save(transaction);
 		
 		return customerRepo.save(customer);
 	}
@@ -124,6 +133,7 @@ public class CustomerServiceImpl implements ICustomerService {
 		Transaction transaction = new Transaction();
 		transaction.setTransactionMessage("Rs. "+amount+" refunded to Wallet regarding show: "+show.getShowName());
 		transaction.setTransactionTime(Timestamp.from(Instant.now()));
+		transaction.setCustomer(customer);
 		transaction.setShow(show);
 		
 		transactionRepo.save(transaction);

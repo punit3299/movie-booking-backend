@@ -123,6 +123,7 @@ public class SeatServiceImpl implements ISeatService {
 		transaction.setShow(show);
 		transaction.setTransactionMessage("Movie "+ movie.getMovieName()+" booked, Price Rs. "+details.getTicketPrice());
 		transaction.setTransactionTime(Timestamp.from(Instant.now()));
+		transaction.setCustomer(customer);
 		Transaction bookedTransaction=transactionRepo.save(transaction);
 		
 		Booking booking= new Booking();

@@ -1,5 +1,7 @@
 package com.cg.movie.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,28 @@ public class TransactionServiceImpl implements ITransactionService {
 	public Transaction addTransaction(Transaction transaction) {
 		
 		return transactionRepo.save(transaction);
+	}
+	
+	
+	/********************************************************************************
+	 * 
+	 * Method : getCustomerTransactions
+	 * 
+	 * Description: for getting customer transactions
+	 * 
+	 * @param  : customerId 		Customer customerId 
+	 * 
+	 * @return : List<Transaction>
+	 * 
+	 *         Created by: Siddharth Raghuvanshi ,11 August 2020
+	 * 
+	 **********************************************************************************/
+	@Override
+	public List<Transaction> getCustomerTransactions(long customerId) {
+		
+		List<Transaction> transactionList=transactionRepo.getAllTransactions(customerId);
+		
+		return transactionList;
 	}
 
 }

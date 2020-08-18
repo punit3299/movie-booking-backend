@@ -48,11 +48,11 @@ public class Movie {
 	public Movie() {
 	}
 
-	public Movie(Long movieId,String movieName, String movieGenre, String movieDirector, Double movieLength,
-			Integer movieRating, Timestamp movieReleaseDate, boolean status) {
-		super();
+	public Movie(Long movieId, String movieName,
+			@Pattern(regexp = "Action|Adventure|Comedy|Horror|Romance|Thriller|Sci-fi|Animation") String movieGenre,
+			String movieDirector, Double movieLength, Integer movieRating, Timestamp movieReleaseDate, boolean status) {
 	    this.movieId=movieId;
-		this.movieName = movieName;
+    	this.movieName = movieName;
 		this.movieGenre = movieGenre;
 		this.movieDirector = movieDirector;
 		this.movieLength = movieLength;
@@ -60,6 +60,8 @@ public class Movie {
 		this.movieReleaseDate = movieReleaseDate;
 		this.status = status;
 	}
+
+
 
 	public Long getMovieId() {
 		return movieId;
