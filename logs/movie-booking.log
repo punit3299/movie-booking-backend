@@ -466,4 +466,37 @@
  2020/08/18 16:59:26.922  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
  2020/08/18 17:12:06.264  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
  2020/08/18 17:45:28.234  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/18 19:55:26.077  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/18 19:56:17.975  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/18 20:11:53.782  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/18 20:57:07.733  ERROR -  [main] com.cg.movie.services.ShowServiceImpl : movie not found
+ 2020/08/18 20:57:07.793  ERROR -  [main] com.cg.movie.services.ShowServiceImpl : movie not found
+ 2020/08/18 20:57:10.679  ERROR -  [main] com.cg.movie.services.TicketServiceImpl : Ticket not found with TicketId: 1
+ 2020/08/18 20:57:13.049  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Returned Screen list of theatre 1
+ 2020/08/18 20:57:13.050  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Theatre not found with 101
+ 2020/08/18 20:57:13.057  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Delete screen of id 101
+ 2020/08/18 20:57:13.058  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 110
+ 2020/08/18 20:57:13.073  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Added Screen to Theatre of Id 1
+ 2020/08/18 20:57:13.075  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Theatre not found with 101
+ 2020/08/18 20:57:13.085  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Returned No of seats of screen of id 101
+ 2020/08/18 20:57:13.086  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
+ 2020/08/18 20:57:13.097  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Added seats in screen of id 101
+ 2020/08/18 20:57:13.098  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Cannot add 0 seats in the screen
+ 2020/08/18 20:57:13.098  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
+ 2020/08/18 20:57:13.122  INFO  -  [main] com.cg.movie.services.ScreenServiceImpl : Updated no of seat in screen of id 101
+ 2020/08/18 20:57:13.125  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Cannot update 0 seats in the screen
+ 2020/08/18 20:57:13.126  ERROR -  [main] com.cg.movie.services.ScreenServiceImpl : Screen not found with 111
+ 2020/08/18 20:57:15.295  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
+ 2020/08/18 20:57:15.301  ERROR -  [main] com.cg.movie.services.CustomerServiceImpl : Customer not found with customerId: 1
+ 2020/08/18 20:57:17.945  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 3 Customers returned successfully
+ 2020/08/18 20:57:17.948  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Customers Not Found
+ 2020/08/18 20:57:17.958  INFO  -  [main] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/18 20:57:17.960  ERROR -  [main] com.cg.movie.services.AdminServiceImpl : Theatres Not Found
+ 2020/08/18 20:57:19.956  ERROR -  [main] com.cg.movie.services.BookingServiceImpl : booking not found
+ 2020/08/18 20:57:19.968  ERROR -  [main] com.cg.movie.services.BookingServiceImpl : booking not found
+ 2020/08/18 20:57:23.684  INFO  -  [main] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/18 20:57:27.263  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : Theatre not found with 6
+ 2020/08/18 20:57:27.270  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : No Theatre Found
+ 2020/08/18 20:57:27.276  INFO  -  [main] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 1
+ 2020/08/18 20:57:27.291  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : No Theatre Found
  
