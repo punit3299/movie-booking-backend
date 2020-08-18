@@ -8,5 +8,5 @@ import com.cg.movie.response.BookedDetailsOfTicket;
 
 public interface ISeatService {
 	public BookedDetailsOfTicket bookSeat(BookTicketDetails bookSeatDetails);
-
+    public int[] BookedSeatInShow(Long showId);
 }

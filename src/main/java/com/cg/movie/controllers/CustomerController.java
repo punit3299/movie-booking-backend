@@ -24,6 +24,7 @@ import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Ticket;
+import com.cg.movie.entities.Transaction;
 import com.cg.movie.exception.CustomerNotFoundException;
 import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.TicketNotFoundException;
@@ -38,6 +39,7 @@ import com.cg.movie.services.ISeatService;
 import com.cg.movie.services.IShowService;
 import com.cg.movie.services.ITheatreService;
 import com.cg.movie.services.ITicketService;
+import com.cg.movie.services.ITransactionService;
 
 @RestController
 @CrossOrigin("*")
@@ -70,6 +72,8 @@ public class CustomerController {
 	
 	@Autowired
 	IBookingService bookingService;
+	@Autowired
+	ITransactionService transactionService;
 	
 	
 	private Logger logger = Logger.getLogger(getClass());
@@ -283,6 +287,25 @@ public class CustomerController {
     	 return new ResponseEntity<List<Show>>(shows,HttpStatus.OK);
      }
      
+     @GetMapping(value ="/show/seats/{showId}")
+     public int[] getSeatsByShowId(@PathVariable Long showId){
+    	 logger.trace("at getAllShows method ");
+    	
+          System.out.println("controller with showId= "+showId);
+    	 return seatService.BookedSeatInShow(showId);
+     }
+     
+//     @PostMapping(value ="/addTransaction")
+//     public Long addTransaction(@RequestBody Transaction transaction){
+//    	 return transactionService.addTransaction(transaction).getTransactionId();
+//     }
+
+     @GetMapping(value ="/getBalance/{customerId}")
+     public int getBalanceOfCustomer(@PathVariable Long customerId)
+     {
+		return customerService.getBalance(customerId);
+    	 
+     }
      
 }
 

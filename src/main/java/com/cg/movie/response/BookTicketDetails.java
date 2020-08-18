@@ -14,6 +14,25 @@ public class BookTicketDetails {
     private double ticketPrice;
     private Timestamp bookingDate,showDate;
     
+	
+	public BookTicketDetails() {
+		super();
+	}
+	public BookTicketDetails(String seatNo, Long showId, Long movieId, Long screenId, Long theatreId, Long customerId,
+			String cityName, double ticketPrice, Timestamp bookingDate, Timestamp showDate) {
+		super();
+		this.seatNo = seatNo;
+		this.showId = showId;
+		this.movieId = movieId;
+		this.screenId = screenId;
+		this.theatreId = theatreId;
+		this.customerId = customerId;
+		this.cityName = cityName;
+		this.ticketPrice = ticketPrice;
+		this.bookingDate = bookingDate;
+		this.showDate = showDate;
+	}
+	
 	public Timestamp getShowDate() {
 		return showDate;
 	}

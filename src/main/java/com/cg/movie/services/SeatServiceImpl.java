@@ -94,11 +94,11 @@ public class SeatServiceImpl implements ISeatService {
 	public BookedDetailsOfTicket bookSeat(BookTicketDetails details) {
 		
 		customerService.findCustomerById(details.getCustomerId());
-		cityService.searchCity(details.getCityName());
-		theatreService.getTheatreById(details.getTheatreId());
 		screenService.findScreenById(details.getScreenId());
 		showService.findShowById(details.getShowId());
 		movieService.findMovieById(details.getMovieId());
+		theatreService.getTheatreById(details.getTheatreId());
+		cityService.searchCity(details.getCityName());
 		
 		Screen screen=screenRepo.findById(details.getScreenId()).get();
 		
@@ -109,32 +109,6 @@ public class SeatServiceImpl implements ISeatService {
 		Show show= showRepo.findById(details.getShowId()).get();
 		
 		Theatre theatre=theatreRepo.findById(details.getTheatreId()).get();
-		
-		Ticket ticket= new Ticket();
-		
-		ticket.setScreenName(screen.getScreenName());
-		ticket.setSeatName(details.getSeatNo());
-		ticket.setTicketStatus(true);
-		ticket.setCustomer(customer);
-		Ticket bookedTicket=ticketRepo.save(ticket);
-		customer.addTicket(bookedTicket);
-		
-		Transaction transaction=new Transaction();
-		transaction.setShow(show);
-		transaction.setTransactionMessage("Movie "+ movie.getMovieName()+" booked, Price Rs. "+details.getTicketPrice());
-		transaction.setTransactionTime(Timestamp.from(Instant.now()));
-		Transaction bookedTransaction=transactionRepo.save(transaction);
-		
-		Booking booking= new Booking();
-		
-		booking.setBookingDate(details.getBookingDate());
-		booking.setMovie(movie.getMovieName());
-		booking.setStatus(true);
-		booking.setTotalCost(details.getTicketPrice());
-		booking.setShow(show);
-		booking.setTicket(bookedTicket);
-		booking.setTransaction(bookedTransaction);
-		bookingRepo.save(booking);
 		
 		if(seatRepo.findSeatByShowId(show.getShowId())==null) {
 			Seat seat=new Seat();
@@ -151,13 +125,13 @@ public class SeatServiceImpl implements ISeatService {
 			for(int i=0;i<seats.length();i++)
 			{
 				String temp="";
-				if(seats.charAt(i)=='|')
+				if(seats.charAt(i)==',')
 				{
 					continue;
 				}
 				else
 				{
-					while(seats.charAt(i)!='|')
+					while(seats.charAt(i)!=',')
 					{
 						temp+=seats.charAt(i);
 						i++;
@@ -182,6 +156,31 @@ public class SeatServiceImpl implements ISeatService {
 			
 		}
 		
+		Ticket ticket= new Ticket();
+		
+		ticket.setScreenName(screen.getScreenName());
+		ticket.setSeatName(details.getSeatNo());
+		ticket.setTicketStatus(true);
+		ticket.setCustomer(customer);
+		Ticket bookedTicket=ticketRepo.save(ticket);
+		customer.addTicket(bookedTicket);
+		
+		Transaction transaction=new Transaction();
+		transaction.setShow(show);
+		transaction.setTransactionMessage("Movie "+ movie.getMovieName()+" booked, Price Rs. "+details.getTicketPrice());
+		transaction.setTransactionTime(Timestamp.from(Instant.now()));
+		Transaction bookedTransaction=transactionRepo.save(transaction);
+		
+		Booking booking= new Booking();
+		booking.setBookingDate(details.getBookingDate());
+		booking.setMovie(movie.getMovieName());
+		booking.setStatus(true);
+		booking.setTotalCost(details.getTicketPrice());
+		booking.setShow(show);
+		booking.setTicket(bookedTicket);
+		booking.setTransaction(bookedTransaction);
+		bookingRepo.save(booking);
+		
 		BookedDetailsOfTicket bookedDeatilsOfTicket=new BookedDetailsOfTicket();
 		bookedDeatilsOfTicket.setBookingId(booking.getBookingId());
 		bookedDeatilsOfTicket.setBookingDate(details.getBookingDate());
@@ -192,10 +191,43 @@ public class SeatServiceImpl implements ISeatService {
 		bookedDeatilsOfTicket.setShowDate(details.getShowDate());
 		bookedDeatilsOfTicket.setTheatreName(theatre.getTheatreName());
 		bookedDeatilsOfTicket.setTotalCost(details.getTicketPrice());
+		return bookedDeatilsOfTicket;	
+		}
+
+	@Override
+	public int[] BookedSeatInShow(Long showId) {
+		System.out.println("service showId= "+showId);
+		Seat seat=seatRepo.findSeatByShowId(showId);
+		int bookedSeatNo[];
+		int arr[] = new int[0];
+
+		if(seat!=null)
+		{
+		String bookedSeat=seat.getSeatNumber();
+		String[] bookedSeatArray;
+		bookedSeatArray=bookedSeat.split(",");
+		for(int i=0;i<bookedSeatArray.length;i++)
+		{
+			System.out.print("string Seat Array= "+bookedSeatArray[i]);
+		}
 		
-		return bookedDeatilsOfTicket;
 		
 		
+		bookedSeatNo=new int[bookedSeatArray.length];
+		for(int i=0;i<bookedSeatArray.length;i++)
+		{ 
+			bookedSeatNo[i]=Integer.parseInt(bookedSeatArray[i]);
+		}
+		for(int i=0;i<bookedSeatNo.length;i++)
+		{
+			System.out.print("string Seat Array= "+bookedSeatNo[i]);
+		}
+		return bookedSeatNo;
+		}
+		return arr;
 	}
+	
+	
+	
 
 }
