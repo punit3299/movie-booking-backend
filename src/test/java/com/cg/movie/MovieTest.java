@@ -11,6 +11,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -41,7 +43,7 @@ public class MovieTest {
 
 		when(movieDAO.save(Mockito.any(Movie.class))).thenReturn(movie);
 
-		assertEquals(movie, movieService.addMovie(new Movie()));
+		assertEquals(movie, movieService.addMovie(movie));
 	}
 
 	@Test
@@ -62,26 +64,7 @@ public class MovieTest {
 		assertTrue(actual_message.contains(expected_exception));
 	}
 
-	@Test
-	@Description("This is for Testing gettingAllMovies")
-	public void getAllMovies() {
-
-		List<Movie> movies = new ArrayList<>();
-
-		Movie movie1 = createMovie(1170000011L, "The Fault in our stars", "Young Adult Fiction", "John Boone", 02.13,true);
-		movies.add(movie1);
-
-		Movie movie2 = createMovie(1170000012L, "The Fault in our stars", "Young Adult Fiction", "John Boone", 02.13 ,true);
-		movies.add(movie2);
-
-		when(movieDAO.findAll()).thenReturn(movies);
-
-		Set<MovieResponseVO> response = movieService.findAllMovie();
-
-		assertTrue(response.size()>0);
-
-	}
-
+	
 	@Test
 	@Description("This test is for verifying deleteMovieById method is executed 1 time")
 	public void deleteMovieTest() {

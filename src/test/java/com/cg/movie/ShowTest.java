@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import com.cg.movie.dao.ScreenRepository;
 import com.cg.movie.dao.ShowRepository;
 import com.cg.movie.dao.TheatreRepository;
 import com.cg.movie.entities.Show;
@@ -35,6 +36,9 @@ public class ShowTest {
 	@MockBean
 	private ShowRepository showRepo;
 
+	@MockBean 
+	private ScreenRepository screenRepo;
+	
 	@MockBean
 	private TheatreRepository theatreRepo;
 
@@ -48,32 +52,21 @@ public class ShowTest {
 		verify(showRepo, times(1)).deleteShowById(Mockito.anyLong());
 	}
 
+
+
 	@Test
-	@SuppressWarnings("deprecation")
-	public void getAllShowsTest() {
-		Show show = new Show(new Long(500), new Timestamp(2020, 06, 19, 9, 00, 00, 000),
-				new Timestamp(2020, 06, 19, 11, 00, 00, 000), "Joker", "English");
-
-		Show show1 = new Show(new Long(500), new Timestamp(2020, 06, 19, 9, 00, 00, 000),
-				new Timestamp(2020, 06, 19, 11, 00, 00, 000), "The Fault in our stars", "English");
+	public void getAllShowTest2() {
 
 		long theatreId = new Long(7);
 
-		when(showRepo.findAllShows(Mockito.anyLong())).thenReturn(Stream.of(show, show1).collect(Collectors.toList()));
+		long screenId = new Long(8);
 
-		assertEquals(2, showService.getAllShow(theatreId).size());
-
-	}
-
-
-	public void getAllShowTest() {
-
-		long theatreId = new Long(7);
-
+		when(screenRepo.existsById(Mockito.anyLong())).thenReturn(true);
+		
 		when(theatreRepo.existsById(Mockito.anyLong())).thenReturn(false);
 
 		Exception exception = assertThrows(TheatreNotFoundException.class, () -> {
-			showService.getAllShow(theatreId);
+			showService.getAllShow(theatreId,screenId);
 		});
 
 		String expected_exception = "Theatre with id" + theatreId + "not found";
