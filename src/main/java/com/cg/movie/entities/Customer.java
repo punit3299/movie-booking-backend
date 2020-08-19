@@ -29,6 +29,8 @@ public class Customer {
 	@Pattern(regexp = "Male|Female|Others")
 	private String customerGender;
 	private double customerBalance;
+	private String email;
+
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
@@ -102,6 +104,14 @@ public class Customer {
 
 	public void setCustomerContact(Long customerContact) {
 		this.customerContact = customerContact;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getCustomerGender() {

@@ -382,4 +382,10 @@ public class AdminController {
 			@RequestBody Language language) {
 		return new ResponseEntity<Language>(languageService.addLanguage(language, movieId), HttpStatus.CREATED);
 	}
+	
+	@GetMapping("/city/{cityId}")
+	public ResponseEntity<City> getCityById(@PathVariable long cityId)
+	{
+		return new ResponseEntity<City>(cityService.getCityById(cityId), HttpStatus.OK);
+	}
 }
