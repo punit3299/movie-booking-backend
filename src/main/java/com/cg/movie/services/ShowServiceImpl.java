@@ -149,6 +149,7 @@ public class ShowServiceImpl implements IShowService {
 		{
 			throw new ScreenNotFoundException("Screen with id"+ screenId+"not found");
 		}
+		
 		if (!theatreRepo.existsById(theatreId)) {
 			throw new TheatreNotFoundException("Theatre with id" + theatreId + "not found");
 		}
