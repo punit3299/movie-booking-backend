@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cg.movie.dao.AdminRepository;
 import com.cg.movie.dao.BookingRepository;
 import com.cg.movie.dao.CustomerRepository;
 import com.cg.movie.dao.MovieRepository;
@@ -42,6 +43,9 @@ public class AdminServiceImpl implements IAdminService {
 
 	@Autowired
 	BookingRepository bookingRepo;
+	
+	@Autowired
+	private AdminRepository adminRepo;
 
 	private Logger logger = Logger.getLogger(getClass());
 
@@ -246,5 +250,18 @@ public class AdminServiceImpl implements IAdminService {
 		bookingRepo.deleteById(bookingId);
 		return new SuccessMessage("Deleted","Booking Deleted Successfully");
 	}
+
+	@Override
+	public boolean findEmailIfExists(String email) {
+		List<String> adminEmails=adminRepo.getAllEmail().stream()
+                .map(String::toLowerCase)
+                .collect(Collectors.toList());;
+		if(adminEmails.contains(email.toLowerCase()))
+		return true;
+		else
+			return false;
+	}
+	
+	
 
 }

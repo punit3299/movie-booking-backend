@@ -4,30 +4,41 @@ package com.cg.movie.services;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cg.movie.dao.AdminRepository;
 import com.cg.movie.dao.CustomerRepository;
 import com.cg.movie.dao.ShowRepository;
 import com.cg.movie.dao.TransactionRepository;
+import com.cg.movie.entities.Admin;
 import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Transaction;
 import com.cg.movie.exception.CustomerNotFoundException;
+import com.cg.movie.exception.InvalidAttributeException;
+import com.cg.movie.response.LoginCredential;
 
 @Service
 public class CustomerServiceImpl implements ICustomerService {
 
 	@Autowired
-	CustomerRepository customerRepo;
+	private CustomerRepository customerRepo;
 	
 	@Autowired
-	TransactionRepository transactionRepo;
+	private TransactionRepository transactionRepo;
 	
 	@Autowired
-	ShowRepository showRepo;
+	private AdminRepository adminRepo;
+	
+	@Autowired
+	private AdminServiceImpl adminService;
+	
+	@Autowired
+	private ShowRepository showRepo;
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
@@ -156,6 +167,56 @@ public class CustomerServiceImpl implements ICustomerService {
 	public List<Customer> getAllCustomer() {
 		List<Customer> customerList=customerRepo.findAll();
 		return customerList;
+	}
+
+	@Override
+	public boolean findEmailIfExists(String email) {
+		List<String> customerEmails= customerRepo.getAllEmail().stream()
+                .map(String::toLowerCase)
+                .collect(Collectors.toList());;
+		if(customerEmails.contains(email.toLowerCase()))
+		{
+			return true;
+		}
+		else
+			return false;
+	}
+
+	@Override
+	public boolean findContactNoIfExists(long contactNumber) {
+		List<Long> customerContacts=customerRepo.getAllContact();
+		if(customerContacts.contains(contactNumber))
+			return true;
+		else
+		return false;
+	}
+
+	@Override
+	public String validateCredential(LoginCredential credentials) {
+		if(adminService.findEmailIfExists(credentials.getEmail()) )
+		{
+			if(adminRepo.getPassword(credentials.getEmail()).equals(credentials.getPassword()))
+				return "admin";
+		}
+		else if(findEmailIfExists(credentials.getEmail()))
+		{
+			if(customerRepo.getPassword(credentials.getEmail()).equals(credentials.getPassword()))
+				return "customer";
+		}
+		
+			throw new InvalidAttributeException("Username or Password Invalid");
+		
+	}
+
+	@Override
+	public Customer findCustomerByEmail(String email) {
+		if(findEmailIfExists(email))
+		{
+			Customer customer=customerRepo.getCustomerByEmail(email);
+			return customer;
+		}
+		else
+			throw new CustomerNotFoundException("Customer not found");
 	}
 
 	
