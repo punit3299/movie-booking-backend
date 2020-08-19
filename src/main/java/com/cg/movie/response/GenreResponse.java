@@ -1,3 +1,4 @@
+
 package com.cg.movie.response;
 
 public interface GenreResponse {
@@ -7,3 +8,4 @@ public interface GenreResponse {
 	Long getCount();
 
 }
+

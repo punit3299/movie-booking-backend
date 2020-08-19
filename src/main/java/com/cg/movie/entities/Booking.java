@@ -22,7 +22,7 @@ public class Booking {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long bookingId;
 	private Timestamp bookingDate;
-	private Double totalCost;
+	private double totalCost;
 	private String movie;
 	private boolean status;
 	
@@ -31,7 +31,7 @@ public class Booking {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Booking(Long bookingId, Timestamp bookingDate, Double totalCost) {
+	public Booking(Long bookingId, Timestamp bookingDate, double totalCost) {
 		super();
 		this.bookingId = bookingId;
 		this.bookingDate = bookingDate;
@@ -85,12 +85,12 @@ public class Booking {
 		this.bookingDate = bookingDate;
 	}
 
-	public Double getTotalCost() {
+	public double getTotalCost() {
 		return totalCost;
 	}
 
-	public void setTotalCost(Double totalCost) {
-		this.totalCost = totalCost;
+	public void setTotalCost(double totalcost) {
+		this.totalCost = totalcost;
 	}
 
 	public Transaction getTransaction() {
