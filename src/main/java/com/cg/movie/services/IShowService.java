@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.cg.movie.entities.Show;
 import com.cg.movie.request.ShowRequestVO;
+import com.cg.movie.response.ShowResponseVO;
 
 public interface IShowService {
 
@@ -12,7 +13,7 @@ public interface IShowService {
 
     void deleteShowById(long showId);
 
-    Set<Show> getAllShow(Long theatreId);
+    Set<ShowResponseVO> getAllShow(Long theatreId ,Long screenId);
 	
 	/*
 	 * This method fetches shows associated with a movie by using movieId. It returns'

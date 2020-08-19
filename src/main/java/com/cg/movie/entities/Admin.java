@@ -16,6 +16,7 @@ public class Admin{
 	private String adminName;
 	private String adminPassword;
 	private Long adminContact;
+	private String email;
 	
 	public Long getAdminId() {
 		return adminId;
@@ -41,6 +42,12 @@ public class Admin{
 	}
 	public void setAdminContact(Long adminContact) {
 		this.adminContact = adminContact;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

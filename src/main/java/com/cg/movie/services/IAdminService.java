@@ -40,4 +40,5 @@ public interface IAdminService {
 
 	public SuccessMessage deleteBookingById(Long bookingId);
 
+	public boolean findEmailIfExists(String email);
 }

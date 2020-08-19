@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.websocket.server.PathParam;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +32,7 @@ import com.cg.movie.exception.MoviesNotFoundException;
 import com.cg.movie.exception.TicketNotFoundException;
 import com.cg.movie.response.BookTicketDetails;
 import com.cg.movie.response.BookedDetailsOfTicket;
+import com.cg.movie.response.LoginCredential;
 import com.cg.movie.services.IBookingService;
 import com.cg.movie.services.ICityService;
 import com.cg.movie.services.ICustomerService;
@@ -93,10 +96,38 @@ public class CustomerController {
 		
 	}
 	
+	
+	@GetMapping(value="/validateEmail")
+	public ResponseEntity<Boolean> validateEmail(@PathParam("email") String email)
+	{
+		Boolean bool=customerService.findEmailIfExists(email);
+		return new ResponseEntity<Boolean>(bool,HttpStatus.OK);
+	}
+	
+	@GetMapping(value="/validateContactNumber")
+	public ResponseEntity<Boolean> validateContactNo(@PathParam("contactNumber") Long contactNumber)
+	{
+		Boolean bool=customerService.findContactNoIfExists(contactNumber);
+		return new ResponseEntity<Boolean>(bool,HttpStatus.OK);
+	}
+	
+	@PostMapping(value="/validateCredential",consumes=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> validateCredential(@RequestBody LoginCredential credentials)
+	{
+		String role=customerService.validateCredential(credentials);
+		return new ResponseEntity<String>(role,HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping(value="/getCustomer")
+	public ResponseEntity<Customer> getCustomerByEmail(@PathParam("email") String email)
+	{
+		Customer customer=customerService.findCustomerByEmail(email);
+		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
+	}
+	
 	/*
 	 * Controller to Add Money
 	 */
-	
 	@PutMapping(value="/addMoney/{amount}")
 	public ResponseEntity<Customer> addMoney(@RequestBody Customer customer, @PathVariable int amount)
 		throws CustomerNotFoundException{

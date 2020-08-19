@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -30,7 +29,9 @@ import com.cg.movie.entities.City;
 import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Movie;
 import com.cg.movie.entities.Screen;
+
 import com.cg.movie.entities.Seat;
+
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.entities.Ticket;
@@ -39,14 +40,15 @@ import com.cg.movie.exception.CustomerNotFoundException;
 import com.cg.movie.exception.MovieDoesntExistException;
 import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.exception.ShowDoesntExistException;
+
 import com.cg.movie.exception.TheatreNotFoundException;
+
 import com.cg.movie.response.BookTicketDetails;
 import com.cg.movie.response.BookedDetailsOfTicket;
 import com.cg.movie.services.ITheatreService;
 import com.cg.movie.services.SeatServiceImpl;
 @SpringBootTest
 class SeatTest {
-
 	@Autowired
 	SeatServiceImpl seatService;
 	@Autowired
@@ -89,13 +91,22 @@ class SeatTest {
 		city =new City((long)101,"Pune");
 		theatre = new Theatre((long) 10, "Xion", 5, "Mohit", 7973657728L);
 		screen =  new Screen((long) 101, "Audi1", 75, true);
+
 		show=new Show((long)1001,new Timestamp(System.currentTimeMillis()),new Timestamp(System.currentTimeMillis()),"First show","Hindi");
 		movie=new Movie((long)1111,"Fast and Furious","Action","Robert",120.5,9,new Timestamp(System.currentTimeMillis()),true);
+
+		show=new Show((long)1001,new Timestamp(System.currentTimeMillis()),new Timestamp(System.currentTimeMillis()),"First show", null);
+		
+
 		customer =new Customer((long)200,"Rohit","rohitpass",9898982221L,"Male",4500);
 		booking=new Booking((long)50,new Timestamp(System.currentTimeMillis()),210.60);
 		bookTicketDetails=new BookTicketDetails("25",(long)1001,(long)1111,(long)101,(long)10,(long)200,"Pune",210.60,new Timestamp(System.currentTimeMillis()),new Timestamp(System.currentTimeMillis()));
 		bookedDetailsOfTicket=new BookedDetailsOfTicket(booking.getBookingId(),"Pune",theatre.getTheatreName(),screen.getScreenName(),"25",movie.getMovieName(),new Timestamp(System.currentTimeMillis()),new Timestamp(System.currentTimeMillis()),210.60);
+
 	    ticket=new Ticket((long)500,"25",true,screen.getScreenName());
+
+		ticket=new Ticket((long)500,"25",true,screen.getScreenName());
+
 	    transaction=new Transaction((long)555,"transaction done",new Timestamp(System.currentTimeMillis()));
 	}
 	 
@@ -128,5 +139,5 @@ class SeatTest {
     	when(movieRepo.existsById(Mockito.anyLong())).thenReturn(false);
     	assertThrows(MovieDoesntExistException.class,()->{seatService.bookSeat(bookTicketDetails);});
     }
-    
+
 }

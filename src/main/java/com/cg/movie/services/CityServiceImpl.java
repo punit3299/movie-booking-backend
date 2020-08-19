@@ -36,7 +36,15 @@ public class CityServiceImpl implements ICityService {
 	
 	@Override
 	public City addCity(City city) {
-		return cityRepo.save(city);
+		City isCityExist= cityRepo.findByCityName(city.getCityName());
+		if(isCityExist==null)
+		{
+			return cityRepo.save(city);
+		}
+		else
+		{
+			throw new CityNotFoundException("City Already Exists");
+		}
 	}
 
 	/********************************************************************************
@@ -141,6 +149,13 @@ public class CityServiceImpl implements ICityService {
 		});
 		
 		return listCity;
+	}
+	
+	@Override
+	public City getCityById(long cityId)
+	{
+		City city= cityRepo.findById(cityId).get();
+		return city;
 	}
 	
 
