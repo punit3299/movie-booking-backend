@@ -13,7 +13,7 @@ public interface IShowService {
 
     void deleteShowById(long showId);
 
-    Set<ShowResponseVO> getAllShow(Long theatreId);
+    Set<ShowResponseVO> getAllShow(Long theatreId ,Long screenId);
 	
 	/*
 	 * This method fetches shows associated with a movie by using movieId. It returns'

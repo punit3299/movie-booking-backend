@@ -94,11 +94,11 @@ public class SeatServiceImpl implements ISeatService {
 	public BookedDetailsOfTicket bookSeat(BookTicketDetails details) {
 		
 		customerService.findCustomerById(details.getCustomerId());
-		cityService.searchCity(details.getCityName());
-		theatreService.getTheatreById(details.getTheatreId());
 		screenService.findScreenById(details.getScreenId());
 		showService.findShowById(details.getShowId());
 		movieService.findMovieById(details.getMovieId());
+		theatreService.getTheatreById(details.getTheatreId());
+		cityService.searchCity(details.getCityName());
 		
 		Screen screen=screenRepo.findById(details.getScreenId()).get();
 		
@@ -109,6 +109,84 @@ public class SeatServiceImpl implements ISeatService {
 		Show show= showRepo.findById(details.getShowId()).get();
 		
 		Theatre theatre=theatreRepo.findById(details.getTheatreId()).get();
+
+
+		
+		if(seatRepo.findSeatByShowId(show.getShowId())==null) {
+			Seat seat=new Seat();
+			seat.setSeatNumber(details.getSeatNo());
+			seat.setSeatPrice(details.getTicketPrice());
+			seat.setShow(show);
+			seatRepo.save(seat);
+			show.addSeat(seat);
+		}
+		else {
+			Seat seat=seatRepo.findSeatByShowId(show.getShowId());
+			List<String> bookedSeatNumbers=new ArrayList<>();
+			
+			for(int i=0;i<seat.getSeatNumber().length();i++)
+			{
+				String temp="";
+				if(seat.getSeatNumber().charAt(i)==',')
+				{
+					continue;
+				}
+				else
+				{
+					while(seat.getSeatNumber().charAt(i)!=',')
+					{
+						temp+=seat.getSeatNumber().charAt(i);
+						i++;
+					}
+					bookedSeatNumbers.add(temp);
+				}
+			}
+			
+			System.out.println(bookedSeatNumbers);
+			
+			
+			
+			
+			List<String> seatNumbers=new ArrayList<>();
+			String seats=details.getSeatNo();
+			for(int i=0;i<seats.length();i++)
+			{
+				String temp="";
+				if(seats.charAt(i)==',')
+				{
+					continue;
+				}
+				else
+				{
+					while(seats.charAt(i)!=',')
+					{
+						temp+=seats.charAt(i);
+						i++;
+					}
+					seatNumbers.add(temp);
+				}
+			}
+			
+			System.out.println(seatNumbers);
+			
+			
+			for(String bookedNumber:bookedSeatNumbers)
+			{
+			for(String seatChecking:seatNumbers)
+			{  
+				if(bookedNumber.equals(seatChecking))
+				{
+					logger.error("Seats already booked");
+					throw new SeatAlreadyBookedException("Seats Already Booked");
+				}
+				
+			}
+			}
+			seat.setSeatNumber(seat.getSeatNumber()+details.getSeatNo());
+			seatRepo.save(seat);
+			
+			
+		}
 		
 		Ticket ticket= new Ticket();
 		
@@ -123,11 +201,9 @@ public class SeatServiceImpl implements ISeatService {
 		transaction.setShow(show);
 		transaction.setTransactionMessage("Movie "+ movie.getMovieName()+" booked, Price Rs. "+details.getTicketPrice());
 		transaction.setTransactionTime(Timestamp.from(Instant.now()));
-		transaction.setCustomer(customer);
 		Transaction bookedTransaction=transactionRepo.save(transaction);
 		
 		Booking booking= new Booking();
-		
 		booking.setBookingDate(details.getBookingDate());
 		booking.setMovie(movie.getMovieName());
 		booking.setStatus(true);
@@ -136,52 +212,6 @@ public class SeatServiceImpl implements ISeatService {
 		booking.setTicket(bookedTicket);
 		booking.setTransaction(bookedTransaction);
 		bookingRepo.save(booking);
-		
-		if(seatRepo.findSeatByShowId(show.getShowId())==null) {
-			Seat seat=new Seat();
-			seat.setSeatNumber(details.getSeatNo());
-			seat.setSeatPrice(details.getTicketPrice());
-			seat.setShow(show);
-			seatRepo.save(seat);
-			show.addSeat(seat);
-		}
-		else {
-			Seat seat=seatRepo.findSeatByShowId(show.getShowId());
-			List<String> seatNumbers=new ArrayList<>();
-			String seats=details.getSeatNo();
-			for(int i=0;i<seats.length();i++)
-			{
-				String temp="";
-				if(seats.charAt(i)=='|')
-				{
-					continue;
-				}
-				else
-				{
-					while(seats.charAt(i)!='|')
-					{
-						temp+=seats.charAt(i);
-						i++;
-					}
-					seatNumbers.add(temp);
-				}
-			}
-			
-			
-			for(String seatChecking:seatNumbers)
-			{  
-				if(seat.getSeatNumber().contains(seatChecking))
-				{
-					logger.error("Seats already booked");
-					throw new SeatAlreadyBookedException("Seats Already Booked");
-				}
-				
-			}
-			seat.setSeatNumber(seat.getSeatNumber()+details.getSeatNo());
-			seatRepo.save(seat);
-			
-			
-		}
 		
 		BookedDetailsOfTicket bookedDeatilsOfTicket=new BookedDetailsOfTicket();
 		bookedDeatilsOfTicket.setBookingId(booking.getBookingId());
@@ -193,10 +223,54 @@ public class SeatServiceImpl implements ISeatService {
 		bookedDeatilsOfTicket.setShowDate(details.getShowDate());
 		bookedDeatilsOfTicket.setTheatreName(theatre.getTheatreName());
 		bookedDeatilsOfTicket.setTotalCost(details.getTicketPrice());
+		return bookedDeatilsOfTicket;	
+		}
+
+	/********************************************************************************
+	 * 
+	 * Method : BookedSeatInShow
+	 * 
+	 * Description: this method will give the booked seat number of particular show
+	 * 
+	 * @return : array of seat number
+	 * 
+	 *         Created by: Raman  ,10 August 2020
+	 * 
+	 **********************************************************************************/
+	
+	public int[] BookedSeatInShow(Long showId) {
+		System.out.println("service showId= "+showId);
+		Seat seat=seatRepo.findSeatByShowId(showId);
+		int bookedSeatNo[];
+		int arr[] = new int[0];
+
+		if(seat!=null)
+		{
+		String bookedSeat=seat.getSeatNumber();
+		String[] bookedSeatArray;
+		bookedSeatArray=bookedSeat.split(",");
+		for(int i=0;i<bookedSeatArray.length;i++)
+		{
+			System.out.print("string Seat Array= "+bookedSeatArray[i]);
+		}
 		
-		return bookedDeatilsOfTicket;
 		
 		
+		bookedSeatNo=new int[bookedSeatArray.length];
+		for(int i=0;i<bookedSeatArray.length;i++)
+		{ 
+			bookedSeatNo[i]=Integer.parseInt(bookedSeatArray[i]);
+		}
+		for(int i=0;i<bookedSeatNo.length;i++)
+		{
+			System.out.print("string Seat Array= "+bookedSeatNo[i]);
+		}
+		return bookedSeatNo;
+		}
+		return arr;
 	}
+	
+	
+	
 
 }

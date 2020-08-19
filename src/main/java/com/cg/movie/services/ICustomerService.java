@@ -14,6 +14,7 @@ public interface ICustomerService {
 	public Customer addMoneyToWallet(Customer customer,int money);
 	
 	public Customer refundMoneyToWallet(Customer customer,long showId,double amount);
+	public double getBalance(Long customerId);
 
 	public List<Customer> getAllCustomer();
 	

@@ -14,8 +14,12 @@ public class BookTicketDetails {
     private double ticketPrice;
     private Timestamp bookingDate,showDate;
     
-    
-    
+
+	
+	public BookTicketDetails() {
+		super();
+	}
+
 	public BookTicketDetails(String seatNo, Long showId, Long movieId, Long screenId, Long theatreId, Long customerId,
 			String cityName, double ticketPrice, Timestamp bookingDate, Timestamp showDate) {
 		super();
@@ -30,6 +34,7 @@ public class BookTicketDetails {
 		this.bookingDate = bookingDate;
 		this.showDate = showDate;
 	}
+
 	public Timestamp getShowDate() {
 		return showDate;
 	}

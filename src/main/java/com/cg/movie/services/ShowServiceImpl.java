@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.MovieRepository;
+import com.cg.movie.dao.ScreenRepository;
 import com.cg.movie.dao.ShowRepository;
 import com.cg.movie.dao.TheatreRepository;
 import com.cg.movie.entities.Language;
@@ -19,6 +20,7 @@ import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Theatre;
 import com.cg.movie.exception.InValidDataEntryException;
 import com.cg.movie.exception.MovieDoesntExistException;
+import com.cg.movie.exception.ScreenNotFoundException;
 import com.cg.movie.exception.ShowDoesntExistException;
 import com.cg.movie.exception.TheatreNotFoundException;
 import com.cg.movie.request.ShowRequestVO;
@@ -42,6 +44,9 @@ public class ShowServiceImpl implements IShowService {
 
 	@Autowired
 	private TheatreRepository theatreRepo;
+	
+	@Autowired
+	private ScreenRepository screenRepo;
 
 	@Autowired
 	private ShowValidator showValidator;
@@ -138,10 +143,17 @@ public class ShowServiceImpl implements IShowService {
 	 **********************************************************************************/
 
 	@Override
-	public Set<ShowResponseVO> getAllShow(Long theatreId) {
+	public Set<ShowResponseVO> getAllShow(Long theatreId,Long screenId) {
 
-		if (theatreRepo.existsById(theatreId)) {
-			List<Show> showList = showRepo.findAllShows(theatreId);
+		if(!screenRepo.existsById(screenId))
+		{
+			throw new ScreenNotFoundException("Screen with id"+ screenId+"not found");
+		}
+		
+		if (!theatreRepo.existsById(theatreId)) {
+			throw new TheatreNotFoundException("Theatre with id" + theatreId + "not found");
+		}
+			List<Show> showList = showRepo.findAllShows(theatreId,screenId);
 			Set<ShowResponseVO> showResponses = new HashSet<>();
 			for (Show show : showList) {
 				ShowResponseVO showResponse = new ShowResponseVO();
@@ -155,9 +167,7 @@ public class ShowServiceImpl implements IShowService {
 				showResponse.setShowName(show.getShowName());
 				showResponses.add(showResponse);
 			}
-			return showResponses;
-		} else
-			throw new TheatreNotFoundException("Theatre with id" + theatreId + "not found");
+			return showResponses; 
 	}
 
 	@Override

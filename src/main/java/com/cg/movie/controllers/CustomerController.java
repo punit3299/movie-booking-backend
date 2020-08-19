@@ -72,9 +72,10 @@ public class CustomerController {
 	
 	@Autowired
 	IBookingService bookingService;
-	
 	@Autowired
 	ITransactionService transactionService;
+	
+	
 	
 	
 	private Logger logger = Logger.getLogger(getClass());
@@ -167,21 +168,14 @@ public class CustomerController {
 	 * Controller to book seat
 	 */
 	
-	@PostMapping(value = "/bookSeat", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/bookSeat/new")
 	public ResponseEntity<BookedDetailsOfTicket> bookSeat(@RequestBody BookTicketDetails bookTicketDetails) {
 		
 		BookedDetailsOfTicket bookedDetailsOfTicket= seatService.bookSeat(bookTicketDetails);
-		
+		System.out.println(bookedDetailsOfTicket.getMovieName());
 		return new ResponseEntity<BookedDetailsOfTicket>(bookedDetailsOfTicket,HttpStatus.ACCEPTED);
 	}
 	
-	
-	@GetMapping(value="/hello")
-	public Timestamp helloRaman()
-	{
-		Timestamp ts=new Timestamp(System.currentTimeMillis());
-		return ts;
-	}
 	
 	/*
 	 * Controller to View only all the cities to user
@@ -314,6 +308,21 @@ public class CustomerController {
     	 return new ResponseEntity<List<Show>>(shows,HttpStatus.OK);
      }
      
+     @GetMapping(value ="/show/seats/{showId}")
+     public int[] getSeatsByShowId(@PathVariable Long showId){
+    	 logger.trace("at getAllShows method ");
+    	
+          System.out.println("controller with showId= "+showId);
+    	 return seatService.BookedSeatInShow(showId);
+     }
+     
+
+     @GetMapping(value ="/getBalance/{customerId}")
+     public double getBalanceOfCustomer(@PathVariable Long customerId)
+     {
+		return customerService.getBalance(customerId);
+    	 
+     }
      
 }
 

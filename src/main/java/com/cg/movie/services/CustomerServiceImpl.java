@@ -3,8 +3,14 @@ package com.cg.movie.services;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+
+import java.util.Optional;
+
+import java.util.List;
+
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -151,6 +157,18 @@ public class CustomerServiceImpl implements ICustomerService {
 		return customerRepo.save(customer);
 	}
 
+	@Override
+	public double getBalance(Long customerId) {
+		if(customerRepo.existsById(customerId))
+		{
+			Customer customer=customerRepo.findById(customerId).get();
+			return customer.getCustomerBalance();
+		}
+		else
+		{
+			throw new CustomerNotFoundException("Customer not Exist");
+		}
+	}
 	/********************************************************************************
 	 * 
 	 * Method : getAllCustomers
@@ -218,9 +236,5 @@ public class CustomerServiceImpl implements ICustomerService {
 			throw new CustomerNotFoundException("Customer not found");
 	}
 
-	
-	
-	
-	
 
 }

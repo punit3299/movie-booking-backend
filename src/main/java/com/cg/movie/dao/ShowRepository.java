@@ -32,8 +32,8 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
 	@Query("UPDATE Show s SET s.status=0 WHERE s.showId=?1")
 	void deleteShowById(long showId);
 	
-	@Query("SELECT show from Show show WHERE show.theatre.theatreId=?1 AND show.status=1")
-	List<Show> findAllShows(long thearteId);
+	@Query("SELECT show from Show show WHERE show.theatre.theatreId=?1 AND show.screen.screenId=?2 AND show.status=1")
+	List<Show> findAllShows(long thearteId,long screenId);
 		
 
 	 @Query(value="select * from show_table where movie_id=?1",nativeQuery=true)

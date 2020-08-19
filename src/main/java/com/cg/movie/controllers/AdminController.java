@@ -372,9 +372,10 @@ public class AdminController {
 		return new ResponseEntity<String>("Show Deleted", HttpStatus.OK);
 	}
 
-	@GetMapping("/{theatreId}/screen/show")
-	public ResponseEntity<Set<ShowResponseVO>> getAllShowsByTheatreId(@PathVariable("theatreId") Long theatreId) {
-		return new ResponseEntity<Set<ShowResponseVO>>(showService.getAllShow(theatreId), HttpStatus.OK);
+	@GetMapping("/{theatreId}/{screenId}/show")
+	public ResponseEntity<Set<ShowResponseVO>> getAllShowsByTheatreId(@PathVariable("theatreId") Long theatreId,
+			@PathVariable("screenId") Long screenId) {
+		return new ResponseEntity<Set<ShowResponseVO>>(showService.getAllShow(theatreId,screenId), HttpStatus.OK);
 	}
 
 	@PostMapping("/{movieId}/language")
