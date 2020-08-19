@@ -284,9 +284,9 @@ public class AdminController {
 	 */
 
 	@PutMapping("/theatre/edit/{theatreId}")
-	public ResponseEntity<String> updateTheatre(@RequestBody Theatre theatre, @PathVariable long theatreId) {
+	public ResponseEntity<Theatre> updateTheatre(@RequestBody Theatre theatre, @PathVariable long theatreId) {
 		theatreService.updateTheatre(theatre);
-		return new ResponseEntity<String>("Theatre updated successfully", HttpStatus.OK);
+		return new ResponseEntity<Theatre>(theatre, HttpStatus.OK);
 	}
 
 	/*
@@ -334,10 +334,10 @@ public class AdminController {
 	 */
 
 	@DeleteMapping("/theatre/{theatreId}")
-	public ResponseEntity<String> deleteTheatre(@PathVariable long theatreId) {
+	public ResponseEntity<Theatre> deleteTheatre(@PathVariable long theatreId) {
 		Theatre theatre = theatreService.getTheatreById(theatreId);
 		theatreService.deleteTheatre(theatre);
-		return new ResponseEntity<String>("Theatre Deleted", HttpStatus.OK);
+		return new ResponseEntity<Theatre>(theatre, HttpStatus.OK);
 	}
 
 	/*********************************
