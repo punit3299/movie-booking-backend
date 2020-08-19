@@ -44,8 +44,12 @@ public class Customer {
 		super();
 	}
 
+	
+	
+	
+
 	public Customer(Long customerId, String customerName, String customerPassword, Long customerContact,
-			@Pattern(regexp = "Male|Female|Others") String customerGender, int customerBalance) {
+			@Pattern(regexp = "Male|Female|Others") String customerGender, double customerBalance, String email) {
 		super();
 		this.customerId = customerId;
 		this.customerName = customerName;
@@ -53,9 +57,12 @@ public class Customer {
 		this.customerContact = customerContact;
 		this.customerGender = customerGender;
 		this.customerBalance = customerBalance;
+		this.email = email;
 	}
-	
-	
+
+
+
+
 
 	@JsonIgnore
 	public List<Transaction> getTransactionList() {

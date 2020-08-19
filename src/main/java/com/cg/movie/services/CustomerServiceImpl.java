@@ -14,7 +14,6 @@ import com.cg.movie.dao.AdminRepository;
 import com.cg.movie.dao.CustomerRepository;
 import com.cg.movie.dao.ShowRepository;
 import com.cg.movie.dao.TransactionRepository;
-import com.cg.movie.entities.Admin;
 import com.cg.movie.entities.Customer;
 import com.cg.movie.entities.Show;
 import com.cg.movie.entities.Transaction;
@@ -142,7 +141,7 @@ public class CustomerServiceImpl implements ICustomerService {
 		Show show=showRepo.findById(showId).get();
 		
 		Transaction transaction = new Transaction();
-		transaction.setTransactionMessage("Rs. "+amount+" refunded to Wallet regarding show: "+show.getShowName());
+		transaction.setTransactionMessage("Rs. "+amount+" refunded to Wallet regarding Movie: "+show.getMovie().getMovieName());
 		transaction.setTransactionTime(Timestamp.from(Instant.now()));
 		transaction.setCustomer(customer);
 		transaction.setShow(show);

@@ -3,9 +3,6 @@ package com.cg.movie.controllers;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
-import javax.websocket.server.PathParam;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,29 +93,30 @@ public class CustomerController {
 	}
 	
 	
-	@GetMapping(value="/validateEmail")
-	public ResponseEntity<Boolean> validateEmail(@PathParam("email") String email)
+	@GetMapping(value="/validateEmail/{email}")
+	public ResponseEntity<Boolean> validateEmail(@PathVariable String email)
 	{
 		Boolean bool=customerService.findEmailIfExists(email);
 		return new ResponseEntity<Boolean>(bool,HttpStatus.OK);
 	}
 	
-	@GetMapping(value="/validateContactNumber")
-	public ResponseEntity<Boolean> validateContactNo(@PathParam("contactNumber") Long contactNumber)
+	@GetMapping(value="/validateContactNumber/{contactNumber}")
+	public ResponseEntity<Boolean> validateContactNo(@PathVariable Long contactNumber)
 	{
 		Boolean bool=customerService.findContactNoIfExists(contactNumber);
 		return new ResponseEntity<Boolean>(bool,HttpStatus.OK);
 	}
 	
-	@PostMapping(value="/validateCredential",consumes=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value="/validateCredential")
 	public ResponseEntity<String> validateCredential(@RequestBody LoginCredential credentials)
 	{
 		String role=customerService.validateCredential(credentials);
-		return new ResponseEntity<String>(role,HttpStatus.ACCEPTED);
+		System.out.println(role);
+		return new ResponseEntity<String>(role,HttpStatus.OK);
 	}
 	
-	@GetMapping(value="/getCustomer")
-	public ResponseEntity<Customer> getCustomerByEmail(@PathParam("email") String email)
+	@GetMapping(value="/getCustomer/{email}")
+	public ResponseEntity<Customer> getCustomerByEmail(@PathVariable String email)
 	{
 		Customer customer=customerService.findCustomerByEmail(email);
 		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
