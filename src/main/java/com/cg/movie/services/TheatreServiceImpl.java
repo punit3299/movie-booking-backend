@@ -36,6 +36,7 @@ public class TheatreServiceImpl implements ITheatreService {
 	
 	@Override
 	public Theatre addTheatre(Theatre theatre) {
+		theatre.setStatus(true);
 		return theatreRepo.save(theatre);
 	}
 	
@@ -60,7 +61,7 @@ public class TheatreServiceImpl implements ITheatreService {
 		System.out.println(theatre.getTheatreId());
 		if(theatreRepo.existsById(theatre.getTheatreId()))
 		{
-			theatre.setStatus(true);
+			theatre.setStatus(false);
 			theatreRepo.save(theatre);
 			logger.info("Delete theatre of id "+theatre.getTheatreId());
 		}
