@@ -499,4 +499,446 @@
  2020/08/18 20:57:27.270  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : No Theatre Found
  2020/08/18 20:57:27.276  INFO  -  [main] com.cg.movie.services.TheatreServiceImpl : Delete theatre of id 1
  2020/08/18 20:57:27.291  ERROR -  [main] com.cg.movie.services.TheatreServiceImpl : No Theatre Found
+ 2020/08/19 07:44:36.158  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : Top 2 Theatres returned successfully
+ 2020/08/19 07:44:36.158  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : Top 2 Movies returned successfully
+ 2020/08/19 07:44:36.417  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : Today's revenue is 0.0
+ 2020/08/19 07:44:36.417  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/19 07:44:36.447  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/19 07:44:36.450  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/19 07:44:46.944  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 07:44:47.003  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 07:45:31.036  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 07:45:31.049  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 08:00:56.949  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 08:00:56.950  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 08:03:24.311  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/19 09:11:39.858  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : Today's revenue is 0.0
+ 2020/08/19 09:11:39.866  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/19 09:11:39.867  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/19 09:11:39.870  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/19 09:11:39.870  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : Top 2 Theatres returned successfully
+ 2020/08/19 09:11:39.872  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : Top 2 Movies returned successfully
+ 2020/08/19 09:11:51.063  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:11:51.087  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:11:54.858  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/19 09:11:54.858  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : Today's revenue is 0.0
+ 2020/08/19 09:11:54.860  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/19 09:11:54.863  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/19 09:11:54.864  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : Top 2 Theatres returned successfully
+ 2020/08/19 09:11:54.867  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : Top 2 Movies returned successfully
+ 2020/08/19 09:12:02.441  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:12:02.452  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:12:07.102  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : Today's revenue is 0.0
+ 2020/08/19 09:12:07.105  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/19 09:12:07.110  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/19 09:12:07.113  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/19 09:12:07.114  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : Top 2 Theatres returned successfully
+ 2020/08/19 09:12:07.117  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : Top 2 Movies returned successfully
+ 2020/08/19 09:12:08.309  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:12:08.313  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:31:03.519  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : Today's revenue is 0.0
+ 2020/08/19 09:31:03.522  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/19 09:31:03.522  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/19 09:31:03.528  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : Top 2 Theatres returned successfully
+ 2020/08/19 09:31:03.529  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : Top 2 Movies returned successfully
+ 2020/08/19 09:31:03.530  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/19 09:31:41.838  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:31:41.862  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:31:44.227  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/19 09:31:44.227  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : Today's revenue is 0.0
+ 2020/08/19 09:31:44.231  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/19 09:31:44.231  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : Top 2 Theatres returned successfully
+ 2020/08/19 09:31:44.231  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/19 09:31:44.233  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : Top 2 Movies returned successfully
+ 2020/08/19 09:31:45.561  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:31:45.565  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:32:12.202  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:32:12.230  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:32:19.848  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 09:32:19.849  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 09:32:40.821  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : Today's revenue is 0.0
+ 2020/08/19 09:32:40.822  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/19 09:32:40.822  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/19 09:32:40.828  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : Top 2 Theatres returned successfully
+ 2020/08/19 09:32:40.829  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/19 09:32:40.829  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : Top 2 Movies returned successfully
+ 2020/08/19 09:32:42.238  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:32:42.266  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:32:43.740  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/19 09:32:43.740  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : Today's revenue is 0.0
+ 2020/08/19 09:32:43.742  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/19 09:32:43.745  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/19 09:32:43.745  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : Top 2 Movies returned successfully
+ 2020/08/19 09:32:43.750  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : Top 2 Theatres returned successfully
+ 2020/08/19 09:32:49.215  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:32:49.223  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:32:57.996  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : Today's revenue is 0.0
+ 2020/08/19 09:32:57.997  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/19 09:32:58.000  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/19 09:32:58.001  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/19 09:32:58.005  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : Top 2 Theatres returned successfully
+ 2020/08/19 09:32:58.005  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : Top 2 Movies returned successfully
+ 2020/08/19 09:32:59.492  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:32:59.503  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:35:02.527  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:35:02.550  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:35:29.336  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:35:29.359  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 09:35:33.270  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : Today's revenue is 0.0
+ 2020/08/19 09:35:33.272  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 0 Bookings Today
+ 2020/08/19 09:35:33.275  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 2 Customers returned successfully
+ 2020/08/19 09:35:33.278  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : 2 Theatres returned successfully
+ 2020/08/19 09:35:33.280  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : Top 2 Theatres returned successfully
+ 2020/08/19 09:35:33.281  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : Top 2 Movies returned successfully
+ 2020/08/19 09:35:34.189  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 09:35:34.195  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:45:40.218  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:45:40.219  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:46:08.890  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:46:14.707  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:46:16.634  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:46:17.439  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:46:17.853  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:46:18.262  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:46:18.801  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:46:19.122  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:46:22.900  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:48:15.999  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:48:16.461  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:48:16.509  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:48:21.176  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:48:21.177  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:48:34.871  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:48:34.871  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:48:35.111  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:48:35.167  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:50:23.664  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:50:23.665  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:50:24.520  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:50:24.576  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:52:19.178  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:52:19.179  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:52:19.989  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:52:20.048  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:52:49.323  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:52:49.324  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:52:50.452  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:52:50.534  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:53:13.682  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:53:13.682  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:53:14.264  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:53:14.326  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:54:16.139  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:54:16.139  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:54:17.014  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:54:17.094  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:54:31.010  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:54:31.010  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:54:32.264  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:54:32.319  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:54:39.312  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:54:39.312  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:54:40.762  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:54:40.837  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:54:45.547  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:54:45.547  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:54:46.492  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:54:46.564  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:54:51.292  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:54:51.292  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:54:52.350  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:54:52.417  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:55:07.677  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:55:07.678  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:55:08.364  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:55:08.436  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:55:19.692  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:55:19.692  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:55:21.347  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:55:21.406  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:56:00.837  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:56:00.837  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:56:01.278  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:56:01.365  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:56:18.843  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:56:18.843  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:56:19.763  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:56:19.821  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:56:35.500  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:56:35.501  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:56:36.652  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:56:36.727  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:56:44.970  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:56:44.970  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:56:46.337  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:56:46.405  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:57:09.591  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:57:09.591  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:57:10.158  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:57:10.214  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:58:03.482  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:58:03.482  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:58:04.127  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:58:04.198  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:58:15.821  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:58:15.821  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:58:16.608  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:58:16.670  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:58:19.734  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:58:19.734  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:58:21.021  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:58:21.100  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:58:29.221  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:58:29.223  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:58:30.292  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:58:30.358  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:58:47.677  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:58:47.677  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:58:48.209  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:58:48.273  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:59:05.732  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:59:05.733  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:59:06.302  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:59:06.365  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:59:14.229  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:59:14.229  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:59:15.312  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:59:15.364  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:59:19.663  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:59:19.663  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:59:20.709  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:59:20.760  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:59:48.408  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:59:48.408  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 10:59:49.212  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 10:59:49.263  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 10:59:59.496  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 10:59:59.496  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:00:00.388  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:00:00.442  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:00:06.099  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:00:06.099  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:00:07.192  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:00:07.259  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:00:40.931  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:00:40.931  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:00:41.485  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:00:41.560  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:04:53.161  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:04:53.161  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:04:53.642  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:04:53.690  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:05:04.464  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:05:04.464  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:05:04.931  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:05:04.972  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:05:45.975  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:05:45.976  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:05:46.262  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:05:46.311  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:06:54.383  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:06:54.385  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:06:54.623  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:06:54.660  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:07:55.601  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:07:55.601  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:07:55.856  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:07:55.894  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:08:01.325  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:08:01.325  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:08:01.700  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:08:01.753  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:08:05.542  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:08:05.542  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:08:06.357  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:08:06.387  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:08:12.535  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:08:12.536  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:08:13.881  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:08:13.928  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:09:56.141  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:09:56.141  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:09:56.639  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:09:56.688  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:10:01.448  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:10:01.448  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:10:01.926  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:10:01.973  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:10:18.919  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:10:18.919  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:10:19.022  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:10:19.074  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:10:23.518  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:10:23.518  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:10:24.151  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:10:24.199  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:10:28.922  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:10:28.922  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:10:29.421  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:10:29.461  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:10:56.936  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:10:56.936  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:10:57.097  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:10:57.136  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:11:05.238  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:11:05.239  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:11:05.728  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:11:05.776  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:11:20.378  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:11:20.378  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:11:20.842  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:11:20.882  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:11:24.467  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:11:24.467  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:11:25.544  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:11:25.581  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:11:29.198  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:11:29.198  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:11:29.692  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:11:29.729  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:11:36.491  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:11:36.494  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:11:37.112  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:11:37.162  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:11:59.528  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:11:59.528  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:12:48.571  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:12:48.571  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:12:48.984  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:12:49.029  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:13:53.365  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:13:53.367  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:13:53.836  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:13:53.874  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:14:35.197  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:14:35.198  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:14:35.686  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:14:35.736  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:14:59.721  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:14:59.721  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:15:00.091  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:15:00.137  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:16:41.875  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:16:41.876  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:16:42.130  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:16:42.180  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:17:03.066  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:17:03.067  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:17:03.700  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:17:03.742  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:17:13.469  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:17:13.469  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:17:13.879  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:17:13.946  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:18:30.942  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:18:30.942  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:18:31.156  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:18:31.208  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:20:17.203  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:20:17.203  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:20:17.750  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:20:17.820  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:20:36.142  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:20:36.142  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:20:36.699  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:20:36.746  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:21:27.134  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:21:27.135  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:21:27.927  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:21:27.965  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:21:53.975  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:21:53.975  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:21:54.791  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:21:54.830  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:22:37.592  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:22:37.592  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:22:38.039  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:22:38.079  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:23:33.714  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:23:33.715  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:23:34.022  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:23:34.068  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:24:13.673  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:24:13.673  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:24:14.140  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:24:14.202  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:25:25.104  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:25:25.105  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:25:25.355  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:25:25.398  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:26:09.082  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:26:09.082  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:26:09.632  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:26:09.673  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:26:39.523  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:26:39.523  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:26:39.856  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:26:39.906  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:27:54.381  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:27:54.382  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:27:55.029  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:27:55.069  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:28:20.643  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:28:20.644  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:28:20.950  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:28:21.010  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:28:40.225  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:28:44.769  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:28:44.769  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:29:13.047  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:29:26.981  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:29:26.982  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:32:26.082  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:32:26.082  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:32:26.365  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:32:26.402  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:32:53.063  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:32:53.063  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:32:53.194  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:32:53.249  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:33:06.824  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:33:06.824  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:33:07.474  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:33:07.518  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:33:15.556  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:33:15.556  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:33:16.022  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:33:16.076  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:33:39.526  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:33:39.526  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:33:39.825  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:33:39.888  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:34:25.044  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:34:25.044  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:34:26.084  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.AdminServiceImpl : List returned successfully
+ 2020/08/19 11:34:26.122  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.AdminServiceImpl : 1 Males, 0 Females, 0 Others returned successfully
+ 2020/08/19 11:35:53.240  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:35:53.241  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:36:15.994  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:36:15.995  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:36:36.396  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:36:36.396  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:39:14.026  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/19 11:41:11.976  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/19 11:42:01.854  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1160
+ 2020/08/19 11:45:41.109  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:45:41.110  INFO  -  [http-nio-8083-exec-1] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:46:16.838  INFO  -  [http-nio-8083-exec-6] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/19 11:46:54.404  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/19 11:49:52.508  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:49:52.508  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:50:17.652  INFO  -  [http-nio-8083-exec-7] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/19 11:56:51.083  INFO  -  [http-nio-8083-exec-2] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 11:56:51.121  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 11:57:14.071  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CustomerServiceImpl :  Customer found with customerId:1161
+ 2020/08/19 13:29:23.475  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 13:29:23.476  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 13:35:20.143  INFO  -  [http-nio-8083-exec-4] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 13:35:20.144  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 13:47:31.152  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 13:47:31.152  INFO  -  [http-nio-8083-exec-9] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 14:13:40.855  INFO  -  [http-nio-8083-exec-5] com.cg.movie.services.CityServiceImpl : City found successfully
+ 2020/08/19 14:13:40.857  INFO  -  [http-nio-8083-exec-3] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 14:53:11.961  INFO  -  [http-nio-8083-exec-8] com.cg.movie.services.TheatreServiceImpl : Theatres found successfully
+ 2020/08/19 14:53:11.961  INFO  -  [http-nio-8083-exec-10] com.cg.movie.services.CityServiceImpl : City found successfully
  
