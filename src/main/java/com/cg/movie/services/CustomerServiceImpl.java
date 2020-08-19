@@ -107,18 +107,18 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public Customer addMoneyToWallet(Customer customer, int amount) {
 		
-		findCustomerById(customer.getCustomerId());
+		Customer newCustomer=findCustomerById(customer.getCustomerId());
 		
-		customer.setCustomerBalance(customer.getCustomerBalance()+amount);
+		newCustomer.setCustomerBalance(newCustomer.getCustomerBalance()+amount);
 		
 		Transaction transaction=new Transaction();
 		
-		transaction.setCustomer(customer);
-		transaction.setTransactionMessage("Rs. "+ amount + "Added to Wallet");
+		transaction.setCustomer(newCustomer);
+		transaction.setTransactionMessage("Rs. "+ amount + " Added to Wallet");
 		transaction.setTransactionTime(Timestamp.from(Instant.now()));
 		transactionRepo.save(transaction);
 		
-		return customerRepo.save(customer);
+		return customerRepo.save(newCustomer);
 	}
 	
 	/********************************************************************************
