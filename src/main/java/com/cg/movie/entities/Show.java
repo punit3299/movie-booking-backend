@@ -22,8 +22,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Show {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "genName1")
-	@SequenceGenerator(name = "genName1", sequenceName = "show", initialValue =2110300001, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@SequenceGenerator(name = "genName1", sequenceName = "show", initialValue =2110300001, allocationSize = 1)
 	private Long showId;
 	private Timestamp showStartTime;
 	private Timestamp showEndTime;
